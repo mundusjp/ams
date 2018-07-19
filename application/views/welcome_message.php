@@ -95,6 +95,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                     </form>
                 </div>
+                  <div class="justify-content-md-center"
+                    <span><p class="text-muted m-t-30 m-b-30 text-center">2018 © PT IPC Terminal Petikemas.</p>
+                    </div>
             </div>
         </div>
     </section>
