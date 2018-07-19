@@ -1,8 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
-<html lang="en">
 <head>
+
 <!-- <meta charset="utf-8">
 <title>404 Page Not Found</title>
 <style type="text/css">
@@ -67,7 +67,6 @@ $CI->load->helper('url');
 ?>
 <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/vertical/images/favicon.ico')?>">
 <title>Page not Found!</title>
-
 <!-- Custom CSS -->
 <link href="<?php echo base_url('assets/vertical/css/style.min.css')?>" rel="stylesheet">
 <!-- page css -->
@@ -101,10 +100,6 @@ $CI->load->helper('url');
 	    <!-- ============================================================== -->
 	    <!-- All Jquery -->
 	    <!-- ============================================================== -->
-			<?php
-			$CI =& get_instance();
-			$CI->load->helper('url');
-			?>
 	    <script src="<?php echo base_url('assets/vertical/node_modules/jquery/jquery-3.2.1.min.js')?>"></script>
 	    <!-- Bootstrap tether Core JavaScript -->
 	    <script src="<?php echo base_url('assets/vertical/node_modules/popper/popper.min.js')?>"></script>
