@@ -38,9 +38,31 @@ class Migration_Add_user extends CI_Migration {
                                 'type' => 'INT',
                                 'constraint' => '1',
                         ),
-
+                        'id_divisi' => array(
+                                'type' => 'INT',
+                                'constraint' => 5,
+                                'unsigned' => TRUE,
+                        ),
+                        'no_hp' => array(
+                                'type' => 'INT',
+                                'constraint' => 13,
+                                'unsigned' => TRUE,
+                        ),
+                        'alamat' => array(
+                                'type' => 'VARCHAR',
+                                'constraint' => 191,
+                        ),
+                        'email' => array(
+                                'type' => 'VARCHAR',
+                                'constraint' => 191,
+                        ),
+                        'photo' => array(
+                                'type' => 'VARCHAR',
+                                'constraint' => 191,
+                        ),
                 ));
                 $this->dbforge->add_key('id_user', TRUE);
+                $this->dbforge->add_field('CONSTRAINT FOREIGN KEY (id_divisi) REFERENCES divisi(id_divisi)');
                 $this->dbforge->create_table('user');
         }
 
