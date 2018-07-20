@@ -13,25 +13,27 @@
                   </ul>
               </li>
               <li class="nav-small-cap"></li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Inventory <span class="badge badge-pill badge-cyan ml-auto">4</span></span></a>
+                <li> <a class="waves-effect waves-dark" href="<?php echo base_url('home')?>" aria-expanded="false"><i class="icon-home"></i><span class="hide-menu">Home</span></a></li>
+                <li> <a class="waves-effect waves-dark" href="<?php echo base_url('PantauDivisi')?>" aria-expanded="false"><i class="icon-chart"></i><span class="hide-menu">Division Usage</span></a></li>
+                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-social-dropbox"></i><span class="hide-menu">Inventory</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="index.html">Minimal </a></li>
-                        <li><a href="index2.html">Analytical</a></li>
-                        <li><a href="index3.html">Demographical</a></li>
-                        <li><a href="index4.html">Modern</a></li>
+                        <li><a href="index.html">Barang Habis Pakai</a></li>
+                        <li><a href="index2.html">Barang Tidak Habis Pakai</a></li>
                     </ul>
                 </li>
-              <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-media-right-alt"></i><span class="hide-menu">Activities</span></a>
+              <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-note"></i><span class="hide-menu">Input</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="app-calendar.html">Calendar</a></li>
-                        <li><a href="app-chat.html">Chat app</a></li>
-                        <li><a href="app-ticket.html">Support Ticket</a></li>
-                        <li><a href="app-contact.html">Contact / Employee</a></li>
-                        <li><a href="app-contact2.html">Contact Grid</a></li>
-                        <li><a href="app-contact-detail.html">Contact Detail</a></li>
+                        <li><a href="app-calendar.html">Pembelian</a></li>
+                        <li><a href="app-calendar.html">Penyewaan</a></li>
+                        <li><a href="app-calendar.html">Pemasukan Barang</a></li>
                     </ul>
                 </li>
-
+              <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-settings"></i><span class="hide-menu">Manage</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                      <li><a>Tambah Divisi</a></li>
+                      <li><a>Tambah Cabang</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
