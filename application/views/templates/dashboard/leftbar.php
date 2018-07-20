@@ -7,7 +7,13 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Dashboard <span class="badge badge-pill badge-cyan ml-auto">4</span></span></a>
+              <li class="user-pro"> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><img src="<?php echo base_url('assets/vertical/images/users/manager.png')?>" alt="user-img" class="img-circle"><span class="hide-menu">Administrator</span></a>
+                  <ul aria-expanded="false" class="collapse">
+                      <li><a href="javascript:void(0)"><i class="fa fa-power-off"></i> Logout</a></li>
+                  </ul>
+              </li>
+              <li class="nav-small-cap"></li>
+                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Inventory <span class="badge badge-pill badge-cyan ml-auto">4</span></span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="index.html">Minimal </a></li>
                         <li><a href="index2.html">Analytical</a></li>
@@ -15,10 +21,17 @@
                         <li><a href="index4.html">Modern</a></li>
                     </ul>
                 </li>
-                <li class="nav-small-cap">--- SUPPORT</li>
-                <li> <a class="waves-effect waves-dark" href="../documentation/documentation.html" aria-expanded="false"><i class="fa fa-circle-o text-danger"></i><span class="hide-menu">Documentation</span></a></li>
-                <li> <a class="waves-effect waves-dark" href="pages-login.html" aria-expanded="false"><i class="fa fa-circle-o text-success"></i><span class="hide-menu">Log Out</span></a></li>
-                <li> <a class="waves-effect waves-dark" href="pages-faq.html" aria-expanded="false"><i class="fa fa-circle-o text-info"></i><span class="hide-menu">FAQs</span></a></li>
+              <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-media-right-alt"></i><span class="hide-menu">Activities</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="app-calendar.html">Calendar</a></li>
+                        <li><a href="app-chat.html">Chat app</a></li>
+                        <li><a href="app-ticket.html">Support Ticket</a></li>
+                        <li><a href="app-contact.html">Contact / Employee</a></li>
+                        <li><a href="app-contact2.html">Contact Grid</a></li>
+                        <li><a href="app-contact-detail.html">Contact Detail</a></li>
+                    </ul>
+                </li>
+
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

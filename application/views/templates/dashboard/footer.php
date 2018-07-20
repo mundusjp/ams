@@ -22,30 +22,34 @@
 <!-- ============================================================== -->
 <!-- All Jquery -->
 <!-- ============================================================== -->
-<script src="assets/vertical/node_modules/jquery/jquery-3.2.1.min.js"></script>
+<script src="<?php echo base_url('assets/vertical/node_modules/jquery/jquery-3.2.1.min.js')?>"></script>
 <!-- Bootstrap popper Core JavaScript -->
-<script src="assets/vertical/node_modules/popper/popper.min.js"></script>
-<script src="assets/vertical/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url('assets/vertical/node_modules/popper/popper.min.js')?>"></script>
+<script src="<?php echo base_url('assets/vertical/node_modules/bootstrap/dist/js/bootstrap.min.js')?>"></script>
 <!-- slimscrollbar scrollbar JavaScript -->
-<script src="assets/vertical/js/perfect-scrollbar.jquery.min.js"></script>
+<script src="<?php echo base_url('assets/vertical/js/perfect-scrollbar.jquery.min.js')?>"></script>
 <!--Wave Effects -->
-<script src="assets/vertical/js/waves.js"></script>
+<script src="<?php echo base_url('assets/vertical/js/waves.js')?>"></script>
 <!--Menu sidebar -->
-<script src="assets/vertical/js/sidebarmenu.js"></script>
+<script src="<?php echo base_url('assets/vertical/js/sidebarmenu.js')?>"></script>
 <!--Custom JavaScript -->
-<script src="assets/vertical/js/custom.min.js"></script>
+<script src="<?php echo base_url('assets/vertical/js/custom.min.js')?>"></script>
 <!-- ============================================================== -->
 <!-- This page plugins -->
 <!-- ============================================================== -->
-<!--morris JavaScript -->
-<script src="assets/vertical/node_modules/raphael/raphael-min.js"></script>
-<script src="assets/vertical/node_modules/morrisjs/morris.min.js"></script>
-<script src="assets/vertical/node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
-<!-- Popup message jquery -->
-<script src="assets/vertical/node_modules/toast-master/js/jquery.toast.js"></script>
+<!-- Flot Charts JavaScript -->
+<script src="<?php echo base_url('assets/vertical/node_modules/flot/jquery.flot.js')?>"></script>
+<script src="<?php echo base_url('assets/vertical/node_modules/flot.tooltip/js/jquery.flot.tooltip.min.js')?>"></script>
+<!--sparkline JavaScript -->
+<script src="<?php echo base_url('assets/vertical/node_modules/sparkline/jquery.sparkline.min.js')?>"></script>
+<!-- EASY PIE CHART JS -->
+<script src="<?php echo base_url('assets/vertical/node_modules/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js')?>"></script>
+<script src="<?php echo base_url('assets/vertical/node_modules/jquery.easy-pie-chart/easy-pie-chart.init.js')?>"></script>
+<!-- Vector map JavaScript -->
+<script src="<?php echo base_url('assets/vertical/node_modules/vectormap/jquery-jvectormap-2.0.2.min.js')?>"></script>
+<script src="<?php echo base_url('assets/vertical/node_modules/vectormap/jquery-jvectormap-world-mill-en.js')?>"></script>
 <!-- Chart JS -->
-<script src="assets/vertical/js/dashboard1.js"></script>
-<script src="assets/vertical/node_modules/toast-master/js/jquery.toast.js"></script>
+<script src="<?php echo base_url('assets/vertical/js/dashboard2.js')?>"></script>
 </body>
 
 </html>

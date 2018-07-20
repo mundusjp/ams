@@ -10,16 +10,26 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/vertical/images/favicon.ico')?>">
-    <title>Elite Admin Template - The Ultimate Multipurpose admin template</title>
+    <title>Dashboard | Asset Management System</title>
     <!-- This page CSS -->
     <!-- chartist CSS -->
     <link href="<?php echo base_url('assets/vertical/node_modules/morrisjs/morris.css')?>" rel="stylesheet">
-    <!--Toaster Popup message CSS -->
-    <link href="<?php echo base_url('assets/vertical/node_modules/toast-master/css/jquery.toast.css')?>" rel="stylesheet">
+    <!-- Vector CSS -->
+    <link href="../assets/node_modules/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="<?php echo base_url('assets/vertical/css/style.min.css')?>" rel="stylesheet">
+    <!--c3 CSS -->
+    <link href="dist/css/pages/easy-pie-chart.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
     <link href="<?php echo base_url('assets/vertical/css/pages/dashboard1.css')?>" rel="stylesheet">
+    <!-- Dashboard 2 Page CSS -->
+    <link href="<?php echo base_url('assets/vertical/css/pages/dashboard2.css')?>" rel="stylesheet">
+    <!-- Dashboard 3 Page CSS -->
+    <link href="<?php echo base_url('assets/vertical/css/pages/dashboard3.css')?>" rel="stylesheet">
+    <!-- Dashboard 4 Page CSS -->
+    <link href="<?php echo base_url('assets/vertical/css/pages/dashboard4.css')?>" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
