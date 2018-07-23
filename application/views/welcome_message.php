@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </div>
                     </div>
                     <br>
-                    <form class="form-horizontal form-material" id="loginform" action="<?php echo base_url('home')?>">
+                    <form class="form-horizontal form-material" id="loginform" action="welcome/login" method="post">
 
                         <h3 class="box-title m-b-20">Sign In</h3>
                         <div class="form-group ">

@@ -30,6 +30,7 @@
                 </li>
               <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-settings"></i><span class="hide-menu">Manage</span></a>
                     <ul aria-expanded="false" class="collapse">
+                      <li><a>Overview</a></li>
                       <li><a>Tambah Divisi</a></li>
                       <li><a>Tambah Cabang</a></li>
                     </ul>
