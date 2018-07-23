@@ -22,24 +22,4 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
-
-	public function login(){
-		if(isset($_POST['login'])){
-			$user = $this->input->post('user', true); 
-			$pass = $this->input->post('pass', true);
-			$cek = $this->user_model->proseslogin($user, $pass);
-			$hasil = count($cek);
-			if($hasil > 0){
-				$pelogin = $this->db->get_where('user', array('username' => $user, 'password' => $pass))->row();
-				redirect('home');
-			}else {
-				redirect('');
-			}
-		}
-	}
-
-	public function logout(){
-		$this->session->sess_destroy();
-		redirect('');
-	}
 }

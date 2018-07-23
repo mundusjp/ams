@@ -20,6 +20,14 @@ class User_model extends CI_Model {
 	 */
 	public function proseslogin($user, $pass)
 	{
+				$pelogin = $this->db->get_where('user', array('username' => $user, 'password' => $pass));
+
+				if($pelogin->num_rows()>0){
+					return 1;
+				}
+				else{
+					return 0;
+				}
         $this->db->where('username', $user);
         $this->db->where('password', $pass);
         return $this->db->get('user')->row();
