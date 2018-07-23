@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class User_model extends CI_Model {
 
 	/**
 	 * Index Page for this controller.
@@ -18,22 +18,10 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+	public function proseslogin($user, $pass)
 	{
-		$this->load->view('welcome_message');
-	}
-
-	public function login(){
-		if(isset($_POST['login'])){
-			$user = $this->input->post('user', true);
-			$pass = $this->input->post('pass', true);
-			$cek = $this->user_model->proseslogin($user, $pass);
-			$hasil = count($cek);
-			if($hasil > 0){
-				redirect('home');
-			}else {
-				redirect('');
-			}
-		}
+        $this->db->where('username', $user);
+        $this->db->where('password', $pass);
+        return $this->db->get('user')->row();
 	}
 }

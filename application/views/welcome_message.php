@@ -56,11 +56,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <h3 class="box-title m-b-20">Sign In</h3>
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input class="form-control" type="text" required="" placeholder="Username"> </div>
+                                <input class="form-control" type="text" name = "user" required="" placeholder="Username"> </div>
                         </div>
                         <div class="form-group">
                             <div class="col-xs-12">
-                                <input class="form-control" type="password" required="" placeholder="Password"> </div>
+                                <input class="form-control" type="password" name = "pass" required="" placeholder="Password"> </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-md-12">
@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="form-group text-center">
                             <div class="col-xs-12 p-b-20">
-                                <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Log In</button>
+                                <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit" name="login" value="LOGIN">Log In</button>
                             </div>
                         </div>
                     </form>
