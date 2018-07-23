@@ -10,6 +10,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta name="description" content="">
   <meta name="author" content="">
   <!-- Favicon icon -->
+  <?php
+  $CI =& get_instance();
+  $CI->load->helper('url');
+  ?>
   <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/vertical/images/favicon.ico')?>">
   <title>Assets Management System - PT IPC TPK</title>
 
@@ -41,33 +45,67 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- ============================================================== -->
     <section id="wrapper">
         <div class="login-register" style="background-image:url(assets/vertical/images/background/bg-ipc.jpg);">
-          <div class="login-box card">
-              <div class="card-body">
-                  <form class="form-horizontal form-material" id="loginform" action="index.html">
-                      <div class="form-group">
-                          <div class="col-xs-12 text-center">
-                              <div class="user-thumb text-center"> <img alt="thumbnail" class="img-circle" width="100" src="<?php echo base_url('assets/vertical/images/users/manager.png')?>">
-                                  <h3>Genelia</h3>
-                              </div>
-                          </div>
+            <div class="login-box card">
+                <div class="card-body">
+                  <div class="container">
+                    <div class="row justify-content-md-center">
+                      <div class="col-12 col-md-auto">
+                          <img src="<?php echo base_url('assets/vertical/images/logo_ipc.png')?>" class="dark-logo" href="<?php echo base_url('')?>" />
+                        </div>
                       </div>
-                      <div class="form-group ">
-                          <div class="col-xs-12">
-                              <input class="form-control" type="password" required="" placeholder="password">
-                          </div>
-                      </div>
-                      <div class="form-group text-center">
-                          <div class="col-xs-12">
-                              <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Login</button>
-                          </div>
-                      </div>
-                  </form>
+                    </div>
+                    <br>
+                    <form class="form-horizontal form-material" id="loginform" action="login" method="post">
+
+                        <h3 class="row justify-content-md-center">See you!</h3>
+                        <div class="form-group ">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" name = "user" required="" placeholder="Username"> </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="password" name = "pass" required="" placeholder="Password"> </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">Remember me</label>
+                                    <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> Forgot pwd?</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <div class="col-xs-12 p-b-20">
+                                <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit" name="login" value="LOGIN">Log In</button>
+                            </div>
+                        </div>
+                    </form>
+                    <br>
+                    <form class="form-horizontal" id="recoverform" action="<?php echo base_url('')?>">
+                        <div class="form-group ">
+                            <div class="col-xs-12">
+                                <h3>Recover Password</h3>
+                                <p class="text-muted">Enter your Email and instructions will be sent to you! </p>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" required="" placeholder="Email"> </div>
+                        </div>
+                        <div class="form-group text-center m-t-20">
+                            <div class="col-xs-12">
+                                <button class="btn btn-primary btn-lg btn-block waves-effect waves-light" type="submit">Reset</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
                   <div class="justify-content-md-center"
                     <span><p class="text-muted m-t-30 m-b-30 text-center">2018 © PT IPC Terminal Petikemas.</p>
-              </div>
-          </div>
-      </div>
-  </section>
+                    </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ============================================================== -->
     <!-- End Wrapper -->
