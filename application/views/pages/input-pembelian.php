@@ -11,7 +11,7 @@
         <!-- ============================================================== -->
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-                <h4 class="text-themecolor">Home</h4>
+                <h4 class="text-themecolor">Input Pembelian</h4>
             </div>
         </div>
         <!-- ============================================================== -->
@@ -24,7 +24,8 @@
                 <!-- ============================================================== -->
                 <!-- tinggal masukin kodingan html disini                           -->
                 <!-- ============================================================== -->
-
+                <h4 class="card-title">Formulir Input Pembelian </h4>
+                <h6 class="card-subtitle"> Silahkan isi formulir di bawah untuk memasukkan ke database </h6>
 
               </div>
             </div>

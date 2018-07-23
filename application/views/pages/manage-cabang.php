@@ -11,7 +11,7 @@
         <!-- ============================================================== -->
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-                <h4 class="text-themecolor">Home</h4>
+                <h4 class="text-themecolor">Manage Cabang</h4>
             </div>
         </div>
         <!-- ============================================================== -->
@@ -24,7 +24,7 @@
                 <!-- ============================================================== -->
                 <!-- tinggal masukin kodingan html disini                           -->
                 <!-- ============================================================== -->
-
+                <h4 class="card-title">List Cabang </h4>
 
               </div>
             </div>

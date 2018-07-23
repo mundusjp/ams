@@ -58,7 +58,7 @@
                         <!-- text-->
                         <div class="dropdown-divider"></div>
                         <!-- text-->
-                        <a href="login.html" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
+                        <a href="<?php echo base_url('logout/logout')?>" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
                         <!-- text-->
                     </div>
                 </li>
