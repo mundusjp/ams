@@ -28,13 +28,116 @@
                             <div class="card-body">
                                 <h4 class="card-title">Data divisi</h4>
                                 <h6 class="card-subtitle">Data table example</h6>
+                                <div class="modal fade" id="ModalTambahDivisi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header text-center">
+                                        <h3 class="modal-title w-100 font-weight-bold">Tambah Divisi</h3>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body mx-3">
+                                        <form class="floating-labels m-t-40">
+                                          <div class="form-group m-b-40">
+                                              <input type="text" class="form-control" id="id_kantor">
+                                              <span class="bar"></span>
+                                              <label for="id_kantor"><h6 class="font-weight-bold">ID Divisi</h6></label>
+                                          </div>
+                                          <div class="form-group m-b-40">
+                                              <input type="text" class="form-control" id="namakantor">
+                                              <span class="bar"></span>
+                                              <label for="namakantor"><h6 class="font-weight-bold">Nama Divisi </h6></label>
+                                          </div>
+                                          <div class="form-group m-b-40">
+                                              <textarea rows="4" type="text" class="form-control" id="alamatkantor"></textarea>
+                                              <span class="bar"></span>
+                                              <label for="alamatkantor"><h6 class="font-weight-bold">Nama Kantor</h6></label>
+                                          </div>
+                                          <div class="form-group m-b-40">
+                                              <textarea rows="4" type="text" class="form-control" id="alamatkantor"></textarea>
+                                              <span class="bar"></span>
+                                              <label for="alamatkantor"><h6 class="font-weight-bold">Gedung Kantor</h6></label>
+                                          </div>
+                                          <div class="form-group">
+                                              <label><h6 class="font-weight-bold">Lantai Kantor</h6></label>
+                                              <select class="form-control">
+                                                  <option>1</option>
+                                                  <option>2</option>
+                                                  <option>3</option>
+                                                  <option>4</option>
+                                                  <option>5</option>
+                                                  <option>6</option>
+                                              </select>
+                                            </div>
+                                        </div>
+                                      <div class="modal-footer d-flex justify-content-center">
+                                        <button class="btn btn-info waves-effect waves-light">Tambah</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="modal fade" id="ModalEditDivisi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header text-center">
+                                        <h3 class="modal-title w-100 font-weight-bold">Edit Divisi</h3>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body mx-3">
+                                        <form class="floating-labels m-t-40">
+                                          <div class="form-group m-b-40">
+                                              <input type="text" class="form-control" id="id_divisi">
+                                              <span class="bar"></span>
+                                              <label for="id_divisi"><h6 class="font-weight-bold">ID Divisi</h6></label>
+                                          </div>
+                                          <div class="form-group m-b-40">
+                                              <input type="text" class="form-control" id="namadivisi">
+                                              <span class="bar"></span>
+                                              <label for="namadivisi"><h6 class="font-weight-bold">Nama Divisi </h6></label>
+                                          </div>
+                                          <div class="form-group m-b-40">
+                                              <textarea rows="4" type="text" class="form-control" id="namakantor"></textarea>
+                                              <span class="bar"></span>
+                                              <label for="namakantor"><h6 class="font-weight-bold">Nama Kantor</h6></label>
+                                          </div>
+                                          <div class="form-group m-b-40">
+                                              <textarea rows="4" type="text" class="form-control" id="gedungkantor"></textarea>
+                                              <span class="bar"></span>
+                                              <label for="gedungkantor"><h6 class="font-weight-bold">Gedung Kantor</h6></label>
+                                          </div>
+                                          <div class="form-group">
+                                              <label><h6 class="font-weight-bold">Lantai Kantor</h6></label>
+                                              <select class="form-control" id="lantaikantor">
+                                                  <option>1</option>
+                                                  <option>2</option>
+                                                  <option>3</option>
+                                                  <option>4</option>
+                                                  <option>5</option>
+                                                  <option>6</option>
+                                              </select>
+                                            </div>
+                                        </div>
+                                      <div class="modal-footer d-flex justify-content-center">
+                                        <button class="btn btn-info waves-effect waves-light">Tambah</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-3">
+                                    <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#ModalTambahDivisi" > add </button>
+                                  </div>
+                                </div>
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
 								<tr>
 									<th>Id Divisi</th>
-									<th>Id Kantor</th>
-									<th>Nama</th>
+                  <th>Nama Divisi</th>
+									<th>Nama Kantor</th>
 									<th>Gedung</th>
 									<th>Lantai</th>
 									<th>Tindakan</th>
@@ -52,8 +155,8 @@
 									<td><?php echo $d['gedung']; ?></td>
 									<td><?php echo $d['lantai']; ?></td>
 									<td>
-										<a class="btn btn-info" href="<?php echo site_url('divisi/edit/'.$d['id_divisi']); ?>">Edit</a> |
-										<a class="btn btn-danger" href="<?php echo site_url('divisi/remove/'.$d['id_divisi']); ?>">Hapus</a>
+										<a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" data-target="#ModalEditDivisi" href="<?php echo site_url('divisi/edit/'.$d['id_divisi']); ?>">Edit</a>
+										<a class="btn btn-outline-danger" href="<?php echo site_url('divisi/remove/'.$d['id_divisi']); ?>">Hapus</a>
 									</td>
 								</tr>
 								<?php } ?>
