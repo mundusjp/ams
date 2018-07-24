@@ -12,6 +12,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/vertical/images/favicon.ico')?>">
     <title>Dashboard | Asset Management System</title>
     <!-- This page CSS -->
+    <!-- form css -->
+    <link href="<?php echo base_url('assets/vertical/css/pages/floating-label.css')?>" rel="stylesheet">
     <!-- chartist CSS -->
     <link href="<?php echo base_url('assets/vertical/node_modules/morrisjs/morris.css')?>" rel="stylesheet">
     <!-- Vector CSS -->

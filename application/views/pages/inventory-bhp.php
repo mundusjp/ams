@@ -14,6 +14,16 @@
                 <h4 class="text-themecolor">Home</h4>
             </div>
         </div>
+        function TableActions (value, row, index) {
+            return [
+                '<a class="like" href="javascript:void(0)" title="Edit">',
+                '<i class="glyphicon glyphicon-pencil"></i>',
+                '</a> ',
+                '<a class="danger remove" href="javascript:void(0)" data-visitorserial="'+row.visitor_id+'" data-visitornames="'+row.visitor_names+'" data-visitorid="'+row.visitor_number+'" data-toggle="modal" data-target="#VisitorDelete" title="Remove">',
+                '<i class="glyphicon glyphicon-trash"></i>',
+                '</a>'
+            ].join('');
+        }
         <!-- ============================================================== -->
         <!-- Ini working space teman teman                                  -->
         <!-- ============================================================== -->
@@ -36,6 +46,7 @@
                                 <th>Age</th>
                                 <th>Start date</th>
                                 <th>Salary</th>
+                                <td data-formatter="TableActions">Action</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,6 +57,7 @@
                                 <td>61</td>
                                 <td>2011/04/25</td>
                                 <td>$320,800</td>
+                                <td data-formatter="TableActions">Action</td>
                             </tr>
                             <tr>
                                 <td>Garrett Winters</td>
@@ -54,6 +66,7 @@
                                 <td>63</td>
                                 <td>2011/07/25</td>
                                 <td>$170,750</td>
+                                <td data-formatter="TableActions">Action</td>
                             </tr>
                             <tr>
                                 <td>Ashton Cox</td>
@@ -62,6 +75,7 @@
                                 <td>66</td>
                                 <td>2009/01/12</td>
                                 <td>$86,000</td>
+                                <td data-formatter="TableActions">Action</td>
                             </tr>
                             <tr>
                                 <td>Cedric Kelly</td>
@@ -70,6 +84,7 @@
                                 <td>22</td>
                                 <td>2012/03/29</td>
                                 <td>$433,060</td>
+                                <td data-formatter="TableActions">Action</td>
                             </tr>
                             <tr>
                                 <td>Airi Satou</td>
@@ -78,6 +93,7 @@
                                 <td>33</td>
                                 <td>2008/11/28</td>
                                 <td>$162,700</td>
+                                <td data-formatter="TableActions">Action</td>
                             </tr>
                             <tr>
                                 <td>Brielle Williamson</td>
@@ -406,6 +422,7 @@
                                 <td>47</td>
                                 <td>2009/07/07</td>
                                 <td>$87,500</td>
+                                <td data-formatter="TableActions">Action</td>
                             </tr>
                             <tr>
                                 <td>Serge Baldwin</td>
@@ -414,6 +431,7 @@
                                 <td>64</td>
                                 <td>2012/04/09</td>
                                 <td>$138,575</td>
+                                <td data-formatter="TableActions">Action</td>
                             </tr>
                             <tr>
                                 <td>Zenaida Frank</td>
@@ -422,6 +440,7 @@
                                 <td>63</td>
                                 <td>2010/01/04</td>
                                 <td>$125,250</td>
+                                <td data-formatter="TableActions">Action</td>
                             </tr>
                             <tr>
                                 <td>Zorita Serrano</td>
@@ -430,6 +449,7 @@
                                 <td>56</td>
                                 <td>2012/06/01</td>
                                 <td>$115,000</td>
+                                <td data-formatter="TableActions">Action</td>
                             </tr>
                             <tr>
                                 <td>Jennifer Acosta</td>
@@ -438,6 +458,7 @@
                                 <td>43</td>
                                 <td>2013/02/01</td>
                                 <td>$75,650</td>
+                                <td data-formatter="TableActions">Action</td>
                             </tr>
                             <tr>
                                 <td>Cara Stevens</td>
@@ -446,6 +467,7 @@
                                 <td>46</td>
                                 <td>2011/12/06</td>
                                 <td>$145,600</td>
+                                <td data-formatter="TableActions">Action</td>
                             </tr>
                             <tr>
                                 <td>Hermione Butler</td>
@@ -454,6 +476,7 @@
                                 <td>47</td>
                                 <td>2011/03/21</td>
                                 <td>$356,250</td>
+                                <td data-formatter="TableActions">Action</td>
                             </tr>
                             <tr>
                                 <td>Lael Greer</td>
@@ -462,6 +485,7 @@
                                 <td>21</td>
                                 <td>2009/02/27</td>
                                 <td>$103,500</td>
+                                <td data-formatter="TableActions">Action</td>
                             </tr>
                             <tr>
                                 <td>Jonas Alexander</td>
@@ -470,6 +494,7 @@
                                 <td>30</td>
                                 <td>2010/07/14</td>
                                 <td>$86,500</td>
+                                <td data-formatter="TableActions">Action</td>
                             </tr>
                             <tr>
                                 <td>Shad Decker</td>
@@ -478,6 +503,7 @@
                                 <td>51</td>
                                 <td>2008/11/13</td>
                                 <td>$183,000</td>
+                                <td data-formatter="TableActions">Action</td>
                             </tr>
                             <tr>
                                 <td>Michael Bruce</td>
@@ -486,6 +512,7 @@
                                 <td>29</td>
                                 <td>2011/06/27</td>
                                 <td>$183,000</td>
+                                <td data-formatter="TableActions">Action</td>
                             </tr>
                             <tr>
                                 <td>Donna Snider</td>
@@ -494,6 +521,7 @@
                                 <td>27</td>
                                 <td>2011/01/25</td>
                                 <td>$112,000</td>
+                                <td data-formatter="TableActions">Action</td>
                             </tr>
                         </tbody>
                     </table>

@@ -34,6 +34,7 @@
 <script src="<?php echo base_url('assets/vertical/js/sidebarmenu.js')?>"></script>
 <!--Custom JavaScript -->
 <script src="<?php echo base_url('assets/vertical/js/custom.min.js')?>"></script>
+
 <!-- ============================================================== -->
 <!-- This page plugins -->
 <!-- ============================================================== -->
@@ -47,15 +48,14 @@
 <script src="<?php echo base_url('assets/vertical/node_modules/sparkline/jquery.sparkline.min.js')?>"></script>
 <!-- This is data table -->
 <script src="<?php echo base_url('assets/vertical/node_modules/datatables/jquery.dataTables.min.js')?>"></script>
-<!-- EASY PIE CHART JS -->
-
-<script src="<?php echo base_url('assets/vertical/node_modules/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js')?>"></script>
-<script src="<?php echo base_url('assets/vertical/node_modules/jquery.easy-pie-chart/easy-pie-chart.init.js')?>"></script>
-<!-- Vector map JavaScript -->
-<script src="<?php echo base_url('assets/vertical/node_modules/vectormap/jquery-jvectormap-2.0.2.min.js')?>"></script>
-<script src="<?php echo base_url('assets/vertical/node_modules/vectormap/jquery-jvectormap-world-mill-en.js')?>"></script>
+<!--stickey kit -->
+<script src="<?php echo base_url('assets/vertical/node_modules/sticky-kit-master/dist/sticky-kit.min.js')?>"></script>
+<script src="<?php echo base_url('assets/vertical/node_modules/sparkline/jquery.sparkline.min.js')?>"></script>
 <!-- Chart JS -->
 <script src="<?php echo base_url('assets/vertical/js/dashboard2.js')?>"></script>
+<!--Custom JavaScript -->
+<script src="<?php echo base_url('assets/vertical/js/custom.min.js')?>"></script>
+<script src="<?php echo base_url('assets/vertical/js/pages/jasny-bootstrap.js')?>"></script>
 <!-- start - This is for export functionality only -->
 <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>

@@ -10,10 +10,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta name="description" content="">
   <meta name="author" content="">
   <!-- Favicon icon -->
-  <?php
-  $CI =& get_instance();
-  $CI->load->helper('url');
-  ?>
   <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/vertical/images/favicon.ico')?>">
   <title>Assets Management System - PT IPC TPK</title>
 
