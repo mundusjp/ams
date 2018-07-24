@@ -12,9 +12,9 @@ class Admin_model extends CI_Model{
     //     $this->db->where($where);
     //     $this->db->delete($table);
     // }
-    // function update_data(){
-		//     return $this->db->get('user');
-    // }
+    function update_data(){
+		     return $this->db->get('user');
+     }
     // function edit_data($where,$table){
     //     return $this->db->get_where($table,$where);
     // }
