@@ -51,6 +51,7 @@
                                           </div>
                                           <div class="form-group m-b-40">
                                               <textarea rows="4" type="text" class="form-control" id="alamatkantor"></textarea>
+                                              <span class="bar"></span>
                                               <label for="alamatkantor"><h6 class="font-weight-bold">Alamat Kantor</h6></label>
                                           </div>
                                           <div class="form-group">
