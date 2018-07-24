@@ -11,7 +11,7 @@
         <!-- ============================================================== -->
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-                <h4 class="text-themecolor">Home</h4>
+                <h4 class="text-themecolor">Tambah Admin</h4>
             </div>
         </div>
         <!-- ============================================================== -->
@@ -24,7 +24,6 @@
 
                 <form class="form-horizontal form-material" action="admin/tambah_aksi" method="post">
 
-                    <h3 class="box-title m-b-20">Tambah Admin</h3>
                     <div class="form-group ">
                         <div class="col-xs-12">
                             <input class="form-control" type="text" name = "username" required="" placeholder="Username"> </div>
