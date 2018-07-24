@@ -1,29 +1,4 @@
-<center>
-		<h1>Membuat CRUD dengan CodeIgniter | MalasNgoding.com</h1>
-		<h3>Tambah data baru</h3>
-	</center>
-	<form action="<?php echo base_url(). 'inventories/tambah_aksi'; ?>" method="post">
-		<table style="margin:20px auto;">
-			<tr>
-				<td>Nama</td>
-				<td><input type="text" name="nama"></td>
-			</tr>
-			<tr>
-				<td>Alamat</td>
-				<td><input type="text" name="alamat"></td>
-			</tr>
-			<tr>
-				<td>Pekerjaan</td>
-				<td><input type="text" name="pekerjaan"></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><input type="submit" value="Tambah"></td>
-			</tr>
-		</table>
-	</form>	
-    <center>
-    <?php echo form_open('inventory/add'); ?>
+<?php echo form_open('inventory/add'); ?>
 
 	<div>
 		Divisi : 
@@ -39,7 +14,6 @@
 			?>
 		</select>
 	</div>
-    
 	<div>
 		<span class="text-danger">*</span>Nama : 
 		<input type="text" name="nama" value="<?php echo $this->input->post('nama'); ?>" />
@@ -79,4 +53,3 @@
 	<button type="submit">Save</button>
 
 <?php echo form_close(); ?>
-</center>

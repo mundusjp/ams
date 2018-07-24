@@ -1,34 +1,31 @@
-
-		<center><h1>Membuat CRUD dengan CodeIgniter | MalasNgoding.com</h1></center>
-	<center><?php echo anchor('inventories/tambah','Tambah Data'); ?></center>
-	<table style="margin:20px auto;" border="1">
-		<tr>
-			<th>No</th>
-			<th>Nama</th>
-			<th>Jenis</th>
-			<th>merk</th>
-			<th>nama_divisi_pengada</th>
-			<th>id_divisi_pengada</th>
-			<th>tanggal</th>
-			<th>kategori</th>
-			<th>id_beli/sewa</th>
-		</tr>
-		<?php $no = 1;foreach($inventory as $u){?>
-		<tr>
-			<td><?php echo $no++ ?></td>
-			<td><?php echo $u->nama ?></td>
-			<td><?php echo $u->jenis ?></td>
-            <td><?php echo $u->merk ?></td>
-            <td><?php echo $u->nama_divisi_pengada ?></td>
-            <td><?php echo $u->id_divisi_pengada ?></td>
-            <td><?php echo $u->tanggal ?></td>
-            <td><?php echo $u->kategori ?></td>
-			
-			<td>
-			     <?php echo anchor('inventories/edit/'.$u->id_inventory,'Edit'); ?>
-                  <?php echo anchor('inventories/hapus/'.$u->id_inventory,'Hapus'); ?>
-			</td>
-		</tr>
-		<?php } ?>
-	</table>
-	</table>
+<table border="1" width="100%">
+    <tr>
+		<th>Id Inventory</th>
+		<th>Id Divisi Pengada</th>
+		<th>Nama</th>
+		<th>Jenis</th>
+		<th>Merk</th>
+		<th>Nama Divisi Pengada</th>
+		<th>Tanggal</th>
+		<th>Kategori</th>
+		<th>Id Beli/sewa</th>
+		<th>Actions</th>
+    </tr>
+	<?php foreach($inventory as $i){ ?>
+    <tr>
+		<td><?php echo $i['id_inventory']; ?></td>
+		<td><?php echo $i['id_divisi_pengada']; ?></td>
+		<td><?php echo $i['nama']; ?></td>
+		<td><?php echo $i['jenis']; ?></td>
+		<td><?php echo $i['merk']; ?></td>
+		<td><?php echo $i['nama_divisi_pengada']; ?></td>
+		<td><?php echo $i['tanggal']; ?></td>
+		<td><?php echo $i['kategori']; ?></td>
+		<td><?php echo $i['id_beli/sewa']; ?></td>
+		<td>
+            <a href="<?php echo site_url('inventory/edit/'.$i['id_inventory']); ?>">Edit</a> | 
+            <a href="<?php echo site_url('inventory/remove/'.$i['id_inventory']); ?>">Delete</a>
+        </td>
+    </tr>
+	<?php } ?>
+</table>
