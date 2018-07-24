@@ -1,27 +1,45 @@
-<?php
-class auth extends CI_Controller{
-
-  function __contruct(){
-    parent::__contruct();
-    $this->load->model('user_model');
-  }
-
-  public function login(){
-		if(isset($_POST['login'])){
-			$user = $this->input->post('user', true);
-			$pass = $this->input->post('pass', true);
-			$hasil = $this->user_model->proseslogin($user, $pass);
-			if($hasil ==1){
-        $this->session->set_userdata(array('status_login'=>'sukses'));
+<?php 
+ 
+class Auth extends CI_Controller{
+ 
+	function __construct(){
+		parent::__construct();		
+		$this->load->model('user_model');
+	}
+ 
+	function index(){
+		$this->load->view('');
+	}
+ 
+	function login(){
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		$where = array(
+			'username' => $username,
+			'password' => $password
+			);
+		$cek = $this->user_model->proseslogin("user",$where);
+		if($cek->num_rows() > 0){
+			foreach ($cek->result() as $login){
+				$data_session = array(
+					'username' => $username,
+					'level' => $login->status,
+					'nama' => $login->nama,
+					'status' => "login"
+					);
+	 
+				$this->session->set_userdata($data_session);
+	 
 				redirect('home');
-			}else {
-				redirect('');
 			}
 		}
+		else{
+			echo "Username dan password salah !";
+		}
 	}
-
-  public function logout(){
-    $this->session->sess_destroy();
-    $this->load->view('logout');
-  }
+ 
+	function logout(){
+		$this->session->sess_destroy();
+		redirect(base_url(''));
+	}
 }

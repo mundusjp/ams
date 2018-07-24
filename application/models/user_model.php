@@ -18,18 +18,7 @@ class User_model extends CI_Model {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function proseslogin($user, $pass)
-	{
-				$pelogin = $this->db->get_where('user', array('username' => $user, 'password' => $pass));
-
-				if($pelogin->num_rows()>0){
-					return 1;
-				}
-				else{
-					return 0;
-				}
-        $this->db->where('username', $user);
-        $this->db->where('password', $pass);
-        return $this->db->get('user')->row();
+	function proseslogin($table,$where){		
+		return $this->db->get_where($table,$where);
 	}
 }

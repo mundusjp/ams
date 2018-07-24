@@ -51,16 +51,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </div>
                     </div>
                     <br>
-                    <form class="form-horizontal form-material" id="loginform" action="auth/login" method="post">
+                    <form class="form-horizontal form-material" id="loginform" action="<?php echo base_url('auth/login')?>" method="post">
 
                         <h3 class="box-title m-b-20">Sign In</h3>
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input class="form-control" type="text" name = "user" required="" placeholder="Username"> </div>
+                                <input class="form-control" type="text" name = "username" required="" placeholder="Username"> </div>
                         </div>
                         <div class="form-group">
                             <div class="col-xs-12">
-                                <input class="form-control" type="password" name = "pass" required="" placeholder="Password"> </div>
+                                <input class="form-control" type="password" name = "password" required="" placeholder="Password"> </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-md-12">
