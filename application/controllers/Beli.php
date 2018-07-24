@@ -19,7 +19,12 @@ class Beli extends CI_Controller{
         $data['beli'] = $this->Beli_model->get_all_beli();
         
         $data['_view'] = 'beli/index';
+        $this->load->view('templates/dashboard/header');
+        $this->load->view('templates/dashboard/topbar');
+        $this->load->view('templates/dashboard/leftbar');
+        $this->load->view('templates/dashboard/rightbar');
         $this->load->view('pages/beli/index',$data);
+        $this->load->view('templates/dashboard/footer');
     }
 
     /*

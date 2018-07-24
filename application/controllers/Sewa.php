@@ -19,7 +19,12 @@ class Sewa extends CI_Controller{
         $data['sewa'] = $this->Sewa_model->get_all_sewa();
         
         $data['_view'] = 'sewa/index';
+        $this->load->view('templates/dashboard/header');
+        $this->load->view('templates/dashboard/topbar');
+        $this->load->view('templates/dashboard/leftbar');
+        $this->load->view('templates/dashboard/rightbar');
         $this->load->view('pages/sewa/index',$data);
+        $this->load->view('templates/dashboard/footer');
     }
 
     /*

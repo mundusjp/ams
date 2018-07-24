@@ -19,7 +19,13 @@ class Divisi extends CI_Controller{
         $data['divisi'] = $this->Divisi_model->get_all_divisi();
         
         $data['_view'] = 'divisi/index';
+        $this->load->view('templates/dashboard/header');
+        $this->load->view('templates/dashboard/topbar');
+        $this->load->view('templates/dashboard/leftbar');
+        $this->load->view('templates/dashboard/rightbar');
         $this->load->view('pages/divisi/index',$data);
+        $this->load->view('templates/dashboard/footer');
+
     }
 
     /*

@@ -19,7 +19,13 @@ class Supplier extends CI_Controller{
         $data['supplier'] = $this->Supplier_model->get_all_supplier();
         
         $data['_view'] = 'supplier/index';
+        $this->load->view('templates/dashboard/header');
+      $this->load->view('templates/dashboard/topbar');
+      $this->load->view('templates/dashboard/leftbar');
+      $this->load->view('templates/dashboard/rightbar');
         $this->load->view('pages/supplier/index',$data);
+        $this->load->view('templates/dashboard/footer');
+      
     }
 
     /*

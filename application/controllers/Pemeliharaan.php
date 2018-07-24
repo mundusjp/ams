@@ -19,7 +19,13 @@ class Pemeliharaan extends CI_Controller{
         $data['pemeliharaan'] = $this->Pemeliharaan_model->get_all_pemeliharaan();
         
         $data['_view'] = 'pemeliharaan/index';
+        $this->load->view('templates/dashboard/header');
+      $this->load->view('templates/dashboard/topbar');
+      $this->load->view('templates/dashboard/leftbar');
+      $this->load->view('templates/dashboard/rightbar');
         $this->load->view('pages/pemeliharaan/index',$data);
+        $this->load->view('templates/dashboard/footer');
+
     }
 
     /*

@@ -19,7 +19,13 @@ class Kantor extends CI_Controller{
         $data['kantor'] = $this->Kantor_model->get_all_kantor();
         
         $data['_view'] = 'kantor/index';
+        $this->load->view('templates/dashboard/header');
+      $this->load->view('templates/dashboard/topbar');
+      $this->load->view('templates/dashboard/leftbar');
+      $this->load->view('templates/dashboard/rightbar');
         $this->load->view('pages/kantor/index',$data);
+        $this->load->view('templates/dashboard/footer');
+
     }
 
     /*
