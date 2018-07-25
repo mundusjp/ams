@@ -129,8 +129,6 @@
                                             	<input type="text" class="form-control" name="total_harga" value="<?php echo ($this->input->post('total_harga') ? $this->input->post('total_harga') : $b['total_harga']); ?>" />
                                           </div>
                                           <div class="form-group m-b-40">
-                                          
-                                          
                                               <span class="text-danger">*</span>Deskripsi : 
 		                                            <input type="text" name="deskripsi" value="<?php echo ($this->input->post('deskripsi') ? $this->input->post('deskripsi') : $b['deskripsi']); ?>" />
 		                                        <span class="text-danger"><?php echo form_error('deskripsi');?></span>
@@ -150,10 +148,11 @@
                                             </select>
                                             </div>
                                         </div>
-                                        <?php echo form_close(); ?>
-                                      <div class="modal-footer d-flex justify-content-center">
+                                        <div class="modal-footer d-flex justify-content-center">
                                         <button type="submit" class="btn btn-info waves-effect waves-light">Save</button>
                                       </div>
+                                        <?php echo form_close(); ?>
+                                       
                                     </div>
                                   </div>
                                 </div>
