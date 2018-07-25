@@ -25,7 +25,9 @@ class Auth extends CI_Controller{
 					'username' => $username,
 					'level' => $login->status,
 					'nama' => $login->nama,
-					'status' => "login"
+					'id_user' => $login->id_user,
+					'nipp' => $login->nipp,
+					'status' => "login",
 					);
 	 
 				$this->session->set_userdata($data_session);
