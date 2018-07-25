@@ -13,24 +13,6 @@ class Divisi extends CI_Controller{
     }
 
     /*
-     * Listing of divisi
-     */
-    function index()
-    {
-        $data['divisi'] = $this->Divisi_model->get_all_divisi();
-        $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
-
-        $data['_view'] = 'divisi/index';
-        $this->load->view('templates/dashboard/header');
-        $this->load->view('templates/dashboard/topbar');
-        $this->load->view('templates/dashboard/leftbar');
-        $this->load->view('templates/dashboard/rightbar');
-        $this->load->view('pages/divisi/index',$data);
-        $this->load->view('templates/dashboard/footer');
-
-    }
-
-    /*
      * Adding a new divisi
      */
     function add()
@@ -52,16 +34,16 @@ class Divisi extends CI_Controller{
             );
 
             $divisi_id = $this->Divisi_model->add_divisi($params);
-            redirect('divisi/index');
+            redirect('manage/divisi');
         }
-        else
-        {
-			$this->load->model('Kantor_model');
-			$data['all_kantor'] = $this->Kantor_model->get_all_kantor();
-
-            $data['_view'] = 'divisi/add';
-            $this->load->view('pages/divisi/add',$data);
-        }
+        // else
+      //   {
+			// $this->load->model('Kantor_model');
+			// $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
+      //
+      //       $data['_view'] = 'divisi/add';
+      //       $this->load->view('manage/divisi',$data);
+      //   }
     }
 
     /*
@@ -91,7 +73,7 @@ class Divisi extends CI_Controller{
                 );
 
                 $this->Divisi_model->update_divisi($id_divisi,$params);
-                redirect('divisi/index');
+                redirect('manage/divisi');
             }
             else
             {
@@ -117,7 +99,7 @@ class Divisi extends CI_Controller{
         if(isset($divisi['id_divisi']))
         {
             $this->Divisi_model->delete_divisi($id_divisi);
-            redirect('divisi/index');
+            redirect('manage/divisi');
         }
         else
             show_error('The divisi you are trying to delete does not exist.');

@@ -54,7 +54,7 @@
                             <td><?php echo $u['no_hp']; ?></td>
                             <td>
           										<a class="btn btn-info" href="">Edit</a> |
-          										<a class="btn btn-danger" href="<?php echo site_url('admin/hapus/'.$u['id_user']); ?>">Hapus</a>
+          										<a class="btn btn-danger" href="<?php echo site_url('admin/remove/'.$u['id_user']); ?>">Hapus</a>
           									</td>
                           </tr>
                           <?php } ?>

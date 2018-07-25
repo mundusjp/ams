@@ -1,13 +1,18 @@
 <?php
 
-class Admin_model extends CI_Model{
-
-    // function ambil_data(){
-		//     return $this->db->get('user');
-    // }
-    function input_data($data,$table){
-		    $this->db->insert($table,$data);
+class Admin_model extends CI_Model
+{
+    function __construct()
+    {
+        parent::__construct();
     }
+
+
+  function add_admin($params)
+  {
+      $this->db->insert('user',$params);
+      return $this->db->insert_id();
+  }
 
     function get_admin($id_admin)
     {
@@ -20,19 +25,14 @@ class Admin_model extends CI_Model{
         return $this->db->get('user')->result_array();
     }
 
-    // function hapus_data($where,$table){
-    //     $this->db->where($where);
-    //     $this->db->delete($table);
-    // }
-    function update_data(){
-		     return $this->db->get('user');
-     }
+    function update_admin($id_admin,$params)
+    {
+        $this->db->where('id_user',$id_admin);
+        return $this->db->update('user',$params);
+    }
 
-     function hapus_admin($id_admin)
-     {
-         return $this->db->delete('user',array('id_user'=>$id_admin));
-     }
-    // function edit_data($where,$table){
-    //     return $this->db->get_where($table,$where);
-    // }
+    function delete_admin($id_admin)
+    {
+        return $this->db->delete('user',array('id_user'=>$id_admin));
+    }
 }

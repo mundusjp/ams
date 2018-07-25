@@ -95,7 +95,7 @@
                               else if($k['status'] == 2) echo 'Cabang';?></td>
 										<td>
 											<button class="btn btn-outline-info waves-effect waves-light" href="<?php echo site_url('kantor/edit/'.$k['id_kantor']); ?>">Edit</button>
-											<button class="btn btn-outline-danger waves-effect waves-light" href="<?php echo site_url('kantor/remove/'.$k['id_kantor']); ?>">Delete</button>
+											<a class="btn btn-danger" href="<?php echo site_url('kantor/remove/'.$k['id_kantor']); ?>">Hapus</a
 										</td>
 									</tr>
 									<?php } ?>

@@ -11,7 +11,7 @@
         <!-- ============================================================== -->
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-                <h4 class="text-themecolor">Manage User</h4>
+                <h4 class="text-themecolor">Manage Admin</h4>
             </div>
         </div>
         <!-- ============================================================== -->
@@ -24,7 +24,7 @@
                 <!-- ============================================================== -->
                 <!-- tinggal masukin kodingan html disini                           -->
                 <!-- ============================================================== -->
-                <h4 class="card-title"> Data User </h4>
+                <h4 class="card-title"> Data Admin </h4>
                 <!-- <h6 class="card-subtitle"> List inventaris semua divisi periode 2018 </h6> -->
                 <div class="table-responsive m-t-40">
                     <table id="myTable" class="table table-bordered table-striped">
@@ -53,8 +53,8 @@
                             <td><?php echo $u['email']; ?></td>
                             <td><?php echo $u['no_hp']; ?></td>
                             <td>
-          										<a class="btn btn-info" href="">Edit</a> |
-          										<a class="btn btn-danger" href="<?php echo site_url('admin/hapus/'.$u['id_user']); ?>">Hapus</a>
+          										<a class="btn btn-outline-info waves-effect waves-light" href="">Edit</a> |
+          										<a class="btn btn-outline-danger" href="<?php echo site_url('admin/remove/'.$u['id_user']); ?>">Hapus</a>
           									</td>
                           </tr>
                           <?php } ?>
