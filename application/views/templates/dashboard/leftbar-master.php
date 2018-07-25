@@ -13,14 +13,14 @@
                         <li><a href="<?php echo base_url('inventory-bthp')?>">Barang Tidak Habis Pakai</a></li>
                     </ul>
                 </li>
-              <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-note"></i><span class="hide-menu">Input</span></a>
+              <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-note"></i><span class="hide-menu">Manage Stock</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="<?php echo base_url('input-pembelian')?>">Pembelian</a></li>
+                        <li><a href="<?php echo base_url('input-pembelian')?>">Overview</a></li>
                         <li><a href="<?php echo base_url('input-penyewaan')?>">Penyewaan</a></li>
                         <li><a href="<?php echo base_url('input-pemasukan-barang')?>">Pemasukan Barang</a></li>
                     </ul>
                 </li>
-              <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-settings"></i><span class="hide-menu">Manage</span></a>
+              <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-settings"></i><span class="hide-menu">Administration</span></a>
                     <ul aria-expanded="false" class="collapse">
                       <li><a href="<?php echo base_url('manage/user')?>">User</a></li>
                       <li><a href="<?php echo base_url('manage/divisi')?>">Divisi</a></li>
