@@ -1,14 +1,27 @@
-<?php echo form_open('supplier/edit/'.$supplier['id_supplier']); ?>
+<?php echo form_open('kebutuhan/edit/'.$kebutuhan['id_kebutuhan']); ?>
+    <div>
+		Id Divisi : 
+		<select name="id_divisi">
+			<option value="">select divisi</option>
+			<?php 
+			foreach($all_divisi as $divisi)
+			{
+				$selected = ($divisi['id_divisi'] == $kebutuhan['id_divisi']) ? ' selected="selected"' : "";
 
-	<div>
-		<span class="text-danger">*</span>Nama : 
-		<input type="text" name="nama" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama') : $supplier['nama']); ?>" />
-		<span class="text-danger"><?php echo form_error('nama');?></span>
+				echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama'].'</option>';
+			} 
+			?>
+		</select>
 	</div>
 	<div>
-		<span class="text-danger">*</span>Alamat : 
-		<input type="text" name="alamat" value="<?php echo ($this->input->post('alamat') ? $this->input->post('alamat') : $supplier['alamat']); ?>" />
-		<span class="text-danger"><?php echo form_error('alamat');?></span>
+		<span class="text-danger">*</span>Nama Barang: 
+		<input type="text" name="nama_barang" value="<?php echo ($this->input->post('nama_barang') ? $this->input->post('nama_barang') : $kebutuhan['nama_barang']); ?>" />
+		<span class="text-danger"><?php echo form_error('nama_barang');?></span>
+	</div>
+	<div>
+		<span class="text-danger">*</span>Jumlah : 
+		<input type="text" name="jumlah" value="<?php echo ($this->input->post('jumlah') ? $this->input->post('jumlah') : $kebutuhan['jumlah']); ?>" />
+		<span class="text-danger"><?php echo form_error('jumlah');?></span>
 	</div>
 	
 	<button type="submit">Save</button>

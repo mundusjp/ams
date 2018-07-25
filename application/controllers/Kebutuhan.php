@@ -69,35 +69,33 @@ class Kebutuhan extends CI_Controller{
     function edit($id_kebutuhan)
     {   
         // check if the beli exists before trying to edit it
-        $data['beli'] = $this->Beli_model->get_beli($id_beli);
+        $data['kebutuhan'] = $this->Kebutuhan_model->get_kebutuhan($id_kebutuhan);
         
-        if(isset($data['beli']['id_beli']))
+        if(isset($data['kebutuhan']['id_kebutuhan']))
         {
             $this->load->library('form_validation');
 
-			$this->form_validation->set_rules('tanggal_transaksi','Tanggal Transaksi','required');
-			$this->form_validation->set_rules('total_harga','Total Harga','required|integer');
-			$this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[191]');
+			$this->form_validation->set_rules('nama_barang','Nama Barang','required');
+			$this->form_validation->set_rules('jumlah','Jumlah','required|integer');
 		
 			if($this->form_validation->run())     
             {   
                 $params = array(
-					'id_supplier' => $this->input->post('id_supplier'),
-					'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
-					'total_harga' => $this->input->post('total_harga'),
-					'deskripsi' => $this->input->post('deskripsi'),
+					'id_divisi' => $this->input->post('id_divisi'),
+					'nama_barang' => $this->input->post('nama_barang'),
+					'jumlah' => $this->input->post('jumlah'),
                 );
 
-                $this->Beli_model->update_beli($id_beli,$params);            
-                redirect('beli/index');
+                $this->Kebutuhan_model->update_kebutuhan($id_kebutuhan,$params);            
+                redirect('kebutuhan/index');
             }
             else
             {
-				$this->load->model('Supplier_model');
-				$data['all_supplier'] = $this->Supplier_model->get_all_supplier();
+				$this->load->model('Divisi_model');
+				$data['all_divisi'] = $this->Divisi_model->get_all_divisi();
 
-                $data['_view'] = 'beli/edit';
-                $this->load->view('pages/beli/edit',$data);
+                $data['_view'] = 'kebutuhan/edit';
+                $this->load->view('pages/kebutuhan/edit',$data);
             }
         }
         else
@@ -107,15 +105,15 @@ class Kebutuhan extends CI_Controller{
     /*
      * Deleting beli
      */
-    function remove($id_beli)
+    function remove($id_kebutuhan)
     {
-        $beli = $this->Beli_model->get_beli($id_beli);
+        $kebutuhan = $this->Kebutuhan_model->get_kebutuhan($id_kebutuhan);
 
         // check if the beli exists before trying to delete it
-        if(isset($beli['id_beli']))
+        if(isset($kebutuhan['id_kebutuhan']))
         {
-            $this->Beli_model->delete_beli($id_beli);
-            redirect('beli/index');
+            $this->Kebutuhan_model->delete_kebutuhan($id_kebutuhan);
+            redirect('kebutuhan/index');
         }
         else
             show_error('The beli you are trying to delete does not exist.');
