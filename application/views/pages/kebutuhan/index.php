@@ -43,9 +43,13 @@
                                       <div class="modal-body mx-3">
                                         <form class="floating-labels m-t-40">
                                           <div class="form-group m-b-40">
-                                              <label for="namakantor"><h6 class="font-weight-bold">ID Kebutuhan </h6></label>
-                                              <input type="text" class="form-control" name="nama" value="<?php echo $this->input->post('nama'); ?>" />
-                                              <span class="bar"></span>
+                                              <label><h6 class="font-weight-bold">Nama Divisi</h6></label>
+                                              <select name="status" class="form-control" >
+                                                  <option value="1">Pusat</option>
+                                                    <?php $selected = (1 == $this->input->post('status')) ? ' selected="selected"' : ""; ?>
+                                                  <option value="2">Cabang</option>
+                                                    <?php $selected = (2 == $this->input->post('status')) ? ' selected="selected"' : ""; ?>
+                                              </select>
                                           </div>
                                           <div class="form-group m-b-40">
                                               <label><h6 class="font-weight-bold">Nama Barang</h6></label>
@@ -53,12 +57,7 @@
                                               <span class="bar"></span>
                                           </div>
                                           <div class="form-group m-b-40">
-                                              <label><h6 class="font-weight-bold">Divisi</h6></label>
-                                              <input type="text" class="form-control" name="nama" value="<?php echo $this->input->post('nama'); ?>" />
-                                              <span class="bar"></span>
-                                          </div>
-                                          <div class="form-group m-b-40">
-                                              <label><h6 class="font-weight-bold">User</h6></label>
+                                              <label><h6 class="font-weight-bold">Jumlah</h6></label>
                                               <input type="text" class="form-control" name="nama" value="<?php echo $this->input->post('nama'); ?>" />
                                               <span class="bar"></span>
                                           </div>
