@@ -80,6 +80,7 @@
                                         <thead>
                                             <tr>
 											<th>Id Inventory</th>
+											<th>Serial Id</th>
 											<th>Id Divisi Pengada</th>
 											<th>Nama</th>
 											<th>Jenis</th>
@@ -87,25 +88,34 @@
 											<th>Nama Divisi Pengada</th>
 											<th>Tanggal</th>
 											<th>Kategori</th>
-											<th>Id Beli/sewa</th>
+											<th>Kondisi</th>
+											<th>Durability</th>
+											<th>Status</th>
+
+                                            
+											<!-- <th>Id Beli/sewa</th> -->
 											<th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-										<?php foreach($inventory as $i){ ?>
+										<?php foreach($tidakhabis as $i){ ?>
     									<tr>
-											<td><?php echo $i['id_inventory']; ?></td>
-											<td><?php echo $i['id_divisi_pengada']; ?></td>
-											<td><?php echo $i['nama']; ?></td>
-											<td><?php echo $i['jenis']; ?></td>
-											<td><?php echo $i['merk']; ?></td>
-											<td><?php echo $i['nama_divisi_pengada']; ?></td>
-											<td><?php echo $i['tanggal']; ?></td>
-											<td><?php echo $i['kategori']; ?></td>
-											<td><?php echo $i['id_beli/sewa']; ?></td>
+											<td><?php echo $i->id_inventory; ?></td>
+											<td><?php echo $i->serial_id; ?></td>
+											<td><?php echo $i->id_divisi_pengada; ?></td>
+											<td><?php echo $i->nama; ?></td>
+											<td><?php echo $i->jenis; ?></td>
+											<td><?php echo $i->merk; ?></td>
+											<td><?php echo $i->nama_divisi_pengada; ?></td>
+											<td><?php echo $i->tanggal; ?></td>
+											<td><?php echo $i->kategori; ?></td>
+											<td><?php echo $i->kondisi; ?></td>
+											<td><?php echo $i->durability; ?></td>
+											<td><?php echo $i->status; ?></td>
+											
 											<td>
-    									        <a href="<?php echo site_url('inventory/edit/'.$i['id_inventory']); ?>">Edit</a> | 
-    									        <a href="<?php echo site_url('inventory/remove/'.$i['id_inventory']); ?>">Delete</a>
+    									        <a href="<?php echo site_url('inventory/edit_bthp/'.$i->id_inventory); ?>">Edit</a> | 
+    									        <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Delete</a>
     									    </td>
    										 </tr>
 										<?php } ?>

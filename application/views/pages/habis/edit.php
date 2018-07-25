@@ -1,4 +1,4 @@
-<?php echo form_open('inventory/edit/'.$inventory['id_inventory']); ?>
+<?php echo form_open('inventory/edit_bhp/'.$inventory['id_inventory']); ?>
 
 	<div>
 		Divisi : 

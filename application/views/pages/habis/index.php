@@ -110,8 +110,8 @@
 											<td><?php echo $i->jumlah; ?></td>
 											<td><?php echo $i->satuan; ?></td>
                                             <td>
-    									        <a href="<?php echo site_url('inventory/edit/'.$i->id_inventory); ?>">Edit</a> | 
-    									        <a href="<?php echo site_url('inventory/remove/'.$i->id_inventory); ?>">Delete</a>
+    									        <a href="<?php echo site_url('inventory/edit_bhp/'.$i->id_inventory); ?>">Edit</a> | 
+    									        <a href="<?php echo site_url('inventory/remove_bhp/'.$i->id_inventory); ?>">Delete</a>
     									    </td>
     									    
    										 </tr>
