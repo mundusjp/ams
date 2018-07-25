@@ -21,9 +21,11 @@
     <!-- Custom CSS -->
     <link href="<?php echo base_url('assets/vertical/css/style.min.css')?>" rel="stylesheet">
     <!--c3 CSS -->
-    <link href="dist/css/pages/easy-pie-chart.css" rel="stylesheet">
+    <link href="<?php echo base_url('assets/vertical/css/pages/easy-pie-chart.css')?>" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="dist/css/style.min.css" rel="stylesheet">
+    <link href="<?php echo base_url('assets/vertical/css/style.min.css')?>" rel="stylesheet">
+    <!--alerts CSS -->
+    <link href="<?php echo base_url('assets/vertical/node_modules/sweetalert/sweetalert.css')?>" rel="stylesheet" type="text/css">
     <!-- Dashboard 1 Page CSS -->
     <link href="<?php echo base_url('assets/vertical/css/pages/dashboard1.css')?>" rel="stylesheet">
     <!-- Dashboard 2 Page CSS -->

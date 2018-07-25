@@ -5,7 +5,7 @@
     <!-- Sidebar scroll-->
     <div class="scroll-sidebar">
         <!-- Sidebar navigation-->
-        
+
         <nav class="sidebar-nav">
             <?php
                 $level = $this->session->userdata('level');
