@@ -28,6 +28,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Data kantor</h4>
                                 <h6 class="card-subtitle">Data table example</h6>
+                            <?php echo form_open('kantor/add'); ?>
                                 <div class="modal fade" id="ModalTambahKantor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -40,34 +41,33 @@
                                       <div class="modal-body mx-3">
                                         <form class="floating-labels m-t-40">
                                           <div class="form-group m-b-40">
-                                              <input type="text" class="form-control" id="id_kantor">
-                                              <span class="bar"></span>
-                                              <label for="id_kantor"><h6 class="font-weight-bold">ID Kantor</h6></label>
-                                          </div>
-                                          <div class="form-group m-b-40">
-                                              <input type="text" class="form-control" id="namakantor">
-                                              <span class="bar"></span>
                                               <label for="namakantor"><h6 class="font-weight-bold">Nama Kantor</h6></label>
+                                              <input type="text" class="form-control" name="nama" value="<?php echo $this->input->post('nama'); ?>" />
+                                              <span class="bar"></span>
                                           </div>
                                           <div class="form-group m-b-40">
-                                              <textarea rows="4" type="text" class="form-control" id="alamatkantor"></textarea>
-                                              <span class="bar"></span>
                                               <label for="alamatkantor"><h6 class="font-weight-bold">Alamat Kantor</h6></label>
+                                              <input type="text" class="form-control" name="alamat" value="<?php echo $this->input->post('alamat'); ?>" />
+                                              <!-- <textarea rows="4" type="text" class="form-control" id="alamatkantor"></textarea> -->
+                                              <span class="bar"></span>
                                           </div>
                                           <div class="form-group">
                                               <label><h6 class="font-weight-bold">Status</h6></label>
-                                              <select class="form-control">
-                                                  <option>1</option>
-                                                  <option>2</option>
+                                              <select name="status" class="form-control" >
+                                                  <option value="1">Pusat</option>
+                                                    <?php $selected = (1 == $this->input->post('status')) ? ' selected="selected"' : ""; ?>
+                                                  <option value="2">Cabang</option>
+                                                    <?php $selected = (2 == $this->input->post('status')) ? ' selected="selected"' : ""; ?>
                                               </select>
                                             </div>
                                         </div>
                                       <div class="modal-footer d-flex justify-content-center">
-                                        <button class="btn btn-info waves-effect waves-light">Tambah</button>
+                                        <button type="submit" class="btn btn-info waves-effect waves-light">Tambah</button>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
+                                <?php echo form_close(); ?>
                                 <div class="row">
                                   <div class="col-3">
                                     <button type="button" class="btn btn-info waaves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKantor" > add </button>
