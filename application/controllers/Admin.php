@@ -7,7 +7,7 @@ class Admin extends CI_Controller {
         $this->load->model('Divisi_model');
     }
 
-    function admin_tambah(){
+    function add(){
 
         // $this->load->view('templates/dashboard/header');
         // $this->load->view('templates/dashboard/topbar');
@@ -41,7 +41,7 @@ class Admin extends CI_Controller {
         redirect('manage-overview');
       }
 
-      function admin_index()
+      function index()
       {
           $data['user'] = $this->admin_model->get_all_admin();
           $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
@@ -51,9 +51,11 @@ class Admin extends CI_Controller {
           $this->load->view('templates/dashboard/topbar');
           $this->load->view('templates/dashboard/leftbar');
           $this->load->view('templates/dashboard/rightbar');
-          $this->load->view('pages/admin/admin_index',$data);
+          $this->load->view('pages/admin/index',$data);
           $this->load->view('templates/dashboard/footer');
 
+          // $queryDivisi = $this->$db->query("SELECT id_divisi from divisi");
+          // $queryUser = $this->db->query("SELECT * from user WHERE id_divisi = $queryDivisi");
       }
 
       function hapus($id_admin)

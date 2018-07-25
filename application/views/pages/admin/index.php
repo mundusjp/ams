@@ -33,19 +33,22 @@
                                 <th>No.</th>
                                 <th>Nama</th>
                                 <th>Divisi</th>
+                                <!-- <th>Kantor</th> -->
                                 <th>Email</th>
                                 <th>No. Handphone</th>
                                 <th>Tindakan</th>
                             </tr>
                         </thead>
                         <tbody>
-                          <?php foreach($user as $u){ ?>
+                          <?php $no = 1;
+                          foreach($user as $u){ ?>
                           <tr>
-                            <td><?php echo $u['id_user']; ?></td>
+                            <td><?php echo $no; $no++; ?></td>
                             <td><?php echo $u['nama']; ?></td>
                             <td><?php
                                 foreach($all_divisi as $div){
-                                    if($div['id_divisi']==$u['id_divisi']) {echo $div['nama'];}
+                                    if($div['id_divisi']==$u['id_divisi']) {
+                                      echo $div['nama'];}
                                 }?></td>
                             <td><?php echo $u['email']; ?></td>
                             <td><?php echo $u['no_hp']; ?></td>

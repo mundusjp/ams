@@ -135,7 +135,7 @@
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
 								<tr>
-									<th>Id Divisi</th>
+									<th>No.</th>
                   <th>Nama Divisi</th>
 									<th>Nama Kantor</th>
 									<th>Gedung</th>
@@ -144,14 +144,16 @@
 								</tr>
 								</thead>
 																<tbody>
-								<?php foreach($divisi as $d){ ?>
+                <?php $no = 1;
+								      foreach($divisi as $d){ ?>
 								<tr>
-									<td><?php echo $d['id_divisi']; ?></td>
+									<td><?php echo $no; $no++; ?></td>
+                  <td><?php echo $d['nama']; ?></td>
 									<td><?php
                       foreach($all_kantor as $k){
                           if($k['id_kantor']==$d['id_kantor']) {echo $k['nama'];}
                       }?></td>
-									<td><?php echo $d['nama']; ?></td>
+
 									<td><?php echo $d['gedung']; ?></td>
 									<td><?php echo $d['lantai']; ?></td>
 									<td>

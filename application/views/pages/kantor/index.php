@@ -77,7 +77,7 @@
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
 										<tr>
-										<th>Id Kantor</th>
+										<th>No.</th>
 										<th>Nama</th>
 										<th>Alamat</th>
 										<th>Status</th>
@@ -85,12 +85,14 @@
 									</tr>
 									</thead>
 									<tbody>
-									<?php foreach($kantor as $k){ ?>
+                    <?php $no = 1;
+                    foreach ($kantor as $k){ ?>
 									<tr>
-										<td><?php echo $k['id_kantor']; ?></td>
+										<td><?php echo $no; $no++; ?></td>
 										<td><?php echo $k['nama']; ?></td>
 										<td><?php echo $k['alamat']; ?></td>
-										<td><?php echo $k['status']; ?></td>
+										<td><?php if($k['status'] == 1) echo 'Pusat';
+                              else if($k['status'] == 2) echo 'Cabang';?></td>
 										<td>
 											<button class="btn btn-outline-info waves-effect waves-light" href="<?php echo site_url('kantor/edit/'.$k['id_kantor']); ?>">Edit</button>
 											<button class="btn btn-outline-danger waves-effect waves-light" href="<?php echo site_url('kantor/remove/'.$k['id_kantor']); ?>">Delete</button>
