@@ -1,3 +1,4 @@
+
 <!-- ============================================================== -->
 <!-- Page wrapper  -->
 <!-- ============================================================== -->
@@ -11,7 +12,7 @@
         <!-- ============================================================== -->
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-                <h4 class="text-themecolor">Supplier</h4>
+                <h4 class="text-themecolor">Inventory</h4>
             </div>
         </div>
         <!-- ============================================================== -->
@@ -23,12 +24,12 @@
               <div class="card-body">
                 <!-- ============================================================== -->
                 <!-- tinggal masukin kodingan html disini                           -->
-				<!-- ============================================================== -->
-				<div class="card">
+                <!-- ============================================================== -->
+						<div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data supplier</h4>
+                                <h4 class="card-title">Data inventory</h4>
                                 <h6 class="card-subtitle">Data table example</h6>
-								<!-- modal menambahkan fungsi  -->
+                                <!-- modal menambahkan fungsi  -->
 								<div class="modal fade" id="ModalTambahKantor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -76,33 +77,51 @@
                                   </div>
                                 </div>
                                 <div class="table-responsive m-t-40">
+                                    
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
-										<tr>
-										<th>Id Supplier</th>
-										<th>Nama</th>
-										<th>Alamat</th>
-										<th>Actions</th>
-									</tr>
-									</thead>
-									<tbody>
-									<?php foreach($supplier as $s){ ?>
-									<tr>
-										<td><?php echo $s['id_supplier']; ?></td>
-										<td><?php echo $s['nama']; ?></td>
-										<td><?php echo $s['alamat']; ?></td>
-										<td>
-											<a href="<?php echo site_url('supplier/edit/'.$s['id_supplier']); ?>">Edit</a> | 
-											<a href="<?php echo site_url('supplier/remove/'.$s['id_supplier']); ?>">Delete</a>
-										</td>
-									</tr>
-									<?php } ?>
-									</tbody>
-								</table>
-								</div>
-								</div>
-							</div>		
-					</div>
+                                            <tr>
+											<th>no</th>
+											<th>Id barang</th>
+											<th>Id Divisi Pengada</th>
+											<th>Nama</th>
+											<th>Jenis</th>
+											<th>Merk</th>
+											<th>Nama Divisi Pengada</th>
+											<th>Tanggal</th>
+											<th>Kategori</th>
+                                            <th>jumlah</th>
+                                            <th>satuan</th>
+											<th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+										<?php  $no=1;  foreach($habis as $i){ ?>
+    									<tr>
+											<td><?php echo $no++; ?></td>
+											<td><?php echo $i->id_inventory; ?></td>
+											<td><?php echo $i->id_divisi_pengada; ?></td>
+											<td><?php echo $i->nama; ?></td>
+											<td><?php echo $i->jenis; ?></td>
+											<td><?php echo $i->merk; ?></td>
+											<td><?php echo $i->nama_divisi_pengada; ?></td>
+											<td><?php echo $i->tanggal; ?></td>
+											<td><?php echo $i->kategori; ?></td>
+											<td><?php echo $i->jumlah; ?></td>
+											<td><?php echo $i->satuan; ?></td>
+                                            <td>
+    									        <a href="<?php echo site_url('inventory/edit/'.$i->id_inventory); ?>">Edit</a> | 
+    									        <a href="<?php echo site_url('inventory/remove/'.$i->id_inventory); ?>">Delete</a>
+    									    </td>
+    									    
+   										 </tr>
+										<?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+						</div>		
 				</div>
-			</div>
-			</div>
+            </div>
+          </div>
+        </div>
