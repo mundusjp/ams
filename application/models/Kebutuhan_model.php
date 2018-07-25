@@ -40,17 +40,17 @@ class Kebutuhan_model extends CI_Model
     /*
      * function to update beli
      */
-    function update_beli($id_beli,$params)
+    function update_kebutuhan($id_kebutuhan,$params)
     {
-        $this->db->where('id_beli',$id_beli);
-        return $this->db->update('beli',$params);
+        $this->db->where('id_kebutuhan',$id_kebutuhan);
+        return $this->db->update('kebutuhan',$params);
     }
     
     /*
      * function to delete beli
      */
-    function delete_beli($id_beli)
+    function delete_kebutuhan($id_kebutuhan)
     {
-        return $this->db->delete('beli',array('id_beli'=>$id_beli));
+        return $this->db->delete('kebutuhan',array('id_kebutuhan'=>$id_kebutuhan));
     }
 }
