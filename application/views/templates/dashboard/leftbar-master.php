@@ -10,8 +10,8 @@
                 <li> <a class="waves-effect waves-dark" href="<?php echo base_url('kebutuhan/index')?>" aria-expanded="false"><i class="icon-basket"></i><span class="hide-menu">Shopping List</span></a></li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-social-dropbox"></i><span class="hide-menu">Inventory</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="<?php echo base_url('inventory-bhp')?>">Barang Habis Pakai</a></li>
-                        <li><a href="<?php echo base_url('inventory-bthp')?>">Barang Tidak Habis Pakai</a></li>
+                        <li><a href="<?php echo base_url('inventory/bhp')?>">Barang Habis Pakai</a></li>
+                        <li><a href="<?php echo base_url('inventory/bthp')?>">Barang Tidak Habis Pakai</a></li>
                     </ul>
                 </li>
               <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-note"></i><span class="hide-menu">Manage Stock</span></a>
