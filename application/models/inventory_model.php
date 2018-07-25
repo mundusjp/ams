@@ -32,6 +32,10 @@ class Inventory_model extends CI_Model
     /*
      * Get inventory by id_inventory
      */
+    function get_last_id()
+    {
+        return $this->db->select("id_inventory")->limit(1)->order_by('id_inventory',"DESC")->get("inventory")->row();
+    }
     function get_inventory($id_inventory)
     {
         return $this->db->get_where('inventory',array('id_inventory'=>$id_inventory))->row_array();

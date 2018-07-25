@@ -1,16 +1,16 @@
-<?php 
- 
+<?php
+
 class Auth extends CI_Controller{
- 
+
 	function __construct(){
-		parent::__construct();		
+		parent::__construct();
 		$this->load->model('user_model');
 	}
- 
+
 	function index(){
 		$this->load->view('');
 	}
- 
+
 	function login(){
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
@@ -29,17 +29,17 @@ class Auth extends CI_Controller{
 					'nipp' => $login->nipp,
 					'status' => "login",
 					);
-	 
+
 				$this->session->set_userdata($data_session);
-	 
+
 				redirect('home');
 			}
 		}
 		else{
-			echo "Username dan password salah !";
+      $this->load->view('loginfailed');
 		}
 	}
- 
+
 	function logout(){
 		$this->session->sess_destroy();
 		redirect(base_url(''));
