@@ -8,7 +8,6 @@
 			foreach($all_supplier as $supplier)
 			{
 				$selected = ($supplier['id_supplier'] == $this->input->post('id_supplier')) ? ' selected="selected"' : "";
-
 				echo '<option value="'.$supplier['id_supplier'].'" '.$selected.'>'.$supplier['nama'].'</option>';
 			} 
 			?>
