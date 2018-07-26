@@ -17,6 +17,7 @@ class Divisi extends CI_Controller{
      */
     function add()
     {
+        $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
         $this->load->library('form_validation');
 
 		$this->form_validation->set_rules('nama','Nama','required|max_length[50]');

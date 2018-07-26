@@ -28,28 +28,30 @@ class Admin extends CI_Controller{
      */
     function add()
     {
+        $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
+
         $this->load->library('form_validation');
 
-		$this->form_validation->set_rules('password','Password','max_length[50]|required');
+		$this->form_validation->set_rules('password','Password','required|max_length[50]');
 		$this->form_validation->set_rules('username','Username','required|max_length[50]');
 		$this->form_validation->set_rules('nama','Nama','required|max_length[50]');
-		$this->form_validation->set_rules('nipp','Nipp','integer');
-		$this->form_validation->set_rules('jabatan','Jabatan','max_length[50]');
+		// $this->form_validation->set_rules('nipp','Nipp','integer');
+		// $this->form_validation->set_rules('jabatan','Jabatan','max_length[50]');
 		$this->form_validation->set_rules('status','Status','required|integer');
 		$this->form_validation->set_rules('id_divisi','Id Divisi','required|integer');
-		$this->form_validation->set_rules('no_hp','No Hp','integer');
-		$this->form_validation->set_rules('alamat','Alamat','max_length[191]');
-		$this->form_validation->set_rules('email','Email','max_length[191]|valid_email');
-		$this->form_validation->set_rules('photo','Photo','max_length[191]');
+		// $this->form_validation->set_rules('no_hp','No Hp','integer');
+		// $this->form_validation->set_rules('alamat','Alamat','max_length[191]');
+		// $this->form_validation->set_rules('email','Email','max_length[191]|valid_email');
+		// $this->form_validation->set_rules('photo','Photo','max_length[191]');
 
 		if($this->form_validation->run())
         {
             $params = array(
+        'nama' => $this->input->post('nama'),
+        'username' => $this->input->post('username'),
+        'password' => $this->input->post('password'),
+        'status' => $this->input->post('status'),
 				'id_divisi' => $this->input->post('id_divisi'),
-				'password' => $this->input->post('password'),
-				'username' => $this->input->post('username'),
-				'nama' => $this->input->post('nama'),
-				'status' => $this->input->post('status'),
             );
 
             $user_id = $this->admin_model->add_admin($params);
@@ -57,10 +59,10 @@ class Admin extends CI_Controller{
         }
         else
         {
-			$data['all_divisi'] = $this->Divisi_model->get_all_divisi();
-
-            $data['_view'] = 'user/add';
-            $this->load->view('manage/user',$data);
+			// $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
+      //
+      //       $data['_view'] = 'manage/user';
+            //$this->load->view('manage/user', $data);
         }
     }
 
