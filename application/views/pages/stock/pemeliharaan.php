@@ -96,8 +96,8 @@
 											<td><?php echo $p['tanggal']; ?></td>
 											<td><?php echo $p['deskripsi']; ?></td>
 											<td>
-												<a href="<?php echo site_url('pemeliharaan/edit/'.$p['id_pemeliharaan']); ?>">Edit</a> | 
-												<a href="<?php echo site_url('pemeliharaan/remove/'.$p['id_pemeliharaan']); ?>">Delete</a>
+												<a href="<?php echo site_url('stock/editpemeliharaan/'.$p['id_pemeliharaan']); ?>">Edit</a> |
+												<a href="<?php echo site_url('stock/removepemeliharaan/'.$p['id_pemeliharaan']); ?>">Delete</a>
 											</td>
 										</tr>
 										<?php } ?>
@@ -105,7 +105,7 @@
 									</table>
 									</div>
 								</div>
-							</div>		
+							</div>
 					</div>
 				</div>
 			</div>

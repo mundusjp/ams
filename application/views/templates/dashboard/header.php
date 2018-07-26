@@ -11,6 +11,7 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/vertical/images/favicon.ico')?>">
     <title>Dashboard | Asset Management System</title>
+    <link href="<?php echo base_url('assets/vertical/node_modules/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css')?>" rel="stylesheet">
     <!-- This page CSS -->
     <!-- form css -->
     <link href="<?php echo base_url('assets/vertical/css/pages/floating-label.css')?>" rel="stylesheet">
@@ -26,6 +27,10 @@
     <link href="<?php echo base_url('assets/vertical/css/style.min.css')?>" rel="stylesheet">
     <!--alerts CSS -->
     <link href="<?php echo base_url('assets/vertical/node_modules/sweetalert/sweetalert.css')?>" rel="stylesheet" type="text/css">
+    <!-- Color picker plugins css -->
+    <link href="<?php echo base_url('assets/vertical/node_modules/jquery-asColorPicker-master/css/asColorPicker.css')?>" rel="stylesheet">
+    <!-- Date picker plugins css -->
+    <link href="<?php echo base_url('assets/vertical/node_modules/bootstrap-datepicker/bootstrap-datepicker.min.css')?>" rel="stylesheet" type="text/css" />
     <!-- Dashboard 1 Page CSS -->
     <link href="<?php echo base_url('assets/vertical/css/pages/dashboard1.css')?>" rel="stylesheet">
     <!-- Dashboard 2 Page CSS -->
