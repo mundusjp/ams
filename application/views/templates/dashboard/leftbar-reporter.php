@@ -7,17 +7,20 @@
               <li class="nav-small-cap"></li>
                 <li> <a class="waves-effect waves-dark" href="<?php echo base_url('home')?>" aria-expanded="false"><i class="icon-home"></i><span class="hide-menu">Home</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="<?php echo base_url('PantauDivisi')?>" aria-expanded="false"><i class="icon-chart"></i><span class="hide-menu">Division Usage</span></a></li>
+                <li> <a class="waves-effect waves-dark" href="<?php echo base_url('kebutuhan/index')?>" aria-expanded="false"><i class="icon-basket"></i><span class="hide-menu">Shopping List</span></a></li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-social-dropbox"></i><span class="hide-menu">Inventory</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="<?php echo base_url('inventory-bhp')?>">Barang Habis Pakai</a></li>
-                        <li><a href="<?php echo base_url('inventory-bthp')?>">Barang Tidak Habis Pakai</a></li>
+                        <li><a href="<?php echo base_url('inventory/bhp')?>">Barang Habis Pakai</a></li>
+                        <li><a href="<?php echo base_url('inventory/bthp')?>">Barang Tidak Habis Pakai</a></li>
                     </ul>
                 </li>
-              <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-note"></i><span class="hide-menu">Input</span></a>
+              <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-note"></i><span class="hide-menu">Manage Stock</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="<?php echo base_url('input-pembelian')?>">Pembelian</a></li>
-                        <li><a href="<?php echo base_url('input-penyewaan')?>">Penyewaan</a></li>
-                        <li><a href="<?php echo base_url('input-pemasukan-barang')?>">Pemasukan Barang</a></li>
+                        <li><a href="<?php echo base_url('input-overview')?>">Overview</a></li>
+                        <li><a href="<?php echo base_url('beli/index')?>">Pembelian</a></li>
+                        <li><a href="<?php echo base_url('sewa/index')?>">Penyewaan</a></li>
+                        <li><a href="<?php echo base_url('pemeliharaan/index')?>">Pemeliharaan</a></li>
+                        <li><a href="<?php echo base_url('input-pemasukan-barang')?>">Stock Ulang</a></li>
                     </ul>
                 </li>
             </ul>
