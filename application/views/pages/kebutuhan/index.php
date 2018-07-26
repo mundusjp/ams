@@ -28,6 +28,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Data Kebutuhan</h4>
                                 <h6 class="card-subtitle">Data table example</h6>
+                                <?php echo form_open('kebutuhan/add'); ?>
                                 <!--        -->
                                 <!-- Modals -->
                                 <!--        -->
@@ -44,21 +45,25 @@
                                         <form class="floating-labels m-t-40">
                                           <div class="form-group m-b-40">
                                               <label><h6 class="font-weight-bold">Nama Divisi</h6></label>
-                                              <select name="status" class="form-control" >
-                                                  <option value="1">Pusat</option>
-                                                    <?php $selected = (1 == $this->input->post('status')) ? ' selected="selected"' : ""; ?>
-                                                  <option value="2">Cabang</option>
-                                                    <?php $selected = (2 == $this->input->post('status')) ? ' selected="selected"' : ""; ?>
+                                              <select name="id_divisi" class="form-control" >
+                                              <option value="">select divisi</option>
+			                                    <?php 
+			                                    foreach($all_divisi as $divisi)
+			                                    {
+				                                    $selected = ($divisi['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
+				                                    echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama'].'</option>';
+			                                    } 
+			                                    ?>
                                               </select>
                                           </div>
                                           <div class="form-group m-b-40">
                                               <label><h6 class="font-weight-bold">Nama Barang</h6></label>
-                                              <input type="text" class="form-control" name="nama" value="<?php echo $this->input->post('nama'); ?>" />
+                                              <input type="text" class="form-control" name="nama_barang" value="<?php echo $this->input->post('nama_barang'); ?>" />
                                               <span class="bar"></span>
                                           </div>
                                           <div class="form-group m-b-40">
                                               <label><h6 class="font-weight-bold">Jumlah</h6></label>
-                                              <input type="text" class="form-control" name="nama" value="<?php echo $this->input->post('nama'); ?>" />
+                                              <input type="text" class="form-control" name="jumlah" value="<?php echo $this->input->post('jumlah'); ?>" />
                                               <span class="bar"></span>
                                           </div>
                                         </div>
@@ -68,44 +73,9 @@
                                     </div>
                                   </div>
                                 </div>
+                                <?php echo form_close(); ?>
 
-                                <div class="modal fade" id="ModalEditKebutuhan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                  <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                      <div class="modal-header text-center">
-                                        <h3 class="modal-title w-100 font-weight-bold">Edit Kebutuhan</h3>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                          <span aria-hidden="true">&times;</span>
-                                        </button>
-                                      </div>
-                                      <div class="modal-body mx-3">
-                                        <form class="floating-labels m-t-40">
-                                          <div class="form-group m-b-40">
-                                              <label><h6 class="font-weight-bold">Nama Divisi</h6></label>
-                                              <select name="status" class="form-control" >
-                                                  <option value="1">Pusat</option>
-                                                    <?php $selected = (1 == $this->input->post('status')) ? ' selected="selected"' : ""; ?>
-                                                  <option value="2">Cabang</option>
-                                                    <?php $selected = (2 == $this->input->post('status')) ? ' selected="selected"' : ""; ?>
-                                              </select>
-                                          </div>
-                                          <div class="form-group m-b-40">
-                                              <label><h6 class="font-weight-bold">Nama Barang</h6></label>
-                                              <input type="text" class="form-control" name="nama" value="<?php echo $this->input->post('nama'); ?>" />
-                                              <span class="bar"></span>
-                                          </div>
-                                          <div class="form-group m-b-40">
-                                              <label><h6 class="font-weight-bold">Jumlah</h6></label>
-                                              <input type="text" class="form-control" name="nama" value="<?php echo $this->input->post('nama'); ?>" />
-                                              <span class="bar"></span>
-                                          </div>
-                                        </div>
-                                      <div class="modal-footer d-flex justify-content-center">
-                                        <button type="submit" class="btn btn-info waves-effect waves-light">Ubah</button>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
+
                                 <!--        -->
                                 <!-- Button -->
                                 <!--        -->
@@ -118,7 +88,7 @@
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
 										<tr>
-										<th>Id Kebutuhan</th>
+										<th>Nomor</th>
 										<th>Nama Barang</th>
 										<th>Jumlah</th>
 										<th>Divisi</th>
@@ -127,9 +97,10 @@
 									</tr>
 									</thead>
 									<tbody>
-									<?php foreach($kebutuhan as $k){ ?>
+                                    <?php $no = 1;
+                                    foreach($kebutuhan as $k){ ?>
 									<tr>
-										<td><?php echo $k['id_kebutuhan']; ?></td>
+                                        <td><?php echo $no; $no++; ?></td>
 										<td><?php echo $k['nama_barang']; ?></td>
 										<td><?php echo $k['jumlah']; ?></td>
                                         <td><?php
@@ -141,10 +112,56 @@
                                             if($u['id_user']==$k['id_user']) {echo $u['nama'];}
                                         }?></td>
 										<td>
-											<a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" data-target="#ModalEditKebutuhan" action="<?php echo site_url('kebutuhan/edit/'.$k['id_kebutuhan']); ?>">Edit</a> |
-											<a href="<?php echo site_url('kebutuhan/remove/'.$k['id_kebutuhan']); ?>">Delete</a>
+                                            <a data-toggle="modal" href="#edit<?php echo $k['id_kebutuhan']; ?>">Edit</a>
+											                      <a href="<?php echo site_url('kebutuhan/remove/'.$k['id_kebutuhan']); ?>">Delete</a>
 										</td>
 									</tr>
+                  
+                                <div class="modal fade" id="edit<?php echo $k['id_kebutuhan'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header text-center">
+                                        <h3 class="modal-title w-100 font-weight-bold">Edit Kebutuhan</h3>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body mx-3">
+                                      <?php echo form_open('kebutuhan/edit/'.$k['id_kebutuhan']); ?>
+                                        <form class="floating-labels m-t-40">
+                                          <div class="form-group m-b-40">
+                                              <label><h6 class="font-weight-bold">Nama Divisi</h6></label>
+                                              <select name="id_divisi" class="form-control" >
+                                              <option value="">select divisi</option>
+			                                    <?php 
+			                                        foreach($all_divisi as $divisi)
+			                                        {
+				                                        $selected = ($divisi['id_divisi'] == $k['id_divisi']) ? ' selected="selected"' : "";
+				                                        echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama'].'</option>';
+			                                        } 
+			                                    ?>
+                                              </select>
+                                          </div>
+                                          <div class="form-group m-b-40">
+                                              <label><h6 class="font-weight-bold">Nama Barang</h6></label>
+                                              <input type="text" class="form-control" name="nama_barang" value="<?php echo ($this->input->post('nama_barang') ? $this->input->post('nama_barang') : $k['nama_barang']); ?>" />
+                                              <span class="bar"></span>
+                                          </div>
+                                          <div class="form-group m-b-40">
+                                              <label><h6 class="font-weight-bold">Jumlah</h6></label>
+                                              <input type="text" class="form-control" name="jumlah" value="<?php echo ($this->input->post('jumlah') ? $this->input->post('jumlah') : $k['jumlah']); ?>" />
+                                              <span class="bar"></span>
+                                          </div>
+                                        </div>
+                                        
+                                      <div class="modal-footer d-flex justify-content-center">
+                                        <button type="submit" class="btn btn-info waves-effect waves-light">Ubah</button>
+                                        <?php echo form_close(); ?>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                
 									<?php } ?>
 									</tbody>
 								</table>
