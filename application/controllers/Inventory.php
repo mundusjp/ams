@@ -13,7 +13,7 @@ class Inventory extends CI_Controller{
     /*
      * Listing of inventory
      */
-    function index()
+    function overview()
     {
         $data['inventory'] = $this->Inventory_model->get_all_inventory();
 
