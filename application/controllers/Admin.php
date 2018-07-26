@@ -10,6 +10,7 @@ class Admin extends CI_Controller{
         parent::__construct();
         $this->load->model('admin_model');
         $this->load->model('Divisi_model');
+        $this->load->model('Kantor_model');
     }
 
     /*
@@ -18,6 +19,7 @@ class Admin extends CI_Controller{
     function index()
     {
         $data['user'] = $this->admin_model->get_all_admin();
+        $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
 
         $data['_view'] = 'manage/user';
         $this->load->view('manage/user', $data);
@@ -72,7 +74,7 @@ class Admin extends CI_Controller{
     function edit($id_admin)
     {
         // check if the user exists before trying to edit it
-        $data['user'] = $this->User_model->get_admin($id_admin);
+        $data['user'] = $this->admin_model->get_admin($id_admin);
 
         if(isset($data['user']['id_user']))
         {
@@ -106,8 +108,8 @@ class Admin extends CI_Controller{
 					'photo' => $this->input->post('photo'),
                 );
 
-                $this->admin_model->update_user($id_admin,$params);
-                redirect('user/index');
+                $this->admin_model->update_admin($id_admin,$params);
+                redirect('manage/user');
             }
             else
             {
