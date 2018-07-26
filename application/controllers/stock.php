@@ -32,7 +32,8 @@ function overview()
 function penyewaan()
 {
     $data['sewa'] = $this->Sewa_model->get_all_sewa();
-
+    $this->load->model('Supplier_model');
+    $data['all_supplier'] = $this->Supplier_model->get_all_supplier();
     $data['_view'] = 'stock/penyewaan';
     $this->load->view('templates/dashboard/header');
     $this->load->view('templates/dashboard/topbar');

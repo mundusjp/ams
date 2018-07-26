@@ -17,7 +17,9 @@ class Pemeliharaan extends CI_Controller{
     function index()
     {
         $data['pemeliharaan'] = $this->Pemeliharaan_model->get_all_pemeliharaan();
-        
+        $this->load->model('Inventory_model');
+                $data['all_inventory'] = $this->Inventory_model->get_all_inventory();
+                
         $data['_view'] = 'pemeliharaan/index';
         $this->load->view('templates/dashboard/header');
       $this->load->view('templates/dashboard/topbar');
