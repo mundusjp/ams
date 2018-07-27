@@ -112,7 +112,7 @@
                                         <form class="floating-labels m-t-40">
                                           <div class="form-group m-b-40">
                                               <label for="namakantor"><h6 class="font-weight-bold">Nama Kantor</h6></label>
-                                              <input type="text" class="form-control" name="nama_kantor" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama_kantor') : $k['nama']); ?>" />
+                                              <input type="text" class="form-control" name="nama_kantor" value="<?php echo ($this->input->post('nama_kantor') ? $this->input->post('nama_kantor') : $k['nama_kantor']); ?>" />
                                               <span class="bar"></span>
                                           </div>
                                           <div class="form-group m-b-40">
