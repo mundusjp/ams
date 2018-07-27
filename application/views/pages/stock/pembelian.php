@@ -57,7 +57,7 @@
                                           <div class="form-group m-b-40">
                                               <label for="id_kantor"><h6 class="font-weight-bold">Tanggal Transaksi</h6></label>
                                               <span class="bar"></span>
-                                              <input type="date" class="form-control" name="tanggal_transaksi" value="<?php echo $this->input->post('tanggal_transaksi'); ?>" />
+                                              <input type="date" class="form-control mydatepicker" name="tanggal_transaksi" value="<?php echo $this->input->post('tanggal_transaksi'); ?>" />
 	                                          	<span class="text-danger"><?php echo form_error('tanggal_transaksi');?></span>
                                           </div>
                                           <div class="form-group m-b-40">
@@ -138,7 +138,7 @@
                                           <div class="form-group m-b-40">
                                           <label for="id_kantor"><h6 class="font-weight-bold">Tanggal Transaksi</h6></label>
                                           <span class="bar"></span>
-	                                        	<input type="date" class="form-control" name="tanggal_transaksi" value="<?php echo ($this->input->post('tanggal_transaksi') ? $this->input->post('tanggal_transaksi') : $b['tanggal_transaksi']); ?>" />
+	                                        	<input type="date" class="form-control mydatepicker" name="tanggal_transaksi" value="<?php echo ($this->input->post('tanggal_transaksi') ? $this->input->post('tanggal_transaksi') : $b['tanggal_transaksi']); ?>" />
                                             <!-- <input type="text" class="form-control" id="id_kantor"> -->
                                           </div>
                                           <div class="form-group m-b-40">

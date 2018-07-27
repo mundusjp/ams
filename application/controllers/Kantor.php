@@ -7,9 +7,9 @@
 class Kantor extends CI_Controller{
     function __construct()
     {
-        if($this->session->userdata('status') != "login"){
-            redirect('');
-          }
+      if($this->session->userdata('status') != "login"){
+        redirect('');
+        }
         parent::__construct();
         $this->load->model('Kantor_model');
     }

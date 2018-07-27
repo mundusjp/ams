@@ -9,7 +9,7 @@ class Manage extends CI_Controller{
     {
         parent::__construct();
         if($this->session->userdata('status') != "login"){
-            redirect('');
+          redirect('');
           }
         $this->load->model('Divisi_model');
         $this->load->model('admin_model');
