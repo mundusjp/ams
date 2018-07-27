@@ -11,7 +11,7 @@
         <!-- ============================================================== -->
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-                <h4 class="text-themecolor">Expired</h4>
+                <h4 class="text-themecolor">Inventory</h4>
             </div>
         </div>
         <!-- ============================================================== -->
@@ -21,98 +21,121 @@
           <div class="col-12">
             <div class="card">
               <div class="card-body">
-        <!-- ============================================================== -->
-        <!-- tinggal masukin kodingan html disini                           -->
-				<!-- ============================================================== -->
-				<div class="card">
+                <!-- ============================================================== -->
+                <!-- tinggal masukin kodingan html disini                           -->
+                <!-- ============================================================== -->
+						<div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data Expired</h4>
+                                <h4 class="card-title">Data inventory</h4>
                                 <h6 class="card-subtitle">Data table example</h6>
-
-                                <!--        -->
-                                <!-- Button -->
-                                <!--        -->
-                                <div class="row">
-                                  <div class="col-3">
-                                    <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKebutuhan" > add </button>
-                                  </div>
-                                </div>
-                                <div class="table-responsive m-t-40">
-                                    <table id="myTable" class="table table-bordered table-striped">
-                                        <thead>
-										<tr>
-										<th>Nomor</th>
-										<th>Serial ID</th>
-										<th>Kondisi</th>
-										<th>Durability</th>
-									</tr>
-									</thead>
-									<tbody>
-                                    <?php $no = 1;
-                                    foreach($expired as $k){ ?>
-									<tr>
-                                        <td><?php echo $no; $no++; ?></td>
-										<td><?php echo $k['serial_id']; ?></td>
-										<td><?php echo $k['kondisi']; ?></td>
-                                        <td><?php echo $k['durability']; ?></td>
-										<td>
-                                            <a data-toggle="modal" href="#edit<?php echo $k['id_inventory']; ?>">Edit</a>
-											                      <a href="<?php echo site_url('inventory/remove/'.$k['id_inventory']); ?>">Delete</a>
-										</td>
-									</tr>
-                  
-                                <div class="modal fade" id="edit<?php echo $k['id_kebutuhan'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <!-- modal menambahkan fungsi  -->
+								<div class="modal fade" id="ModalTambahKantor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                       <div class="modal-header text-center">
-                                        <h3 class="modal-title w-100 font-weight-bold">Edit Kebutuhan</h3>
+                                        <h3 class="modal-title w-100 font-weight-bold">Tambah Kantor</h3>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                         </button>
                                       </div>
                                       <div class="modal-body mx-3">
-                                      <?php echo form_open('kebutuhan/edit/'.$k['id_kebutuhan']); ?>
                                         <form class="floating-labels m-t-40">
                                           <div class="form-group m-b-40">
-                                              <label><h6 class="font-weight-bold">Nama Divisi</h6></label>
-                                              <select name="id_divisi" class="form-control" >
-                                              <option value="">select divisi</option>
-			                                    <?php 
-			                                        foreach($all_divisi as $divisi)
-			                                        {
-				                                        $selected = ($divisi['id_divisi'] == $k['id_divisi']) ? ' selected="selected"' : "";
-				                                        echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama'].'</option>';
-			                                        } 
-			                                    ?>
+                                              <input type="text" class="form-control" id="id_kantor">
+                                              <span class="bar"></span>
+                                              <label for="id_kantor"><h6 class="font-weight-bold">ID Kantor</h6></label>
+                                          </div>
+                                          <div class="form-group m-b-40">
+                                              <input type="text" class="form-control" id="namakantor">
+                                              <span class="bar"></span>
+                                              <label for="namakantor"><h6 class="font-weight-bold">Nama Kantor</h6></label>
+                                          </div>
+                                          <div class="form-group m-b-40">
+                                              <textarea rows="4" type="text" class="form-control" id="alamatkantor"></textarea>
+                                              <span class="bar"></span>
+                                              <label for="alamatkantor"><h6 class="font-weight-bold">Alamat Kantor</h6></label>
+                                          </div>
+                                          <div class="form-group">
+                                              <label><h6 class="font-weight-bold">Status</h6></label>
+                                              <select class="form-control">
+                                                  <option>1</option>
+                                                  <option>2</option>
                                               </select>
-                                          </div>
-                                          <div class="form-group m-b-40">
-                                              <label><h6 class="font-weight-bold">Nama Barang</h6></label>
-                                              <input type="text" class="form-control" name="nama_barang" value="<?php echo ($this->input->post('nama_barang') ? $this->input->post('nama_barang') : $k['nama_barang']); ?>" />
-                                              <span class="bar"></span>
-                                          </div>
-                                          <div class="form-group m-b-40">
-                                              <label><h6 class="font-weight-bold">Jumlah</h6></label>
-                                              <input type="text" class="form-control" name="jumlah" value="<?php echo ($this->input->post('jumlah') ? $this->input->post('jumlah') : $k['jumlah']); ?>" />
-                                              <span class="bar"></span>
-                                          </div>
+                                            </div>
                                         </div>
-                                        
                                       <div class="modal-footer d-flex justify-content-center">
-                                        <button type="submit" class="btn btn-info waves-effect waves-light">Ubah</button>
-                                        <?php echo form_close(); ?>
+                                        <button class="btn btn-info waves-effect waves-light">Tambah</button>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
-                                
-									<?php } ?>
-									</tbody>
-								</table>
-								</div>
-								</div>
-							</div>
-					</div>
+								<!-- button add -->
+                                <div class="row">
+                                  <div class="col-3">
+                                    <button type="button" class="btn btn-info waaves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKantor" > add </button>
+                                  </div>
+                                </div>
+                                <div class="table-responsive m-t-40">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+											<th>Id Inventory</th>
+											<th>Serial Id</th>
+											<th>Id Divisi Pengada</th>
+											<th>Nama</th>
+											<th>Jenis</th>
+											<th>Merk</th>
+											<th>Nama Divisi Pengada</th>
+											<th>Tanggal</th>
+											<th>Kategori</th>
+											<th>Kondisi</th>
+											<th>Durability</th>
+											<th>Status</th>
+                      <th>Usia</th>
+
+                                            
+											<!-- <th>Id Beli/sewa</th> -->
+											<th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+										<?php foreach($tidakhabis as $i){ ?>
+    									<tr>
+                      <?php $date = explode(" ",$i->tanggal);
+                            $date = $date[0]; ?>
+                      <?php $datetime = new DateTime($i->tanggal); ?>
+                      <?php $diff = date_diff( $datetime, $date2 ); ?>
+                      <?php $selisih = $diff->m + ($diff->y * 12); ?>
+                      <?php if (($i->durability - $selisih) <= 6 ){ ?>
+                        <td><?php echo $i->id_inventory; ?></td>
+                        <td><?php echo $i->serial_id; ?></td>
+                        <td><?php echo $i->id_divisi_pengada; ?></td>
+                        <td><?php echo $i->nama; ?></td>
+                        <td><?php echo $i->jenis; ?></td>
+                        <td><?php echo $i->merk; ?></td>
+                        <td><?php echo $i->nama_divisi_pengada; ?></td>
+                        <td><?php echo $date; ?></td>
+                        <td><?php echo $i->kategori; ?></td>
+                        <td><?php echo $i->kondisi; ?></td>
+                        <td><?php echo $i->durability; ?></td>
+                        <td><?php echo $i->status; ?></td>
+                        <td><?php echo $selisih; ?></td>
+                        
+                        <td>
+                                <a href="<?php echo site_url('inventory/edit_bthp/'.$i->id_inventory); ?>">Buang</a> | 
+                                <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Jual</a> | 
+                                <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Perpanjang</a>
+                            </td>
+                          </tr>
+                      <?php } ?>
+											
+										<?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+						</div>		
 				</div>
-			</div>
-			</div>
+            </div>
+          </div>
+        </div>

@@ -14,17 +14,24 @@ class Expired_model extends CI_Model
     /*
      * Get beli by id_beli
      */
-    function get_kebutuhan($id_kebutuhan)
+    function get_expired($id_inventory)
     {
-        return $this->db->get_where('kebutuhan',array('id_kebutuhan'=>$id_kebutuhan))->row_array();
+        return $this->db->get_where('tidakhabispakai',array('id_inventory'=>$id_inventory))->row_array();
     }
-        
+    function join()
+    {
+        $this->db->select('*');
+        $this->db->from('inventory');
+        $this->db->join('tidakhabispakai', 'inventory.id_inventory = tidakhabispakai.id_inventory');
+        $query = $this->db->get();
+        return $query->result();
+    }
     /*
-     * Get all beli
+     * Get all inventory
      */
     function get_all_expired()
     {
         $this->db->order_by('id_inventory', 'desc');
-        return $this->db->get('tidakhabispakai')->result_array();
+        return $this->db->get('inventory')->result_array();
     }
 }
