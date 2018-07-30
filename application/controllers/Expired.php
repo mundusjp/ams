@@ -75,4 +75,37 @@ class Expired extends CI_Controller{
         else
             show_error('The beli you are trying to edit does not exist.');
     }
+
+    function perpanjang($id_inventory)
+    {
+        // check if the inventory exists before trying to edit it
+        $data['inventory'] = $this->Inventory_model->get_inventory($id_inventory);
+        $data['tidakhabis'] = $this->Expired_model->get_expired($id_inventory);
+
+        if(isset($data['inventory']['id_inventory']))
+        {
+            $this->load->library('form_validation');
+
+            $this->form_validation->set_rules('durability','Durability','required');
+
+			if($this->form_validation->run())
+            {
+                $angka1=$this->input->post('durability');
+                $angk2=$this->input->post('durability2');
+                $jumlah =$angka1+$angk2;
+                $params = array(
+                    'durability' => $jumlah,
+                );
+                $this->Expired_model->add_perpanjang($id_inventory,$params);
+                redirect('expired/index');
+            }
+            else
+            {
+                $data['_view'] = 'expired/perpanjang';
+                $this->load->view('pages/expired/edit',$data);
+            }
+        }
+        else
+            show_error('The inventory you are trying to edit does not exist.');
+    }
 }

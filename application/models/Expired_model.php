@@ -23,6 +23,7 @@ class Expired_model extends CI_Model
         $this->db->select('*');
         $this->db->from('inventory');
         $this->db->join('tidakhabispakai', 'inventory.id_inventory = tidakhabispakai.id_inventory');
+        $this->db->where('tidakhabispakai.status',"ada");
         $query = $this->db->get();
         return $query->result();
     }
@@ -44,6 +45,12 @@ class Expired_model extends CI_Model
     }
 
     function add_pembuangan($id_inventory,$params)
+    {
+        $this->db->where('id_inventory',$id_inventory);
+        return $this->db->update('tidakhabispakai',$params);
+    }
+
+    function add_perpanjang($id_inventory,$params)
     {
         $this->db->where('id_inventory',$id_inventory);
         return $this->db->update('tidakhabispakai',$params);
