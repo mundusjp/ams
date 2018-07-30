@@ -238,8 +238,15 @@
                                                                     <span class="text-danger"><?php echo form_error('tanggal');?></span>
                                                                 </div>
                                                                 <div>
-                                                                    <span class="text-danger">*</span>Kategori :
-                                                                    <input type="text" name="kategori" value="<?php echo ($this->input->post('kategori') ? $this->input->post('kategori') : $i->kategori); ?>" />
+                                                                   
+                                                                    <!-- <input type="text" name="kategori" value="<?php echo ($this->input->post('kategori') ? $this->input->post('kategori') : $i->kategori); ?>" /> -->
+                                                                    <label><h6 class="font-weight-bold">Kategori</h6></label>
+                                                                    <select name="kategori" class="form-control" >
+                                                                            <?php $selected = ("beli" === $i->kategori ) ? ' selected="selected"' : ""; 
+                                                                            echo '<option value="beli" '.$selected.'>Beli</option>'; ?>
+                                                                            <?php $selected = ("sewa"  === $i->kategori) ? ' selected="selected"' : ""; 
+                                                                            echo '<option value="sewa" '.$selected.'>Sewa</option>'; ?>
+                                                                    </select>
                                                                     <span class="text-danger"><?php echo form_error('kategori');?></span>
                                                                 </div>
                                                                 <div>

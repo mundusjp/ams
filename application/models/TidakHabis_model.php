@@ -20,6 +20,7 @@ class TidakHabis_model extends CI_Model
         $this->db->select('*');
         $this->db->from('inventory');
         $this->db->join('tidakhabispakai', 'inventory.id_inventory = tidakhabispakai.id_inventory');
+        $this->db->where('tidakhabispakai.status',"ada");
         $query = $this->db->get();
         return $query->result();
     }

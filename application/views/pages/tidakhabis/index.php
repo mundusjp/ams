@@ -52,8 +52,8 @@
                                                         <span class="bar"></span>
                                                         <label for="id_kantor"><h6 class="font-weight-bold">Nama</h6></label>
                                                     </div>
-                                                    <div class="form-group m-b-40">
-                                                        <input type="text" class="form-control" name="jenis" value="<?php echo $this->input->post('jenis'); ?>">
+                                                    <div class="form-group m-b-40" style="display:none;">
+                                                        <input type="text" class="form-control" name="jenis" value="2">
                                                         <span class="bar"></span>
                                                         <label for="jenis"><h6 class="font-weight-bold">Jenis</h6></label>
                                                     </div>
@@ -68,12 +68,14 @@
                                                         <label for="nama_divisi_pengada"><h6 class="font-weight-bold">Nama Divisi Pengada</h6></label>
                                                     </div>
                                                     <div class="form-group m-b-40">
-                                                        <input type="text" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>">
+                                                        <input type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>">
                                                         <span class="bar"></span>
                                                         <label for="tanggal"><h6 class="font-weight-bold">Tanggal</h6></label>
                                                     </div>
                                                     <div class="form-group m-b-40">
-                                                        <input type="text" class="form-control" name="kategori" value="<?php echo $this->input->post('kategori'); ?>">
+                                                        <!-- <input type="text" class="form-control" name="kategori" value="<?php echo $this->input->post('kategori'); ?>"> -->
+                                                        <input type="radio" name="kategori" value="beli" checked> Beli<br>
+                                                        <input type="radio" name="kategori" value="sewa"> Sewa<br>
                                                         <span class="bar"></span>
                                                         <label for="kategori"><h6 class="font-weight-bold">Kategori</h6></label>
                                                     </div>
@@ -88,7 +90,7 @@
                                                         <label for="kondisi"><h6 class="font-weight-bold">Kondisi</h6></label>
                                                     </div>
                                                     <div class="form-group m-b-40">
-                                                        <input type="text" class="form-control" name="durability" value="<?php echo $this->input->post('durability'); ?>">
+                                                        <input type="number" class="form-control" name="durability" value="<?php echo $this->input->post('durability'); ?>">
                                                         <span class="bar"></span>
                                                         <label for="durability"><h6 class="font-weight-bold">Durability</h6></label>
                                                     </div>
