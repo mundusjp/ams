@@ -122,8 +122,8 @@
                         <td><?php echo $selisih; ?></td>
                         
                         <td>
-                                <a href="<?php echo site_url('inventory/edit_bthp/'.$i->id_inventory); ?>">Buang</a> | 
-                                <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Jual</a> | 
+                                <a href="<?php echo site_url('expired/buang/'.$i->id_inventory); ?>">Buang</a> | 
+                                <a href="<?php echo site_url('expired/add/'.$i->id_inventory); ?>">Jual</a> | 
                                 <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Perpanjang</a>
                             </td>
                           </tr>

@@ -1,28 +1,23 @@
-<?php echo form_open('kebutuhan/add'); ?>
-
+<?php echo form_open('expired/add/'.$inventory['id_inventory']); ?>
 	<div>
-		Id_Divisi : 
-		<select name="id_divisi">
-			<option value="">select divisi</option>
-			<?php 
-			foreach($all_divisi as $divisi)
-			{
-				$selected = ($divisi['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
-
-				echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama'].'</option>';
-			} 
-			?>
-		</select>
+		<span class="text-danger">*</span>Id_inventory : 
+		<input type="text" name="id_inventory" value="<?php echo ($this->input->post('id_inventory') ? $this->input->post('id_inventory') : $inventory['id_inventory']); ?>" />
+		<span class="text-danger"><?php echo form_error('id_inventory');?></span>
 	</div>
 	<div>
-		<span class="text-danger">*</span>Nama Barang : 
-		<input type="text" name="nama_barang" value="<?php echo $this->input->post('nama_barang'); ?>" />
-		<span class="text-danger"><?php echo form_error('nama_barang');?></span>
+		<span class="text-danger">*</span>Pembeli : 
+		<input type="text" name="pembeli" value="<?php echo $this->input->post('pembeli'); ?>" />
+		<span class="text-danger"><?php echo form_error('pembeli');?></span>
 	</div>
 	<div>
-		<span class="text-danger">*</span>Jumlah : 
-		<input type="text" name="jumlah" value="<?php echo $this->input->post('jumlah'); ?>" />
-		<span class="text-danger"><?php echo form_error('jumlah');?></span>
+		<span class="text-danger">*</span>Harga : 
+		<input type="text" name="harga" value="<?php echo $this->input->post('harga'); ?>" />
+		<span class="text-danger"><?php echo form_error('harga');?></span>
+	</div>
+	<div>
+		<span class="text-danger">*</span>Tanggal : 
+		<input type="text" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>" />
+		<span class="text-danger"><?php echo form_error('tanggal');?></span>
 	</div>
 	
 	<button type="submit">Save</button>

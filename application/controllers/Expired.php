@@ -26,8 +26,53 @@ class Expired extends CI_Controller{
         $this->load->view('templates/dashboard/header');
         $this->load->view('templates/dashboard/topbar');
         $this->load->view('templates/dashboard/leftbar');
-        // $this->load->view('templates/dashboard/rightbar');
+        $this->load->view('templates/dashboard/rightbar');
         $this->load->view('pages/expired/index',$data);
         $this->load->view('templates/dashboard/footer');
+    }
+    function add($id_inventory)
+    {
+        $data['inventory'] = $this->Inventory_model->get_inventory($id_inventory);
+        $this->load->library('form_validation');
+		$this->form_validation->set_rules('pembeli','Pembeli','required|max_length[50]');
+		$this->form_validation->set_rules('harga','Harga','required|integer');
+		$this->form_validation->set_rules('tanggal','Tanggal','required');
+
+		if($this->form_validation->run())
+        {
+            $params = array(
+				'pembeli' => $this->input->post('pembeli'),
+				'harga' => $this->input->post('harga'),
+                'tanggal' => $this->input->post('tanggal'),
+                'id_inventory' => $this->input->post('id_inventory'),
+            );
+            $param = array(
+                'status' => "dijual",
+            );
+            $penjualan_id = $this->Expired_model->add_penjualan($id_inventory, $params, $param);
+            redirect('expired/index');
+        }
+        else
+        {
+            $data['_view'] = 'expired/add';
+            $this->load->view('pages/expired/add',$data);
+        }
+    }
+
+    function buang($id_inventory)
+    {
+        // check if the beli exists before trying to edit it
+        $data['inventory'] = $this->Inventory_model->get_inventory($id_inventory);
+
+        if(isset($data['inventory']['id_inventory']))
+        {
+            $params = array(
+                'status' => "dibuang",
+            );
+            $this->Expired_model->add_pembuangan($id_inventory,$params);
+            redirect('expired/index');
+        }
+        else
+            show_error('The beli you are trying to edit does not exist.');
     }
 }

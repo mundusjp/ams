@@ -34,4 +34,18 @@ class Expired_model extends CI_Model
         $this->db->order_by('id_inventory', 'desc');
         return $this->db->get('inventory')->result_array();
     }
+
+    function add_penjualan($id_inventory, $params, $param)
+    {
+        $this->db->insert('penjualan',$params);
+        $this->db->insert_id();
+        $this->db->where('id_inventory',$id_inventory);
+        $this->db->update('tidakhabispakai',$param);   
+    }
+
+    function add_pembuangan($id_inventory,$params)
+    {
+        $this->db->where('id_inventory',$id_inventory);
+        return $this->db->update('tidakhabispakai',$params);
+    }
 }
