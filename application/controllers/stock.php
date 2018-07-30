@@ -8,6 +8,9 @@
      function __construct()
      {
          parent::__construct();
+         if($this->session->userdata('status') != "login"){
+           redirect('');
+           }
          $this->load->model('Sewa_model');
          $this->load->model('Pemeliharaan_model');
          $this->load->model('Beli_model');
@@ -38,7 +41,7 @@ function penyewaan()
     $this->load->view('templates/dashboard/header');
     $this->load->view('templates/dashboard/topbar');
     $this->load->view('templates/dashboard/leftbar');
-    $this->load->view('templates/dashboard/rightbar');
+    // $this->load->view('templates/dashboard/rightbar');
     $this->load->view('pages/stock/penyewaan',$data);
     $this->load->view('templates/dashboard/footer');
 }

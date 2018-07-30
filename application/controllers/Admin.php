@@ -8,6 +8,9 @@ class Admin extends CI_Controller{
     function __construct()
     {
         parent::__construct();
+        if($this->session->userdata('status') != "login"){
+          redirect('');
+          }
         $this->load->model('admin_model');
         $this->load->model('Divisi_model');
         $this->load->model('Kantor_model');

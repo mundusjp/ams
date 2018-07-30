@@ -46,14 +46,15 @@ class Manage extends CI_Controller{
 
     function divisi()
     {
+        $by_kantor = $this->input->post('pilih_cabang');
         $data['divisi'] = $this->Divisi_model->get_all_divisi();
         $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
-
+        $data['records'] = $this->Divisi_model->get_divisi_by_kantor($by_kantor);
         $data['_view'] = 'manage/divisi';
         $this->load->view('templates/dashboard/header');
         $this->load->view('templates/dashboard/topbar');
         $this->load->view('templates/dashboard/leftbar');
-        $this->load->view('templates/dashboard/rightbar');
+        // $this->load->view('templates/dashboard/rightbar');
         $this->load->view('pages/manage/divisi',$data);
         $this->load->view('templates/dashboard/footer');
 

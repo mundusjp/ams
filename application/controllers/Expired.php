@@ -18,7 +18,7 @@ class Expired extends CI_Controller{
         $data['tidakhabis'] = $this->Expired_model->join();
         // $from = new DateTime($data['tanggal']);
         $data['date2'] = new DateTime();
-        
+
         // $age = $from->diff($to)->y . "years and " . $from->diff($to)->m . " months.";
         // echo $age;
 
@@ -26,7 +26,7 @@ class Expired extends CI_Controller{
         $this->load->view('templates/dashboard/header');
         $this->load->view('templates/dashboard/topbar');
         $this->load->view('templates/dashboard/leftbar');
-        $this->load->view('templates/dashboard/rightbar');
+        // $this->load->view('templates/dashboard/rightbar');
         $this->load->view('pages/expired/index',$data);
         $this->load->view('templates/dashboard/footer');
     }

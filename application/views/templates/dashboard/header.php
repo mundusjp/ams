@@ -18,7 +18,7 @@
     <!-- chartist CSS -->
     <link href="<?php echo base_url('assets/vertical/node_modules/morrisjs/morris.css')?>" rel="stylesheet">
     <!-- Vector CSS -->
-    <link href="../assets/node_modules/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <link href="<?php echo base_url('assets/vertical/node_modules/jqvmap-master/dist/jqvmap.css')?>" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="<?php echo base_url('assets/vertical/css/style.min.css')?>" rel="stylesheet">
     <!--c3 CSS -->

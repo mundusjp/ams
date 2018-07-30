@@ -21,7 +21,7 @@ class Inventory extends CI_Controller{
         $this->load->view('templates/dashboard/header');
       $this->load->view('templates/dashboard/topbar');
       $this->load->view('templates/dashboard/leftbar');
-      $this->load->view('templates/dashboard/rightbar');
+      // $this->load->view('templates/dashboard/rightbar');
       $this->load->view('pages/inventory/index',$data);
       $this->load->view('templates/dashboard/footer');
 
@@ -37,7 +37,7 @@ class Inventory extends CI_Controller{
         $this->load->view('templates/dashboard/header');
       $this->load->view('templates/dashboard/topbar');
       $this->load->view('templates/dashboard/leftbar');
-      $this->load->view('templates/dashboard/rightbar');
+      // $this->load->view('templates/dashboard/rightbar');
       $this->load->view('pages/habis/index',$data);
       $this->load->view('templates/dashboard/footer');
 
@@ -52,7 +52,7 @@ class Inventory extends CI_Controller{
         $this->load->view('templates/dashboard/header');
       $this->load->view('templates/dashboard/topbar');
       $this->load->view('templates/dashboard/leftbar');
-      $this->load->view('templates/dashboard/rightbar');
+      // $this->load->view('templates/dashboard/rightbar');
       $this->load->view('pages/tidakhabis/index',$data);
       $this->load->view('templates/dashboard/footer');
 
@@ -179,7 +179,7 @@ class Inventory extends CI_Controller{
 			$this->form_validation->set_rules('nama_divisi_pengada','Nama Divisi Pengada','required|max_length[50]');
 			$this->form_validation->set_rules('tanggal','Tanggal','required');
 			$this->form_validation->set_rules('kategori','Kategori','required|max_length[10]');
-			
+
 			$this->form_validation->set_rules('jumlah','Jumlah','required');
 			$this->form_validation->set_rules('satuan','Satuan','required');
 
@@ -193,7 +193,7 @@ class Inventory extends CI_Controller{
 					'nama_divisi_pengada' => $this->input->post('nama_divisi_pengada'),
 					'tanggal' => $this->input->post('tanggal'),
 					'kategori' => $this->input->post('kategori'),
-					
+
                 );
                 $var = array(
                     'jumlah' => $this->input->post('jumlah'),
@@ -205,7 +205,7 @@ class Inventory extends CI_Controller{
             }
             else
             {
-				
+
 				$data['all_divisi'] = $this->Divisi_model->get_all_divisi();
 
                 $data['_view'] = 'inventory/edit_bhp';

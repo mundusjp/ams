@@ -42,7 +42,7 @@
                                 <h5 class="card-title">NEED RESTOCK</h5>
                                 <div class="d-flex m-t-30 m-b-20 no-block align-items-center">
                                     <span class="display-5 text-purple"><i class="icon-basket-loaded"></i></span>
-                                    <a href="javscript:void(0)" class="link display-5 ml-auto">169</a>
+                                    <a href="<?php echo base_url('stock/overview')?>" class="link display-5 ml-auto">169</a>
                                 </div>
                             </div>
                         </div>
@@ -99,19 +99,14 @@
                 </div>
             </div>
         </div>
+        <!-- ============================================================== -->
+        <!-- Ini working space teman teman. Tinggal tambah table dkk-->
+        <!-- ============================================================== -->
+
+
+
+
 
         <!-- ============================================================== -->
-        <!-- DEMONYA SELESAI! Working space di bawah!-->
+        <!-- Ini adalah akhir dari working space. No more coding below      -->
         <!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- Ini working space teman teman. Tinggal tambah table dkk-->
-<!-- ============================================================== -->
-
-
-
-
-
-
-<!-- ============================================================== -->
-<!-- Ini adalah akhir dari working space. No more coding below      -->
-<!-- ============================================================== -->
