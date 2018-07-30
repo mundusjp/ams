@@ -7,7 +7,15 @@ class Admin_model extends CI_Model
         parent::__construct();
     }
 
-
+    function get_admin_by_kantor($by_kantor){
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->join('divisi', 'user.id_divisi = divisi.id_divisi');
+        $this->db->join('kantor', 'divisi.id_kantor = kantor.id_kantor');
+        $this->db->where('kantor.id_kantor', $by_kantor);
+        $query = $this->db->get();
+          return $query->result_array();
+    }
   function add_admin($params)
   {
       $this->db->insert('user',$params);

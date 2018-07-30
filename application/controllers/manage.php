@@ -32,8 +32,11 @@ class Manage extends CI_Controller{
 
     function user()
     {
+        $by_kantor = $this->input->post('pilih_cabang');
         $data['user'] = $this->admin_model->get_all_admin();
+        $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
         $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
+        $data['records'] = $this->admin_model->get_admin_by_kantor($by_kantor);
 
         $data['_view'] = 'manage/user';
         $this->load->view('templates/dashboard/header');

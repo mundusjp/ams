@@ -23,7 +23,7 @@ class Divisi extends CI_Controller{
         $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
         $this->load->library('form_validation');
 
-		$this->form_validation->set_rules('nama','Nama','required|max_length[50]');
+		$this->form_validation->set_rules('nama_divisi','Nama Divisi','required|max_length[50]');
 		$this->form_validation->set_rules('gedung','Gedung','required|max_length[50]');
 		$this->form_validation->set_rules('lantai','Lantai','required|integer');
 		$this->form_validation->set_rules('id_kantor','Id Kantor','required|integer');
@@ -32,7 +32,7 @@ class Divisi extends CI_Controller{
         {
             $params = array(
 				'id_kantor' => $this->input->post('id_kantor'),
-				'nama' => $this->input->post('nama'),
+				'nama_divisi' => $this->input->post('nama_divisi'),
 				'gedung' => $this->input->post('gedung'),
 				'lantai' => $this->input->post('lantai'),
             );
@@ -62,7 +62,7 @@ class Divisi extends CI_Controller{
         {
             $this->load->library('form_validation');
 
-			$this->form_validation->set_rules('nama','Nama','required|max_length[50]');
+			$this->form_validation->set_rules('nama_divisi','Nama Divisi','required|max_length[50]');
 			$this->form_validation->set_rules('gedung','Gedung','required|max_length[50]');
 			$this->form_validation->set_rules('lantai','Lantai','required|integer');
 			$this->form_validation->set_rules('id_kantor','Id Kantor','required|integer');
@@ -71,7 +71,7 @@ class Divisi extends CI_Controller{
             {
                 $params = array(
 					'id_kantor' => $this->input->post('id_kantor'),
-					'nama' => $this->input->post('nama'),
+					'nama_divisi' => $this->input->post('nama_divisi'),
 					'gedung' => $this->input->post('gedung'),
 					'lantai' => $this->input->post('lantai'),
                 );

@@ -36,11 +36,12 @@
                                   }
                                   ?>
                                 </select>
-                                <?php echo form_submit(['name'=>'submit', 'value'=>'Pilih']);?>
+                                <button type="submit" class="btn btn-info waves-effect waves-light">Pilih</button>
                                 <?php echo form_close();?>
+                                <br>
                                 <div class="row">
                                   <div class="col-3">
-                                    <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#ModalTambahDivisi" > add </button>
+                                    <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#ModalTambahDivisi" > Tambah Divisi </button>
                                   </div>
                                 </div>
                               <?php echo form_open('divisi/add'); ?>
@@ -57,7 +58,7 @@
                                         <form class="floating-labels m-t-40">
                                           <div class="form-group m-b-40">
                                               <label for="namakantor"><h6 class="font-weight-bold">Nama Divisi </h6></label>
-                                              <input type="text" class="form-control" name="nama" value="<?php echo $this->input->post('nama'); ?>" />
+                                              <input type="text" class="form-control" name="nama_divisi" value="<?php echo $this->input->post('nama_divisi'); ?>" />
                                               <span class="bar"></span>
                                           </div>
                                           <div class="form-group m-b-40">
@@ -138,7 +139,7 @@
     								        foreach($records as $rec){ ?>
     								<tr>
     									<td><?php echo $no; $no++; ?></td>
-                      <td><?php echo $rec['nama']; ?></td>
+                      <td><?php echo $rec['nama_divisi']; ?></td>
                       <td><?php foreach($all_kantor as $k){
                               if($k['id_kantor']==$rec['id_kantor']) {
                                 echo $k['nama_kantor'];}
@@ -167,7 +168,7 @@
                                         <form class="floating-labels m-t-40">
                                           <div class="form-group m-b-40">
                                               <label for="namakantor"><h6 class="font-weight-bold">Nama Divisi </h6></label>
-                                              <input type="text" class="form-control" name="nama" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama') : $rec['nama']); ?>" />
+                                              <input type="text" class="form-control" name="nama_divisi" value="<?php echo ($this->input->post('nama_divisi') ? $this->input->post('nama_divisi') : $rec['nama_divisi']); ?>" />
                                               <span class="bar"></span>
                                           </div>
                                           <div class="form-group m-b-40">

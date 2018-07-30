@@ -27,7 +27,6 @@
 				<div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Data kantor</h4>
-                                <h6 class="card-subtitle">Data table example</h6>
                             <?php echo form_open('kantor/add'); ?>
                                 <div class="modal fade" id="ModalTambahKantor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
@@ -70,7 +69,7 @@
                                 <?php echo form_close(); ?>
                                 <div class="row">
                                   <div class="col-3">
-                                    <button type="button" class="btn btn-info waaves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKantor" > add </button>
+                                    <button type="button" class="btn btn-info waaves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKantor" > Tambah Kantor </button>
                                   </div>
                                 </div>
                                 <div class="table-responsive m-t-40">
