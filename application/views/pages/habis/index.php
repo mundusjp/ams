@@ -33,39 +33,81 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header text-center">
-                                                <h3 class="modal-title w-100 font-weight-bold">Tambah Kantor</h3>
+                                                <h3 class="modal-title w-100 font-weight-bold">Tambah Barang Habis Pakai</h3>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                         </button>
                                             </div>
                                             <div class="modal-body mx-3">
-                                                <form class="floating-labels m-t-40">
+                                            
+
+                                               <?php echo form_open('inventory/add_bhp'); ?>
                                                     <div class="form-group m-b-40">
-                                                        <input type="text" class="form-control" id="id_kantor">
+                                                        <input type="text" class="form-control" name="nama" value="<?php echo $this->input->post('nama'); ?>">
                                                         <span class="bar"></span>
-                                                        <label for="id_kantor"><h6 class="font-weight-bold">ID Kantor</h6></label>
+                                                        <label for="id_kantor"><h6 class="font-weight-bold">Nama</h6></label>
                                                     </div>
                                                     <div class="form-group m-b-40">
-                                                        <input type="text" class="form-control" id="namakantor">
+                                                        <input type="text" class="form-control" name="jenis" value="<?php echo $this->input->post('jenis'); ?>">
                                                         <span class="bar"></span>
-                                                        <label for="namakantor"><h6 class="font-weight-bold">Nama Kantor</h6></label>
+                                                        <label for="jenis"><h6 class="font-weight-bold">Jenis</h6></label>
                                                     </div>
                                                     <div class="form-group m-b-40">
-                                                        <textarea rows="4" type="text" class="form-control" id="alamatkantor"></textarea>
+                                                        <input type="text" class="form-control" name="merk" value="<?php echo $this->input->post('merk'); ?>">
                                                         <span class="bar"></span>
-                                                        <label for="alamatkantor"><h6 class="font-weight-bold">Alamat Kantor</h6></label>
+                                                        <label for="merk"><h6 class="font-weight-bold">Merek</h6></label>
                                                     </div>
+                                                    <div class="form-group m-b-40">
+                                                        <input type="text" class="form-control" name="nama_divisi_pengada" value="<?php echo $this->input->post('nama_divisi_pengada'); ?>">
+                                                        <span class="bar"></span>
+                                                        <label for="nama_divisi_pengada"><h6 class="font-weight-bold">Nama Divisi Pengada</h6></label>
+                                                    </div>
+                                                    <div class="form-group m-b-40">
+                                                        <input type="text" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>">
+                                                        <span class="bar"></span>
+                                                        <label for="tanggal"><h6 class="font-weight-bold">Tanggal</h6></label>
+                                                    </div>
+                                                    <div class="form-group m-b-40">
+                                                        <input type="text" class="form-control" name="kategori" value="<?php echo $this->input->post('kategori'); ?>">
+                                                        <span class="bar"></span>
+                                                        <label for="kategori"><h6 class="font-weight-bold">Kategori</h6></label>
+                                                    </div>
+                                                    <div class="form-group m-b-40">
+                                                        <input type="text" class="form-control" name="id_beli/sewa" value="<?php echo $this->input->post('id_beli/sewa'); ?>">
+                                                        <span class="bar"></span>
+                                                        <label for="id_beli/sewa"><h6 class="font-weight-bold">Id Beli/sewa</h6></label>
+                                                    </div>
+                                                    <div class="form-group m-b-40">
+                                                        <input type="text" class="form-control" name="jumlah" value="<?php echo $this->input->post('jumlah'); ?>">
+                                                        <span class="bar"></span>
+                                                        <label for="jumlah"><h6 class="font-weight-bold">Jumlah</h6></label>
+                                                    </div>
+                                                    <div class="form-group m-b-40">
+                                                        <input type="text" class="form-control" name="satuan" value="<?php echo $this->input->post('satuan'); ?>">
+                                                        <span class="bar"></span>
+                                                        <label for="satuan"><h6 class="font-weight-bold">Satuan</h6></label>
+                                                    </div>
+                                                    
                                                     <div class="form-group">
-                                                        <label><h6 class="font-weight-bold">Status</h6></label>
-                                                        <select class="form-control">
-                                                  <option>1</option>
-                                                  <option>2</option>
-                                              </select>
+                                                        <label><h6 class="font-weight-bold">Divisi</h6></label>
+                                                        
+                                                        <select name="id_divisi_pengada" class="form-control">
+                                                        <option value="">select divisi</option>
+                                                        <?php 
+                                                        foreach($all_divisi as $divisi)
+                                                        {
+                                                            $selected = ($divisi['id_divisi'] == $this->input->post('id_divisi_pengada')) ? ' selected="selected"' : "";
+
+                                                            echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama'].'</option>';
+                                                        } 
+                                                        ?>
+                                                    </select>
                                                     </div>
                                             </div>
                                             <div class="modal-footer d-flex justify-content-center">
-                                                <button class="btn btn-info waves-effect waves-light">Tambah</button>
+                                                <button type="submit" class="btn btn-info waves-effect waves-light">Tambah</button>
                                             </div>
+                                            <?php echo form_close(); ?>
                                         </div>
                                     </div>
                                 </div>
@@ -143,7 +185,7 @@
                                         </button>
                                                         </div>
                                                         <div class="modal-body mx-3">
-                                                            <?php echo form_open('inventory/edit_bhp'.$i->id_inventory); ?>
+                                                            <?php echo form_open('inventory/edit_bhp/'.$i->id_inventory); ?>
                                                             <form class="floating-labels m-t-40">
 
                                                                 <div class="form-group">
