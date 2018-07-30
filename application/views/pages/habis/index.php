@@ -45,8 +45,8 @@
                                                         <span class="bar"></span>
                                                         <label for="id_kantor"><h6 class="font-weight-bold">Nama</h6></label>
                                                     </div>
-                                                    <div class="form-group m-b-40">
-                                                        <input type="text" class="form-control" name="jenis" value="<?php echo $this->input->post('jenis'); ?>">
+                                                    <div class="form-group m-b-40 " style="display:none;">
+                                                        <input type="text" class="form-control" name="jenis" value="1">
                                                         <span class="bar"></span>
                                                         <label for="jenis"><h6 class="font-weight-bold">Jenis</h6></label>
                                                     </div>
@@ -58,15 +58,17 @@
                                                     <div class="form-group m-b-40">
                                                         <input type="text" class="form-control" name="nama_divisi_pengada" value="<?php echo $this->input->post('nama_divisi_pengada'); ?>">
                                                         <span class="bar"></span>
-                                                        <label for="nama_divisi_pengada"><h6 class="font-weight-bold">Nama Divisi Pengada</h6></label>
+                                                        <label for="nama_divisi_pengada"><h6 class="font-weight-bold">Nama Divisi Penerima</h6></label>
                                                     </div>
                                                     <div class="form-group m-b-40">
-                                                        <input type="text" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>">
+                                                        <input type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>">
                                                         <span class="bar"></span>
                                                         <label for="tanggal"><h6 class="font-weight-bold">Tanggal</h6></label>
                                                     </div>
                                                     <div class="form-group m-b-40">
-                                                        <input type="text" class="form-control" name="kategori" value="<?php echo $this->input->post('kategori'); ?>">
+                                                        <!-- <input type="text" class="form-control" name="kategori" value="<?php echo $this->input->post('kategori'); ?>"> -->
+                                                        <input type="radio" name="kategori" value="beli" checked> Beli<br>
+                                                        <input type="radio" name="kategori" value="sewa"> Sewa<br>
                                                         <span class="bar"></span>
                                                         <label for="kategori"><h6 class="font-weight-bold">Kategori</h6></label>
                                                     </div>
@@ -76,7 +78,7 @@
                                                         <label for="id_beli/sewa"><h6 class="font-weight-bold">Id Beli/sewa</h6></label>
                                                     </div>
                                                     <div class="form-group m-b-40">
-                                                        <input type="text" class="form-control" name="jumlah" value="<?php echo $this->input->post('jumlah'); ?>">
+                                                        <input type="number" class="form-control" name="jumlah" value="<?php echo $this->input->post('jumlah'); ?>">
                                                         <span class="bar"></span>
                                                         <label for="jumlah"><h6 class="font-weight-bold">Jumlah</h6></label>
                                                     </div>
@@ -87,7 +89,7 @@
                                                     </div>
                                                     
                                                     <div class="form-group">
-                                                        <label><h6 class="font-weight-bold">Divisi</h6></label>
+                                                        <label><h6 class="font-weight-bold">Divisi Pengada</h6></label>
                                                         
                                                         <select name="id_divisi_pengada" class="form-control">
                                                         <option value="">select divisi</option>
@@ -96,7 +98,7 @@
                                                         {
                                                             $selected = ($divisi['id_divisi'] == $this->input->post('id_divisi_pengada')) ? ' selected="selected"' : "";
 
-                                                            echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama'].'</option>';
+                                                            echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama_divisi'].'</option>';
                                                         } 
                                                         ?>
                                                     </select>
@@ -120,12 +122,12 @@
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Id barang</th>
-                                                <th>Id Divisi Pengada</th>
+                                                <th>No.</th>
+                                                <th>Divisi Pengada</th>
                                                 <th>Nama</th>
-                                                <th>Jenis</th>
+                                                <!-- <th>Jenis</th> -->
                                                 <th>Merk</th>
-                                                <th>Nama Divisi Pengada</th>
+                                                <th>Nama Divisi Penerima</th>
                                                 <th>Tanggal</th>
                                                 <th>Kategori</th>
                                                 <th>jumlah</th>
@@ -134,21 +136,29 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach ($habis as $i) { ?>
+                                            <?php $no=1;
+                                            foreach ($habis as $i) { ?>
                                             <tr>
 
                                                 <td>
-                                                    <?php echo $i->id_inventory; ?>
+                                                    <?php echo $no++; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $i->id_divisi_pengada; ?>
+                                                    <!--  -->
+                                                    <?php 
+                                                    foreach($all_divisi as $divisi)
+                                                    {
+                                                        if ($divisi['id_divisi'] == $i->id_divisi_pengada)
+                                                        echo $divisi['nama_divisi'];
+                                                    } 
+                                                    ?>
                                                 </td>
                                                 <td>
                                                     <?php echo $i->nama; ?>
                                                 </td>
-                                                <td>
+                                                <!-- <td>
                                                     <?php echo $i->jenis; ?>
-                                                </td>
+                                                </td> -->
                                                 <td>
                                                     <?php echo $i->merk; ?>
                                                 </td>
@@ -156,7 +166,8 @@
                                                     <?php echo $i->nama_divisi_pengada; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $i->tanggal; ?>
+                                                    <!-- <?php echo $i->tanggal; ?> -->
+                                                    <?= date('d-m-Y', strtotime($i->tanggal)) ?>
                                                 </td>
                                                 <td>
                                                     <?php echo $i->kategori; ?>
@@ -189,23 +200,23 @@
                                                                 <div class="form-group">
                                                                     <label><h6 class="font-weight-bold">Divisi</h6></label>
                                                                     <select name="id_divisi_pengada">
-                                                        <option value="">select divisi</option>
-                                                        <?php 
-                                                        foreach($all_divisi as $divisi)
-                                                        {
-                                                            $selected = ($divisi['id_divisi'] == $i->id_divisi_pengada) ? ' selected="selected"' : "";
+                                                                    <option value="">select divisi</option>
+                                                                    <?php 
+                                                                    foreach($all_divisi as $divisi)
+                                                                    {
+                                                                        $selected = ($divisi['id_divisi'] == $i->id_divisi_pengada) ? ' selected="selected"' : "";
 
-                                                            echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama'].'</option>';
-                                                        } 
-                                                        ?>
-                                                    </select>
+                                                                        echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama_divisi'].'</option>';
+                                                                    } 
+                                                                    ?>
+                                                                </select>
                                                                 </div>
                                                                 <div>
                                                                     <span class="text-danger">*</span>Nama :
                                                                     <input type="text" name="nama" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama') : $i->nama); ?>" />
                                                                     <span class="text-danger"><?php echo form_error('nama');?></span>
                                                                 </div>
-                                                                <div>
+                                                                <div style="display:none;">
                                                                     <span class="text-danger">*</span>Jenis :
                                                                     <input type="text" name="jenis" value="<?php echo ($this->input->post('jenis') ? $this->input->post('jenis') : $i->jenis); ?>" />
                                                                     <span class="text-danger"><?php echo form_error('jenis');?></span>
@@ -220,9 +231,10 @@
                                                                     <input type="text" name="nama_divisi_pengada" value="<?php echo ($this->input->post('nama_divisi_pengada') ? $this->input->post('nama_divisi_pengada') : $i->nama_divisi_pengada); ?>" />
                                                                     <span class="text-danger"><?php echo form_error('nama_divisi_pengada');?></span>
                                                                 </div>
+                                                                <?php $date = explode(" ",$i->tanggal);$date = $date[0]; ?>
                                                                 <div>
                                                                     <span class="text-danger">*</span>Tanggal :
-                                                                    <input type="text" name="tanggal" value="<?php echo ($this->input->post('tanggal') ? $this->input->post('tanggal') : $i->tanggal); ?>" />
+                                                                    <input type="date" name="tanggal" value="<?php echo ($this->input->post('tanggal') ? $this->input->post('tanggal') : $date); ?>" />
                                                                     <span class="text-danger"><?php echo form_error('tanggal');?></span>
                                                                 </div>
                                                                 <div>
@@ -232,7 +244,7 @@
                                                                 </div>
                                                                 <div>
                                                                     <span class="text-danger">*</span>Jumlah :
-                                                                    <input type="text" name="jumlah" value="<?php echo ($this->input->post('jumlah') ? $this->input->post('jumlah') : $i->jumlah); ?>" />
+                                                                    <input type="number" name="jumlah" value="<?php echo ($this->input->post('jumlah') ? $this->input->post('jumlah') : $i->jumlah); ?>" />
                                                                     <span class="text-danger"><?php echo form_error('jumlah');?></span>
                                                                 </div>
                                                                 <div>

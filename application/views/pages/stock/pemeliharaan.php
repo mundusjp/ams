@@ -98,7 +98,7 @@
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Id Pemeliharaan
+                                                <th>No.
                                                 </th>
                                                 <th>Id Inventory
                                                 </th>
@@ -113,13 +113,21 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach($pemeliharaan as $p){ ?>
+                                            <?php $no=1;foreach($pemeliharaan as $p){ ?>
                                             <tr>
                                                 <td>
-                                                    <?php echo $p['id_pemeliharaan']; ?>
+                                                    <!-- <?php echo $p['id_pemeliharaan']; ?> -->
+                                                    <?php echo $no++; ?> 
                                                 </td>
                                                 <td>
-                                                    <?php echo $p['id_inventory']; ?>
+                                                    <!-- <?php echo $p['id_inventory']; ?> -->
+                                                    <?php 
+                                                    foreach($all_inventory as $inventory)
+                                                    {
+                                                        if ($inventory['id_inventory'] == $p['id_inventory'])
+                                                        echo $inventory['nama'];
+                                                    } 
+                                                    ?>
                                                 </td>
                                                 <td>
                                                     <?php echo $p['biaya']; ?>

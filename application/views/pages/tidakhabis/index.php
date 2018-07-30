@@ -108,7 +108,7 @@
                                                         {
                                                             $selected = ($divisi['id_divisi'] == $this->input->post('id_divisi_pengada')) ? ' selected="selected"' : "";
 
-                                                            echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama'].'</option>';
+                                                            echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama_divisi'].'</option>';
                                                         } 
                                                         ?>
                                                     </select>
@@ -131,13 +131,13 @@
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Id Inventory</th>
+                                                <th>No.</th>
                                                 <th>Serial Id</th>
-                                                <th>Id Divisi Pengada</th>
+                                                <th>Divisi Pengada</th>
                                                 <th>Nama</th>
-                                                <th>Jenis</th>
+                                                <!-- <th>Jenis</th> -->
                                                 <th>Merk</th>
-                                                <th>Nama Divisi Pengada</th>
+                                                <th>Nama Divisi Penerima</th>
                                                 <th>Tanggal</th>
                                                 <th>Kategori</th>
                                                 <th>Kondisi</th>
@@ -150,23 +150,31 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach($tidakhabis as $i){ ?>
+                                            <?php $no=1;foreach($tidakhabis as $i){ ?>
                                             <tr>
                                                 <td>
-                                                    <?php echo $i->id_inventory; ?>
+                                                    <!-- <?php echo $i->id_inventory; ?> -->
+                                                        <?php echo $no++; ?>
                                                 </td>
                                                 <td>
                                                     <?php echo $i->serial_id; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $i->id_divisi_pengada; ?>
+                                                    <!-- <?php echo $i->id_divisi_pengada; ?> -->
+                                                    <?php 
+                                                    foreach($all_divisi as $divisi)
+                                                    {
+                                                        if ($divisi['id_divisi'] == $i->id_divisi_pengada)
+                                                        echo $divisi['nama_divisi'];
+                                                    } 
+                                                    ?>
                                                 </td>
                                                 <td>
                                                     <?php echo $i->nama; ?>
                                                 </td>
-                                                <td>
+                                                <!-- <td>
                                                     <?php echo $i->jenis; ?>
-                                                </td>
+                                                </td> -->
                                                 <td>
                                                     <?php echo $i->merk; ?>
                                                 </td>
@@ -190,7 +198,7 @@
                                                 </td>
 
                                                 <td>
-                                                <a data-toggle="modal" href="#edit-<?php echo $i->id_inventory;?>">Edit</a> ||
+                                                <a data-toggle="modal" href="#edit-<?php echo $i->id_inventory;?>">Edit</a> |
                                                     <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Delete</a>
                                                 </td>
                                             </tr>
@@ -201,8 +209,8 @@
                                                         <div class="modal-header text-center">
                                                             <h3 class="modal-title w-100 font-weight-bold">Tambah Barang Habis Pakai</h3>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                          <span aria-hidden="true">&times;</span>
-                                        </button>
+                                                        <span aria-hidden="true">&times;</span>
+                                                        </button>
                                                         </div>
                                                         <div class="modal-body mx-3">
                                                             <?php echo form_open('inventory/edit_bthp/'.$i->id_inventory); ?>
@@ -217,7 +225,7 @@
                                                         {
                                                             $selected = ($divisi['id_divisi'] == $i->id_divisi_pengada) ? ' selected="selected"' : "";
 
-                                                            echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama'].'</option>';
+                                                            echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama_divisi'].'</option>';
                                                         } 
                                                         ?>
                                                     </select>

@@ -93,7 +93,7 @@
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Id Beli</th>
+                                                <th>No.</th>
                                                 <th>Nama Supplier</th>
                                                 <th>Tanggal Transaksi</th>
                                                 <th>Total Harga</th>
@@ -102,19 +102,20 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach($beli as $b){ ?>
+                                            <?php $no=1;foreach($beli as $b){ ?>
                                             <tr>
                                                 <td>
-                                                    <?php echo $b['id_beli']; ?>
+                                                    <!-- <?php echo $b['id_beli']; ?>-->
+                                                    <?php echo $no++; ?> 
                                                 </td>
                                                 <td>
                                                     <?php 
-                   foreach($all_supplier as $supplier)
-                   {
-                    if ($supplier['id_supplier'] == $b['id_supplier'])
-                     echo $supplier['nama'];
-                   } 
-                   ?>
+                                            foreach($all_supplier as $supplier)
+                                            {
+                                                if ($supplier['id_supplier'] == $b['id_supplier'])
+                                                echo $supplier['nama'];
+                                            } 
+                                            ?>
                                                 </td>
                                                 <td>
                                                     <?php echo $b['tanggal_transaksi']; ?>
