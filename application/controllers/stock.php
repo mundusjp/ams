@@ -65,7 +65,8 @@ function pembelian()
 function pemeliharaan()
 {
     $data['pemeliharaan'] = $this->Pemeliharaan_model->get_all_pemeliharaan();
-
+    $this->load->model('Inventory_model');
+    $data['all_inventory'] = $this->Inventory_model->get_all_inventory();
     $data['_view'] = 'stock/pemeliharaan';
 
     $this->load->view('templates/dashboard/header');
@@ -173,7 +174,7 @@ if($this->form_validation->run())
   $data['all_inventory'] = $this->Inventory_model->get_all_inventory();
 
         $data['_view'] = 'stock/pemeliharaan';
-        $this->load->view('pages/manage-stock/pemeliharaan',$data);
+        $this->load->view('pages/stock/pemeliharaan',$data);
     }
 }
 
@@ -218,7 +219,7 @@ function editsewa($id_sewa)
     $data['all_supplier'] = $this->Supplier_model->get_all_supplier();
 
             $data['_view'] = 'stock/editsewa';
-            $this->load->view('pages/manage-stock/penyewaan',$data);
+            $this->load->view('pages/stock/penyewaan',$data);
         }
     }
     else
@@ -280,10 +281,10 @@ function editpemeliharaan($id_pemeliharaan)
   if($this->form_validation->run())
         {
             $params = array(
-      'id_inventory' => $this->input->post('id_inventory'),
-      'biaya' => $this->input->post('biaya'),
-      'tanggal' => $this->input->post('tanggal'),
-      'deskripsi' => $this->input->post('deskripsi'),
+                'id_inventory' => $this->input->post('id_inventory'),
+                'biaya' => $this->input->post('biaya'),
+                'tanggal' => $this->input->post('tanggal'),
+                'deskripsi' => $this->input->post('deskripsi'),
             );
 
             $this->Pemeliharaan_model->update_pemeliharaan($id_pemeliharaan,$params);
@@ -291,11 +292,11 @@ function editpemeliharaan($id_pemeliharaan)
         }
         else
         {
-    $this->load->model('Inventory_model');
-    $data['all_inventory'] = $this->Inventory_model->get_all_inventory();
+            $this->load->model('Inventory_model');
+            $data['all_inventory'] = $this->Inventory_model->get_all_inventory();
 
             $data['_view'] = 'stock/pemeliharaan';
-            $this->load->view('pages/manage-stock/pemeliharaan',$data);
+            $this->load->view('pages/stock/pemeliharaan',$data);
         }
     }
     else

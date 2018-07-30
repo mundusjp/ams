@@ -39,8 +39,6 @@
                                         </button>
                                             </div>
                                             <div class="modal-body mx-3">
-                                            
-
                                                <?php echo form_open('inventory/add_bhp'); ?>
                                                     <div class="form-group m-b-40">
                                                         <input type="text" class="form-control" name="nama" value="<?php echo $this->input->post('nama'); ?>">

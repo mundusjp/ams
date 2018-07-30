@@ -232,7 +232,7 @@ class Inventory extends CI_Controller{
 			$this->form_validation->set_rules('nama_divisi_pengada','Nama Divisi Pengada','required|max_length[50]');
 			$this->form_validation->set_rules('tanggal','Tanggal','required');
 			$this->form_validation->set_rules('kategori','Kategori','required|max_length[10]');
-			$this->form_validation->set_rules('id_beli/sewa','Id Beli/sewa','required|integer');
+			// $this->form_validation->set_rules('id_beli/sewa','Id Beli/sewa','required|integer');
             $this->form_validation->set_rules('serial_id','Serial_id','required');
             $this->form_validation->set_rules('kondisi','Kondisi','required');
             $this->form_validation->set_rules('durability','Durability','required');
@@ -247,7 +247,7 @@ class Inventory extends CI_Controller{
 					'nama_divisi_pengada' => $this->input->post('nama_divisi_pengada'),
 					'tanggal' => $this->input->post('tanggal'),
 					'kategori' => $this->input->post('kategori'),
-					'id_beli/sewa' => $this->input->post('id_beli/sewa'),
+					// 'id_beli/sewa' => $this->input->post('id_beli/sewa'),
                 );
                 $var = array(
                     'serial_id' => $this->input->post('serial_id'),

@@ -137,8 +137,8 @@
                                                         <div class="modal-header text-center">
                                                             <h3 class="modal-title w-100 font-weight-bold">Edit Pembelian</h3>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                          <span aria-hidden="true">&times;</span>
-                                        </button>
+                                                        <span aria-hidden="true">&times;</span>
+                                                        </button>
                                                         </div>
                                                         <div class="modal-body mx-3">
                                                             <?php echo form_open('beli/edit/'.$b['id_beli']); ?>
@@ -162,23 +162,22 @@
                                                                 <div class="form-group">
                                                                     <label><h6 class="font-weight-bold">Supplier</h6></label>
                                                                     <select class="form-control" name="id_supplier">
-                                                <option value="">select supplier</option>
-                                              <?php 
-                                              foreach($all_supplier as $supplier)
-                                              {
-                                                $selected = ($supplier['id_supplier'] == $b['id_supplier']) ? ' selected="selected"' : "";
+                                                            <option value="">select supplier</option>
+                                                            <?php 
+                                                            foreach($all_supplier as $supplier)
+                                                            {
+                                                                $selected = ($supplier['id_supplier'] == $b['id_supplier']) ? ' selected="selected"' : "";
 
-                                                echo '<option value="'.$supplier['id_supplier'].'" '.$selected.'>'.$supplier['nama'].'</option>';
-                                              } 
-                                              ?>
-                                            </select>
+                                                                echo '<option value="'.$supplier['id_supplier'].'" '.$selected.'>'.$supplier['nama'].'</option>';
+                                                            } 
+                                                            ?>
+                                                            </select>
                                                                 </div>
                                                         </div>
                                                         <div class="modal-footer d-flex justify-content-center">
                                                             <button type="submit" class="btn btn-info waves-effect waves-light">Save</button>
                                                         </div>
                                                         <?php echo form_close(); ?>
-
                                                     </div>
                                                 </div>
                                             </div>
