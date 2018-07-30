@@ -184,7 +184,8 @@
                                                     <?php echo $i->nama_divisi_pengada; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $i->tanggal; ?>
+                                                    <!-- <?php echo $i->tanggal; ?> -->
+                                                    <?= date('d-m-Y', strtotime($i->tanggal)) ?>
                                                 </td>
                                                 <td>
                                                     <?php echo $i->kategori; ?>
@@ -257,17 +258,26 @@
                                                                     <input type="text" name="nama_divisi_pengada" value="<?php echo ($this->input->post('nama_divisi_pengada') ? $this->input->post('nama_divisi_pengada') : $i->nama_divisi_pengada); ?>" />
                                                                     <span class="text-danger"><?php echo form_error('nama_divisi_pengada');?></span>
                                                                 </div>
+                                                                <?php $date = explode(" ",$i->tanggal);$date = $date[0]; ?>
                                                                 <div>
                                                                     <span class="text-danger">*</span>Tanggal :
-                                                                    <input type="text" name="tanggal" value="<?php echo ($this->input->post('tanggal') ? $this->input->post('tanggal') : $i->tanggal); ?>" />
+                                                                    <input type="date" name="tanggal" value="<?php echo ($this->input->post('tanggal') ? $this->input->post('tanggal') : $date); ?>" />
                                                                     <span class="text-danger"><?php echo form_error('tanggal');?></span>
                                                                 </div>
+                                                                
                                                                 <div>
-                                                                    <span class="text-danger">*</span>Kategori :
-                                                                    <input type="text" name="kategori" value="<?php echo ($this->input->post('kategori') ? $this->input->post('kategori') : $i->kategori); ?>" />
-                                                                    <span class="text-danger"><?php echo form_error('kategori');?></span>
-                                                                </div>
-                                                                <div>
+                                                                   
+                                                                   <!-- <input type="text" name="kategori" value="<?php echo ($this->input->post('kategori') ? $this->input->post('kategori') : $i->kategori); ?>" /> -->
+                                                                   <label><h6 class="font-weight-bold">Kategori</h6></label>
+                                                                   <select name="kategori" class="form-control" >
+                                                                           <?php $selected = ("beli" === $i->kategori ) ? ' selected="selected"' : ""; 
+                                                                           echo '<option value="beli" '.$selected.'>Beli</option>'; ?>
+                                                                           <?php $selected = ("sewa"  === $i->kategori) ? ' selected="selected"' : ""; 
+                                                                           echo '<option value="sewa" '.$selected.'>Sewa</option>'; ?>
+                                                                   </select>
+                                                                   <span class="text-danger"><?php echo form_error('kategori');?></span>
+                                                               </div>
+                                                               <div>
                                                                     <span class="text-danger">*</span>Kondisi :
                                                                     <input type="text" name="kondisi" value="<?php echo ($this->input->post('kondisi') ? $this->input->post('kondisi') : $i->kondisi); ?>" />
                                                                     <span class="text-danger"><?php echo form_error('kondisi');?></span>
