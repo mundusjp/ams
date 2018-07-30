@@ -104,7 +104,7 @@
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
 										<tr>
-											<th>Id Sewa</th>
+											<th>No.</th>
 											<th>Nama Supplier</th>
 											<th>Tanggal Transaksi</th>
 											<th>Periode Start</th>
@@ -115,9 +115,11 @@
 										</tr>
 										</thead>
 										<tbody>
-										<?php foreach($sewa as $s){ ?>
+										<?php $no=1; foreach($sewa as $s){ ?>
 										<tr>
-											<td><?php echo $s['id_sewa']; ?></td>
+											<td>
+                                                <?php echo $no++; ?>
+                                            </td>
 											<td><?php
                                             foreach($all_supplier as $supplier)
                                             {
