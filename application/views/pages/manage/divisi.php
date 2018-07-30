@@ -26,7 +26,7 @@
 				<!-- ============================================================== -->
 				<div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data divisi</h4>
+                                <h4 class="card-title">Data Divisi</h4>
                                 <?php echo form_open("manage/divisi");?>
                                 <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
                                   <option value="">Pilih Kantor</option><?php
@@ -39,12 +39,13 @@
                                 <button type="submit" class="btn btn-info waves-effect waves-light">Pilih</button>
                                 <?php echo form_close();?>
                                 <br>
-                                <?php if(count($records)){?>
+
                                 <div class="row">
                                   <div class="col-3">
                                     <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#ModalTambahDivisi" > Tambah Divisi </button>
                                   </div>
                                 </div>
+                                <?php if(count($records)){?>
                               <?php echo form_open('divisi/add'); ?>
                                 <div class="modal fade" id="ModalTambahDivisi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">

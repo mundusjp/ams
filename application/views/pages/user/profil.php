@@ -22,6 +22,7 @@
             <div class="card">
               <div class="card-body">
                 <?php echo form_open("admin/index");?>
+                <img src="<?php echo base_url('assets/vertical/images/users/manager.png')?>" alt="user" class=""><br>
                 <td>Username: <?php echo $user['username'];?></td><br>
                 <td>Password: <?php echo $user['password'];?></td><br>
                 <td>Nama: <?php echo $user['nama'];?></td><br>
@@ -30,8 +31,7 @@
                 <td>No. Handphone: <?php echo $user['no_hp'];?></td><br>
                 <td>Alamat: <?php echo $user['alamat'];?></td><br>
                 <td>Email: <?php echo $user['email'];?></td><br>
-
-                      <?php echo form_close();?>
+                <?php echo form_close();?>
                 <br>
                 <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $user['id_user'];?>">Ubah</a>
                 <div class="modal fade" id="edit<?php echo $user['id_user'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

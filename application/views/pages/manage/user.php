@@ -37,12 +37,13 @@
                 <button type="submit" class="btn btn-info waves-effect waves-light">Pilih</button>
                 <?php echo form_close();?>
                 <br>
-                <?php if(count($records)){?>
+
                 <div class="row">
                   <div class="col-3">
                     <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#ModalAddUser" > Tambah Admin </button>
                   </div>
                 </div>
+                <?php if(count($records)){?>
                 <?php echo form_open('admin/add'); ?>
                 <div class="modal fade" id="ModalAddUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">

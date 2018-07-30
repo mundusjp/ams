@@ -26,7 +26,7 @@
 				<!-- ============================================================== -->
 				<div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data kantor</h4>
+                                <h4 class="card-title">Data Kantor</h4>
                             <?php echo form_open('kantor/add'); ?>
                                 <div class="modal fade" id="ModalTambahKantor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
