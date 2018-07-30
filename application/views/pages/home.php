@@ -102,16 +102,6 @@
         <!-- ============================================================== -->
         <!-- Ini working space teman teman. Tinggal tambah table dkk-->
         <!-- ============================================================== -->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                      <div id="vmap" style="width: 900px; height: 400px;"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
 
 
 

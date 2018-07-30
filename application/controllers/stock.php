@@ -41,7 +41,7 @@ function penyewaan()
     $this->load->view('templates/dashboard/header');
     $this->load->view('templates/dashboard/topbar');
     $this->load->view('templates/dashboard/leftbar');
-    $this->load->view('templates/dashboard/rightbar');
+    // $this->load->view('templates/dashboard/rightbar');
     $this->load->view('pages/stock/penyewaan',$data);
     $this->load->view('templates/dashboard/footer');
 }
