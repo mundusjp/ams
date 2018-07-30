@@ -21,14 +21,14 @@ class Kantor extends CI_Controller{
     {
         $this->load->library('form_validation');
 
-		$this->form_validation->set_rules('nama','Nama','required|max_length[50]');
+		$this->form_validation->set_rules('nama_kantor','Nama','required|max_length[50]');
 		$this->form_validation->set_rules('alamat','Alamat','required|max_length[191]');
 		$this->form_validation->set_rules('status','Status','required|integer');
 
 		if($this->form_validation->run())
         {
             $params = array(
-				'nama' => $this->input->post('nama'),
+				'nama_kantor' => $this->input->post('nama_kantor'),
 				'alamat' => $this->input->post('alamat'),
 				'status' => $this->input->post('status'),
             );
@@ -55,14 +55,14 @@ class Kantor extends CI_Controller{
         {
             $this->load->library('form_validation');
 
-			$this->form_validation->set_rules('nama','Nama','required|max_length[50]');
+			$this->form_validation->set_rules('nama_kantor','Nama','required|max_length[50]');
 			$this->form_validation->set_rules('alamat','Alamat','required|max_length[191]');
 			$this->form_validation->set_rules('status','Status','required|integer');
 
 			if($this->form_validation->run())
             {
                 $params = array(
-					'nama' => $this->input->post('nama'),
+					'nama_kantor' => $this->input->post('nama_kantor'),
 					'alamat' => $this->input->post('alamat'),
 					'status' => $this->input->post('status'),
                 );
