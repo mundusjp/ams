@@ -39,6 +39,7 @@
                                 <button type="submit" class="btn btn-info waves-effect waves-light">Pilih</button>
                                 <?php echo form_close();?>
                                 <br>
+                                <?php if(count($records)){?>
                                 <div class="row">
                                   <div class="col-3">
                                     <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#ModalTambahDivisi" > Tambah Divisi </button>
@@ -134,7 +135,6 @@
     								</thead>
     								<tbody>
                     <?php
-                          if(count($records)){
                             $no = 1;
     								        foreach($records as $rec){ ?>
     								<tr>
@@ -233,7 +233,7 @@
                               <?php }
                             }
                             else{
-                              echo('Tidak ada Divisi');
+
                                 }
                             ?>
                               </tbody>

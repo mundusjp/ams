@@ -37,6 +37,7 @@
                 <button type="submit" class="btn btn-info waves-effect waves-light">Pilih</button>
                 <?php echo form_close();?>
                 <br>
+                <?php if(count($records)){?>
                 <div class="row">
                   <div class="col-3">
                     <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#ModalAddUser" > Tambah Admin </button>
@@ -219,7 +220,11 @@
 
                 <!-- <h6 class="card-subtitle"> List inventaris semua divisi periode 2018 </h6> -->
 
-                          <?php } ?>
+              <?php }
+            }
+            else{
+
+            }?>
                           </tbody>
                       </table>
                   </div>

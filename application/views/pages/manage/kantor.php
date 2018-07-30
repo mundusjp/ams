@@ -67,6 +67,7 @@
                                   </div>
                                 </div>
                                 <?php echo form_close(); ?>
+                                <?php if(count($kantor)){?>
                                 <div class="row">
                                   <div class="col-3">
                                     <button type="button" class="btn btn-info waaves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKantor" > Tambah Kantor </button>
@@ -139,7 +140,12 @@
                                   </div>
 
 
-									<?php } ?>
+                                <?php }
+                              }
+                              else{
+
+                                  }
+                              ?>
 									</tbody>
 								</table>
 								</div>
