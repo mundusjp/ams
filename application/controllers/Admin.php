@@ -15,22 +15,6 @@ class Admin extends CI_Controller{
         $this->load->model('Divisi_model');
         $this->load->model('Kantor_model');
     }
-
-    /*
-     * Listing of user
-     */
-     function index(){
-       $id_user = $this->session->userdata('id_user');
-       $data['user'] = $this->admin_model->get_admin($id_user);
-       $data['_view'] = 'user/profil';
-       $this->load->view('templates/dashboard/header');
-     $this->load->view('templates/dashboard/topbar');
-     $this->load->view('templates/dashboard/leftbar');
-     $this->load->view('templates/dashboard/rightbar');
-       $this->load->view('pages/user/profil',$data);
-       $this->load->view('templates/dashboard/footer');
-     }
-
     /*
      * Adding a new user
      */
@@ -129,52 +113,6 @@ class Admin extends CI_Controller{
         else
             show_error('The user you are trying to edit does not exist.');
     }
-
-    function editprofil($id_admin)
-    {
-        // check if the user exists before trying to edit it
-        $data['user'] = $this->admin_model->get_admin($id_admin);
-
-        if(isset($data['user']['id_user']))
-        {
-            $this->load->library('form_validation');
-
-			$this->form_validation->set_rules('password','Password','max_length[50]|required');
-			$this->form_validation->set_rules('username','Username','required|max_length[50]');
-			$this->form_validation->set_rules('nama','Nama','required|max_length[50]');
-			$this->form_validation->set_rules('nipp','Nipp','integer');
-			$this->form_validation->set_rules('jabatan','Jabatan','max_length[50]');
-			$this->form_validation->set_rules('no_hp','No Hp','integer');
-			$this->form_validation->set_rules('alamat','Alamat','max_length[191]');
-			$this->form_validation->set_rules('email','Email','max_length[191]|valid_email');
-			//$this->form_validation->set_rules('photo','Photo','max_length[191]');
-
-			if($this->form_validation->run())
-            {
-                $params = array(
-					'password' => $this->input->post('password'),
-					'username' => $this->input->post('username'),
-					'nama' => $this->input->post('nama'),
-					'nipp' => $this->input->post('nipp'),
-					'jabatan' => $this->input->post('jabatan'),
-					'no_hp' => $this->input->post('no_hp'),
-					'alamat' => $this->input->post('alamat'),
-					'email' => $this->input->post('email'),
-					//'photo' => $this->input->post('photo'),
-                );
-
-                $this->admin_model->update_admin($id_admin,$params);
-                redirect('admin/index');
-            }
-            else
-            {
-                echo ("Validasi Gagal");
-            }
-        }
-        else
-            show_error('The user you are trying to edit does not exist.');
-    }
-
     /*
      * Deleting user
      */

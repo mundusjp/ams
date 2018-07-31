@@ -11,7 +11,7 @@
         <!-- ============================================================== -->
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-                <h4 class="text-themecolor">Profil</h4>
+                <h4 class="text-themecolor">My Profile</h4>
             </div>
         </div>
         <!-- ============================================================== -->
@@ -38,13 +38,16 @@
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header text-center">
-                        <h3 class="modal-title w-100 font-weight-bold">Edit Profil</h3>
+                        <h3 class="modal-title w-100 font-weight-bold">Edit Profile</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
+                      <!-- ========================== -->
+                      <!-- === MODAL EDIT PROFILE === -->
+                      <!-- ========================== -->
                       <div class="modal-body mx-3">
-                        <?php echo form_open('admin/editprofil/'.$user['id_user']); ?>
+                        <?php echo form_open('admin/editprofile/'.$user['id_user']); ?>
                         <form class="floating-labels m-t-40">
                           <div class="form-group m-b-40">
                               <label><h6 class="font-weight-bold">Username</h6></label>
@@ -101,6 +104,9 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
 
 
 
