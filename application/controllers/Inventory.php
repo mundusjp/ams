@@ -215,7 +215,50 @@ class Inventory extends CI_Controller{
         else
             show_error('The inventory you are trying to edit does not exist.');
     }
+    function update_bhp($id_inventory)
+    {
+        // check if the inventory exists before trying to edit it
+        $data['inventory'] = $this->Inventory_model->get_inventory($id_inventory);
+        $data['habis'] = $this->Habis_model->get_habis($id_inventory);
 
+        if(isset($data['inventory']['id_inventory']))
+        {
+            $this->load->library('form_validation');
+
+			
+            $this->form_validation->set_rules('jumlah1','Jumlah1','required');
+            $this->form_validation->set_rules('jumlah','Jumlah','required');
+			$this->form_validation->set_rules('tanda','Tanda','required');
+			
+			if($this->form_validation->run())
+            {
+                 $a = $this->input->post('jumlah');
+                $b =$this->input->post('jumlah1');
+                $tanda = $this->input->post('tanda');
+                if( $tanda=="+"){
+                    $jumlah = $a+$b ;
+                }
+                else $jumlah = $a-$b;
+               
+                $var = array(
+                    'jumlah' => $jumlah,
+                );
+          
+                $this->Habis_model->update_habis($id_inventory,$var);
+                redirect('inventory/bhp');
+            }
+            else
+            {
+
+				$data['all_divisi'] = $this->Divisi_model->get_all_divisi();
+
+                $data['_view'] = 'inventory/edit_bhp';
+                $this->load->view('pages/habis/edit',$data);
+            }
+        }
+        else
+            show_error('The inventory you are trying to edit does not exist.');
+    }
     function edit_bthp($id_inventory)
     {
         // check if the inventory exists before trying to edit it
@@ -301,5 +344,32 @@ class Inventory extends CI_Controller{
         }
         else
             show_error('The inventory you are trying to delete does not exist.');
+    }
+
+    function detail_beli($id_beli)
+    {
+        $data['inventory'] = $this->Inventory_model->get_beli($id_beli);
+
+        $data['_view'] = 'inventory/index';
+        $this->load->view('templates/dashboard/header');
+      $this->load->view('templates/dashboard/topbar');
+      $this->load->view('templates/dashboard/leftbar');
+      // $this->load->view('templates/dashboard/rightbar');
+      $this->load->view('pages/beli/detail',$data);
+      $this->load->view('templates/dashboard/footer');
+
+    }
+    function detail_sewa($id_sewa)
+    {
+        $data['inventory'] = $this->Inventory_model->get_sewa($id_sewa);
+
+        $data['_view'] = 'inventory/index';
+        $this->load->view('templates/dashboard/header');
+      $this->load->view('templates/dashboard/topbar');
+      $this->load->view('templates/dashboard/leftbar');
+      // $this->load->view('templates/dashboard/rightbar');
+      $this->load->view('pages/beli/detail',$data);
+      $this->load->view('templates/dashboard/footer');
+
     }
 }

@@ -122,10 +122,11 @@
 									<td><?php echo $b['deskripsi']; ?></td>
 									<td>
 										<a data-toggle="modal" href="#edit<?php echo $b['id_beli']; ?>">Edit</a> |
-										<a href="<?php echo site_url('stock/removebeli/'.$b['id_beli']); ?>">Delete</a>
+                    <a href="<?php echo site_url('stock/removebeli/'.$b['id_beli']); ?>">Delete</a> |
+                    <a href="<?php echo site_url('inventory/detail_beli/'.$b['id_beli']); ?>">Detail</a>
 									</td>
 								</tr>
-                <!-- modal menambahkan fungsi  -->
+                <!-- modal mengedit fungsi  -->
 								<div class="modal fade" id="edit<?php echo $b['id_beli'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -177,6 +178,7 @@
                                     </div>
                                   </div>
                                 </div>
+                  
 								<?php } ?>
 								</tbody>
 							</table>

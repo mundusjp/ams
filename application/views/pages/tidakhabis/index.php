@@ -94,8 +94,8 @@
                                                         <span class="bar"></span>
                                                         <label for="durability"><h6 class="font-weight-bold">Durability</h6></label>
                                                     </div>
-                                                    <div class="form-group m-b-40">
-                                                        <input type="text" class="form-control" name="status" value="<?php echo $this->input->post('status'); ?>">
+                                                    <div class="form-group m-b-40" style="display:none;">
+                                                        <input type="text" class="form-control" name="status" value="ada">
                                                         <span class="bar"></span>
                                                         <label for="status"><h6 class="font-weight-bold">Status</h6></label>
                                                     </div>
@@ -202,7 +202,8 @@
 
                                                 <td>
                                                 <a data-toggle="modal" href="#edit-<?php echo $i->id_inventory;?>">Edit</a> |
-                                                    <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Delete</a>
+                                                    <!-- <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Delete</a> -->
+                                                    <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Pemeliharaan</a>
                                                 </td>
                                             </tr>
                                               <!-- modal menambahkan fungsi  -->

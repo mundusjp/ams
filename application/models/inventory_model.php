@@ -40,7 +40,24 @@ class Inventory_model extends CI_Model
     {
         return $this->db->get_where('inventory',array('id_inventory'=>$id_inventory))->row_array();
     }
-        
+    function get_beli($id_beli)
+    {
+        $this->db->select('*');
+        $this->db->from('inventory');
+        $this->db->where('inventory.kategori',"beli");
+        $this->db->where('inventory.id_beli/sewa',$id_beli);
+        $query = $this->db->get();
+        return $query->result();
+    }
+    function get_sewa($id_sewa)
+    {
+        $this->db->select('*');
+        $this->db->from('inventory');
+        $this->db->where('inventory.kategori',"sewa");
+        $this->db->where('inventory.id_beli/sewa',$id_sewa);
+        $query = $this->db->get();
+        return $query->result();
+    }
     /*
      * Get all inventory
      */

@@ -14,6 +14,7 @@
          $this->load->model('Sewa_model');
          $this->load->model('Pemeliharaan_model');
          $this->load->model('Beli_model');
+         $this->load->model('Inventory_model');
      }
 
 // ------------------------------------------------------------------------
@@ -50,6 +51,8 @@ function pembelian()
 {
     $data['beli'] = $this->Beli_model->get_all_beli();
     $this->load->model('Supplier_model');
+    $data['all_inventory'] = $this->Inventory_model->get_all_inventory();
+    
 
     $data['all_supplier'] = $this->Supplier_model->get_all_supplier();
     $data['_view'] = 'stock/pembelian';
@@ -347,6 +350,22 @@ function removepemeliharaan($id_pemeliharaan)
     else
         show_error('The pemeliharaan you are trying to delete does not exist.');
 }
+function detail($id_beli)
+{
+    // check if the beli exists before trying to edit it
+    $data['beli'] = $this->Beli_model->get_beli($id_beli);
+    
+    $data['all_inventory'] = $this->Inventory_model->get_beli($id_beli);
+    
 
+    $data['_view'] = 'stock/detail';
+
+    
+    $this->load->view('pages/beli/detail',$data);
+    $this->load->view('templates/dashboard/footer');
+   
+
+    
+}
 
 }

@@ -134,6 +134,7 @@
                                                 </td>
                                                 <td>
                                                     <?php echo $p['tanggal']; ?>
+                                                   
                                                 </td>
                                                 <td>
                                                     <?php echo $p['deskripsi']; ?>

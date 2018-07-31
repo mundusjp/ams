@@ -72,6 +72,12 @@
                                                         <span class="bar"></span>
                                                         <label for="kategori"><h6 class="font-weight-bold">Kategori</h6></label>
                                                     </div>
+                                                    <?php $data= $this->input->get('kategori'); ?>
+                                                    <div class="form-group m-b-40">
+                                                        <input type="text" class="form-control" name="id_beli/sewa" value="<?php echo $this->input->get('kategori'); ?>">
+                                                        <span class="bar"></span>
+                                                        <label for="id_beli/sewa"><h6 class="font-weight-bold"><?php echo $data;?> </h6></label>
+                                                    </div>
                                                     <div class="form-group m-b-40">
                                                         <input type="text" class="form-control" name="id_beli/sewa" value="<?php echo $this->input->post('id_beli/sewa'); ?>">
                                                         <span class="bar"></span>
@@ -180,6 +186,7 @@
                                                 </td>
                                                 <td>
                                                     <a data-toggle="modal" href="#edit-<?php echo $i->id_inventory;?>">Edit</a> |
+                                                    <a data-toggle="modal" href="#update-<?php echo $i->id_inventory;?>">Update</a> |
                                                     <a href="<?php echo site_url('inventory/remove_bhp/'.$i->id_inventory); ?>">Delete</a>
                                                 </td>
                                             </tr>
@@ -258,6 +265,57 @@
                                                                     <span class="text-danger">*</span>Satuan :
                                                                     <input type="text" name="satuan" value="<?php echo ($this->input->post('satuan') ? $this->input->post('satuan') : $i->satuan); ?>" />
                                                                     <span class="text-danger"><?php echo form_error('satuan');?></span>
+                                                                </div>
+                                                        </div>
+                                                        <div class="modal-footer d-flex justify-content-center">
+                                                            <button type="submit" class="btn btn-info waves-effect waves-light">Save</button>
+                                                        </div>
+                                                        <?php echo form_close(); ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- modal menambahkan fungsi  -->
+                                            <div class="modal fade" id="update-<?php echo $i->id_inventory;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header text-center">
+                                                            <h3 class="modal-title w-100 font-weight-bold">Tambah Barang Habis Pakai</h3>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body mx-3">
+                                                            <?php echo form_open('inventory/update_bhp/'.$i->id_inventory); ?>
+                                                            <form class="floating-labels m-t-40">
+
+                                                               
+                                                                <div>
+                                                                    <span class="text-danger">*</span>Nama :
+                                                                    <input type="text" readonly name="nama" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama') : $i->nama); ?>" />
+                                                                    <span class="text-danger"><?php echo form_error('nama');?></span>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="text-danger ">*</span>Jumlah sebelumnya:
+                                                                    <input type="number" readonly  name="jumlah" value="<?php echo ($this->input->post('jumlah') ? $this->input->post('jumlah') : $i->jumlah); ?>" />
+                                                                    <span class="text-danger"><?php echo form_error('jumlah');?></span>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="text-danger">*</span>Satuan :
+                                                                    <input type="text" readonly name="satuan" value="<?php echo ($this->input->post('satuan') ? $this->input->post('satuan') : $i->satuan); ?>" />
+                                                                    <span class="text-danger"><?php echo form_error('satuan');?></span>
+                                                                </div>
+                                                                <div class="form-group m-b-40">
+                                                                <label for="tanda"><h6 class="font-weight-bold">Kategori</h6></label>
+                                                              <br>
+                                                        <!-- <input type="text" class="form-control" name="kategori" value="<?php echo $this->input->post('tanda'); ?>"> -->
+                                                                    <input type="radio" name="tanda" value="+" checked> Stock baru<br>
+                                                                    <input type="radio" name="tanda" value="-"> Deficit<br>
+                                                                    
+                                                                </div>
+                                                                <div>   
+                                                                    <span class="text-danger ">*</span>Kuantitas:
+                                                                    <input type="number"  name="jumlah1" value="<?php echo $this->input->post('jumlah1') ; ?>" />
+                                                                    <span class="text-danger"><?php echo form_error('jumlah1');?></span>
                                                                 </div>
                                                         </div>
                                                         <div class="modal-footer d-flex justify-content-center">

@@ -135,6 +135,7 @@
 											<td><?php echo $s['deskripsi']; ?></td>
 											<td>
 												<a data-toggle="modal" href="#edit<?php echo $s['id_sewa']; ?>">Edit</a> |
+                                                <a href="<?php echo site_url('inventory/detail_sewa/'.$s['id_sewa']); ?>">Detail</a> |
 												<a href="<?php echo site_url('stock/removesewa/'.$s['id_sewa']); ?>">Delete</a>
 											</td>
 										</tr>
@@ -206,6 +207,10 @@
 										<?php } ?>
 										</tbody>
 									</table>
+                                    <?php
+echo "Title of the blog post : ".$title;
+echo "<a href='$web_Address'>"."Click here to go to blog page"."</a>";
+?>
 									</div>
 								</div>
 							</div>
