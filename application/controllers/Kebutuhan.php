@@ -16,6 +16,7 @@ class Kebutuhan extends CI_Controller{
         $this->load->model('Kebutuhan_model');
         $this->load->model('Divisi_model');
         $this->load->model('Admin_model');
+        $this->load->model('Kantor_model');
     }
 
     /*
@@ -23,9 +24,19 @@ class Kebutuhan extends CI_Controller{
      */
     function index()
     {
-        $data['kebutuhan'] = $this->Kebutuhan_model->get_all_kebutuhan();
+        $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
+        $id_user = $this->session->userdata('id_user');
+        $id_divisi = $this->session->userdata('id_divisi');
+        $data['divisi'] = $this->Kebutuhan_model->get_id_kantor($id_divisi);
+        $data['user'] = $this->Admin_model->get_admin($id_user);
+        $by_kantor = $this->input->post('pilih_cabang');
+        $id_kantor = $this->Kebutuhan_model->get_id_kantor($id_divisi);
+        $data['kebutuhan'] = $this->Kebutuhan_model->get_kebutuhan_by_kantor($by_kantor);
+        $data['kebutuhan2'] = $this->Kebutuhan_model->get_kebutuhan_by_kantor($id_kantor);
         $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
         $data['all_user'] = $this->Admin_model->get_all_admin();
+
+        $data['user'] = $this->Admin_model->get_admin($id_user);
 
         $data['_view'] = 'kebutuhan/index';
         $this->load->view('templates/dashboard/header');

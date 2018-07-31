@@ -24,6 +24,8 @@
                 <!-- ============================================================== -->
                 <!-- tinggal masukin kodingan html disini                           -->
                 <!-- ============================================================== -->
+                <div class="card">
+                <div class="card-body">
                 <h4 class="card-title"> Data Admin </h4>
                 <?php echo form_open("manage/user");?>
                 <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
@@ -43,7 +45,7 @@
                     <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#ModalAddUser" > Tambah Admin </button>
                   </div>
                 </div>
-                <?php if(count($records)){?>
+
                 <?php echo form_open('admin/add'); ?>
                 <div class="modal fade" id="ModalAddUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
@@ -106,7 +108,8 @@
                     </div>
                   </div>
                 </div>
-                <?php echo form_close(); ?>
+                <?php echo form_close();
+                if(count($records)){?>
                 <div class="table-responsive m-t-40">
                     <table id="myTable" class="table table-bordered table-striped">
                         <thead>
@@ -229,6 +232,8 @@
                           </tbody>
                       </table>
                   </div>
+                </div>
+              </div>
                 </div>
               </div>
             </div>

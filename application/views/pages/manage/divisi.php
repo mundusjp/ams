@@ -24,8 +24,8 @@
                 <!-- ============================================================== -->
                 <!-- tinggal masukin kodingan html disini                           -->
 				<!-- ============================================================== -->
-				<div class="card">
-                            <div class="card-body">
+        <div class="card">
+        <div class="card-body">
                                 <h4 class="card-title">Data Divisi</h4>
                                 <?php echo form_open("manage/divisi");?>
                                 <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
@@ -45,7 +45,7 @@
                                     <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#ModalTambahDivisi" > Tambah Divisi </button>
                                   </div>
                                 </div>
-                                <?php if(count($records)){?>
+
                               <?php echo form_open('divisi/add'); ?>
                                 <div class="modal fade" id="ModalTambahDivisi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
@@ -121,7 +121,7 @@
                                   </div>
                                 </div>
                               <?php echo form_close();
-                                    // echo form_open('divisi/edit/'.$divisi['id_divisi']); ?>
+                                if (count($records)){?>
                                     <div class="table-responsive m-t-40">
                                         <table id="myTable" class="table table-bordered table-striped">
                                             <thead>
@@ -240,8 +240,8 @@
                               </tbody>
                               </table>
                               </div>
-								</div>
-							</div>
+                            </div>
+                          </div>
 					</div>
 				</div>
 			</div>

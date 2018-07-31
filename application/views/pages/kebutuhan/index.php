@@ -27,8 +27,22 @@
 				<div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Data Kebutuhan</h4>
-                                <h6 class="card-subtitle">Data table example</h6>
+                                <?php if ($user['status'] == 1){
+                                  echo form_open("Kebutuhan/index");?>
+                                <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
+                                  <option value="">Pilih Kantor</option><?php
+                                  foreach($all_kantor as $kantor)
+                                  {
+                                    echo '<option value="'.$kantor['id_kantor'].'">'.$kantor['nama_kantor'].'</option>';
+                                  }
+                                  ?>
+                                </select>
+                                <button type="submit" class="btn btn-info waves-effect waves-light">Pilih</button>
+                                <br>
+                                <br>
+                                <?php echo form_close();}?>
                                 <?php echo form_open('kebutuhan/add'); ?>
+
                                 <!--        -->
                                 <!-- Modals -->
                                 <!--        -->
@@ -47,12 +61,12 @@
                                               <label><h6 class="font-weight-bold">Nama Divisi</h6></label>
                                               <select name="id_divisi" class="form-control" >
                                               <option value="">select divisi</option>
-			                                    <?php 
+			                                    <?php
 			                                    foreach($all_divisi as $divisi)
 			                                    {
 				                                    $selected = ($divisi['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
-				                                    echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama'].'</option>';
-			                                    } 
+				                                    echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama_divisi'].'</option>';
+			                                    }
 			                                    ?>
                                               </select>
                                           </div>
@@ -81,42 +95,48 @@
                                 <!--        -->
                                 <div class="row">
                                   <div class="col-3">
-                                    <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKebutuhan" > add </button>
+                                    <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKebutuhan" > Tambah Kebutuhan </button>
                                   </div>
                                 </div>
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
 										<tr>
-										<th>Nomor</th>
+										<th>No.</th>
 										<th>Nama Barang</th>
 										<th>Jumlah</th>
 										<th>Divisi</th>
                     <th>User</th>
-                    <th>Action</th>
+                    <th>Tindakan</th>
 									</tr>
 									</thead>
 									<tbody>
                                     <?php $no = 1;
-                                    foreach($kebutuhan as $k){ ?>
+                                    if($user['status']==1){
+                                      $keb=$kebutuhan;
+                                    }
+                                    else if($user['status']==2){
+                                      $keb=$kebutuhan2;
+                                    }
+                                    foreach($keb as $k){ ?>
 									<tr>
                                         <td><?php echo $no; $no++; ?></td>
-										<td><?php echo $k['nama_barang']; ?></td>
-										<td><?php echo $k['jumlah']; ?></td>
+										                    <td><?php echo $k['nama_barang']; ?></td>
+										                    <td><?php echo $k['jumlah']; ?></td>
                                         <td><?php
                                         foreach($all_divisi as $d){
-                                            if($d['id_divisi']==$k['id_divisi']) {echo $d['nama'];}
+                                            if($d['id_divisi']==$k['id_divisi']) {echo $d['nama_divisi'];}
                                         }?></td>
                                         <td><?php
                                         foreach($all_user as $u){
                                             if($u['id_user']==$k['id_user']) {echo $u['nama'];}
                                         }?></td>
 										<td>
-                                            <a data-toggle="modal" href="#edit<?php echo $k['id_kebutuhan']; ?>">Edit</a>
-											                      <a href="<?php echo site_url('kebutuhan/remove/'.$k['id_kebutuhan']); ?>">Delete</a>
+                                            <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $k['id_kebutuhan']; ?>">Ubah</a>
+											                      <a class="btn btn-outline-danger" href="<?php echo site_url('kebutuhan/remove/'.$k['id_kebutuhan']); ?>">Hapus</a>
 										</td>
 									</tr>
-                  
+
                                 <div class="modal fade" id="edit<?php echo $k['id_kebutuhan'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -133,12 +153,12 @@
                                               <label><h6 class="font-weight-bold">Nama Divisi</h6></label>
                                               <select name="id_divisi" class="form-control" >
                                               <option value="">select divisi</option>
-			                                    <?php 
+			                                    <?php
 			                                        foreach($all_divisi as $divisi)
 			                                        {
 				                                        $selected = ($divisi['id_divisi'] == $k['id_divisi']) ? ' selected="selected"' : "";
 				                                        echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama'].'</option>';
-			                                        } 
+			                                        }
 			                                    ?>
                                               </select>
                                           </div>
@@ -153,7 +173,7 @@
                                               <span class="bar"></span>
                                           </div>
                                         </div>
-                                        
+
                                       <div class="modal-footer d-flex justify-content-center">
                                         <button type="submit" class="btn btn-info waves-effect waves-light">Ubah</button>
                                         <?php echo form_close(); ?>
@@ -161,7 +181,7 @@
                                     </div>
                                   </div>
                                 </div>
-                                
+
 									<?php } ?>
 									</tbody>
 								</table>
