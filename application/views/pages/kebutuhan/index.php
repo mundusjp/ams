@@ -112,14 +112,15 @@
 									</thead>
 									<tbody>
                                     <?php $no = 1;
-                                    if($user['status']==1){
+                                    //if($user['status']==1){
                                       $keb=$kebutuhan;
-                                    }
-                                    else if($user['status']==2){
-                                      $idk = $divisi['id_kantor'];
-                                      
-                                      $keb=$kebutuhan2;
-                                    }
+                                      echo($id_kantor);
+                                    // }
+                                    // else if($user['status']==2){
+                                    //   $idk = $divisi['id_kantor'];
+                                    //
+                                    //   $keb=$kebutuhan2;
+                                    // }
                                     foreach($keb as $k){ ?>
 									<tr>
                                         <td><?php echo $no; $no++; ?></td>

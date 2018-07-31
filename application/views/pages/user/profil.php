@@ -34,10 +34,14 @@
               <div>
                 <hr> </div>
               <div class="card-body">
-                <h6><?php echo $user['nama'];?></h6><small class="text-muted p-t-30 db">Full Name</small>
-                <h6><?php echo $user['email'];?></h6> <small class="text-muted">Email address </small>
-                <h6><?php echo $user['no_hp'];?></h6> <small class="text-muted p-t-30 db">Address</small>
-                <h6><?php echo $user['alamat'];?></h6><small class="text-muted p-t-30 db">Address</small>
+                <small class="text-muted p-t-30 db">Full Name</small>
+                <h6><?php echo $user['nama'];?></h6>
+                <small class="text-muted">Email address </small>
+                <h6><?php echo $user['email'];?></h6>
+                <small class="text-muted p-t-30 db">Phone Number</small>
+                <h6><?php echo $user['no_hp'];?></h6>
+                <small class="text-muted p-t-30 db">Address</small>
+                <h6><?php echo $user['alamat'];?></h6>
                 <br/>
               </div>
             </div>

@@ -14,7 +14,7 @@ class User extends CI_Controller{
 // -----------------------------------------------------------
 //                       KONTROL INDEX
 // -----------------------------------------------------------
- function myprofile(){
+ function profil(){
    $id_user = $this->session->userdata('id_user');
    $data['user'] = $this->admin_model->get_admin($id_user);
    $data['_view'] = 'user/my-profile';
@@ -22,19 +22,7 @@ class User extends CI_Controller{
    $this->load->view('templates/dashboard/topbar');
    $this->load->view('templates/dashboard/leftbar');
    $this->load->view('templates/dashboard/rightbar');
-   $this->load->view('pages/user/my-profile',$data);
-   $this->load->view('templates/dashboard/footer');
- }
-
- function test(){
-   $id_user = $this->session->userdata('id_user');
-   $data['user'] = $this->admin_model->get_admin($id_user);
-   $data['_view'] = 'user/my-profile';
-   $this->load->view('templates/dashboard/header');
-   $this->load->view('templates/dashboard/topbar');
-   $this->load->view('templates/dashboard/leftbar');
-   $this->load->view('templates/dashboard/rightbar');
-   $this->load->view('pages/user/test',$data);
+   $this->load->view('pages/user/profil',$data);
    $this->load->view('templates/dashboard/footer');
  }
 // -----------------------------------------------------------
@@ -102,7 +90,7 @@ class User extends CI_Controller{
              );
 
              $this->admin_model->update_admin($id_admin,$params);
-             redirect('user/myprofile');
+             redirect('user/profil');
          }
          else
          {
@@ -133,7 +121,7 @@ class User extends CI_Controller{
               );
 
               $this->admin_model->update_admin($id_admin,$params);
-              redirect('user/myprofile');
+              redirect('user/profil');
           }
           else
           {
