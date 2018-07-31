@@ -2,7 +2,7 @@
 	<div>
 		<span class="text-danger">*</span>Durability sebelumnya: 
 		<?php $sebelumnya = $tidakhabis['durability'] ?>
-		<input type="text" name="durability" disabled value="<?php echo ($this->input->post('durability') ? $this->input->post('durability') : $tidakhabis['durability']); ?>" />
+		<input type="text" name="durability" readonly value="<?php echo ($this->input->post('durability') ? $this->input->post('durability') : $tidakhabis['durability']); ?>" />
 		<span class="text-danger"><?php echo form_error('durability');?></span>
 	</div>
 	<div>

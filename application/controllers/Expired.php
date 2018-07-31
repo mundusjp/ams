@@ -30,6 +30,7 @@ class Expired extends CI_Controller{
         $this->load->view('pages/expired/index',$data);
         $this->load->view('templates/dashboard/footer');
     }
+    
     function add($id_inventory)
     {
         $data['inventory'] = $this->Inventory_model->get_inventory($id_inventory);

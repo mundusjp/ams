@@ -1,7 +1,7 @@
 <?php echo form_open('expired/add/'.$inventory['id_inventory']); ?>
 	<div>
 		<span class="text-danger">*</span>Id_inventory : 
-		<input type="text" name="id_inventory" disabled value="<?php echo ($this->input->post('id_inventory') ? $this->input->post('id_inventory') : $inventory['id_inventory']); ?>" />
+		<input type="text" name="id_inventory" readonly value="<?php echo ($this->input->post('id_inventory') ? $this->input->post('id_inventory') : $inventory['id_inventory']); ?>" />
 		<span class="text-danger"><?php echo form_error('id_inventory');?></span>
 	</div>
 	<div>
