@@ -116,6 +116,8 @@
                                       $keb=$kebutuhan;
                                     }
                                     else if($user['status']==2){
+                                      $idk = $divisi['id_kantor'];
+                                      
                                       $keb=$kebutuhan2;
                                     }
                                     foreach($keb as $k){ ?>

@@ -33,11 +33,11 @@
               </div>
               <div>
                 <hr> </div>
-              <div class="card-body"> <small class="text-muted p-t-30 db">Full Name</small>
-                <h6><?php echo $user['nama'];?></h6><small class="text-muted">Email address </small>
-                <h6><?php echo $user['email'];?></h6> <small class="text-muted p-t-30 db">Phone</small>
+              <div class="card-body">
+                <h6><?php echo $user['nama'];?></h6><small class="text-muted p-t-30 db">Full Name</small>
+                <h6><?php echo $user['email'];?></h6> <small class="text-muted">Email address </small>
                 <h6><?php echo $user['no_hp'];?></h6> <small class="text-muted p-t-30 db">Address</small>
-                <h6><?php echo $user['alamat'];?></h6>
+                <h6><?php echo $user['alamat'];?></h6><small class="text-muted p-t-30 db">Address</small>
                 <br/>
               </div>
             </div>
