@@ -26,8 +26,7 @@
                         <!-- ============================================================== -->
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data supplier</h4>
-                                <h6 class="card-subtitle">Data table example</h6>
+                                <h4 class="card-title">Data Pemasok</h4>
                                 <!-- modal menambahkan fungsi  -->
                                 <div class="modal fade" id="ModalTambahKantor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -66,17 +65,17 @@
                                 <!-- button add -->
                                 <div class="row">
                                     <div class="col-3">
-                                        <button type="button" class="btn btn-info waaves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKantor"> add </button>
+                                        <button type="button" class="btn btn-info waaves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKantor"> Tambah Pemasok </button>
                                     </div>
                                 </div>
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>No</th>
+                                                <th>No.</th>
                                                 <th>Nama</th>
                                                 <th>Alamat</th>
-                                                <th>Actions</th>
+                                                <th>Tindakan</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -93,8 +92,8 @@
                                                     <?php echo $s['alamat']; ?>
                                                 </td>
                                                 <td>
-                                                    <a data-toggle="modal" href="#edit<?php echo $s['id_supplier']; ?>">Edit</a> |
-                                                    <a href="<?php echo site_url('supplier/remove/'.$s['id_supplier']); ?>">Delete</a>
+                                                    <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $s['id_supplier']; ?>">Ubah</a>
+                                                    <a class="btn btn-outline-danger" href="<?php echo site_url('supplier/remove/'.$s['id_supplier']); ?>">Hapus</a>
                                                 </td>
                                             </tr>
                                             <!-- modal menambahkan fungsi  -->

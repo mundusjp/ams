@@ -153,7 +153,7 @@
                             <td><?php echo $rec['email']; ?></td>
                             <td><?php echo $rec['no_hp']; ?></td>
                             <td>
-                              <a data-toggle="modal" class="btn btn-outline-info waves-effect waves-light" href="#edit<?php echo $rec['id_user']; ?>" >Ubah</a> |
+                              <a data-toggle="modal" class="btn btn-outline-info waves-effect waves-light" href="#edit<?php echo $rec['id_user']; ?>" >Ubah</a>
                               <a class="btn btn-outline-danger" href="<?php echo site_url('admin/remove/'.$rec['id_user']); ?>">Hapus</a>
                             </td>
                           </tr>
@@ -209,9 +209,15 @@
                                 <?php
                                 foreach($all_divisi as $div)
                                 {
-                                  $selected = ($div['id_divisi'] == $rec['id_divisi']) ? ' selected="selected"' : "";
-
-                                  echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$div['nama_divisi'].'</option>';
+                                  $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
+                                  $nama_divisi = $div['nama_divisi'];
+                                  if($nama_divisi == "Rumah Tangga" || $nama_divisi == "Teknik"){
+                                      foreach($all_kantor as $k){
+                                          if($k['id_kantor']==$div['id_kantor']) {
+                                          echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$k['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
+                                          }
+                                      }
+                                  }
                                 }
                                 ?>
                               </select>

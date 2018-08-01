@@ -21,6 +21,14 @@ class Kantor_model extends CI_Model
     /*
      * Get all kantor
      */
+     function get_kantor_by_divisi($id_divisi){
+       $this->db->select('*');
+       $this->db->from('divisi');
+       $this->db->where('divisi.id_divisi', $id_divisi);
+       $query = $this->db->get();
+         return $query->result_array();
+     }
+     
     function get_all_kantor()
     {
         $this->db->order_by('id_kantor', 'desc');

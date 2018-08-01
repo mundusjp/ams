@@ -38,13 +38,8 @@
                       <option value="OP">Operasional</option>
                       <option value="RD">R&D</option>
                     </optgroup>
-                    <optgroup label="Terminal Operasi 3">
-                      <option value="TK">Teknik</option>
-                      <option value="HR">SDM</option>
-                      <option value="OP">Operasional</option>
-                      <option value="RD">R&D</option>
-                    </optgroup>
                   </select>
+                  <button type="submit" class="btn btn-info waves-effect waves-light">Pilih</button>
                 </div>
               </div>
             </div>

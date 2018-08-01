@@ -11,7 +11,7 @@
         <!-- ============================================================== -->
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-                <h4 class="text-themecolor">Supplier</h4>
+                <h4 class="text-themecolor">Kebutuhan</h4>
             </div>
         </div>
         <!-- ============================================================== -->
@@ -62,15 +62,29 @@
                                               <select name="id_divisi" class="form-control" >
                                               <option value="">Pilih Divisi</option>
 			                                    <?php
-                                          foreach($all_divisi as $div)
+                                          $status = $this->session->userdata('level');
+                                          if($status = 1){
+                                            foreach($all_divisi as $div)
+                                            {
+                                              $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
+                                                  foreach($all_kantor as $k){
+                                                      if($k['id_kantor']==$div['id_kantor']) {
+                                                      echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$div['nama_divisi'].'</option>';
+                                                      }
+                                                  }
+                                            }
+                                          }
+                                          else if ($status = 2){
+                                          foreach($divisi_by_kantor as $div)
                                           {
                                             $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
                                                 foreach($all_kantor as $k){
                                                     if($k['id_kantor']==$div['id_kantor']) {
-                                                    echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$k['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
+                                                    echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$div['nama_divisi'].'</option>';
                                                     }
                                                 }
                                           }
+                                        }
 			                                    ?>
                                               </select>
                                           </div>

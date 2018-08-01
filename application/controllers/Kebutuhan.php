@@ -27,12 +27,17 @@ class Kebutuhan extends CI_Controller{
         $id_user = $this->session->userdata('id_user');
         $id_divisi = $this->session->userdata('id_divisi');
         $by_kantor = $this->input->post('pilih_cabang');
+        $kantor = $this->Kantor_model->get_kantor_by_divisi($id_divisi);
+        foreach ($kantor as $k) {
+          $id_kantor = $k['id_kantor'];
+        }
         $data['divisi'] = $this->Divisi_model->get_divisi($id_divisi);
         $data['kebutuhan'] = $this->Kebutuhan_model->get_kebutuhan_by_kantor($by_kantor);
-        $data['kebutuhan2'] = $this->Kebutuhan_model->get_kebutuhan_by_divisi($id_user);
-        $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
+        $data['kebutuhan2'] = $this->Kebutuhan_model->get_kebutuhan_by_kantor($id_kantor);
+        $data['divisi_by_kantor'] = $this->Divisi_model->get_divisi_by_kantor($id_kantor);
         $data['all_user'] = $this->Admin_model->get_all_admin();
         $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
+        $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
         $data['user'] = $this->Admin_model->get_admin($id_user);
 
         $data['_view'] = 'kebutuhan/index';

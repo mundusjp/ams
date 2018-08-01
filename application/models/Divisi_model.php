@@ -32,7 +32,7 @@ class Divisi_model extends CI_Model
      */
     function get_all_divisi()
     {
-        $this->db->order_by('id_divisi', 'desc');
+        $this->db->order_by('nama_divisi', 'asc');
         return $this->db->get('divisi')->result_array();
     }
 
