@@ -8,6 +8,9 @@ class Penjualan extends CI_Controller{
     function __construct()
     {
         parent::__construct();
+        if($this->session->userdata('status') != "login"){
+            redirect('');
+            }
         $this->load->model('Expired_model');
         $this->load->model('Inventory_model');
     }

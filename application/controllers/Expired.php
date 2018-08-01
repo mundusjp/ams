@@ -8,6 +8,9 @@ class Expired extends CI_Controller{
     function __construct()
     {
         parent::__construct();
+        if($this->session->userdata('status') != "login"){
+            redirect('');
+            }
         $this->load->model('Expired_model');
         $this->load->model('Inventory_model');
     }
@@ -16,11 +19,23 @@ class Expired extends CI_Controller{
     {
         $data['inventory'] = $this->Inventory_model->get_all_inventory();
         $data['tidakhabis'] = $this->Expired_model->join();
+        $tidakhabis = $this->Expired_model->join();
         // $from = new DateTime($data['tanggal']);
         $data['date2'] = new DateTime();
-
-        // $age = $from->diff($to)->y . "years and " . $from->diff($to)->m . " months.";
-        // echo $age;
+        $date2 = new DateTime();
+        $result = $date2->format('Y-m-d H:i:s');
+        $count=0;
+        foreach($tidakhabis as $t){
+            $tanggal = $t->tanggal;
+            $date = explode(" ",$tanggal);
+            $date = $date[0];
+            $datetime = new DateTime($t->tanggal);
+            $diff = date_diff( $datetime, $date2 );
+            $selisih = $diff->m + ($diff->y * 12);
+            if (($t->durability - $selisih) <= 6 ){
+                $count++;
+            }
+        }
 
         $data['_view'] = 'expired/index';
         $this->load->view('templates/dashboard/header');
