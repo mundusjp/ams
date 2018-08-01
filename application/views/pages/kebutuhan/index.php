@@ -60,13 +60,17 @@
                                           <div class="form-group m-b-40">
                                               <label><h6 class="font-weight-bold">Nama Divisi</h6></label>
                                               <select name="id_divisi" class="form-control" >
-                                              <option value="">select divisi</option>
+                                              <option value="">Pilih Divisi</option>
 			                                    <?php
-			                                    foreach($all_divisi as $divisi)
-			                                    {
-				                                    $selected = ($divisi['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
-				                                    echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama_divisi'].'</option>';
-			                                    }
+                                          foreach($all_divisi as $div)
+                                          {
+                                            $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
+                                                foreach($all_kantor as $k){
+                                                    if($k['id_kantor']==$div['id_kantor']) {
+                                                    echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$k['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
+                                                    }
+                                                }
+                                          }
 			                                    ?>
                                               </select>
                                           </div>
@@ -87,17 +91,20 @@
                                     </div>
                                   </div>
                                 </div>
-                                <?php echo form_close(); ?>
+                                <?php echo form_close();?>
 
-
-                                <!--        -->
-                                <!-- Button -->
-                                <!--        -->
                                 <div class="row">
                                   <div class="col-3">
                                     <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKebutuhan" > Tambah Kebutuhan </button>
                                   </div>
                                 </div>
+                                <?php if($user['status']==1){
+                                  $keb=$kebutuhan;
+                                }
+                                else if($user['status']==2){
+                                  $keb=$kebutuhan2;
+                                }
+                    if (count($keb)){?>
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
@@ -112,15 +119,6 @@
 									</thead>
 									<tbody>
                                     <?php $no = 1;
-                                    //if($user['status']==1){
-                                      $keb=$kebutuhan;
-                                      echo($id_kantor);
-                                    // }
-                                    // else if($user['status']==2){
-                                    //   $idk = $divisi['id_kantor'];
-                                    //
-                                    //   $keb=$kebutuhan2;
-                                    // }
                                     foreach($keb as $k){ ?>
 									<tr>
                                         <td><?php echo $no; $no++; ?></td>
@@ -185,7 +183,14 @@
                                   </div>
                                 </div>
 
-									<?php } ?>
+									<?php }
+                }
+                else{?>
+                  <br>
+                  <br>
+                  <?php
+                  echo ('Tidak ada Kebutuhan');
+                }?>
 									</tbody>
 								</table>
 								</div>

@@ -28,14 +28,14 @@ class Kebutuhan_model extends CI_Model
         return $this->db->get('kebutuhan')->result_array();
     }
 
-    function get_id_kantor($id_divisi){
-        $this->db->select('id_kantor');
-        $this->db->from('divisi');
-        //$this->db->join('user', 'user.id_divisi = divisi.id_divisi');
-        $this->db->where('divisi.id_divisi', $id_divisi);
-        $query = $this->db->get();
-          return $query->result();
-    }
+    // function get_id_kantor($id_divisi){
+    //     $this->db->select('id_kantor');
+    //     $this->db->from('divisi');
+    //     //$this->db->join('user', 'user.id_divisi = divisi.id_divisi');
+    //     $this->db->where('divisi.id_divisi', $id_divisi);
+    //     $query = $this->db->get();
+    //       return $query->result();
+    // }
     function get_kebutuhan_by_kantor($by_kantor){
         $this->db->select('*');
         $this->db->from('kebutuhan');
@@ -45,15 +45,13 @@ class Kebutuhan_model extends CI_Model
         $query = $this->db->get();
           return $query->result_array();
     }
-    // function get_kebutuhan2_by_kantor($id_kantor){
-    //     $this->db->select('*');
-    //     $this->db->from('kebutuhan');
-    //     $this->db->join('divisi', 'kebutuhan.id_divisi = divisi.id_divisi');
-    //     $this->db->join('kantor', 'divisi.id_kantor = kantor.id_kantor');
-    //     $this->db->where('kantor.id_kantor', $id_kantor);
-    //     $query = $this->db->get();
-    //       return $query->result_array();
-    // }
+    function get_kebutuhan_by_divisi($id_user){
+      $this->db->select('*');
+      $this->db->from('kebutuhan');
+      $this->db->where('kebutuhan.id_user', $id_user);
+      $query = $this->db->get();
+        return $query->result_array();
+    }
     /*
      * function to add new beli
      */

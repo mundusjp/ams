@@ -95,8 +95,14 @@
                                 foreach($all_divisi as $div)
                                 {
                                   $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
-
-                                  echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$div['nama'].'</option>';
+                                  $nama_divisi = $div['nama_divisi'];
+                                  if($nama_divisi == "Rumah Tangga" || $nama_divisi == "Teknik"){
+                                      foreach($all_kantor as $k){
+                                          if($k['id_kantor']==$div['id_kantor']) {
+                                          echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$k['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
+                                          }
+                                      }
+                                  }
                                 }
                                 ?>
                               </select>
