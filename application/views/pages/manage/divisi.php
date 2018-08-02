@@ -125,15 +125,15 @@
                                     <div class="table-responsive m-t-40">
                                         <table id="myTable" class="table table-bordered table-striped">
                                             <thead>
-    								<tr>
-    									<th>No.</th>
-                      <th>Nama Divisi</th>
-                      <th>Nama Kantor</th>
-    									<th>Gedung</th>
-    									<th>Lantai</th>
-    									<th>Tindakan</th>
-    								</tr>
-    								</thead>
+    								                                  <tr>
+    									                                           <th>No.</th>
+                                                                 <th>Nama Divisi</th>
+                                                                 <th>Nama Kantor</th>
+    									                                           <th>Gedung</th>
+    									                                           <th>Lantai</th>
+    									                                           <th>Action</th>
+    								                                   </tr>
+    								                       </thead>
     								<tbody>
                     <?php
                             $no = 1;
@@ -150,7 +150,7 @@
     									<td><?php echo $rec['lantai']; ?></td>
     									<td>
     										<a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $rec['id_divisi'];?>">Ubah</a>
-    										<a class="btn btn-outline-danger" href="<?php echo site_url('divisi/remove/'.$rec['id_divisi']); ?>">Hapus</a>
+    										<a href="<?php echo site_url('divisi/remove/'.$rec['id_divisi']); ?>" onclick="javasciprt: return confirm('Are You Sure ?')" value="<?php echo $rec['id_divisi']?>" class="btn btn-outline-danger">Hapus</a>
     									</td>
 
     								</tr>

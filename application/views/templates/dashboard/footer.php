@@ -19,6 +19,89 @@
 <!-- ============================================================== -->
 <!-- End Wrapper -->
 <!-- ============================================================== -->
+</body>
+<!-- ============================================================== -->
+<!-- Sweet Alert Functions -->
+<!-- ============================================================== -->
+<script>
+$(function(){ myTable.init(); });
+function deletedivisi(a)
+{
+    var id= a.value;
+
+    swal({
+            title: "Are you sure?",
+            text: "You want to delete this Division!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, Delete it!",
+            closeOnConfirm: false }, function()
+        {
+            swal("Deleted!", "Division has been Deleted.", "success");
+            $(inventoryipc).attr('href','<?php echo base_url()?>divisi/remove/'+id);
+        }
+    );
+}
+  // function deletedivisi(){
+  //   swal({
+  //     title: 'Are you sure?',
+  //     text: "You won't be able to revert this!",
+  //     type: 'warning',
+  //     showCancelButton: true,
+  //     confirmButtonColor: '#3085d6',
+  //     cancelButtonColor: '#d33',
+  //     confirmButtonText: 'Yes, delete it!',
+  //     showLoaderOnConfirm: true,
+  //
+  //     preConfirm: function(){
+  //       return new Promise(function(resolve){
+  //         $.ajax({
+  //             url: "<?php echo base_url('divisi/remove');?>",
+  //             type: "POST",
+  //             data: {divisi:id_divisi},
+  //           })
+  //           .done(function(response){
+  //             swal('Your Divisi has Successfully Deleted','success');
+  //             $("#myTable").fadeOut("slow",0.7,function(){
+  //               $(this).remove();
+  //               })
+  //           })
+  //           .fail(function(){
+  //             swal('Failed to Delete Divisi','error');
+  //           });
+  //         });
+  //       },
+  //       allowOutsideClick: false
+  //   });
+  // }
+
+  // function deletedivisi(){
+  //   swal({
+  //     title: 'Are you sure?',
+  //     text: "You won't be able to revert this!",
+  //     type: 'warning',
+  //     showCancelButton: true,
+  //     confirmButtonColor: '#3085d6',
+  //     cancelButtonColor: '#d33',
+  //     confirmButtonText: 'Yes, delete it!',
+  //     showLoaderOnConfirm: true,
+  //     closeOnConfirm: true,
+  //   },
+  //   function(){
+  //     $.ajax({
+  //       url:"<?php echo base_url('index.php/crud/delete'); ?>",
+  //       data:{divisi:id_divisi},
+  //       success: function(){
+  //         $("tr[data-id='"+id_divisi+"']").fadeOut("fast",function(){
+  //           $(this).remove();
+  //         });
+  //       }
+  //     });
+  //   });
+  // };
+
+</script>
 <!-- ============================================================== -->
 <!-- All Jquery -->
 <!-- ============================================================== -->
