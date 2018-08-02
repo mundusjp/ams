@@ -26,8 +26,8 @@
                 <!-- ============================================================== -->
 						<div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data inventory</h4>
-                                <h6 class="card-subtitle">Data barang habis pakai dan tidak habis pakai</h6>
+                                <h4 class="card-title">Daftar Barang</h4>
+                                <h6 class="card-subtitle">Barang habis pakai dan tidak habis pakai</h6>
                                 <?php if ($user['status'] == 1){
                                   echo form_open("inventory/overview");?>
                                 <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
@@ -59,11 +59,11 @@
 											<th>Nama</th>
 											<th>Jenis</th>
 											<th>Merk</th>
-											<th>Nama Divisi Penerima</th>
+											<th>Divisi Penerima</th>
 											<th>Tanggal</th>
 											<th>Kategori</th>
-											<th>Id Beli/sewa</th>
-											<th>Tindakan</th>
+											<th>Bukti Transaksi</th>
+											<!-- <th>Tindakan</th> -->
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -89,10 +89,10 @@
 											<td><?php echo $i['tanggal']; ?></td>
 											<td><?php echo $i['kategori']; ?></td>
 											<td><?php echo $i['id_beli/sewa']; ?></td>
-											<td>
+											<!-- <td>
     									        <a class="btn btn-outline-info waves-effect waves-light" href="<?php echo site_url('inventory/edit/'.$i['id_inventory']); ?>">Ubah</a>
     									        <a class="btn btn-outline-danger" href="<?php echo site_url('inventory/remove/'.$i['id_inventory']); ?>">Hapus</a>
-    									    </td>
+    									    </td> -->
    										 </tr>
 										<?php } ?>
                                         </tbody>

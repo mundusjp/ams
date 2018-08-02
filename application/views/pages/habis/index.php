@@ -26,8 +26,8 @@
                         <!-- ============================================================== -->
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data inventory</h4>
-                                <h6 class="card-subtitle">Data table example</h6>
+                                <h4 class="card-title">Data Barang Habis Pakai</h4>
+                                <!-- <h6 class="card-subtitle">Data table example</h6> -->
                                 <!-- modal menambahkan fungsi  -->
                                 <div class="modal fade" id="ModalTambahKantor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -58,7 +58,7 @@
                                                     <div class="form-group m-b-40">
                                                         <input type="text" class="form-control" name="nama_divisi_pengada" value="<?php echo $this->input->post('nama_divisi_pengada'); ?>">
                                                         <span class="bar"></span>
-                                                        <label for="nama_divisi_pengada"><h6 class="font-weight-bold">Nama Divisi Penerima</h6></label>
+                                                        <label for="nama_divisi_pengada"><h6 class="font-weight-bold">Divisi Penerima</h6></label>
                                                     </div>
                                                     <div class="form-group m-b-40">
                                                         <input type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>">
@@ -93,19 +93,19 @@
                                                         <span class="bar"></span>
                                                         <label for="satuan"><h6 class="font-weight-bold">Satuan</h6></label>
                                                     </div>
-                                                    
+
                                                     <div class="form-group">
                                                         <label><h6 class="font-weight-bold">Divisi Pengada</h6></label>
-                                                        
+
                                                         <select name="id_divisi_pengada" class="form-control">
                                                         <option value="">select divisi</option>
-                                                        <?php 
+                                                        <?php
                                                         foreach($all_divisi as $divisi)
                                                         {
                                                             $selected = ($divisi['id_divisi'] == $this->input->post('id_divisi_pengada')) ? ' selected="selected"' : "";
 
                                                             echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama_divisi'].'</option>';
-                                                        } 
+                                                        }
                                                         ?>
                                                     </select>
                                                     </div>
@@ -120,7 +120,7 @@
                                 <!-- button add -->
                                 <div class="row">
                                     <div class="col-3">
-                                        <button type="button" class="btn btn-info waaves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKantor"> add </button>
+                                        <button type="button" class="btn btn-info waaves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKantor"> Tambah Barang </button>
                                     </div>
                                 </div>
                                 <div class="table-responsive m-t-40">
@@ -133,12 +133,12 @@
                                                 <th>Nama</th>
                                                 <!-- <th>Jenis</th> -->
                                                 <th>Merk</th>
-                                                <th>Nama Divisi Penerima</th>
+                                                <th>Divisi Penerima</th>
                                                 <th>Tanggal</th>
                                                 <th>Kategori</th>
-                                                <th>jumlah</th>
-                                                <th>satuan</th>
-                                                <th>Actions</th>
+                                                <th>Jumlah</th>
+                                                <th>Satuan</th>
+                                                <th>Tindakan</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -151,12 +151,12 @@
                                                 </td>
                                                 <td>
                                                     <!--  -->
-                                                    <?php 
+                                                    <?php
                                                     foreach($all_divisi as $divisi)
                                                     {
                                                         if ($divisi['id_divisi'] == $i->id_divisi_pengada)
                                                         echo $divisi['nama_divisi'];
-                                                    } 
+                                                    }
                                                     ?>
                                                 </td>
                                                 <td>
@@ -185,9 +185,9 @@
                                                     <?php echo $i->satuan; ?>
                                                 </td>
                                                 <td>
-                                                    <a data-toggle="modal" href="#edit-<?php echo $i->id_inventory;?>">Edit</a> |
-                                                    <a data-toggle="modal" href="#update-<?php echo $i->id_inventory;?>">Update</a> |
-                                                    <a href="<?php echo site_url('inventory/remove_bhp/'.$i->id_inventory); ?>">Delete</a>
+                                                    <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit-<?php echo $i->id_inventory;?>">Ubah</a>
+                                                    <a class="btn btn-outline-warning data-toggle="modal" href="#update-<?php echo $i->id_inventory;?>">Update</a>
+                                                    <a class="btn btn-outline-danger" href="<?php echo site_url('inventory/remove_bhp/'.$i->id_inventory); ?>">Hapus</a>
                                                 </td>
                                             </tr>
                                             <!-- modal menambahkan fungsi  -->
@@ -208,13 +208,13 @@
                                                                     <label><h6 class="font-weight-bold">Divisi</h6></label>
                                                                     <select name="id_divisi_pengada">
                                                                     <option value="">select divisi</option>
-                                                                    <?php 
+                                                                    <?php
                                                                     foreach($all_divisi as $divisi)
                                                                     {
                                                                         $selected = ($divisi['id_divisi'] == $i->id_divisi_pengada) ? ' selected="selected"' : "";
 
                                                                         echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama_divisi'].'</option>';
-                                                                    } 
+                                                                    }
                                                                     ?>
                                                                 </select>
                                                                 </div>
@@ -245,13 +245,13 @@
                                                                     <span class="text-danger"><?php echo form_error('tanggal');?></span>
                                                                 </div>
                                                                 <div>
-                                                                   
+
                                                                     <!-- <input type="text" name="kategori" value="<?php echo ($this->input->post('kategori') ? $this->input->post('kategori') : $i->kategori); ?>" /> -->
                                                                     <label><h6 class="font-weight-bold">Kategori</h6></label>
                                                                     <select name="kategori" class="form-control" >
-                                                                            <?php $selected = ("beli" === $i->kategori ) ? ' selected="selected"' : ""; 
+                                                                            <?php $selected = ("beli" === $i->kategori ) ? ' selected="selected"' : "";
                                                                             echo '<option value="beli" '.$selected.'>Beli</option>'; ?>
-                                                                            <?php $selected = ("sewa"  === $i->kategori) ? ' selected="selected"' : ""; 
+                                                                            <?php $selected = ("sewa"  === $i->kategori) ? ' selected="selected"' : "";
                                                                             echo '<option value="sewa" '.$selected.'>Sewa</option>'; ?>
                                                                     </select>
                                                                     <span class="text-danger"><?php echo form_error('kategori');?></span>
@@ -288,7 +288,7 @@
                                                             <?php echo form_open('inventory/update_bhp/'.$i->id_inventory); ?>
                                                             <form class="floating-labels m-t-40">
 
-                                                               
+
                                                                 <div>
                                                                     <span class="text-danger">*</span>Nama :
                                                                     <input type="text" readonly name="nama" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama') : $i->nama); ?>" />
@@ -310,9 +310,9 @@
                                                         <!-- <input type="text" class="form-control" name="kategori" value="<?php echo $this->input->post('tanda'); ?>"> -->
                                                                     <input type="radio" name="tanda" value="+" checked> Stock baru<br>
                                                                     <input type="radio" name="tanda" value="-"> Deficit<br>
-                                                                    
+
                                                                 </div>
-                                                                <div>   
+                                                                <div>
                                                                     <span class="text-danger ">*</span>Kuantitas:
                                                                     <input type="number"  name="jumlah1" value="<?php echo $this->input->post('jumlah1') ; ?>" />
                                                                     <span class="text-danger"><?php echo form_error('jumlah1');?></span>
