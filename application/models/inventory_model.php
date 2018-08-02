@@ -1,5 +1,5 @@
-<?php 
- 
+<?php
+
 // class Inventory_model extends CI_Model{
 // 	function ambil_data(){
 // 		return $this->db->get('inventory');
@@ -14,13 +14,13 @@
 //     // function update_data(){
 // 	// 	return $this->db->get('inventory');
 //     // }
-//     function edit_data($where,$table){		
+//     function edit_data($where,$table){
 //         return $this->db->get_where($table,$where);
 //     }
 //     function update_data($where,$data,$table){
 // 		$this->db->where($where);
 // 		$this->db->update($table,$data);
-// 	}	
+// 	}
 // }
 class Inventory_model extends CI_Model
 {
@@ -28,7 +28,7 @@ class Inventory_model extends CI_Model
     {
         parent::__construct();
     }
-    
+
     /*
      * Get inventory by id_inventory
      */
@@ -66,7 +66,16 @@ class Inventory_model extends CI_Model
         $this->db->order_by('id_inventory', 'desc');
         return $this->db->get('inventory')->result_array();
     }
-        
+
+    function get_inventory_by_kantor($by_kantor){
+        $this->db->select('*');
+        $this->db->from('inventory');
+        $this->db->join('divisi', 'inventory.id_divisi_pengada = divisi.id_divisi');
+        $this->db->join('kantor', 'divisi.id_kantor = kantor.id_kantor');
+        $this->db->where('kantor.id_kantor', $by_kantor);
+        $query = $this->db->get();
+          return $query->result_array();
+    }
     /*
      * function to add new inventory
      */
@@ -75,7 +84,7 @@ class Inventory_model extends CI_Model
         $this->db->insert('inventory',$params);
         return $this->db->insert_id();
     }
-    
+
     /*
      * function to update inventory
      */
@@ -84,7 +93,7 @@ class Inventory_model extends CI_Model
         $this->db->where('id_inventory',$id_inventory);
         return $this->db->update('inventory',$params);
     }
-    
+
     /*
      * function to delete inventory
      */

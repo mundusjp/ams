@@ -203,7 +203,6 @@
                   <br>
                   <br>
                   <?php
-                  echo ('Tidak ada Kebutuhan');
                 }?>
 									</tbody>
 								</table>

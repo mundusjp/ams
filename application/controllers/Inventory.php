@@ -7,7 +7,9 @@ class Inventory extends CI_Controller{
         $this->load->model('Inventory_model');
         $this->load->model('Habis_model');
         $this->load->model('TidakHabis_model');
+        $this->load->model('Kantor_model');
         $this->load->model('Divisi_model');
+        $this->load->model('Admin_model');
     }
 
     /*
@@ -15,7 +17,18 @@ class Inventory extends CI_Controller{
      */
     function overview()
     {
-        $data['inventory'] = $this->Inventory_model->get_all_inventory();
+        $id_user = $this->session->userdata('id_user');
+        $by_kantor = $this->input->post('pilih_cabang');
+        $id_divisi = $this->session->userdata('id_divisi');
+        $kantor = $this->Kantor_model->get_kantor_by_divisi($id_divisi);
+        foreach ($kantor as $k) {
+          $id_kantor = $k['id_kantor'];
+        }
+        $data['inventory'] = $this->Inventory_model->get_inventory_by_kantor($by_kantor);
+        $data['inventory2'] = $this->Inventory_model->get_inventory_by_kantor($id_kantor);
+        $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
+        $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
+        $data['user'] = $this->Admin_model->get_admin($id_user);
 
         $data['_view'] = 'inventory/index';
         $this->load->view('templates/dashboard/header');
@@ -225,11 +238,11 @@ class Inventory extends CI_Controller{
         {
             $this->load->library('form_validation');
 
-			
+
             $this->form_validation->set_rules('jumlah1','Jumlah1','required');
             $this->form_validation->set_rules('jumlah','Jumlah','required');
 			$this->form_validation->set_rules('tanda','Tanda','required');
-			
+
 			if($this->form_validation->run())
             {
                  $a = $this->input->post('jumlah');
@@ -239,11 +252,11 @@ class Inventory extends CI_Controller{
                     $jumlah = $a+$b ;
                 }
                 else $jumlah = $a-$b;
-               
+
                 $var = array(
                     'jumlah' => $jumlah,
                 );
-          
+
                 $this->Habis_model->update_habis($id_inventory,$var);
                 redirect('inventory/bhp');
             }
