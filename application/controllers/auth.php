@@ -28,6 +28,7 @@ class Auth extends CI_Controller{
 					'id_user' => $login->id_user,
 					'nipp' => $login->nipp,
 					'id_divisi' => $login->id_divisi,
+					'photo' => $login->photo,
 					'status' => "login",
 					);
 

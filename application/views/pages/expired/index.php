@@ -74,12 +74,21 @@
                         <td><?php echo $i->durability; ?></td>
                         <td><?php echo $i->status; ?></td>
                         <td><?php echo $selisih; ?></td>
+
+                        <?php if ($i->kategori == 'beli'){ ?>
                         
                         <td>
                                 <a href="<?php echo site_url('expired/buang/'.$i->id_inventory); ?>">Buang</a> | 
                                 <a href="<?php echo site_url('expired/add/'.$i->id_inventory); ?>">Jual</a> | 
                                 <a href="<?php echo site_url('expired/perpanjang/'.$i->id_inventory); ?>">Perpanjang</a>
                             </td>
+                        <?php }
+                            else { ?>
+                            <td>
+                                <a href="<?php echo site_url('expired/kembalikan/'.$i->id_inventory); ?>">Kembalikan</a> | 
+                                <a href="<?php echo site_url('expired/perpanjang/'.$i->id_inventory); ?>">Perpanjang</a>
+                            </td>
+                        <?php } ?>
                           </tr>
                       <?php } ?>
 											

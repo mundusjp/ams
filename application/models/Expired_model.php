@@ -48,6 +48,16 @@ class Expired_model extends CI_Model
         return $query->result();
     }
 
+    function join_pengembalian()
+    {
+        $this->db->select('*');
+        $this->db->from('inventory');
+        $this->db->join('tidakhabispakai', 'inventory.id_inventory = tidakhabispakai.id_inventory');
+        $this->db->where('tidakhabispakai.status',"dikembalik");
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     /*
      * Get all inventory
      */

@@ -30,7 +30,7 @@
                                 <h5 class="card-title">EXPIRED INVENTORIES</h5>
                                 <div class="d-flex m-t-30 m-b-20 no-block align-items-center">
                                     <span class="display-5 text-danger"><i class="icon-close"></i></span>
-                                    <a href="javscript:void(0)" class="link display-5 ml-auto">23</a>
+                                    <a href="<?php echo base_url('expired/index')?>" class="link display-5 ml-auto"><?php echo $count ?></a>
                                 </div>
                             </div>
                         </div>
