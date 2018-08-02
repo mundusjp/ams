@@ -59,7 +59,7 @@ class Expired extends CI_Controller{
             $params = array(
 				'pembeli' => $this->input->post('pembeli'),
 				'harga' => $this->input->post('harga'),
-                'tanggal' => $this->input->post('tanggal'),
+                'tanggal_penjualan' => $this->input->post('tanggal'),
                 'id_inventory' => $this->input->post('id_inventory'),
             );
             $param = array(

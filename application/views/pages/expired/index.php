@@ -79,7 +79,7 @@
                         
                         <td>
                                 <a href="<?php echo site_url('expired/buang/'.$i->id_inventory); ?>">Buang</a> | 
-                                <a href="<?php echo site_url('expired/add/'.$i->id_inventory); ?>">Jual</a> | 
+                                <a data-toggle="modal" href="#addpenjualan<?php echo $i->id_inventory; ?>">Jual</a> | 
                                 <a href="<?php echo site_url('expired/perpanjang/'.$i->id_inventory); ?>">Perpanjang</a>
                             </td>
                         <?php }
@@ -90,6 +90,43 @@
                             </td>
                         <?php } ?>
                           </tr>
+                          <div class="modal fade" id="addpenjualan<?php echo $i->id_inventory;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header text-center">
+                                        <h3 class="modal-title w-100 font-weight-bold">Tambah Penjualan</h3>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body mx-3">
+                                      <?php echo form_open('expired/add/'.$i->id_inventory); ?>
+                                        <form class="floating-labels m-t-40">
+                                          <div class="form-group m-b-40">
+                                              <label><h6 class="font-weight-bold">Id Inventory</h6></label>
+                                              <input type="text" class="form-control" readonly name="id_inventory" value="<?php echo ($this->input->post('id_inventory') ? $this->input->post('id_inventory') : $i->id_inventory); ?>" />
+                                              <span class="bar"></span>
+                                          </div>
+                                          <div class="form-group m-b-40">
+                                              <label><h6 class="font-weight-bold">Pembeli</h6></label>
+                                              <input type="text" class="form-control" name="pembeli" value="<?php echo $this->input->post('pembeli'); ?>" />
+                                              <span class="bar"></span>
+                                          </div>
+                                          <div class="form-group m-b-40">
+                                              <label><h6 class="font-weight-bold">Harga</h6></label>
+                                              <input type="text" class="form-control" name="harga" value="<?php echo $this->input->post('harga'); ?>" />
+                                              <span class="bar"></span>
+                                          </div>
+                                          <div class="form-group m-b-40">
+                                              <label><h6 class="font-weight-bold">Tanggal</h6></label>
+                                              <input type="text" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>" />
+                                              <span class="bar"></span>
+                                          </div>
+                                        </div>
+
+                                      <div class="modal-footer d-flex justify-content-center">
+                                        <button type="submit" class="btn btn-info waves-effect waves-light">Jual</button>
+                                        <?php echo form_close(); ?>
                       <?php } ?>
 											
 										<?php } ?>

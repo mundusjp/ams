@@ -9,6 +9,7 @@
       }
       $this->load->model('Expired_model');
       $this->load->model('Inventory_model');
+      $this->load->model('Kebutuhan_model');
     }
 
     public function view($page ='home'){
@@ -35,6 +36,7 @@
         }
       }
       $data['count'] = $count;
+      $data['count_kebutuhan'] = count($this->Kebutuhan_model->get_all_kebutuhan());
 
       $data['title'] = ucfirst($page);
 
