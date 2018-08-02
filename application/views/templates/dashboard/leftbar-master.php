@@ -21,6 +21,13 @@
                         <li><a href="<?php echo base_url('expired/index')?>">Expired Stock</a></li>
                     </ul>
                 </li>
+                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-love"></i><span class="hide-menu">Untuk Dilla</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                      <li><a href="<?php echo base_url('penjualan/index')?>">Penjualan</a></li>
+                      <li><a href="<?php echo base_url('pembuangan/index')?>">Pembuangan</a></li>
+                      <li><a href="<?php echo base_url('pengembalian/index')?>">Pengembalian</a></li>
+                    </ul>
+                </li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-settings"></i><span class="hide-menu">Administration</span></a>
                     <ul aria-expanded="false" class="collapse">
                       <li><a href="<?php echo base_url('manage/user')?>">User</a></li>
