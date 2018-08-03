@@ -12,6 +12,7 @@ class Divisi_model extends CI_Model
     }
 
     function get_divisi_by_kantor($by_kantor){
+        $this->db->order_by('nama_divisi', 'asc');
         $this->db->select('*');
         $this->db->from('divisi');
         $this->db->join('kantor', 'kantor.id_kantor = divisi.id_kantor');

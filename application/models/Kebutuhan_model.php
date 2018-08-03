@@ -22,6 +22,16 @@ class Kebutuhan_model extends CI_Model
     /*
      * Get all beli
      */
+    function get_all_kebutuhan_kantor()
+    {
+        $this->db->order_by('nama_barang', 'asc');
+        $this->db->from('kebutuhan');
+        $this->db->join('divisi', 'kebutuhan.id_divisi = divisi.id_divisi');
+        $this->db->join('kantor', 'divisi.id_kantor = kantor.id_kantor');
+        $query = $this->db->get();
+          return $query->result_array();
+    }
+
     function get_all_kebutuhan()
     {
         $this->db->order_by('id_kebutuhan', 'desc');

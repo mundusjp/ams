@@ -24,7 +24,12 @@ class Inventory extends CI_Controller{
         foreach ($kantor as $k) {
           $id_kantor = $k['id_kantor'];
         }
-        $data['inventory'] = $this->Inventory_model->get_inventory_by_kantor($by_kantor);
+        if($by_kantor == 0){
+          $data['inventory'] = $this->Inventory_model->get_all_inventory();
+        }
+        else{
+          $data['inventory'] = $this->Inventory_model->get_inventory_by_kantor($by_kantor);
+        }
         $data['inventory2'] = $this->Inventory_model->get_inventory_by_kantor($id_kantor);
         $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
         $data['all_divisi'] = $this->Divisi_model->get_all_divisi();

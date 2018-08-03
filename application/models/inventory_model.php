@@ -63,7 +63,7 @@ class Inventory_model extends CI_Model
      */
     function get_all_inventory()
     {
-        $this->db->order_by('id_inventory', 'desc');
+        $this->db->order_by('nama', 'asc');
         return $this->db->get('inventory')->result_array();
     }
 
