@@ -64,7 +64,7 @@ class User extends CI_Controller{
          show_error('The user you are trying to edit does not exist.');
  }
 
- function editprofile($id_admin)
+ function editprofil($id_admin)
  {
      // check if the user exists before trying to edit it
      $data['user'] = $this->admin_model->get_admin($id_admin);

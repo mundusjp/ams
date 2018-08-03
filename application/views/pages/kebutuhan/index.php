@@ -30,7 +30,7 @@
                                 <?php if ($user['status'] == 1){
                                   echo form_open("Kebutuhan/index");?>
                                 <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
-                                  <option value="">Pilih Kantor</option><?php
+                                  <option value="0">Pilih Kantor</option><?php
                                   foreach($all_kantor as $kantor)
                                   {
                                     echo '<option value="'.$kantor['id_kantor'].'">'.$kantor['nama_kantor'].'</option>';
@@ -63,18 +63,18 @@
                                               <option value="">Pilih Divisi</option>
 			                                    <?php
                                           $status = $this->session->userdata('level');
-                                          if($status = 1){
+                                          if($status == 1){
                                             foreach($all_divisi as $div)
                                             {
                                               $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
                                                   foreach($all_kantor as $k){
                                                       if($k['id_kantor']==$div['id_kantor']) {
-                                                      echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$div['nama_divisi'].'</option>';
+                                                      echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$k['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
                                                       }
                                                   }
                                             }
                                           }
-                                          else if ($status = 2){
+                                          else if ($status == 2){
                                           foreach($divisi_by_kantor as $div)
                                           {
                                             $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";

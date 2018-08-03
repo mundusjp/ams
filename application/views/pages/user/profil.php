@@ -64,30 +64,30 @@
                             <!-- ====================================== -->
                             <!-- ======== Form General Profile ======== -->
                             <!-- ====================================== -->
-                            <?php echo form_open('user/editprofile/'.$user['id_user']); ?>
+                            <?php echo form_open('user/editprofil/'.$user['id_user']); ?>
                             <form class="form-horizontal form-material">
                               <div class="form-group">
                                   <label class="col-md-12">Full Name</label>
                                   <div class="col-md-12">
-                                      <input type="text" placeholder="<?php echo $user['nama'];?>" class="form-control form-control-line">
+                                      <input type="text" name="nama" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama') : $user['nama']); ?>" placeholder="<?php echo $user['nama'];?>" class="form-control form-control-line">
                                     </div>
                               </div>
                               <div class="form-group">
                                 <label for="example-email" class="col-md-12">Email</label>
                                   <div class="col-md-12">
-                                      <input type="email" placeholder="<?php echo $user['email'];?>" class="form-control form-control-line" name="example-email" id="example-email">
+                                      <input type="email" name="email" value="<?php echo ($this->input->post('email') ? $this->input->post('email') : $user['email']); ?>"placeholder="<?php echo $user['email'];?>" class="form-control form-control-line" name="example-email" id="example-email">
                                   </div>
                               </div>
                               <div class="form-group">
                                   <label class="col-md-12">Phone Number</label>
                                   <div class="col-md-12">
-                                      <input type="text" placeholder="<?php echo $user['no_hp'];?>" class="form-control form-control-line">
+                                      <input type="tel" name="no_hp" value="<?php echo ($this->input->post('no_hp') ? $this->input->post('no_hp') : $user['no_hp']); ?>"placeholder="<?php echo $user['no_hp'];?>" class="form-control form-control-line">
                                   </div>
                               </div>
                               <div class="form-group">
                                   <label class="col-md-12">Address</label>
                                   <div class="col-md-12">
-                                      <input type="text" placeholder="<?php echo $user['alamat'];?>" class="form-control form-control-line">
+                                      <input type="text" name="alamat" value="<?php echo ($this->input->post('alamat') ? $this->input->post('alamat') : $user['alamat']); ?>"placeholder="<?php echo $user['alamat'];?>" class="form-control form-control-line">
                                   </div>
                               </div>
                               <div class="form-group">
