@@ -90,6 +90,7 @@ class User extends CI_Controller{
              );
 
              $this->admin_model->update_admin($id_admin,$params);
+             sleep(1);
              redirect('user/profil');
          }
          else

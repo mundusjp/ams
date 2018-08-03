@@ -43,64 +43,11 @@ function deletedivisi(a)
         }
     );
 }
-  // function deletedivisi(){
-  //   swal({
-  //     title: 'Are you sure?',
-  //     text: "You won't be able to revert this!",
-  //     type: 'warning',
-  //     showCancelButton: true,
-  //     confirmButtonColor: '#3085d6',
-  //     cancelButtonColor: '#d33',
-  //     confirmButtonText: 'Yes, delete it!',
-  //     showLoaderOnConfirm: true,
-  //
-  //     preConfirm: function(){
-  //       return new Promise(function(resolve){
-  //         $.ajax({
-  //             url: "<?php echo base_url('divisi/remove');?>",
-  //             type: "POST",
-  //             data: {divisi:id_divisi},
-  //           })
-  //           .done(function(response){
-  //             swal('Your Divisi has Successfully Deleted','success');
-  //             $("#myTable").fadeOut("slow",0.7,function(){
-  //               $(this).remove();
-  //               })
-  //           })
-  //           .fail(function(){
-  //             swal('Failed to Delete Divisi','error');
-  //           });
-  //         });
-  //       },
-  //       allowOutsideClick: false
-  //   });
-  // }
 
-  // function deletedivisi(){
-  //   swal({
-  //     title: 'Are you sure?',
-  //     text: "You won't be able to revert this!",
-  //     type: 'warning',
-  //     showCancelButton: true,
-  //     confirmButtonColor: '#3085d6',
-  //     cancelButtonColor: '#d33',
-  //     confirmButtonText: 'Yes, delete it!',
-  //     showLoaderOnConfirm: true,
-  //     closeOnConfirm: true,
-  //   },
-  //   function(){
-  //     $.ajax({
-  //       url:"<?php echo base_url('index.php/crud/delete'); ?>",
-  //       data:{divisi:id_divisi},
-  //       success: function(){
-  //         $("tr[data-id='"+id_divisi+"']").fadeOut("fast",function(){
-  //           $(this).remove();
-  //         });
-  //       }
-  //     });
-  //   });
-  // };
-
+function swalupdate()
+{
+  swal("Berhasil!", "Informasi Telah Diperbaharui", "success");
+}
 </script>
 <!-- ============================================================== -->
 <!-- All Jquery -->
@@ -144,6 +91,12 @@ function deletedivisi(a)
 <script src="<?php echo base_url('assets/vertical/node_modules/sweetalert/jquery.sweet-alert.custom.js')?>"></script>
 <!-- Validator -->
 <script src="<?php echo base_url('assets/vertical/js/pages/validation.js')?>"></script>
+<!-- Image cropper JavaScript -->
+<script src="<?php echo base_url('assets/vertical/node_modules/cropper/cropper.min.js')?>"></script>
+<script src="<?php echo base_url('assets/vertical/node_modules/cropper/cropper-init.js')?>"></script>
+<!-- Magnific popup JavaScript -->
+<script src="<?php echo base_url('assets/vertical/node_modules/Magnific-Popup-master/dist/jquery.magnific-popup.min.js')?>"></script>
+<script src="<?php echo base_url('assets/vertical/node_modules/Magnific-Popup-master/dist/jquery.magnific-popup-init.js')?>"></script>
 <!-- start - This is for export functionality only -->
 <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
@@ -199,6 +152,11 @@ $('#example23').DataTable({
     buttons: [
         'copy', 'csv', 'excel', 'pdf', 'print'
     ]
+});
+</script>
+<script>
+$('#upload').on('click', function() {
+    $('#file-input').trigger('click');
 });
 </script>
 </body>

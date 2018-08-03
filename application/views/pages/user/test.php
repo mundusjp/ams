@@ -31,43 +31,34 @@
 
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                             </div>
-                            <center>
-                              <h3 class="box-title">Your Profile Picture</h3>
-                              <img src="<?php echo base_url('assets/vertical/images/users/5.jpg')?>" width="300">
-                            </center>
-                            <br>
+                            <div class="modal-body">
+                                <h4>Overflowing text to show scroll behavior</h4>
+                                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                                <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                            </div>
                             <div class="modal-footer">
-                              <form method="post" enctype="multipart/form-data">
-                                <button id="upload" type="button" class="btn btn-primary waves-effect text-left" action=""> Change Photo </button>
-                                <input id="file-input" type="file" name="name" style="display: none;" />
-                              </form>
                                 <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Close</button>
                             </div>
-                          </center>
                         </div>
                         <!-- /.modal-content -->
                     </div>
                     <!-- /.modal-dialog -->
                 </div>
                 <!-- /.modal -->
-                <center class="m-t-30"> <img src="<?php echo base_url('assets/vertical/images/users/5.jpg')?>" alt="default" class="img-responsive img-circle hover" width="150" data-toggle="modal" data-target="#ProfilePicture"/>
+                <center class="m-t-30"> <img src="<?php echo base_url('assets/vertical/images/users/5.jpg')?>" alt="default" class="img-responsive img-circle" width="150" data-toggle="modal" data-target="#ProfilePicture"/>
                     <h4 class="card-title m-t-10"><?php echo $user['username'];?></h4>
                     <h5 class="card-subtitle">NIPP.<?php echo $user['nipp'];?></h5>
                     <h6 class="card-subtitle font-weight-bold"> <?php echo $user['jabatan'];?></h6>
                 </center>
-                <h6 class="text-right text-primary">Edit</h6>
+                <a><h6 class="text-right text-primary">Edit</h6>
               </div>
               <div>
                 <hr> </div>
               <div class="card-body">
-                <small class="text-muted p-t-30 db">Full Name</small>
-                <h6><?php echo $user['nama'];?></h6>
-                <small class="text-muted">Email address </small>
-                <h6><?php echo $user['email'];?></h6>
-                <small class="text-muted p-t-30 db">Phone Number</small>
-                <h6><?php echo $user['no_hp'];?></h6>
-                <small class="text-muted p-t-30 db">Address</small>
-                <h6><?php echo $user['alamat'];?></h6>
+                <h6><?php echo $user['nama'];?></h6><small class="text-muted p-t-30 db">Full Name</small>
+                <h6><?php echo $user['email'];?></h6> <small class="text-muted">Email address </small>
+                <h6><?php echo $user['no_hp'];?></h6> <small class="text-muted p-t-30 db">Address</small>
+                <h6><?php echo $user['alamat'];?></h6><small class="text-muted p-t-30 db">Address</small>
                 <br/>
               </div>
             </div>
@@ -90,35 +81,35 @@
                             <!-- ====================================== -->
                             <!-- ======== Form General Profile ======== -->
                             <!-- ====================================== -->
-                            <?php echo form_open('user/editprofil/'.$user['id_user']); ?>
+                            <?php echo form_open('user/editprofile/'.$user['id_user']); ?>
                             <form class="form-horizontal form-material">
                               <div class="form-group">
                                   <label class="col-md-12">Full Name</label>
                                   <div class="col-md-12">
-                                      <input type="text" name="nama" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama') : $user['nama']); ?>" placeholder="<?php echo $user['nama'];?>" class="form-control form-control-line">
+                                      <input type="text" placeholder="<?php echo $user['nama'];?>" class="form-control form-control-line">
                                     </div>
                               </div>
                               <div class="form-group">
                                 <label for="example-email" class="col-md-12">Email</label>
                                   <div class="col-md-12">
-                                      <input type="email" name="email" value="<?php echo ($this->input->post('email') ? $this->input->post('email') : $user['email']); ?>"placeholder="<?php echo $user['email'];?>" class="form-control form-control-line" name="example-email" id="example-email">
+                                      <input type="email" placeholder="<?php echo $user['email'];?>" class="form-control form-control-line" name="example-email" id="example-email">
                                   </div>
                               </div>
                               <div class="form-group">
                                   <label class="col-md-12">Phone Number</label>
                                   <div class="col-md-12">
-                                      <input type="tel" name="no_hp" value="<?php echo ($this->input->post('no_hp') ? $this->input->post('no_hp') : $user['no_hp']); ?>"placeholder="<?php echo $user['no_hp'];?>" class="form-control form-control-line">
+                                      <input type="text" placeholder="<?php echo $user['no_hp'];?>" class="form-control form-control-line">
                                   </div>
                               </div>
                               <div class="form-group">
                                   <label class="col-md-12">Address</label>
                                   <div class="col-md-12">
-                                      <input type="text" name="alamat" value="<?php echo ($this->input->post('alamat') ? $this->input->post('alamat') : $user['alamat']); ?>"placeholder="<?php echo $user['alamat'];?>" class="form-control form-control-line">
+                                      <input type="text" placeholder="<?php echo $user['alamat'];?>" class="form-control form-control-line">
                                   </div>
                               </div>
                               <div class="form-group">
                                   <div class="col-sm-12">
-                                      <button class="btn btn-success" onclick="swalupdate()">Update Profile</button>
+                                      <button class="btn btn-success">Update Profile</button>
                                   </div>
                                 </div>
                             </form>
