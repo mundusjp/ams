@@ -20,20 +20,19 @@
         <!-- ============================================================== -->
         <div class="row">
           <div class="col-12">
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title"> Pilih Kantor dan Divisi</h4>
-                <select class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
-                  <option>Pilih Kantor</option>
-                  <optgroup label="Terminal Operasi 1">
-                    <option value="TK">Teknik</option>
-                    <option value="HR">SDM</option>
-                    <option value="OP">Operasional</option>
-                    <option value="RD">R&D</option>
-                  </optgroup>
-                </select>
-                <br>
-                <!-- <h6 class="card-subtitle"> Tabel akan muncul setelah anda memilih</h6> -->
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title"> Pilih Kantor dan Divisi</h4>
+                  <select class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
+                    <option>Pilih Kantor</option>
+                    <optgroup label="Terminal Operasi 1">
+                      <option value="TK">Teknik</option>
+                      <option value="HR">SDM</option>
+                      <option value="OP">Operasional</option>
+                      <option value="RD">R&D</option>
+                    </optgroup>
+                  </select>
+
                   <select class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
                     <option>Pilih Divisi</option>
                     <optgroup label="Terminal Operasi 1">
@@ -49,12 +48,11 @@
                       <option value="RD">R&D</option>
                     </optgroup>
                   </select>
-                  <br><br>
-                  <button type="submit" class="btn btn-info waves-effect waves-light">Pilih</button>
-                </div>
-              </div>
+              <button type="submit" class="btn btn-info waves-effect waves-light">Pilih</button>
             </div>
           </div>
+        </div>
+      </div>
           <div class="card">
               <div class="card-body">
                   <h4 class="card-title">Divisi Teknik</h4>
