@@ -28,10 +28,10 @@ class Kantor_model extends CI_Model
        $query = $this->db->get();
          return $query->result_array();
      }
-     
+
     function get_all_kantor()
     {
-        $this->db->order_by('id_kantor', 'desc');
+        $this->db->order_by('nama_kantor', 'asc');
         return $this->db->get('kantor')->result_array();
     }
 

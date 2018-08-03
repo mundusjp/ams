@@ -10,6 +10,7 @@ class Admin_model extends CI_Model
     function get_admin_by_kantor($by_kantor){
         $this->db->select('*');
         $this->db->from('user');
+        $this->db->order_by('nama', 'asc');
         $this->db->join('divisi', 'user.id_divisi = divisi.id_divisi');
         $this->db->join('kantor', 'divisi.id_kantor = kantor.id_kantor');
         $this->db->where('kantor.id_kantor', $by_kantor);

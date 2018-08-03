@@ -33,7 +33,8 @@
                                   <option value="0">Pilih Kantor</option><?php
                                   foreach($all_kantor as $kantor)
                                   {
-                                    echo '<option value="'.$kantor['id_kantor'].'">'.$kantor['nama_kantor'].'</option>';
+                                    $selected = ($kantor['id_kantor'] == $by_kantor) ? ' selected="selected"' : "";
+                                    echo '<option value="'.$kantor['id_kantor'].'" '.$selected.'>'.$kantor['nama_kantor'].'</option>';
                                   }
                                   ?>
                                 </select>
@@ -127,6 +128,7 @@
 										<th>Nama Barang</th>
 										<th>Jumlah</th>
 										<th>Divisi</th>
+                    <th>Kantor</th>
                     <th>User</th>
                     <th>Tindakan</th>
 									</tr>
@@ -141,6 +143,10 @@
                                         <td><?php
                                         foreach($all_divisi as $d){
                                             if($d['id_divisi']==$k['id_divisi']) {echo $d['nama_divisi'];}
+                                        }?></td>
+                                        <td><?php
+                                        foreach($all_kantor as $kan){
+                                            if($kan['id_kantor']==$k['id_kantor']) {echo $kan['nama_kantor'];}
                                         }?></td>
                                         <td><?php
                                         foreach($all_user as $u){

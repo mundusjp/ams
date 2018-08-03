@@ -33,7 +33,7 @@ class Kebutuhan extends CI_Controller{
         }
         $data['divisi'] = $this->Divisi_model->get_divisi($id_divisi);
         if($by_kantor == 0){
-          $data['kebutuhan'] = $this->Kebutuhan_model->get_all_kebutuhan();
+          $data['kebutuhan'] = $this->Kebutuhan_model->get_all_kebutuhan_kantor();
         }
         else{
           $data['kebutuhan'] = $this->Kebutuhan_model->get_kebutuhan_by_kantor($by_kantor);

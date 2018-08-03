@@ -31,7 +31,7 @@
                                 <?php if ($user['status'] == 1){
                                   echo form_open("inventory/overview");?>
                                 <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
-                                  <option value="">Pilih Kantor</option><?php
+                                  <option value="0">Pilih Kantor</option><?php
                                   foreach($all_kantor as $kantor)
                                   {
                                     echo '<option value="'.$kantor['id_kantor'].'">'.$kantor['nama_kantor'].'</option>';
