@@ -10,6 +10,7 @@
       $this->load->model('Expired_model');
       $this->load->model('Inventory_model');
       $this->load->model('Kebutuhan_model');
+      $this->load->model('Kantor_model');
     }
 
     public function view($page ='home'){
@@ -37,6 +38,14 @@
       }
       $data['count'] = $count;
       $data['count_kebutuhan'] = count($this->Kebutuhan_model->get_all_kebutuhan());
+
+      $id_divisi = $this->session->userdata('id_divisi');
+      $by_kantor = $this->input->post('pilih_cabang');
+      $kantor = $this->Kantor_model->get_kantor_by_divisi($id_divisi);
+      foreach ($kantor as $k) {
+        $id_kantor = $k['id_kantor'];
+      }
+      $data['count_kebutuhan2'] = count($this->Kebutuhan_model->get_kebutuhan_by_kantor($id_kantor));
 
       $data['title'] = ucfirst($page);
 

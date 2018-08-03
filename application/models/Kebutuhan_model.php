@@ -28,13 +28,6 @@ class Kebutuhan_model extends CI_Model
         return $this->db->get('kebutuhan')->result_array();
     }
 
-    // function get_id_kantor($id_divisi){
-    //     $this->db->select('id_kantor');
-    //     $this->db->from('divisi');
-    //     $this->db->where('divisi.id_divisi', $id_divisi);
-    //     $query = $this->db->get();
-    //       return $query->result();
-    // }
     function get_kebutuhan_by_kantor($by_kantor){
         $this->db->select('*');
         $this->db->from('kebutuhan');
@@ -44,6 +37,7 @@ class Kebutuhan_model extends CI_Model
         $query = $this->db->get();
           return $query->result_array();
     }
+
     function get_kebutuhan_by_divisi($id_user){
       $this->db->select('*');
       $this->db->from('kebutuhan');
@@ -51,7 +45,7 @@ class Kebutuhan_model extends CI_Model
       $query = $this->db->get();
         return $query->result_array();
     }
-    
+
     /*
      * function to add new beli
      */
