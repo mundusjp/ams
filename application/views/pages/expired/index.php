@@ -28,7 +28,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Data barang yang sudah expired</h4>
                                 <h6 class="card-subtitle">Data table example</h6>
-                                
+
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
@@ -47,7 +47,7 @@
 											<th>Status</th>
                       <th>Usia</th>
 
-                                            
+
 											<!-- <th>Id Beli/sewa</th> -->
 											<th>Actions</th>
                                             </tr>
@@ -76,16 +76,16 @@
                         <td><?php echo $selisih; ?></td>
 
                         <?php if ($i->kategori == 'beli'){ ?>
-                        
+
                         <td>
-                                <a href="<?php echo site_url('expired/buang/'.$i->id_inventory); ?>">Buang</a> | 
+                                <a href="<?php echo site_url('expired/buang/'.$i->id_inventory); ?>">Buang</a> |
                                 <a data-toggle="modal" href="#addpenjualan<?php echo $i->id_inventory; ?>">Jual</a> |
-                                <a data-toggle="modal" href="#addperpanjang<?php echo $i->id_inventory; ?>">Perpanjang</a> 
+                                <a data-toggle="modal" href="#addperpanjang<?php echo $i->id_inventory; ?>">Perpanjang</a>
                             </td>
                         <?php }
                             else { ?>
                             <td>
-                                <a href="<?php echo site_url('expired/kembalikan/'.$i->id_inventory); ?>">Kembalikan</a> | 
+                                <a href="<?php echo site_url('expired/kembalikan/'.$i->id_inventory); ?>">Kembalikan</a> |
                                 <a href="<?php echo site_url('expired/perpanjang/'.$i->id_inventory); ?>">Perpanjang</a>
                             </td>
                         <?php } ?>
@@ -120,7 +120,7 @@
                                           </div>
                                           <div class="form-group m-b-40">
                                               <label><h6 class="font-weight-bold">Tanggal</h6></label>
-                                              <input type="text" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>" />
+                                              <input type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>" />
                                               <span class="bar"></span>
                                           </div>
                                         </div>
@@ -160,15 +160,15 @@
                                       <div class="modal-footer d-flex justify-content-center">
                                         <button type="submit" class="btn btn-info waves-effect waves-light">Perpanjang</button>
                                         <?php echo form_close(); ?>
-                                        
+
                       <?php } ?>
-											
+
 										<?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-						</div>		
+						</div>
 				</div>
             </div>
           </div>

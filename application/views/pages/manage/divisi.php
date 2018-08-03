@@ -29,7 +29,7 @@
                                 <h4 class="card-title">Data Divisi</h4>
                                 <?php echo form_open("manage/divisi");?>
                                 <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
-                                  <option value="">Pilih Kantor</option><?php
+                                  <option value="0">Pilih Kantor</option><?php
                                   foreach($all_kantor as $kantor)
                                   {
                                     echo '<option value="'.$kantor['id_kantor'].'">'.$kantor['nama_kantor'].'</option>';

@@ -106,11 +106,20 @@
                                                         <select name="id_divisi_pengada" class="form-control">
                                                         <option value="">select divisi</option>
                                                         <?php
-                                                        foreach($all_divisi as $divisi)
-                                                        {
-                                                            $selected = ($divisi['id_divisi'] == $this->input->post('id_divisi_pengada')) ? ' selected="selected"' : "";
-
-                                                            echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama_divisi'].'</option>';
+                                                        $status = $this->session->userdata('level');
+                                                        if($status == 1){
+                                                          foreach($all_divisi as $divisi)
+                                                          {
+                                                                $selected = ($divisi['id_divisi'] == $this->input->post('id_divisi_pengada')) ? ' selected="selected"' : "";
+                                                                echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama_kantor'].' - '.$divisi['nama_divisi'].'</option>';
+                                                          }
+                                                        }
+                                                        else if ($status == 2){
+                                                          foreach($all_divisi as $divisi)
+                                                          {
+                                                                $selected = ($divisi['id_divisi'] == $this->input->post('id_divisi_pengada')) ? ' selected="selected"' : "";
+                                                                echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama_divisi'].'</option>';
+                                                          }
                                                         }
                                                         ?>
                                                     </select>
@@ -333,7 +342,7 @@
                                                         <input type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>" />
                                                         <span class="text-danger"><?php echo form_error('tanggal');?></span>
                                                     </div>
-                                                   
+
 
                                                     <div class="form-group m-b-40">
                                                         <label for="alamatkantor"><h6 class="font-weight-bold">Deskripsi</h6></label>

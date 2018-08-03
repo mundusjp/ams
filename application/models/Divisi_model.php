@@ -12,9 +12,9 @@ class Divisi_model extends CI_Model
     }
 
     function get_divisi_by_kantor($by_kantor){
-        $this->db->order_by('nama_divisi', 'asc');
         $this->db->select('*');
         $this->db->from('divisi');
+        $this->db->order_by('nama_divisi', 'asc');
         $this->db->join('kantor', 'kantor.id_kantor = divisi.id_kantor');
         $this->db->where('kantor.id_kantor', $by_kantor);
         $query = $this->db->get();
@@ -35,6 +35,16 @@ class Divisi_model extends CI_Model
     {
         $this->db->order_by('nama_divisi', 'asc');
         return $this->db->get('divisi')->result_array();
+    }
+
+    function get_all_divisi_by_kantor()
+    {
+        $this->db->select('*');
+        $this->db->from('divisi');
+        $this->db->join('kantor', 'kantor.id_kantor = divisi.id_kantor');
+        $this->db->order_by('nama_kantor', 'asc');
+        $query = $this->db->get();
+          return $query->result_array();
     }
 
     /*

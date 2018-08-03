@@ -36,7 +36,12 @@ class Manage extends CI_Controller{
         $data['user'] = $this->admin_model->get_all_admin();
         $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
         $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
-        $data['records'] = $this->admin_model->get_admin_by_kantor($by_kantor);
+        if($by_kantor == 0){
+          $data['records'] = $this->admin_model->get_all_admin_by_kantor();
+        }
+        else{
+          $data['records'] = $this->admin_model->get_admin_by_kantor($by_kantor);
+        }
 
         $data['_view'] = 'manage/user';
         $this->load->view('templates/dashboard/header');
@@ -52,7 +57,12 @@ class Manage extends CI_Controller{
         $by_kantor = $this->input->post('pilih_cabang');
         $data['divisi'] = $this->Divisi_model->get_all_divisi();
         $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
-        $data['records'] = $this->Divisi_model->get_divisi_by_kantor($by_kantor);
+        if($by_kantor == 0){
+          $data['records'] = $this->Divisi_model->get_all_divisi_by_kantor();
+        }
+        else{
+          $data['records'] = $this->Divisi_model->get_divisi_by_kantor($by_kantor);
+        }
         $data['_view'] = 'manage/divisi';
         $this->load->view('templates/dashboard/header');
         $this->load->view('templates/dashboard/topbar');
