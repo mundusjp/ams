@@ -48,6 +48,18 @@
                                                         <span class="text-danger"><?php echo form_error('nama');?></span>
                                                     </div>
                                                     <div class="form-group m-b-40">
+                                                        <label for="id_kantor"><h6 class="font-weight-bold">No Handphone</h6></label>
+                                                        <span class="bar"></span>
+                                                        <input type="text" class="form-control" name="no_hp" value="<?php echo $this->input->post('no_hp'); ?>" />
+                                                        <span class="text-danger"><?php echo form_error('no_hp');?></span>
+                                                    </div>
+                                                    <div class="form-group m-b-40">
+                                                        <label for="id_kantor"><h6 class="font-weight-bold">Email</h6></label>
+                                                        <span class="bar"></span>
+                                                        <input type="text" class="form-control" name="email" value="<?php echo $this->input->post('email'); ?>" />
+                                                        <span class="text-danger"><?php echo form_error('email');?></span>
+                                                    </div>
+                                                    <div class="form-group m-b-40">
                                                         <label for="id_kantor"><h6 class="font-weight-bold">Alamat</h6></label>
                                                         <span class="bar"></span>
                                                         <input type="text" class="form-control" name="alamat" value="<?php echo $this->input->post('alamat'); ?>" />
@@ -74,6 +86,8 @@
                                             <tr>
                                                 <th>No.</th>
                                                 <th>Nama</th>
+                                                <th>No Handphone</th>
+                                                <th>Email</th>
                                                 <th>Alamat</th>
                                                 <th>Tindakan</th>
                                             </tr>
@@ -87,6 +101,12 @@
                                                 </td>
                                                 <td>
                                                     <?php echo $s['nama']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $s['no_hp']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $s['email']; ?>
                                                 </td>
                                                 <td>
                                                     <?php echo $s['alamat']; ?>
@@ -116,6 +136,18 @@
                                                                         <span class="bar"></span>
                                                                         <input type="text" class="form-control" name="nama" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama') : $s['nama']); ?>" />
                                                                         <span class="text-danger"><?php echo form_error('nama');?></span>
+                                                                    </div>
+                                                                    <div class="form-group m-b-40">
+                                                                        <label for="id_kantor"><h6 class="font-weight-bold">No Handphone</h6></label>
+                                                                        <span class="bar"></span>
+                                                                        <input type="text" class="form-control" name="no_hp" value="<?php echo ($this->input->post('no_hp') ? $this->input->post('no_hp') : $s['no_hp']); ?>" />
+                                                                        <span class="text-danger"><?php echo form_error('no_hp');?></span>
+                                                                    </div>
+                                                                    <div class="form-group m-b-40">
+                                                                        <label for="id_kantor"><h6 class="font-weight-bold">Email</h6></label>
+                                                                        <span class="bar"></span>
+                                                                        <input type="text" class="form-control" name="email" value="<?php echo ($this->input->post('email') ? $this->input->post('email') : $s['email']); ?>" />
+                                                                        <span class="text-danger"><?php echo form_error('email');?></span>
                                                                     </div>
                                                                     <div class="form-group m-b-40">
                                                                         <label for="id_kantor"><h6 class="font-weight-bold">Alamat</h6></label>

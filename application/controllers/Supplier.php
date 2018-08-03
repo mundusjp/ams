@@ -45,7 +45,9 @@ class Supplier extends CI_Controller{
         {
             $params = array(
 				'nama' => $this->input->post('nama'),
-				'alamat' => $this->input->post('alamat'),
+                'alamat' => $this->input->post('alamat'),
+                'no_hp' => $this->input->post('no_hp'),
+                'email' => $this->input->post('email'),
             );
 
             $supplier_id = $this->Supplier_model->add_supplier($params);
@@ -77,7 +79,9 @@ class Supplier extends CI_Controller{
             {
                 $params = array(
 					'nama' => $this->input->post('nama'),
-					'alamat' => $this->input->post('alamat'),
+                    'alamat' => $this->input->post('alamat'),
+                    'no_hp' => $this->input->post('no_hp'),
+                'email' => $this->input->post('email'),
                 );
 
                 $this->Supplier_model->update_supplier($id_supplier,$params);

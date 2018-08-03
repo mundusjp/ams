@@ -57,19 +57,19 @@
                                           <div class="form-group m-b-40">
                                               <label for="id_kantor"><h6 class="font-weight-bold">Tanggal Transaksi</h6></label>
                                               <span class="bar"></span>
-                                              <input type="text" class="form-control" name="tanggal_transaksi" value="<?php echo $this->input->post('tanggal_transaksi'); ?>" />
+                                              <input type="date" class="form-control" name="tanggal_transaksi" value="<?php echo $this->input->post('tanggal_transaksi'); ?>" />
 	                                          	<span class="text-danger"><?php echo form_error('tanggal_transaksi');?></span>
                                           </div>
                                           <div class="form-group m-b-40">
                                               <label for="id_kantor"><h6 class="font-weight-bold">Periode Start</h6></label>
                                               <span class="bar"></span>
-                                              <input type="text" class="form-control" name="periode_start" value="<?php echo $this->input->post('periode_start'); ?>" />
+                                              <input type="date" class="form-control" name="periode_start" value="<?php echo $this->input->post('periode_start'); ?>" />
 	                                          	<span class="text-danger"><?php echo form_error('periode_start');?></span>
                                           </div>
                                           <div class="form-group m-b-40">
                                               <label for="id_kantor"><h6 class="font-weight-bold">Periode End</h6></label>
                                               <span class="bar"></span>
-                                              <input type="text" class="form-control" name="periode_end" value="<?php echo $this->input->post('periode_end'); ?>" />
+                                              <input type="date" class="form-control" name="periode_end" value="<?php echo $this->input->post('periode_end'); ?>" />
 	                                          	<span class="text-danger"><?php echo form_error('periode_end');?></span>
                                           </div>
                                           <div class="form-group m-b-40">
@@ -128,19 +128,25 @@
                                             }
                                             ?>
                                             </td>
-											<td><?php echo $s['tanggal_transaksi']; ?></td>
-											<td><?php echo $s['periode_start']; ?></td>
-											<td><?php echo $s['periode_end']; ?></td>
+                                            <?php $myDateTime = DateTime::createFromFormat('Y-m-d', $s['tanggal_transaksi']);
+                                            $newDateString = $myDateTime->format('d-m-Y');?>
+											<td><?php echo $newDateString ;?></td>
+                                            <?php $myDateTime = DateTime::createFromFormat('Y-m-d', $s['periode_start']);
+                                            $newDateString = $myDateTime->format('d-m-Y');?>
+											<td><?php echo $newDateString ;?></td>
+                                            <?php $myDateTime = DateTime::createFromFormat('Y-m-d', $s['periode_end']);
+                                            $newDateString = $myDateTime->format('d-m-Y');?>
+											<td><?php echo $newDateString ;?></td>
 											<td><?php echo $s['biaya']; ?></td>
 											<td><?php echo $s['deskripsi']; ?></td>
 											<td>
-												<a data-toggle="modal" href="#edit<?php echo $s['id_sewa']; ?>">Edit</a> |
-                                                <a href="<?php echo site_url('inventory/detail_sewa/'.$s['id_sewa']); ?>">Detail</a> |
-												<a href="<?php echo site_url('stock/removesewa/'.$s['id_sewa']); ?>">Delete</a>
+												<a data-toggle="modal" href="#edit<?php echo $s['id_transaksi']; ?>">Edit</a> |
+                                                <a href="<?php echo site_url('inventory/detail_sewa/'.$s['id_transaksi']); ?>">Detail</a> |
+												<a href="<?php echo site_url('stock/removesewa/'.$s['id_transaksi']); ?>">Delete</a>
 											</td>
 										</tr>
                                                         <!-- modal menambahkan fungsi  -->
-                                                <div class="modal fade" id="edit<?php echo $s['id_sewa'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal fade" id="edit<?php echo $s['id_transaksi'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                     <div class="modal-header text-center">
@@ -150,7 +156,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body mx-3">
-                                                    <?php echo form_open('stock/editsewa/'.$s['id_sewa']); ?>
+                                                    <?php echo form_open('stock/editsewa/'.$s['id_transaksi']); ?>
                                                         <form class="form-body m-t-40">
                                                         <div class="form-group">
                                                             <label><h6 class="font-weight-bold">Supplier</h6></label>
@@ -169,19 +175,19 @@
                                                         <div class="form-group m-b-40">
                                                         <label for="id_kantor"><h6 class="font-weight-bold">Tanggal Transaksi</h6></label>
                                                         <span class="bar"></span>
-                                                                <input type="text" class="form-control" name="tanggal_transaksi" value="<?php echo ($this->input->post('tanggal_transaksi') ? $this->input->post('tanggal_transaksi') : $s['tanggal_transaksi']); ?>" />
+                                                                <input type="date" class="form-control" name="tanggal_transaksi" value="<?php echo ($this->input->post('tanggal_transaksi') ? $this->input->post('tanggal_transaksi') : $s['tanggal_transaksi']); ?>" />
                                                                 <span class="text-danger"><?php echo form_error('tanggal_transaksi');?></span>
                                                         </div>
                                                         <div class="form-group m-b-40">
                                                         <label for="id_kantor"><h6 class="font-weight-bold">Periode Start</h6></label>
                                                         <span class="bar"></span>
-                                                                <input type="text" class="form-control" name="periode_start" value="<?php echo ($this->input->post('periode_start') ? $this->input->post('periode_start') : $s['periode_start']); ?>" />
+                                                                <input type="date" class="form-control" name="periode_start" value="<?php echo ($this->input->post('periode_start') ? $this->input->post('periode_start') : $s['periode_start']); ?>" />
                                                                 <span class="text-danger"><?php echo form_error('periode_start');?></span>
                                                         </div>
                                                         <div class="form-group m-b-40">
                                                         <label for="id_kantor"><h6 class="font-weight-bold">Periode End</h6></label>
                                                         <span class="bar"></span>
-                                                                <input type="text" class="form-control" name="periode_end" value="<?php echo ($this->input->post('periode_end') ? $this->input->post('periode_end') : $s['periode_end']); ?>" />
+                                                                <input type="date" class="form-control" name="periode_end" value="<?php echo ($this->input->post('periode_end') ? $this->input->post('periode_end') : $s['periode_end']); ?>" />
                                                                 <span class="text-danger"><?php echo form_error('periode_end');?></span>
                                                         </div>
                                                         <div class="form-group m-b-40">
@@ -207,14 +213,11 @@
 										<?php } ?>
 										</tbody>
 									</table>
-                                    <?php
-echo "Title of the blog post : ".$title;
-echo "<a href='$web_Address'>"."Click here to go to blog page"."</a>";
-?>
+                                    <!--  -->
 									</div>
 								</div>
 							</div>
 					</div>
 				</div>
 			</div>
-			</div>`
+			</div>

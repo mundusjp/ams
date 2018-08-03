@@ -317,6 +317,22 @@
                                                                     <input type="number"  name="jumlah1" value="<?php echo $this->input->post('jumlah1') ; ?>" />
                                                                     <span class="text-danger"><?php echo form_error('jumlah1');?></span>
                                                                 </div>
+                                                                <div  style="display:none;">
+                                                                    <span class="text-danger ">*</span>id_divisi_penerima
+                                                                    <input type="number"   name="id_divisi" value="<?php echo ($this->input->post('id_divisi') ? $this->input->post('id_divisi') : $i->id_divisi_pengada); ?>" />
+                                                                    <span class="text-danger"><?php echo form_error('id_divisi');?></span>
+                                                                </div>
+                                                                <div  style="display:none;">
+                                                                    <span class="text-danger ">*</span>nama barang:
+                                                                    <input type="text"   name="nama_barang" value="<?php echo ($this->input->post('nama_barang') ? $this->input->post('nama_barang') : $i->nama); ?>" />
+                                                                    <span class="text-danger"><?php echo form_error('nama_barang');?></span>
+                                                                </div>
+                                                                <?php $id=$this->session->userdata('id_user');?>
+                                                                <div  style="display:none;">
+                                                                    <span class="text-danger ">*</span>id user:
+                                                                    <input type="number"name="id_user" value="<?php echo $id;?>" />
+                                                                    <span class="text-danger"><?php echo form_error('nama_barang');?></span>
+                                                                </div>
                                                         </div>
                                                         <div class="modal-footer d-flex justify-content-center">
                                                             <button type="submit" class="btn btn-info waves-effect waves-light">Save</button>

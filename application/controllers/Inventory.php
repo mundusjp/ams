@@ -10,6 +10,7 @@ class Inventory extends CI_Controller{
         $this->load->model('Kantor_model');
         $this->load->model('Divisi_model');
         $this->load->model('Admin_model');
+        $this->load->model('Kebutuhan_model');
     }
 
     /*
@@ -256,7 +257,16 @@ class Inventory extends CI_Controller{
                 if( $tanda=="+"){
                     $jumlah = $a+$b ;
                 }
-                else $jumlah = $a-$b;
+                else {
+                    $jumlah = $a-$b;
+                    $par = array(
+                        'id_divisi' => $this->input->post('id_divisi'),
+                        'nama_barang' => $this->input->post('nama_barang'),
+                        'jumlah' => $b,
+                        'id_user' => $this->input->post('id_user'),
+                    );
+                    $kebutuhan_id = $this->Kebutuhan_model->add_kebutuhan($par);
+                }
 
                 $var = array(
                     'jumlah' => $jumlah,

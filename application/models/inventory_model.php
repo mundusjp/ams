@@ -45,7 +45,7 @@ class Inventory_model extends CI_Model
         $this->db->select('*');
         $this->db->from('inventory');
         $this->db->where('inventory.kategori',"beli");
-        $this->db->where('inventory.id_beli/sewa',$id_beli);
+        $this->db->where('inventory.id_transaksi',$id_beli);
         $query = $this->db->get();
         return $query->result();
     }
@@ -54,7 +54,7 @@ class Inventory_model extends CI_Model
         $this->db->select('*');
         $this->db->from('inventory');
         $this->db->where('inventory.kategori',"sewa");
-        $this->db->where('inventory.id_beli/sewa',$id_sewa);
+        $this->db->where('inventory.id_transaksi',$id_sewa);
         $query = $this->db->get();
         return $query->result();
     }

@@ -200,7 +200,7 @@
                                                 <td>
                                                 <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit-<?php echo $i->id_inventory;?>">Ubah</a>
                                                     <!-- <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Delete</a> -->
-                                                    <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Pemeliharaan</a>
+                                                    <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#ubah-<?php echo $i->id_inventory;?>">Pemeliharaan</a>
                                                 </td>
                                             </tr>
                                               <!-- modal menambahkan fungsi  -->
@@ -298,6 +298,58 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- modal menambahkan fungsi  -->
+                                <div class="modal fade" id="ubah-<?php echo $i->id_inventory;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header text-center">
+                                                <h3 class="modal-title w-100 font-weight-bold">Tambah Pemeliharaan</h3>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                            </div>
+                                            <div class="modal-body mx-3">
+                                                <?php echo form_open('stock/addpemeliharaan'); ?>
+                                                <form class="floating-labels m-t-40">
+                                                    <div >
+                                                        <span class="text-danger">*</span>Inventory :
+                                                        <input disabled type="text" name="serial_id" value="<?php echo ($this->input->post('serial_id') ? $this->input->post('serial_id') : $i->serial_id); ?>" />
+                                                        <span class="text-danger"><?php echo form_error('serial_id');?></span>
+                                                    </div>
+                                                    <div style="display:none;">
+                                                        <span class="text-danger">*</span>Inventory :
+                                                        <input  type="text" name="id_inventory" value="<?php echo ($this->input->post('id_inventory') ? $this->input->post('id_inventory') : $i->id_inventory); ?>" />
+                                                        <span class="text-danger"><?php echo form_error('serial_id');?></span>
+                                                    </div>
+                                                    <div class="form-group m-b-40">
+                                                        <label for="namakantor"><h6 class="font-weight-bold">Biaya</h6></label>
+                                                        <span class="bar"></span>
+                                                        <input type="number" class="form-control" name="biaya" value="<?php echo $this->input->post('biaya'); ?>" />
+                                                        <span class="text-danger"><?php echo form_error('biaya');?></span>
+                                                    </div>
+                                                    <div class="form-group m-b-40">
+                                                        <label for="id_kantor"><h6 class="font-weight-bold">Tanggal </h6></label>
+                                                        <span class="bar"></span>
+                                                        <input type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>" />
+                                                        <span class="text-danger"><?php echo form_error('tanggal');?></span>
+                                                    </div>
+                                                   
+
+                                                    <div class="form-group m-b-40">
+                                                        <label for="alamatkantor"><h6 class="font-weight-bold">Deskripsi</h6></label>
+                                                        <span class="bar"></span>
+                                                        <textarea rows="4" class="form-control" type="text" name="deskripsi" value="<?php echo $this->input->post('deskripsi'); ?>"></textarea>
+                                                        <span class="text-danger"><?php echo form_error('deskripsi');?></span>
+                                                    </div>
+                                            </div>
+
+                                            <div class="modal-footer d-flex justify-content-center">
+                                                <button class="btn btn-info waves-effect waves-light" type="submit">Tambah</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php echo form_close(); ?>
                                             <?php } ?>
                                         </tbody>
                                     </table>

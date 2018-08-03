@@ -67,7 +67,7 @@
                                                     <div class="form-group m-b-40">
                                                         <label for="id_kantor"><h6 class="font-weight-bold">Tanggal </h6></label>
                                                         <span class="bar"></span>
-                                                        <input type="text" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>" />
+                                                        <input type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>" />
                                                         <span class="text-danger"><?php echo form_error('tanggal');?></span>
                                                     </div>
                                                    
@@ -132,10 +132,10 @@
                                                 <td>
                                                     <?php echo $p['biaya']; ?>
                                                 </td>
-                                                <td>
-                                                    <?php echo $p['tanggal']; ?>
-                                                   
-                                                </td>
+                                               
+                                                <?php $tgl=$p['tanggal'];?>
+				                                 <td><?php echo date('d-m-Y', strtotime($tgl))?></td>
+                                               
                                                 <td>
                                                     <?php echo $p['deskripsi']; ?>
                                                 </td>
@@ -181,7 +181,7 @@
                                                                 <div class="form-group m-b-40">
                                                                     <label for="namakantor"><h6 class="font-weight-bold">Tanggal :</h6></label>
                                                                     <span class="bar"></span>
-                                                                    <input type="text" class="form-control" name="tanggal" value="<?php echo ($this->input->post('tanggal') ? $this->input->post('tanggal') : $p['tanggal']); ?>" />
+                                                                    <input type="date" class="form-control" name="tanggal" value="<?php echo ($this->input->post('tanggal') ? $this->input->post('tanggal') : $p['tanggal']); ?>" />
                                                                 </div>
                                                                 <div class="form-group m-b-40">
                                                                     <label for="deskripso"><h6 class="font-weight-bold">Deskripsi :</h6></label>

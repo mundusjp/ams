@@ -11,9 +11,9 @@
          if($this->session->userdata('status') != "login"){
            redirect('');
            }
-         $this->load->model('Sewa_model');
+         $this->load->model('Transaksi_model');
          $this->load->model('Pemeliharaan_model');
-         $this->load->model('Beli_model');
+         $this->load->model('Transaksi_model');
          $this->load->model('Inventory_model');
      }
 
@@ -22,7 +22,7 @@
 // ------------------------------------------------------------------------
 function overview()
 {
-    $data['sewa'] = $this->Sewa_model->get_all_sewa();
+    $data['sewa'] = $this->Transaksi_model->get_all_sewa();
 
     $data['_view'] = 'stock/penyewaan';
     $this->load->view('templates/dashboard/header');
@@ -35,7 +35,7 @@ function overview()
 // ------------------------------------------------------------------------
 function penyewaan()
 {
-    $data['sewa'] = $this->Sewa_model->get_all_sewa();
+    $data['sewa'] = $this->Transaksi_model->get_all_transaksi();
     $this->load->model('Supplier_model');
     $data['all_supplier'] = $this->Supplier_model->get_all_supplier();
     $data['_view'] = 'stock/penyewaan';
@@ -49,11 +49,9 @@ function penyewaan()
 // ------------------------------------------------------------------------
 function pembelian()
 {
-    $data['beli'] = $this->Beli_model->get_all_beli();
+    $data['beli'] = $this->Transaksi_model->get_all_transaksi();
     $this->load->model('Supplier_model');
     $data['all_inventory'] = $this->Inventory_model->get_all_inventory();
-    
-
     $data['all_supplier'] = $this->Supplier_model->get_all_supplier();
     $data['_view'] = 'stock/pembelian';
 
@@ -106,16 +104,16 @@ if($this->form_validation->run())
     'deskripsi' => $this->input->post('deskripsi'),
         );
 
-        $sewa_id = $this->Sewa_model->add_sewa($params);
+        $transaksi_id = $this->Transaksi_model->add_transaksi($params);
         redirect('stock/penyewaan');
     }
     else
     {
-  $this->load->model('Supplier_model');
-  $data['all_supplier'] = $this->Supplier_model->get_all_supplier();
+        $this->load->model('Supplier_model');
+        $data['all_supplier'] = $this->Supplier_model->get_all_supplier();
 
         $data['_view'] = 'stock/sewa';
-        $this->load->view('pages/manage-stock/penyewaan',$data);
+        $this->load->view('pages/beli/add',$data);
     }
 }
 // ------------------------------------------------------------------------
@@ -124,7 +122,7 @@ function addbeli()
     $this->load->library('form_validation');
 
 $this->form_validation->set_rules('tanggal_transaksi','Tanggal Transaksi','required');
-$this->form_validation->set_rules('total_harga','Total Harga','required|integer');
+$this->form_validation->set_rules('biaya','Biaya','required|integer');
 $this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[191]');
 
 if($this->form_validation->run())
@@ -132,12 +130,11 @@ if($this->form_validation->run())
         $params = array(
     'id_supplier' => $this->input->post('id_supplier'),
     'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
-    'total_harga' => $this->input->post('total_harga'),
+    'biaya' => $this->input->post('biaya'),
     'deskripsi' => $this->input->post('deskripsi'),
         );
-
-        $beli_id = $this->Beli_model->add_beli($params);
-        redirect('beli/index');
+        $transaksi_id = $this->Transaksi_model->add_transaksi($params);
+        redirect('stock/pembelian');
     }
     else
     {
@@ -190,9 +187,9 @@ if($this->form_validation->run())
 function editsewa($id_sewa)
 {
     // check if the sewa exists before trying to edit it
-    $data['sewa'] = $this->Sewa_model->get_sewa($id_sewa);
+    $data['sewa'] = $this->Transaksi_model->get_transaksi($id_sewa);
 
-    if(isset($data['sewa']['id_sewa']))
+    if(isset($data['sewa']['id_transaksi']))
     {
         $this->load->library('form_validation');
 
@@ -213,7 +210,7 @@ function editsewa($id_sewa)
       'deskripsi' => $this->input->post('deskripsi'),
             );
 
-            $this->Sewa_model->update_sewa($id_sewa,$params);
+            $this->Transaksi_model->update_transaksi($id_sewa,$params);
             redirect('stock/penyewaan');
         }
         else
@@ -232,14 +229,14 @@ function editsewa($id_sewa)
 function editbeli($id_beli)
 {
     // check if the beli exists before trying to edit it
-    $data['beli'] = $this->Beli_model->get_beli($id_beli);
+    $data['beli'] = $this->Transaksi_model->get_transaksi($id_beli);
 
-    if(isset($data['beli']['id_beli']))
+    if(isset($data['beli']['id_transaksi']))
     {
         $this->load->library('form_validation');
 
   $this->form_validation->set_rules('tanggal_transaksi','Tanggal Transaksi','required');
-  $this->form_validation->set_rules('total_harga','Total Harga','required|integer');
+  $this->form_validation->set_rules('biaya','Biaya','required|integer');
   $this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[191]');
 
   if($this->form_validation->run())
@@ -247,11 +244,11 @@ function editbeli($id_beli)
             $params = array(
       'id_supplier' => $this->input->post('id_supplier'),
       'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
-      'total_harga' => $this->input->post('total_harga'),
+      'biaya' => $this->input->post('biaya'),
       'deskripsi' => $this->input->post('deskripsi'),
             );
 
-            $this->Beli_model->update_beli($id_beli,$params);
+            $this->Transaksi_model->update_transaksi($id_beli,$params);
             redirect('stock/pembelian');
         }
         else
@@ -260,7 +257,7 @@ function editbeli($id_beli)
     $data['all_supplier'] = $this->Supplier_model->get_all_supplier();
 
             $data['_view'] = 'beli/edit';
-            $this->load->view('pages/beli/edit',$data);
+            $this->load->view('pages/stock/pembelian',$data);
         }
     }
     else
@@ -311,12 +308,12 @@ function editpemeliharaan($id_pemeliharaan)
 // ------------------------------------------------------------------------
 function removesewa($id_sewa)
 {
-    $sewa = $this->Sewa_model->get_sewa($id_sewa);
+    $sewa = $this->Transaksi_model->get_transaksi($id_sewa);
 
     // check if the sewa exists before trying to delete it
-    if(isset($sewa['id_sewa']))
+    if(isset($sewa['id_transaksi']))
     {
-        $this->Sewa_model->delete_sewa($id_sewa);
+        $this->Transaksi_model->delete_transaksi($id_sewa);
         redirect('stock/penyewaan');
     }
     else
@@ -325,12 +322,12 @@ function removesewa($id_sewa)
 // ------------------------------------------------------------------------
 function removebeli($id_beli)
 {
-    $beli = $this->Beli_model->get_beli($id_beli);
+    $beli = $this->Transaksi_model->get_transaksi($id_beli);
 
     // check if the beli exists before trying to delete it
-    if(isset($beli['id_beli']))
+    if(isset($beli['id_transaksi']))
     {
-        $this->Beli_model->delete_beli($id_beli);
+        $this->Transaksi_model->delete_transaksi($id_beli);
         redirect('stock/pembelian');
     }
     else
@@ -353,19 +350,12 @@ function removepemeliharaan($id_pemeliharaan)
 function detail($id_beli)
 {
     // check if the beli exists before trying to edit it
-    $data['beli'] = $this->Beli_model->get_beli($id_beli);
-    
-    $data['all_inventory'] = $this->Inventory_model->get_beli($id_beli);
-    
-
+    $data['beli'] = $this->Transaksi_model->get_transaksi($id_beli);
+    $data['all_inventory'] = $this->Inventory_model->get_transaksi($id_beli);
     $data['_view'] = 'stock/detail';
-
-    
     $this->load->view('pages/beli/detail',$data);
     $this->load->view('templates/dashboard/footer');
    
-
-    
 }
 
 }

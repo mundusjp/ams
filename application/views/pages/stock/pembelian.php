@@ -63,8 +63,8 @@
                                           <div class="form-group m-b-40">
                                           <label for="namakantor"><h6 class="font-weight-bold">Total Harga</h6></label>
                                           <span class="bar"></span>
-                                          <input type="text" class="form-control" name="total_harga" value="<?php echo $this->input->post('total_harga'); ?>" />
-		                                      <span class="text-danger"><?php echo form_error('total_harga');?></span>
+                                          <input type="text" class="form-control" name="biaya" value="<?php echo $this->input->post('biaya'); ?>" />
+		                                      <span class="text-danger"><?php echo form_error('biaya');?></span>
                                           </div>
 
                                           <div class="form-group m-b-40">
@@ -105,7 +105,7 @@
 								<?php $no=1;foreach($beli as $b){ ?>
 								<tr>
 									<td>
-                    <!-- <?php echo $b['id_beli']; ?> -->
+                    <!-- <?php echo $b['id_transaksi']; ?> -->
                     <?php echo $no++; ?> 
                   </td>
                   <td>
@@ -117,17 +117,19 @@
                    }
                    ?>
                   </td>
-									<td><?php echo $b['tanggal_transaksi']; ?></td>
-									<td><?php echo $b['total_harga']; ?></td>
+                  <?php $date = explode(" ",$b['tanggal_transaksi']);$date1 = $date[0]; ?>
+                  <?php $date2 = explode("-",$date1);?>
+                  <td><?php echo $date2[2].'-'.$date2[1].'-'.$date2[0]; ?></td>
+									<td><?php echo $b['biaya']; ?></td>
 									<td><?php echo $b['deskripsi']; ?></td>
 									<td>
-										<a data-toggle="modal" href="#edit<?php echo $b['id_beli']; ?>">Edit</a> |
-                    <a href="<?php echo site_url('stock/removebeli/'.$b['id_beli']); ?>">Delete</a> |
-                    <a href="<?php echo site_url('inventory/detail_beli/'.$b['id_beli']); ?>">Detail</a>
+										<a data-toggle="modal" href="#edit<?php echo $b['id_transaksi']; ?>">Edit</a> |
+                    <a href="<?php echo site_url('stock/removebeli/'.$b['id_transaksi']); ?>">Delete</a> |
+                    <a href="<?php echo site_url('inventory/detail_beli/'.$b['id_transaksi']); ?>">Detail</a>
 									</td>
 								</tr>
                 <!-- modal mengedit fungsi  -->
-								<div class="modal fade" id="edit<?php echo $b['id_beli'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal fade" id="edit<?php echo $b['id_transaksi'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                       <div class="modal-header text-center">
@@ -137,7 +139,7 @@
                                         </button>
                                       </div>
                                       <div class="modal-body mx-3">
-                                      <?php echo form_open('stock/editbeli/'.$b['id_beli']); ?>
+                                      <?php echo form_open('stock/editbeli/'.$b['id_transaksi']); ?>
                                         <form class="form-body m-t-40">
                                           <div class="form-group m-b-40">
                                           <label for="id_kantor"><h6 class="font-weight-bold">Tanggal Transaksi</h6></label>
@@ -148,7 +150,7 @@
                                           <div class="form-group m-b-40">
                                               <label for="namakantor"><h6 class="font-weight-bold">Total Harga :</h6></label>
                                               <span class="bar"></span>
-                                            	<input type="text" class="form-control" name="total_harga" value="<?php echo ($this->input->post('total_harga') ? $this->input->post('total_harga') : $b['total_harga']); ?>" />
+                                            	<input type="text" class="form-control" name="biaya" value="<?php echo ($this->input->post('biaya') ? $this->input->post('biaya') : $b['biaya']); ?>" />
                                           </div>
                                           <div class="form-group m-b-40">
                                           <label for="deskripso"><h6 class="font-weight-bold">Deskripsi :</h6></label>
