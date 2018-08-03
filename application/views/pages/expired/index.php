@@ -79,8 +79,8 @@
                         
                         <td>
                                 <a href="<?php echo site_url('expired/buang/'.$i->id_inventory); ?>">Buang</a> | 
-                                <a data-toggle="modal" href="#addpenjualan<?php echo $i->id_inventory; ?>">Jual</a> | 
-                                <a href="<?php echo site_url('expired/perpanjang/'.$i->id_inventory); ?>">Perpanjang</a>
+                                <a data-toggle="modal" href="#addpenjualan<?php echo $i->id_inventory; ?>">Jual</a> |
+                                <a data-toggle="modal" href="#addperpanjang<?php echo $i->id_inventory; ?>">Perpanjang</a> 
                             </td>
                         <?php }
                             else { ?>
@@ -90,6 +90,7 @@
                             </td>
                         <?php } ?>
                           </tr>
+                          <!-- modal penjualan -->
                           <div class="modal fade" id="addpenjualan<?php echo $i->id_inventory;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -126,7 +127,40 @@
 
                                       <div class="modal-footer d-flex justify-content-center">
                                         <button type="submit" class="btn btn-info waves-effect waves-light">Jual</button>
+                                        </div>
                                         <?php echo form_close(); ?>
+                                        </div>
+                                        </div>
+                                        </div>
+
+                                <div class="modal fade" id="addperpanjang<?php echo $i->id_inventory;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header text-center">
+                                        <h3 class="modal-title w-100 font-weight-bold">Perpanjang</h3>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body mx-3">
+                                      <?php echo form_open('expired/perpanjang/'.$i->id_inventory); ?>
+                                        <form class="floating-labels m-t-40">
+                                          <div class="form-group m-b-40">
+                                              <label><h6 class="font-weight-bold">Durability Sebelumnya</h6></label>
+                                              <input type="text" class="form-control" readonly name="durability" value="<?php echo ($this->input->post('durability') ? $this->input->post('durability') : $i->durability); ?>" />
+                                              <span class="bar"></span>
+                                          </div>
+                                          <div class="form-group m-b-40">
+                                              <label><h6 class="font-weight-bold">Tambah Durability</h6></label>
+                                              <input type="text" class="form-control" name="durability2" value="<?php echo $this->input->post('durability2'); ?>" />
+                                              <span class="bar"></span>
+                                          </div>
+                                        </div>
+
+                                      <div class="modal-footer d-flex justify-content-center">
+                                        <button type="submit" class="btn btn-info waves-effect waves-light">Perpanjang</button>
+                                        <?php echo form_close(); ?>
+                                        
                       <?php } ?>
 											
 										<?php } ?>
