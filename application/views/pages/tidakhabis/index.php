@@ -27,6 +27,21 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Data Barang Tidak Habis Pakai</h4>
+                                <?php if ($user['status'] == 1){
+                                  echo form_open("inventory/bthp");?>
+                                <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
+                                  <option value="0">Pilih Kantor</option><?php
+                                  foreach($all_kantor as $kantor)
+                                  {
+                                    echo '<option value="'.$kantor['id_kantor'].'">'.$kantor['nama_kantor'].'</option>';
+                                  }
+                                  ?>
+                                </select>
+                                <button type="submit" class="btn btn-info waves-effect waves-light">Pilih</button>
+                                <br>
+                                <br>
+                                <?php echo form_close();
+                              }?>
                                 <!-- <h6 class="card-subtitle">Data table example</h6> -->
                                <!-- modal menambahkan fungsi  -->
                                <div class="modal fade" id="ModalTambahKantor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -157,15 +172,23 @@
                                         <button type="button" class="btn btn-info waaves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKantor"> Tambah Barang </button>
                                     </div>
                                 </div>
+                                <?php
+                                  if($user['status']==1){
+                                    $inv=$tidakhabis;
+                                  }
+                                  else if($user['status']==2){
+                                    $inv=$tidakhabis2;
+                                  }
+                                if (count($inv)){?>
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>No.</th>
                                                 <th>Serial Id</th>
-                                                <th>Divisi Penerima</th>
                                                 <th>Nama</th>
-                                                <!-- <th>Jenis</th> -->
+                                                <th>Divisi Penerima</th>
+                                                <th>Kantor</th>
                                                 <th>Merk</th>
                                                 <th>Divisi Pengada</th>
                                                 <th>Tanggal</th>
@@ -177,17 +200,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php $no=1;foreach($tidakhabis as $i){ ?>
+                                            <?php $no=1;
+                                            foreach($inv as $i){ ?>
                                             <tr>
+                                                <td><?php echo $no++; ?></td>
+                                                <td><?php echo $i->serial_id; ?></td>
+                                                <td><?php echo $i->nama; ?></td>
                                                 <td>
-                                                    <!-- <?php echo $i->id_inventory; ?> -->
-                                                        <?php echo $no++; ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $i->serial_id; ?>
-                                                </td>
-                                                <td>
-                                                    <!-- <?php echo $i->id_divisi_pengada; ?> -->
                                                     <?php
                                                     foreach($all_divisi as $divisi)
                                                     {
@@ -197,34 +216,18 @@
                                                     ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $i->nama; ?>
+                                                  <?php
+                                                  foreach($all_kantor as $kan){
+                                                      if($kan['id_kantor']==$i->id_kantor) {echo $kan['nama_kantor'];}
+                                                  }?>
                                                 </td>
-                                                <!-- <td>
-                                                    <?php echo $i->jenis; ?>
-                                                </td> -->
-                                                <td>
-                                                    <?php echo $i->merk; ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $i->nama_divisi_pengada; ?>
-                                                </td>
-                                                <td>
-                                                    <!-- <?php echo $i->tanggal; ?> -->
-                                                    <?= date('d-m-Y', strtotime($i->tanggal)) ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $i->kategori; ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $i->kondisi; ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $i->durability; ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $i->status; ?>
-                                                </td>
-
+                                                <td><?php echo $i->merk; ?></td>
+                                                <td><?php echo $i->nama_divisi_pengada; ?></td>
+                                                <td><?= date('d-m-Y', strtotime($i->tanggal)) ?></td>
+                                                <td><?php echo $i->kategori; ?></td>
+                                                <td><?php echo $i->kondisi; ?></td>
+                                                <td><?php echo $i->durability; ?></td>
+                                                <td><?php echo $i->status; ?></td>
                                                 <td>
                                                 <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit-<?php echo $i->id_inventory;?>">Ubah</a>
                                                     <!-- <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Delete</a> -->
@@ -246,18 +249,29 @@
                                                             <form class="floating-labels m-t-40">
 
                                                                 <div class="form-group">
-                                                                    <label><h6 class="font-weight-bold">Divisi</h6></label>
-                                                                    <select name="id_divisi_pengada">
-                                                        <option value="">Pilih Divisi</option>
-                                                        <?php
-                                                        foreach($all_divisi as $divisi)
-                                                        {
-                                                            $selected = ($divisi['id_divisi'] == $i->id_divisi_pengada) ? ' selected="selected"' : "";
-
-                                                            echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama_divisi'].'</option>';
-                                                        }
-                                                        ?>
-                                                    </select>
+                                                                    <label><h6 class="font-weight-bold">Divisi Penerima</h6></label>
+                                                                    <select name="id_divisi_pengada" class="form-control">
+                                                                      <option value="">Pilih Divisi</option>
+                                                                      <?php
+                                                                      if($status == 1){
+                                                                        foreach($all_divisi as $div)
+                                                                        {
+                                                                          $selected = ($div['id_divisi'] == $i->id_divisi_pengada) ? ' selected="selected"' : "";
+                                                                            foreach($all_kantor as $kan){
+                                                                              if($kan['id_kantor']==$div['id_kantor']) {
+                                                                                echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
+                                                                              }
+                                                                            }
+                                                                        }
+                                                                      }
+                                                                      else if ($status == 2){
+                                                                        foreach($divisi_by_kantor as $div){
+                                                                          $selected = ($div['id_divisi'] == $i->id_divisi_pengada) ? ' selected="selected"' : "";
+                                                                          echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$div['nama_divisi'].'</option>';
+                                                                        }
+                                                                      }
+                                                                      ?>
+                                                                    </select>
                                                                 </div>
                                                                 <div>
                                                                     <span class="text-danger">*</span>Serial ID :
@@ -280,8 +294,29 @@
                                                                     <span class="text-danger"><?php echo form_error('merk');?></span>
                                                                 </div>
                                                                 <div>
-                                                                    <span class="text-danger">*</span>Nama Divisi Pengada :
-                                                                    <input type="text" name="nama_divisi_pengada" value="<?php echo ($this->input->post('nama_divisi_pengada') ? $this->input->post('nama_divisi_pengada') : $i->nama_divisi_pengada); ?>" />
+                                                                  <label><h6 class="font-weight-bold">Divisi Pengada</h6></label>
+                                                                  <select name="nama_divisi_pengada" class="form-control">
+                                                                  <option value="">Pilih Divisi</option>
+                                                                  <?php
+                                                                  if($status == 1){
+                                                                    foreach($all_divisi as $div)
+                                                                    {
+                                                                      $selected = ($div['nama_divisi'] == $i->nama_divisi_pengada) ? ' selected="selected"' : "";
+                                                                          foreach($all_kantor as $kan){
+                                                                              if($kan['id_kantor']==$div['id_kantor']) {
+                                                                              echo '<option value="'.$div['nama_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
+                                                                              }
+                                                                          }
+                                                                    }
+                                                                  }
+                                                                  else if ($status == 2){
+                                                                  foreach($divisi_by_kantor as $div)
+                                                                  {
+                                                                    $selected = ($div['nama_divisi'] == $i->nama_divisi_pengada) ? ' selected="selected"' : "";
+                                                                    echo '<option value="'.$div['nama_divisi'].'" '.$selected.'>'.$div['nama_divisi'].'</option>';
+                                                                  }
+                                                                }?>
+                                                                </select>
                                                                     <span class="text-danger"><?php echo form_error('nama_divisi_pengada');?></span>
                                                                 </div>
                                                                 <?php $date = explode(" ",$i->tanggal);$date = $date[0]; ?>
@@ -382,6 +417,7 @@
                                         </tbody>
                                     </table>
                                 </div>
+                              <?php }?>
                             </div>
                         </div>
                     </div>

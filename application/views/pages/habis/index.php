@@ -27,6 +27,21 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Data Barang Habis Pakai</h4>
+                                <?php if ($user['status'] == 1){
+                                  echo form_open("inventory/bhp");?>
+                                <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
+                                  <option value="0">Pilih Kantor</option><?php
+                                  foreach($all_kantor as $kantor)
+                                  {
+                                    echo '<option value="'.$kantor['id_kantor'].'">'.$kantor['nama_kantor'].'</option>';
+                                  }
+                                  ?>
+                                </select>
+                                <button type="submit" class="btn btn-info waves-effect waves-light">Pilih</button>
+                                <br>
+                                <br>
+                                <?php echo form_close();
+                              }?>
                                 <!-- <h6 class="card-subtitle">Data table example</h6> -->
                                 <!-- modal menambahkan fungsi  -->
                                 <div class="modal fade" id="ModalTambahKantor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -139,14 +154,23 @@
                                         <button type="button" class="btn btn-info waaves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKantor"> Tambah Barang </button>
                                     </div>
                                 </div>
+                                <?php
+                                  if($user['status']==1){
+                                    $inv=$habis;
+                                  }
+                                  else if($user['status']==2){
+                                    $inv=$habis2;
+                                  }
+                                if (count($inv)){?>
                                 <div class="table-responsive m-t-40">
 
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>No.</th>
-                                                <th>Divisi Penerima</th>
                                                 <th>Nama</th>
+                                                <th>Divisi Penerima</th>
+                                                <th>Kantor</th>
                                                 <!-- <th>Jenis</th> -->
                                                 <th>Merk</th>
                                                 <th>Divisi Pengada</th>
@@ -161,12 +185,9 @@
                                             <?php $no=1;
                                             foreach ($habis as $i) { ?>
                                             <tr>
-
+                                                <td><?php echo $no++; ?></td>
+                                                <td><?php echo $i->nama; ?></td>
                                                 <td>
-                                                    <?php echo $no++; ?>
-                                                </td>
-                                                <td>
-                                                    <!--  -->
                                                     <?php
                                                     foreach($all_divisi as $divisi)
                                                     {
@@ -176,30 +197,17 @@
                                                     ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $i->nama; ?>
+                                                  <?php
+                                                  foreach($all_kantor as $kan){
+                                                      if($kan['id_kantor']==$i->id_kantor) {echo $kan['nama_kantor'];}
+                                                  }?>
                                                 </td>
-                                                <!-- <td>
-                                                    <?php echo $i->jenis; ?>
-                                                </td> -->
-                                                <td>
-                                                    <?php echo $i->merk; ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $i->nama_divisi_pengada; ?>
-                                                </td>
-                                                <td>
-                                                    <!-- <?php echo $i->tanggal; ?> -->
-                                                    <?= date('d-m-Y', strtotime($i->tanggal)) ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $i->kategori; ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $i->jumlah; ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $i->satuan; ?>
-                                                </td>
+                                                <td><?php echo $i->merk; ?></td>
+                                                <td><?php echo $i->nama_divisi_pengada; ?></td>
+                                                <td><?= date('d-m-Y', strtotime($i->tanggal)) ?></td>
+                                                <td><?php echo $i->kategori; ?></td>
+                                                <td><?php echo $i->jumlah; ?></td>
+                                                <td><?php echo $i->satuan; ?></td>
                                                 <td>
                                                     <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit-<?php echo $i->id_inventory;?>">Ubah</a>
                                                     <a class="btn btn-outline-warning" data-toggle="modal" href="#update-<?php echo $i->id_inventory;?>">Update</a>
@@ -241,11 +249,6 @@
                                                                     {
                                                                       $selected = ($div['id_divisi'] == $i->id_divisi_pengada) ? ' selected="selected"' : "";
                                                                       echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$div['nama_divisi'].'</option>';
-                                                                          // foreach($all_kantor as $kan){
-                                                                          //     if($kan['id_kantor']==$div['id_kantor']) {
-                                                                          //     echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$div['nama_divisi'].'</option>';
-                                                                          //     }
-                                                                          // }
                                                                     }
                                                                   }
                                                                     ?>
@@ -378,6 +381,7 @@
                                         </tbody>
                                     </table>
                                 </div>
+                              <?php } ?>
                             </div>
                         </div>
                     </div>

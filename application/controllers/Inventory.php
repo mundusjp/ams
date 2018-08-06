@@ -26,7 +26,7 @@ class Inventory extends CI_Controller{
           $id_kantor = $k['id_kantor'];
         }
         if($by_kantor == 0){
-          $data['inventory'] = $this->Inventory_model->get_all_inventory();
+          $data['inventory'] = $this->Inventory_model->get_all_inventory_kantor();
         }
         else{
           $data['inventory'] = $this->Inventory_model->get_inventory_by_kantor($by_kantor);
@@ -47,18 +47,25 @@ class Inventory extends CI_Controller{
     }
     function bhp()
     {
-        $data['inventory'] = $this->Inventory_model->get_all_inventory();
-        $data['habis'] = $this->Habis_model->join();
-        $id_divisi = $this->session->userdata('id_divisi');
-        $kantor = $this->Kantor_model->get_kantor_by_divisi($id_divisi);
-        foreach ($kantor as $k) {
-          $id_kantor = $k['id_kantor'];
-        }
-        $status = $this->session->userdata('level');
-        $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
-        $data['divisi_by_kantor'] = $this->Divisi_model->get_divisi_by_kantor($id_kantor);
-        $data['all_divisi'] = $this->Divisi_model->get_all_divisi_by_kantor();
-        $data['_view'] = 'inventory/index';
+      $id_user = $this->session->userdata('id_user');
+      $data['user'] = $this->Admin_model->get_admin($id_user);
+      $by_kantor = $this->input->post('pilih_cabang');
+      $id_divisi = $this->session->userdata('id_divisi');
+      $kantor = $this->Kantor_model->get_kantor_by_divisi($id_divisi);
+      foreach ($kantor as $k) {
+        $id_kantor = $k['id_kantor'];
+      }
+      if($by_kantor == 0){
+        $data['habis'] = $this->Habis_model->get_all_habis_kantor();
+      }
+      else{
+        $data['habis'] = $this->Habis_model->get_habis_by_kantor($by_kantor);
+      }
+      $data['habis2'] = $this->Habis_model->get_habis_by_kantor($id_kantor);
+      $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
+      $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
+      $data['divisi_by_kantor'] = $this->Divisi_model->get_divisi_by_kantor($id_kantor);
+      $data['_view'] = 'inventory/index';
         $this->load->view('templates/dashboard/header');
       $this->load->view('templates/dashboard/topbar');
       $this->load->view('templates/dashboard/leftbar');
@@ -69,20 +76,24 @@ class Inventory extends CI_Controller{
     }
     function bthp()
     {
-        $data['inventory'] = $this->Inventory_model->get_all_inventory();
-        $data['tidakhabis'] = $this->TidakHabis_model->join();
+        $id_user = $this->session->userdata('id_user');
+        $data['user'] = $this->Admin_model->get_admin($id_user);
+        $by_kantor = $this->input->post('pilih_cabang');
         $id_divisi = $this->session->userdata('id_divisi');
         $kantor = $this->Kantor_model->get_kantor_by_divisi($id_divisi);
-        $status = $this->session->userdata('level');
-        if($status == 1){
-          $data['all_divisi'] = $this->Divisi_model->get_all_divisi_by_kantor();
+        foreach ($kantor as $k) {
+          $id_kantor = $k['id_kantor'];
         }
-        else if($status == 2){
-          foreach ($kantor as $k) {
-            $id_kantor = $k['id_kantor'];
-          }
-          $data['all_divisi'] = $this->Divisi_model->get_divisi_by_kantor($id_kantor);
+        if($by_kantor == 0){
+          $data['tidakhabis'] = $this->TidakHabis_model->get_all_tidakhabis_kantor();
         }
+        else{
+          $data['tidakhabis'] = $this->TidakHabis_model->get_tidakhabis_by_kantor($by_kantor);
+        }
+        $data['tidakhabis2'] = $this->TidakHabis_model->get_tidakhabis_by_kantor($id_kantor);
+        $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
+        $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
+        $data['divisi_by_kantor'] = $this->Divisi_model->get_divisi_by_kantor($id_kantor);
         $data['_view'] = 'inventory/index';
         $this->load->view('templates/dashboard/header');
       $this->load->view('templates/dashboard/topbar');
