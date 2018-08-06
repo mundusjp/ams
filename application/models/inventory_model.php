@@ -67,6 +67,17 @@ class Inventory_model extends CI_Model
         return $this->db->get('inventory')->result_array();
     }
 
+    function get_all_inventory_kantor()
+    {
+        $this->db->select('*');
+        $this->db->order_by('nama', 'asc');
+        $this->db->from('inventory');
+        $this->db->join('divisi', 'inventory.id_divisi_pengada = divisi.id_divisi');
+        $this->db->join('kantor', 'divisi.id_kantor = kantor.id_kantor');
+        $query = $this->db->get();
+          return $query->result_array();
+    }
+
     function get_inventory_by_kantor($by_kantor){
         $this->db->select('*');
         $this->db->from('inventory');

@@ -55,8 +55,9 @@
                                         <thead>
                                             <tr>
 											<th>No.</th>
-											<th>Divisi Penerima</th>
 											<th>Nama</th>
+                      <th>Divisi Penerima</th>
+                      <th>Kantor</th>
 											<th>Jenis</th>
 											<th>Merk</th>
 											<th>Divisi Pengada</th>
@@ -72,11 +73,16 @@
                     foreach($inv as $i){ ?>
     									<tr>
 											<td><?php echo $no; $no++;?></td>
+											<td><?php echo $i['nama']; ?></td>
                       <td><?php
                       foreach($all_divisi as $d){
                           if($d['id_divisi']==$i['id_divisi_pengada']) {echo $d['nama_divisi'];}
                       }?></td>
-											<td><?php echo $i['nama']; ?></td>
+                      <td>
+                        <?php
+                        foreach($all_kantor as $kan){
+                            if($kan['id_kantor']==$i['id_kantor']) {echo $kan['nama_kantor'];}
+                        }?></td>
 											<td><?php if ($i['jenis'] == 1){
                                     echo ('Habis Pakai');
                                 }
