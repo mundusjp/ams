@@ -55,16 +55,9 @@ class Inventory extends CI_Controller{
           $id_kantor = $k['id_kantor'];
         }
         $status = $this->session->userdata('level');
-        if($status == 1){
-          $data['all_divisi'] = $this->Divisi_model->get_all_divisi_by_kantor();
-        }
-        else if($status == 2){
-          foreach ($kantor as $k) {
-            $id_kantor = $k['id_kantor'];
-          }
-          $data['all_divisi'] = $this->Divisi_model->get_divisi_by_kantor($id_kantor);
-        }
-        //$data['all_divisi'] = $this->Divisi_model->get_all_divisi();
+        $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
+        $data['divisi_by_kantor'] = $this->Divisi_model->get_divisi_by_kantor($id_kantor);
+        $data['all_divisi'] = $this->Divisi_model->get_all_divisi_by_kantor();
         $data['_view'] = 'inventory/index';
         $this->load->view('templates/dashboard/header');
       $this->load->view('templates/dashboard/topbar');

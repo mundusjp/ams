@@ -42,7 +42,7 @@ class Kebutuhan extends CI_Controller{
         $data['divisi_by_kantor'] = $this->Divisi_model->get_divisi_by_kantor($id_kantor);
         $data['all_user'] = $this->Admin_model->get_all_admin();
         $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
-        $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
+        $data['all_divisi'] = $this->Divisi_model->get_all_divisi_by_kantor();
         $data['user'] = $this->Admin_model->get_admin($id_user);
 
         $data['_view'] = 'kebutuhan/index';

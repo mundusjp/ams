@@ -163,11 +163,11 @@
                                             <tr>
                                                 <th>No.</th>
                                                 <th>Serial Id</th>
-                                                <th>Divisi Pengada</th>
+                                                <th>Divisi Penerima</th>
                                                 <th>Nama</th>
                                                 <!-- <th>Jenis</th> -->
                                                 <th>Merk</th>
-                                                <th>Divisi Penerima</th>
+                                                <th>Divisi Pengada</th>
                                                 <th>Tanggal</th>
                                                 <th>Kategori</th>
                                                 <th>Kondisi</th>
