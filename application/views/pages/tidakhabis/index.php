@@ -33,7 +33,7 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header text-center">
-                                                <h3 class="modal-title w-100 font-weight-bold">Tambah Barang Habis Pakai</h3>
+                                                <h3 class="modal-title w-100 font-weight-bold">Tambah Barang Tidak Habis Pakai</h3>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                         </button>
@@ -43,68 +43,68 @@
 
                                                <?php echo form_open('inventory/add_bthp'); ?>
                                                     <div class="form-group m-b-40">
+                                                        <label for="serial_id"><h6 class="font-weight-bold">Serial Id</h6></label>
                                                         <input type="text" class="form-control" name="serial_id" value="<?php echo $this->input->post('serial_id'); ?>">
                                                         <span class="bar"></span>
-                                                        <label for="serial_id"><h6 class="font-weight-bold">Serial Id</h6></label>
                                                     </div>
                                                     <div class="form-group m-b-40">
+                                                        <label for="id_kantor"><h6 class="font-weight-bold">Nama</h6></label>
                                                         <input type="text" class="form-control" name="nama" value="<?php echo $this->input->post('nama'); ?>">
                                                         <span class="bar"></span>
-                                                        <label for="id_kantor"><h6 class="font-weight-bold">Nama</h6></label>
                                                     </div>
                                                     <div class="form-group m-b-40" style="display:none;">
+                                                        <label for="jenis"><h6 class="font-weight-bold">Jenis</h6></label>
                                                         <input type="text" class="form-control" name="jenis" value="2">
                                                         <span class="bar"></span>
-                                                        <label for="jenis"><h6 class="font-weight-bold">Jenis</h6></label>
                                                     </div>
                                                     <div class="form-group m-b-40">
+                                                        <label for="merk"><h6 class="font-weight-bold">Merek</h6></label>
                                                         <input type="text" class="form-control" name="merk" value="<?php echo $this->input->post('merk'); ?>">
                                                         <span class="bar"></span>
-                                                        <label for="merk"><h6 class="font-weight-bold">Merek</h6></label>
                                                     </div>
                                                     <div class="form-group m-b-40">
+                                                        <label for="nama_divisi_pengada"><h6 class="font-weight-bold">Divisi Pengada</h6></label>
                                                         <input type="text" class="form-control" name="nama_divisi_pengada" value="<?php echo $this->input->post('nama_divisi_pengada'); ?>">
                                                         <span class="bar"></span>
-                                                        <label for="nama_divisi_pengada"><h6 class="font-weight-bold">Nama Divisi Pengada</h6></label>
                                                     </div>
                                                     <div class="form-group m-b-40">
+                                                        <label for="tanggal"><h6 class="font-weight-bold">Tanggal</h6></label>
                                                         <input type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>">
                                                         <span class="bar"></span>
-                                                        <label for="tanggal"><h6 class="font-weight-bold">Tanggal</h6></label>
                                                     </div>
                                                     <div class="form-group m-b-40">
+                                                        <label for="kategori"><h6 class="font-weight-bold">Kategori</h6></label><br>
                                                         <!-- <input type="text" class="form-control" name="kategori" value="<?php echo $this->input->post('kategori'); ?>"> -->
                                                         <input type="radio" name="kategori" value="beli" checked> Beli<br>
                                                         <input type="radio" name="kategori" value="sewa"> Sewa<br>
                                                         <span class="bar"></span>
-                                                        <label for="kategori"><h6 class="font-weight-bold">Kategori</h6></label>
+
                                                     </div>
                                                     <div class="form-group m-b-40">
+                                                        <label for="id_beli/sewa"><h6 class="font-weight-bold">Id Beli/sewa</h6></label>
                                                         <input type="text" class="form-control" name="id_beli/sewa" value="<?php echo $this->input->post('id_beli/sewa'); ?>">
                                                         <span class="bar"></span>
-                                                        <label for="id_beli/sewa"><h6 class="font-weight-bold">Id Beli/sewa</h6></label>
                                                     </div>
                                                     <div class="form-group m-b-40">
+                                                        <label for="kondisi"><h6 class="font-weight-bold">Kondisi</h6></label>
                                                         <input type="text" class="form-control" name="kondisi" value="<?php echo $this->input->post('kondisi'); ?>">
                                                         <span class="bar"></span>
-                                                        <label for="kondisi"><h6 class="font-weight-bold">Kondisi</h6></label>
                                                     </div>
                                                     <div class="form-group m-b-40">
+                                                        <label for="durability"><h6 class="font-weight-bold">Durability</h6></label>
                                                         <input type="number" class="form-control" name="durability" value="<?php echo $this->input->post('durability'); ?>">
                                                         <span class="bar"></span>
-                                                        <label for="durability"><h6 class="font-weight-bold">Durability</h6></label>
                                                     </div>
                                                     <div class="form-group m-b-40" style="display:none;">
-                                                        <input type="text" class="form-control" name="status" value="ada">
-                                                        <span class="bar"></span>
                                                         <label for="status"><h6 class="font-weight-bold">Status</h6></label>
+                                                        <input type="text" class="form-control" name="status" value="ada">s
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label><h6 class="font-weight-bold">Divisi</h6></label>
+                                                        <label><h6 class="font-weight-bold">Divisi Penerima</h6></label>
 
                                                         <select name="id_divisi_pengada" class="form-control">
-                                                        <option value="">select divisi</option>
+                                                        <option value="">Pilih Divisi</option>
                                                         <?php
                                                         $status = $this->session->userdata('level');
                                                         if($status == 1){
@@ -209,7 +209,7 @@
                                                 <td>
                                                 <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit-<?php echo $i->id_inventory;?>">Ubah</a>
                                                     <!-- <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Delete</a> -->
-                                                    <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#ubah-<?php echo $i->id_inventory;?>">Pemeliharaan</a>
+                                                    <a class="btn btn-outline-warning" data-toggle="modal" href="#ubah-<?php echo $i->id_inventory;?>">Pemeliharaan</a>
                                                 </td>
                                             </tr>
                                               <!-- modal menambahkan fungsi  -->
@@ -217,7 +217,7 @@
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header text-center">
-                                                            <h3 class="modal-title w-100 font-weight-bold">Tambah Barang Habis Pakai</h3>
+                                                            <h3 class="modal-title w-100 font-weight-bold">Ubah Barang Tidak Habis Pakai</h3>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                         </button>
@@ -229,7 +229,7 @@
                                                                 <div class="form-group">
                                                                     <label><h6 class="font-weight-bold">Divisi</h6></label>
                                                                     <select name="id_divisi_pengada">
-                                                        <option value="">select divisi</option>
+                                                        <option value="">Pilih Divisi</option>
                                                         <?php
                                                         foreach($all_divisi as $divisi)
                                                         {
