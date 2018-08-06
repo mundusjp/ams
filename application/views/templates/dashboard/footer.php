@@ -48,6 +48,38 @@ function swalupdate()
 {
   swal("Berhasil!", "Informasi Telah Diperbaharui", "success");
 }
+
+function succ_logout()
+{
+  swal({
+  title: "Sukses Mengubah Password!",
+  text: "Anda akan menuju halaman login dalam 3 detik.",
+  timer: 2500
+});
+}
+</script>
+<!-- ============================================================== -->
+<!-- Passwrod Functions -->
+<!-- ============================================================== -->
+<script>
+function chkPwd(a)
+{
+    // let Pswd is ID of password and cPswd is ID of confirm password text Box
+    var newPwd = document.getElementById('Pswd').value;
+    var cPwd = document.getElementById('cPswd').value;
+    if(newPwd != cPwd)
+    {
+        document.getElementById('cPswd').focus();
+        document.getElementById('cPswd').value="";
+        document.getElementById('err').innerHTML="Passwords are Not Matching";
+    }
+}
+</script>
+<script>
+! function(window, document, $) {
+    "use strict";
+    $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
+}(window, document, jQuery);
 </script>
 <!-- ============================================================== -->
 <!-- All Jquery -->
@@ -86,6 +118,7 @@ function swalupdate()
 <!--Custom JavaScript -->
 <script src="<?php echo base_url('assets/vertical/js/custom.min.js')?>"></script>
 <script src="<?php echo base_url('assets/vertical/js/pages/jasny-bootstrap.js')?>"></script>
+<script src="<?php echo base_url('assets/vertical/js/pages/validation.js')?>"></script>
 <!-- Sweet-Alert  -->
 <script src="<?php echo base_url('assets/vertical/node_modules/sweetalert/sweetalert.min.js')?>"></script>
 <script src="<?php echo base_url('assets/vertical/node_modules/sweetalert/jquery.sweet-alert.custom.js')?>"></script>
@@ -105,7 +138,6 @@ function swalupdate()
 <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
-
 <!-- Script untuk mencetak tabel / invoice -->
 <script>
 $(document).ready(function() {

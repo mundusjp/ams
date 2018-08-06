@@ -49,13 +49,57 @@
                     </div>
                     <!-- /.modal-dialog -->
                 </div>
+
+                <div id="EditProfile" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myEditProfileModal" aria-hidden="true" style="display: none;">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header text-center">
+                        <h3 clasas="modal-title w-100 fontn-weight-bold"> <a >Edit User </h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body mx-3">
+                        <?php echo form_open('user/edit/'.$user['id_user']); ?>
+                        <form class="form-horizontal form-material">
+                          <div class="form-group">
+                            <label class="col-md-6">Username</label>
+                            <div class="col-md-6">
+                              <input type="text" name="username" value="<?php echo ($this->input->post('username') ? $this->input->post('username') : $user['username']); ?>" placeholder="<?php echo $user['username'];?>" class="form-control form-control-line">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="example-email" class="col-md-6">NIPP</label>
+                            <div class="col-md-6">
+                              <input type="text" name="nipp" value="<?php echo ($this->input->post('nipp') ? $this->input->post('nipp') : $user['nipp']); ?>"placeholder="<?php echo $user['nipp'];?>" class="form-control form-control-line">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-6">Jabatan</label>
+                            <div class="col-md-6">
+                              <input type="text" name="jabatan" value="<?php echo ($this->input->post('jabatan') ? $this->input->post('jabatan') : $user['jabatan']); ?>"placeholder="<?php echo $user['jabatan'];?>" class="form-control form-control-line">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-sm-12">
+                              <button class="btn btn-success" onclick="swalupdate()">Update Profile</button>
+                            </div>
+                          </div>
+                        </form>
+                        <?php echo form_close(); ?>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
                 <!-- /.modal -->
                 <center class="m-t-30"> <img src="<?php echo base_url('assets/vertical/images/users/5.jpg')?>" alt="default" class="img-responsive img-circle hover" width="150" data-toggle="modal" data-target="#ProfilePicture"/>
                     <h4 class="card-title m-t-10"><?php echo $user['username'];?></h4>
                     <h5 class="card-subtitle">NIPP.<?php echo $user['nipp'];?></h5>
-                    <h6 class="card-subtitle font-weight-bold"> <?php echo $user['jabatan'];?></h6>
+                    <h6 class="card-subtitle font-weight-bold"><?php echo $user['jabatan'];?></h6>
                 </center>
-                <h6 class="text-right text-primary">Edit</h6>
+                <h6 class="text-right text-primary" data-toggle="modal" data-target="#EditProfile" href="">Edit</h6>
               </div>
               <div>
                 <hr> </div>
@@ -131,29 +175,29 @@
                             <br>
                             <h4 class="card-title m-t-10"> Edit Password </h4>
                             <br>
-                            <?php echo form_open('user/editpassword/'.$user['id_user']); ?>
+                            <?php echo form_open('user/save_password/'.$user['id_user']); ?>
                             <form class="form-horizontal form-material">
                               <div class="form-group">
-                                  <label class="col-md-12">Type your Old Password</label>
+                                  <label class="col-md-12">Current Password</label>
                                   <div class="col-md-12">
-                                      <input type="password" class="form-control form-control-line">
+                                      <input type="password" value="<?php echo set_value('old'); ?>" name="old" class="form-control form-control-line" required>
                                   </div>
                               </div>
                               <div class="form-group">
                                   <label class="col-md-12">New Password</label>
                                   <div class="col-md-12">
-                                      <input type="password" class="form-control form-control-line">
+                                      <input type="password" value="<?php echo set_value('new'); ?>" name="new" class="form-control form-control-line" required>
                                   </div>
                               </div>
                               <div class="form-group">
-                                  <label class="col-md-12">Confirm New Password</label>
+                                  <label class="col-md-12">Confirm Password</label>
                                   <div class="col-md-12">
-                                      <input type="password" class="form-control form-control-line">
+                                      <input name="re_new" value="<?php echo set_value('re_new'); ?>" type="password" class="form-control form-control-line" required>
                                   </div>
                               </div>
                               <div class="form-group">
                                   <div class="col-sm-12">
-                                      <button class="btn btn-success">Update Password</button>
+                                      <button class="btn btn-success" onclick="succ_logout()" >Update Password</button>
                                   </div>
                                 </div>
                             </form>

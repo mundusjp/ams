@@ -10,6 +10,7 @@ class User extends CI_Controller{
         $this->load->model('admin_model');
         $this->load->model('Divisi_model');
         $this->load->model('Kantor_model');
+        $this->load->library('form_validation');
     }
 // -----------------------------------------------------------
 //                       KONTROL INDEX
@@ -53,7 +54,8 @@ class User extends CI_Controller{
              );
 
              $this->admin_model->update_admin($id_admin,$params);
-             redirect('user/myprofile');
+             sleep(1);
+             redirect('user/profil');
          }
          else
          {
@@ -122,6 +124,7 @@ class User extends CI_Controller{
               );
 
               $this->admin_model->update_admin($id_admin,$params);
+              sleep(1);
               redirect('user/profil');
           }
           else
@@ -132,4 +135,71 @@ class User extends CI_Controller{
       else
           show_error('The user you are trying to edit does not exist.');
   }
+  // -----------------------------------------------------------
+  //                       KONTROL PASSWORD
+  // -----------------------------------------------------------
+  public function save_password($id_admin)
+ {
+   $data['user'] = $this->admin_model->get_admin($id_admin);
+
+   if(isset($data['user']['id_user']))
+   {
+     $this->form_validation->set_rules('new','New','required|alpha_numeric');
+     $this->form_validation->set_rules('re_new', 'Retype New', 'required|matches[new]');
+     if($this->form_validation->run() == FALSE)
+     {
+       redirect('user/profil');
+     }
+     else
+     {
+       $cek_old = $this->admin_model->cek_old();
+       if ($cek_old == False)
+       {
+         $this->session->set_flashdata('error','Old password not match!' );
+         echo('doesnt match');
+       }
+       else
+       {
+         $this->admin_model->save();
+         $this->session->sess_destroy();
+         sleep(3);
+         redirect('auth/logout');
+       }//end if valid_user
+     }
+   }
+   else
+    show_error('The user you are trying to edit does not exist.');
+ }
+  // public function change($id_admin){
+  // // check if the user exists before trying to edit it
+  // $data['user'] = $this->admin_model->get_admin($id_admin);
+  //
+  // if(isset($data['user']['id_user'])){
+  //   $this->load->library('form_validation');
+  //   $this->form_validation->set_rules('old_password', 'Current Password', 'trim|required|xss_clean');
+  //   $this->form_validation->set_rules('newpassword', 'New Password', 'required|matches[re_password]');
+  //   $this->form_validation->set_rules('re_password', 'Confirm Password', 'required');
+  //
+  //   if($this->form_validation->run())
+  //   {
+  //     $query = $this->um->checkOldPass(sha1($this->input->post('old_password')));
+  //     if($query)
+  //     {
+  //       $query = $this->um->saveNewPass(sha1($this->input->post('newpassword')));
+  //       if($query)
+  //       {
+  //         sleep(2);
+  //         redirect('user/profil');
+  //       }
+  //       else
+  //       {
+  //         sleep(2);
+  //         redirect('user/profil');
+  //       }
+  //     }
+  //     else
+  //         show_error('The user you are trying to edit does not exist.');
+  //     }
+  //   }
+  // }
 }
