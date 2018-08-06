@@ -13,17 +13,20 @@ class Migration_Add_kantor extends CI_Migration {
                                 'unsigned' => TRUE,
                                 'auto_increment' => TRUE
                         ),
-                        'nama' => array(
+                        'nama_kantor' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '50',
+                                'null' => FALSE,
                         ),
                         'alamat' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '191',
+                                'null' => FALSE,
                         ),
                         'status' => array(
                                 'type' => 'INT',
                                 'constraint' => '1',
+                                'null' => FALSE,
                         ),
                 ));
                 $this->dbforge->add_key('id_kantor', TRUE);

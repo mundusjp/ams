@@ -11,6 +11,7 @@ class Migration_Add_penjualan extends CI_Migration {
                             'type' => 'INT',
                             'constraint' => 5,
                             'unsigned' => TRUE,
+                            'auto_increment' => TRUE,
                         ),
                         'id_inventory' => array(
                             'type' => 'INT',
@@ -20,13 +21,16 @@ class Migration_Add_penjualan extends CI_Migration {
                         'pembeli' => array(
                             'type' => 'VARCHAR',
                             'constraint' => 50,
+                            'null' => FALSE,
                         ),
                         'harga' => array(
                             'type' => 'INT',
                             'constraint' => '20',
+                            'null' => FALSE,
                         ),
-                        'tanggal' => array(
+                        'tanggal_penjualan' => array(
                             'type' => 'DATE',
+                            'null' => FALSE,
                         ),
                 ));
                 $this->dbforge->add_key('id_penjualan', TRUE);

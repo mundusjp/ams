@@ -13,17 +13,20 @@ class Migration_Add_divisi extends CI_Migration {
                                 'unsigned' => TRUE,
                                 'auto_increment' => TRUE
                         ),
-                        'nama' => array(
+                        'nama_divisi' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '50',
+                                'null' => FALSE,
                         ),
                         'gedung' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '50',
+                                'null' => FALSE,
                         ),
                         'lantai' => array(
                                 'type' => 'INT',
                                 'constraint' => '2',
+                                'null' => FALSE,
                         ),
                         'id_kantor' => array(
                             'type' => 'INT',

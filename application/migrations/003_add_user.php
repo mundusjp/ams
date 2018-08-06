@@ -16,27 +16,33 @@ class Migration_Add_user extends CI_Migration {
                         'username' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '50',
+                                'unique' => TRUE,
+                                'null' => FALSE,
                         ),
                         'password' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '50',
-                                'null' => TRUE,
+                                'null' => FALSE,
                         ),
                         'nama' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '50',
+                                'null' => FALSE,
                         ),
                         'nipp' => array(
-                                'type' => 'INT',
+                                'type' => 'VARCHAR',
                                 'constraint' => '10',
+                                'null' => TRUE,
                         ),
                         'jabatan' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '50',
+                                'null' => TRUE,
                         ),
                         'status' => array(
                                 'type' => 'INT',
                                 'constraint' => '1',
+                                'null' => FALSE,
                         ),
                         'id_divisi' => array(
                                 'type' => 'INT',
@@ -47,18 +53,22 @@ class Migration_Add_user extends CI_Migration {
                                 'type' => 'INT',
                                 'constraint' => 13,
                                 'unsigned' => TRUE,
+                                'null' => TRUE,
                         ),
                         'alamat' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => 191,
+                                'null' => TRUE,
                         ),
                         'email' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => 191,
+                                'null' => TRUE,
                         ),
                         'photo' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => 191,
+                                'null' => TRUE,
                         ),
                 ));
                 $this->dbforge->add_key('id_user', TRUE);

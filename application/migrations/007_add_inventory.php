@@ -16,39 +16,48 @@ class Migration_Add_inventory extends CI_Migration {
                         'nama' => array(
                             'type' => 'VARCHAR',
                             'constraint' => 50,
+                            'null' => FALSE,
                         ),
                         'jenis' => array(
                             'type' => 'INT',
                             'constraint' => '1',
+                            'null' => FALSE,    
                         ),
                         'merk' => array(
                             'type' => 'VARCHAR',
                             'constraint' => '50',
+                            'null' => FALSE,
                         ),
                         'nama_divisi_pengada' => array(
                             'type' => 'VARCHAR',
                             'constraint' => '50',
+                            'null' => FALSE,
                         ),
-                        'id_divisi_pengada' => array(
+                        'id_divisi_penerima' => array(
                             'type' => 'INT',
                             'constraint' => 5,
                             'unsigned' => TRUE,
                         ),
-                        'tanggal' => array(
-                            'type' => 'TIMESTAMP',
-                        ),
+                        'tanggal TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP',
                         'kategori' => array(
-                            'type' => 'VARCHAR',
-                            'constraint' => 10,
+                            'type' => 'ENUM("beli", "sewa")',
+                            'default' => 'beli',
+                            'null' => FALSE,
                         ),
-                        'id_beli/sewa' => array(
+                        'id_transaksi' => array(
                             'type' => 'INT',
                             'constraint' => 5,
                             'unsigned' => TRUE,
+                        ),
+                        'harga' => array(
+                            'type' => 'INT',
+                            'constraint' => '10',
+                            'null' => FALSE,    
                         ),
                 ));
                 $this->dbforge->add_key('id_inventory', TRUE);
-                $this->dbforge->add_field('CONSTRAINT FOREIGN KEY (id_divisi_pengada) REFERENCES divisi(id_divisi)');
+                $this->dbforge->add_field('CONSTRAINT FOREIGN KEY (id_divisi_penerima) REFERENCES divisi(id_divisi)');
+                $this->dbforge->add_field('CONSTRAINT FOREIGN KEY (id_transaksi) REFERENCES transaksi(id_transaksi)');
                 $this->dbforge->create_table('inventory');
         }
 

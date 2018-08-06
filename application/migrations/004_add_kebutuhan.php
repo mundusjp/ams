@@ -11,15 +11,17 @@ class Migration_Add_kebutuhan extends CI_Migration {
                                 'type' => 'INT',
                                 'constraint' => 5,
                                 'unsigned' => TRUE,
-                                'auto_increment' => TRUE
+                                'auto_increment' => TRUE,
                         ),
                         'nama_barang' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '50',
+                                'null' => FALSE,
                         ),
                         'jumlah' => array(
                                 'type' => 'INT',
-                                'constraint' => '50',
+                                'constraint' => '20',
+                                'null' => FALSE,
                         ),
                         'id_divisi' => array(
                                 'type' => 'INT',
