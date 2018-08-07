@@ -28,6 +28,17 @@ class Admin_model extends CI_Model
         return $this->db->get_where('user',array('id_user'=>$id_admin))->row_array();
     }
 
+    function get_all_admin_by_kantor()
+    {
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->order_by('nama', 'asc');
+        $this->db->join('divisi', 'user.id_divisi = divisi.id_divisi');
+        $this->db->join('kantor', 'divisi.id_kantor = kantor.id_kantor');
+        $query = $this->db->get();
+          return $query->result_array();
+    }
+    
     function get_all_admin()
     {
         $this->db->order_by('id_user', 'desc');

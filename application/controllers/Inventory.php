@@ -64,6 +64,7 @@ class Inventory extends CI_Controller{
       $data['habis2'] = $this->Habis_model->get_habis_by_kantor($id_kantor);
       $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
       $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
+      $data['divisi'] = $this->Divisi_model->get_divisi($id_divisi);
       $data['divisi_by_kantor'] = $this->Divisi_model->get_divisi_by_kantor($id_kantor);
       $data['_view'] = 'inventory/index';
         $this->load->view('templates/dashboard/header');

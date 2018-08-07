@@ -96,7 +96,7 @@
                                 {
                                   $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
                                   $nama_divisi = $div['nama_divisi'];
-                                  if($nama_divisi == "Rumah Tangga" || $nama_divisi == "Teknik"){
+                                  if($nama_divisi == "Rumah Tangga" || $nama_divisi == "Teknik" || $nama_divisi == "IT"){
                                       foreach($all_kantor as $k){
                                           if($k['id_kantor']==$div['id_kantor']) {
                                           echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$k['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
@@ -211,7 +211,7 @@
                                 {
                                   $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
                                   $nama_divisi = $div['nama_divisi'];
-                                  if($nama_divisi == "Rumah Tangga" || $nama_divisi == "Teknik"){
+                                  if($nama_divisi == "Rumah Tangga" || $nama_divisi == "Teknik" || $nama_divisi == "IT"){
                                       foreach($all_kantor as $k){
                                           if($k['id_kantor']==$div['id_kantor']) {
                                             $selected = ($k['id_kantor'] == $rec['id_kantor']) ? ' selected="selected"' : "";
