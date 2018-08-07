@@ -49,8 +49,15 @@ class Supplier extends CI_Controller{
                 'no_hp' => $this->input->post('no_hp'),
                 'email' => $this->input->post('email'),
             );
-
+           
             $supplier_id = $this->Supplier_model->add_supplier($params);
+            $var = array(
+                'event'	=> "menambahkan",
+                'ref_id' => $supplier_id,
+                'eventTable' =>"supplier",
+                'id_user' => $this->session->userdata('id_user'),
+                );
+                $eventlog_id = $this->Supplier_model->add_supplier($params);
             redirect('supplier/index');
         }
         else

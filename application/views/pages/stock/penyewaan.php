@@ -42,14 +42,14 @@
                                       <?php echo form_open('stock/addsewa'); ?>
                                         <form class="floating-labels m-t-40">
                                         <div class="form-group">
-                                              <label><h6 class="font-weight-bold">Supplier :</h6></label>
-                                              <select class="form-control" name="id_supplier">
-                                              <option value="">select supplier</option>
+                                              <label><h6 class="font-weight-bold">Vendor :</h6></label>
+                                              <select class="form-control" name="id_vendor">
+                                              <option value="">select vendor</option>
                                               <?php
-                                              foreach($all_supplier as $supplier)
+                                              foreach($all_vendor as $vendor)
                                               {
-                                                $selected = ($supplier['id_supplier'] == $this->input->post('id_supplier')) ? ' selected="selected"' : "";
-                                                echo '<option value="'.$supplier['id_supplier'].'" '.$selected.'>'.$supplier['nama'].'</option>';
+                                                $selected = ($vendor['id_vendor'] == $this->input->post('id_vendor')) ? ' selected="selected"' : "";
+                                                echo '<option value="'.$vendor['id_vendor'].'" '.$selected.'>'.$vendor['nama'].'</option>';
                                               }
                                               ?>
                                             </select>
@@ -80,10 +80,10 @@
                                           </div>
 
                                           <div class="form-group m-b-40">
-                                          <label for="alamatkantor"><h6 class="font-weight-bold">Deskripsi</h6></label>
-                                          <span class="bar"></span>
-                                              <textarea rows="4" class="form-control" type="text" name="deskripsi" value="<?php echo $this->input->post('deskripsi'); ?>" ></textarea>
-		                                          <span class="text-danger"><?php echo form_error('deskripsi');?></span>
+                                            <label for="alamatkantor"><h6 class="font-weight-bold">Deskripsi</h6></label>
+                                            <span class="bar"></span>
+                                            <textarea rows="4" class="form-control" type="text" name="deskripsi" value="<?php echo $this->input->post('deskripsi'); ?>" ></textarea>
+		                                    <span class="text-danger"><?php echo form_error('deskripsi');?></span>
                                           </div>
                                         </div>
 
@@ -105,7 +105,7 @@
                                         <thead>
 										<tr>
 											<th>No.</th>
-											<th>Nama Supplier</th>
+											<th>Nama Vendor</th>
 											<th>Tanggal Transaksi</th>
 											<th>Periode Start</th>
 											<th>Periode End</th>
@@ -121,22 +121,22 @@
                                                 <?php echo $no++; ?>
                                             </td>
 											<td><?php
-                                            foreach($all_supplier as $supplier)
+                                            foreach($all_vendor as $vendor)
                                             {
-                                                if ($supplier['id_supplier'] == $s['id_supplier'])
-                                                echo $supplier['nama'];
+                                                if ($vendor['id_vendor'] == $s['id_vendor'])
+                                                echo $vendor['nama'];
                                             }
                                             ?>
                                             </td>
-                                            <?php $myDateTime = DateTime::createFromFormat('Y-m-d', $s['tanggal_transaksi']);
-                                            $newDateString = $myDateTime->format('d-m-Y');?>
-											<td><?php echo $newDateString ;?></td>
-                                            <?php $myDateTime = DateTime::createFromFormat('Y-m-d', $s['periode_start']);
-                                            $newDateString = $myDateTime->format('d-m-Y');?>
-											<td><?php echo $newDateString ;?></td>
-                                            <?php $myDateTime = DateTime::createFromFormat('Y-m-d', $s['periode_end']);
-                                            $newDateString = $myDateTime->format('d-m-Y');?>
-											<td><?php echo $newDateString ;?></td>
+                                            <td> 
+                                                <?php echo $s['tanggal_transaksi']; ?>
+                                            </td>
+                                            <td> 
+                                                <?php echo $s['periode_start']; ?>
+                                            </td>
+                                            <td> 
+                                                <?php echo $s['periode_end']; ?>
+                                            </td>
 											<td><?php echo $s['biaya']; ?></td>
 											<td><?php echo $s['deskripsi']; ?></td>
 											<td>
@@ -159,14 +159,14 @@
                                                     <?php echo form_open('stock/editsewa/'.$s['id_transaksi']); ?>
                                                         <form class="form-body m-t-40">
                                                         <div class="form-group">
-                                                            <label><h6 class="font-weight-bold">Supplier</h6></label>
-                                                            <select   class="form-control" name="id_supplier">
-                                                                <option value="">select supplier</option>
+                                                            <label><h6 class="font-weight-bold">Vendor</h6></label>
+                                                            <select   class="form-control" name="id_vendor">
+                                                                <option value="">select vendor</option>
                                                             <?php
-                                                            foreach($all_supplier as $supplier)
+                                                            foreach($all_vendor as $vendor)
                                                             {
-                                                                $selected = ($supplier['id_supplier'] == $s['id_supplier']) ? ' selected="selected"' : "";
-                                                                echo '<option value="'.$supplier['id_supplier'].'" '.$selected.'>'.$supplier['nama'].'</option>';
+                                                                $selected = ($vendor['id_vendor'] == $s['id_vendor']) ? ' selected="selected"' : "";
+                                                                echo '<option value="'.$vendor['id_vendor'].'" '.$selected.'>'.$vendor['nama'].'</option>';
                                                             }
                                                             ?>
                                                             </select>

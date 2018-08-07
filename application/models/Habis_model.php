@@ -20,7 +20,7 @@ class Habis_model extends CI_Model
         $this->db->select('*');
         $this->db->from('inventory');
         $this->db->join('habispakai', 'inventory.id_inventory = habispakai.id_inventory');
-        $this->db->join('divisi', 'inventory.id_divisi_pengada = divisi.id_divisi');
+        $this->db->join('divisi', 'inventory.id_divisi_penerima = divisi.id_divisi');
         $this->db->join('kantor', 'divisi.id_kantor = kantor.id_kantor');
         $query = $this->db->get();
         return $query->result();
@@ -30,7 +30,7 @@ class Habis_model extends CI_Model
         $this->db->select('*');
         $this->db->from('inventory');
         $this->db->join('habispakai', 'inventory.id_inventory = habispakai.id_inventory');
-        $this->db->join('divisi', 'inventory.id_divisi_pengada = divisi.id_divisi');
+        $this->db->join('divisi', 'inventory.id_divisi_penerima = divisi.id_divisi');
         $this->db->join('kantor', 'divisi.id_kantor = kantor.id_kantor');
         $this->db->where('kantor.id_kantor', $by_kantor);
         $query = $this->db->get();

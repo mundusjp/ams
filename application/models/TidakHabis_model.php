@@ -20,7 +20,7 @@ class TidakHabis_model extends CI_Model
         $this->db->select('*');
         $this->db->from('inventory');
         $this->db->join('tidakhabispakai', 'inventory.id_inventory = tidakhabispakai.id_inventory');
-        $this->db->join('divisi', 'inventory.id_divisi_pengada = divisi.id_divisi');
+        $this->db->join('divisi', 'inventory.id_divisi_penerima = divisi.id_divisi');
         $this->db->join('kantor', 'divisi.id_kantor = kantor.id_kantor');
         $this->db->where('tidakhabispakai.status',"ada");
         $query = $this->db->get();
@@ -31,7 +31,7 @@ class TidakHabis_model extends CI_Model
         $this->db->select('*');
         $this->db->from('inventory');
         $this->db->join('tidakhabispakai', 'inventory.id_inventory = tidakhabispakai.id_inventory');
-        $this->db->join('divisi', 'inventory.id_divisi_pengada = divisi.id_divisi');
+        $this->db->join('divisi', 'inventory.id_divisi_penerima = divisi.id_divisi');
         $this->db->join('kantor', 'divisi.id_kantor = kantor.id_kantor');
         $this->db->where('tidakhabispakai.status',"ada");
         $this->db->where('kantor.id_kantor', $by_kantor);

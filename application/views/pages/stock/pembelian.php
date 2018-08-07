@@ -28,8 +28,8 @@
                             <div class="card-body">
                                 <h4 class="card-title">Data pembelian</h4>
                                 <h6 class="card-subtitle">Data table example</h6>
-								<!-- modal menambahkan fungsi  -->
-								<div class="modal fade" id="ModalTambahKantor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							                	<!-- modal menambahkan fungsi  -->
+							                	<div class="modal fade" id="ModalTambahKantor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                       <div class="modal-header text-center">
@@ -42,14 +42,14 @@
                                       <?php echo form_open('stock/addbeli'); ?>
                                         <form class="floating-labels m-t-40">
                                         <div class="form-group">
-                                              <label><h6 class="font-weight-bold">Supplier :</h6></label>
-                                              <select class="form-control" name="id_supplier">
-                                              <option value="">select supplier</option>
+                                              <label><h6 class="font-weight-bold">Vendor :</h6></label>
+                                              <select class="form-control" name="id_vendor">
+                                              <option value="">select vendor</option>
                                               <?php
-                                              foreach($all_supplier as $supplier)
+                                              foreach($all_vendor as $vendor)
                                               {
-                                                $selected = ($supplier['id_supplier'] == $this->input->post('id_supplier')) ? ' selected="selected"' : "";
-                                                echo '<option value="'.$supplier['id_supplier'].'" '.$selected.'>'.$supplier['nama'].'</option>';
+                                                $selected = ($vendor['id_vendor'] == $this->input->post('id_vendor')) ? ' selected="selected"' : "";
+                                                echo '<option value="'.$vendor['id_vendor'].'" '.$selected.'>'.$vendor['nama'].'</option>';
                                               }
                                               ?>
                                             </select>
@@ -94,7 +94,7 @@
                             <thead>
 								<tr>
 									<th>No.</th>
-									<th>Nama Supplier</th>
+									<th>Nama Vendor</th>
 									<th>Tanggal Transaksi</th>
 									<th>Total Harga</th>
 									<th>Deskripsi</th>
@@ -110,10 +110,10 @@
                   </td>
                   <td>
                   <?php
-                   foreach($all_supplier as $supplier)
+                   foreach($all_vendor as $vendor)
                    {
-                    if ($supplier['id_supplier'] == $b['id_supplier'])
-                     echo $supplier['nama'];
+                    if ($vendor['id_vendor'] == $b['id_vendor'])
+                     echo $vendor['nama'];
                    }
                    ?>
                   </td>
@@ -158,15 +158,15 @@
 		                                        <span class="text-danger"><?php echo form_error('deskripsi');?></span>
                                           </div>
                                           <div class="form-group">
-                                              <label><h6 class="font-weight-bold">Supplier</h6></label>
-                                              <select   class="form-control" name="id_supplier">
-                                                <option value="">select supplier</option>
+                                              <label><h6 class="font-weight-bold">Vendor</h6></label>
+                                              <select   class="form-control" name="id_vendor">
+                                                <option value="">select vendor</option>
                                               <?php
-                                              foreach($all_supplier as $supplier)
+                                              foreach($all_vendor as $vendor)
                                               {
-                                                $selected = ($supplier['id_supplier'] == $b['id_supplier']) ? ' selected="selected"' : "";
+                                                $selected = ($vendor['id_vendor'] == $b['id_vendor']) ? ' selected="selected"' : "";
 
-                                                echo '<option value="'.$supplier['id_supplier'].'" '.$selected.'>'.$supplier['nama'].'</option>';
+                                                echo '<option value="'.$vendor['id_vendor'].'" '.$selected.'>'.$vendor['nama'].'</option>';
                                               }
                                               ?>
                                             </select>

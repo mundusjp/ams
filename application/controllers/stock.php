@@ -13,7 +13,6 @@
            }
          $this->load->model('Transaksi_model');
          $this->load->model('Pemeliharaan_model');
-         $this->load->model('Transaksi_model');
          $this->load->model('Inventory_model');
      }
 
@@ -35,9 +34,9 @@ function overview()
 // ------------------------------------------------------------------------
 function penyewaan()
 {
-    $data['sewa'] = $this->Transaksi_model->get_all_transaksi();
-    $this->load->model('Supplier_model');
-    $data['all_supplier'] = $this->Supplier_model->get_all_supplier();
+    $data['sewa'] = $this->Transaksi_model->get_all_sewa();
+    $this->load->model('Vendor_model');
+    $data['all_vendor'] = $this->Vendor_model->get_all_vendor();
     $data['_view'] = 'stock/penyewaan';
     $this->load->view('templates/dashboard/header');
     $this->load->view('templates/dashboard/topbar');
@@ -49,10 +48,10 @@ function penyewaan()
 // ------------------------------------------------------------------------
 function pembelian()
 {
-    $data['beli'] = $this->Transaksi_model->get_all_transaksi();
-    $this->load->model('Supplier_model');
+    $data['beli'] = $this->Transaksi_model->get_all_beli();
+    $this->load->model('Vendor_model');
     $data['all_inventory'] = $this->Inventory_model->get_all_inventory();
-    $data['all_supplier'] = $this->Supplier_model->get_all_supplier();
+    $data['all_vendor'] = $this->Vendor_model->get_all_vendor();
     $data['_view'] = 'stock/pembelian';
 
     $this->load->view('templates/dashboard/header');
@@ -96,11 +95,12 @@ $this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[1
 if($this->form_validation->run())
     {
         $params = array(
-    'id_supplier' => $this->input->post('id_supplier'),
+    'id_vendor' => $this->input->post('id_vendor'),
     'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
     'periode_start' => $this->input->post('periode_start'),
     'periode_end' => $this->input->post('periode_end'),
     'biaya' => $this->input->post('biaya'),
+    'jenis_transaksi' => 'sewa  ',
     'deskripsi' => $this->input->post('deskripsi'),
         );
 
@@ -109,8 +109,8 @@ if($this->form_validation->run())
     }
     else
     {
-        $this->load->model('Supplier_model');
-        $data['all_supplier'] = $this->Supplier_model->get_all_supplier();
+        $this->load->model('Vendor_model');
+        $data['all_vendor'] = $this->Vendor_model->get_all_vendor();
 
         $data['_view'] = 'stock/sewa';
         $this->load->view('pages/beli/add',$data);
@@ -128,7 +128,7 @@ $this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[1
 if($this->form_validation->run())
     {
         $params = array(
-    'id_supplier' => $this->input->post('id_supplier'),
+    'id_vendor' => $this->input->post('id_vendor'),
     'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
     'biaya' => $this->input->post('biaya'),
     'deskripsi' => $this->input->post('deskripsi'),
@@ -138,8 +138,8 @@ if($this->form_validation->run())
     }
     else
     {
-  $this->load->model('Supplier_model');
-  $data['all_supplier'] = $this->Supplier_model->get_all_supplier();
+  $this->load->model('Vendor_model');
+  $data['all_vendor'] = $this->Vendor_model->get_all_vendor();
 
         $data['_view'] = 'beli/add';
         $this->load->view('pages/beli/add',$data);
@@ -202,7 +202,7 @@ function editsewa($id_sewa)
   if($this->form_validation->run())
         {
             $params = array(
-      'id_supplier' => $this->input->post('id_supplier'),
+      'id_vendor' => $this->input->post('id_vendor'),
       'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
       'periode_start' => $this->input->post('periode_start'),
       'periode_end' => $this->input->post('periode_end'),
@@ -215,8 +215,8 @@ function editsewa($id_sewa)
         }
         else
         {
-    $this->load->model('Supplier_model');
-    $data['all_supplier'] = $this->Supplier_model->get_all_supplier();
+    $this->load->model('Vendor_model');
+    $data['all_vendor'] = $this->Vendor_model->get_all_vendor();
 
             $data['_view'] = 'stock/editsewa';
             $this->load->view('pages/stock/penyewaan',$data);
@@ -242,7 +242,7 @@ function editbeli($id_beli)
   if($this->form_validation->run())
         {
             $params = array(
-      'id_supplier' => $this->input->post('id_supplier'),
+      'id_vendor' => $this->input->post('id_vendor'),
       'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
       'biaya' => $this->input->post('biaya'),
       'deskripsi' => $this->input->post('deskripsi'),
@@ -253,8 +253,8 @@ function editbeli($id_beli)
         }
         else
         {
-    $this->load->model('Supplier_model');
-    $data['all_supplier'] = $this->Supplier_model->get_all_supplier();
+    $this->load->model('Vendor_model');
+    $data['all_vendor'] = $this->Vendor_model->get_all_vendor();
 
             $data['_view'] = 'beli/edit';
             $this->load->view('pages/stock/pembelian',$data);

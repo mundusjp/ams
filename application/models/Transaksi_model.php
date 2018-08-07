@@ -27,6 +27,22 @@ class Transaksi_model extends CI_Model
         $this->db->order_by('id_transaksi', 'desc');
         return $this->db->get('transaksi')->result_array();
     }
+    function get_all_sewa()
+    {
+       
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->where('transaksi.jenis_transaksi',"sewa");
+        return $this->db->get()->result_array();
+   
+    }
+    function get_all_beli()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->where('transaksi.jenis_transaksi',"beli");
+        return $this->db->get()->result_array();
+    }
         
     /*
      * function to add new transaksi
