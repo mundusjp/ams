@@ -50,7 +50,7 @@ class Migration_Add_user extends CI_Migration {
                                 'unsigned' => TRUE,
                         ),
                         'no_hp' => array(
-                                'type' => 'INT',
+                                'type' => 'VARCHAR',
                                 'constraint' => 13,
                                 'unsigned' => TRUE,
                                 'null' => TRUE,

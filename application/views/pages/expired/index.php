@@ -63,7 +63,7 @@
                       <?php if (($i->durability - $selisih) <= 6 ){ ?>
                         <td><?php echo $i->id_inventory; ?></td>
                         <td><?php echo $i->serial_id; ?></td>
-                        <td><?php echo $i->id_divisi_pengada; ?></td>
+                        <td><?php echo $i->id_divisi_penerima; ?></td>
                         <td><?php echo $i->nama; ?></td>
                         <td><?php echo $i->jenis; ?></td>
                         <td><?php echo $i->merk; ?></td>
