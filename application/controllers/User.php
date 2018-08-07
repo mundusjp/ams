@@ -29,6 +29,39 @@ class User extends CI_Controller{
 // -----------------------------------------------------------
 //                       KONTROL EDIT
 // -----------------------------------------------------------
+function profilpic($id_admin)
+{
+    // check if the user exists before trying to edit it
+    $data['user'] = $this->admin_model->get_admin($id_admin);
+
+    if(isset($data['user']['id_user']))
+    {
+        $this->load->library('form_validation');
+
+ $this->form_validation->set_rules('username','Username','required|max_length[50]');
+ //$this->form_validation->set_rules('photo','Photo','max_length[191]');
+
+ if($this->form_validation->run())
+        {
+            $params = array(
+     'username' => $this->input->post('username'),
+     'nipp' => $this->input->post('nipp'),
+     'jabatan' => $this->input->post('jabatan'),
+     //'photo' => $this->input->post('photo'),
+            );
+
+            $this->admin_model->update_admin($id_admin,$params);
+            sleep(1);
+            redirect('user/profil');
+        }
+        else
+        {
+            show_error("Validasi Gagal");
+        }
+    }
+    else
+        show_error('The user you are trying to edit does not exist.');
+}
 
  function edit($id_admin)
  {
@@ -162,7 +195,7 @@ class User extends CI_Controller{
        {
          $this->admin_model->save();
          $this->session->sess_destroy();
-         sleep(3);
+         sleep(2);
          redirect('auth/logout');
        }//end if valid_user
      }
@@ -170,36 +203,5 @@ class User extends CI_Controller{
    else
     show_error('The user you are trying to edit does not exist.');
  }
-  // public function change($id_admin){
-  // // check if the user exists before trying to edit it
-  // $data['user'] = $this->admin_model->get_admin($id_admin);
-  //
-  // if(isset($data['user']['id_user'])){
-  //   $this->load->library('form_validation');
-  //   $this->form_validation->set_rules('old_password', 'Current Password', 'trim|required|xss_clean');
-  //   $this->form_validation->set_rules('newpassword', 'New Password', 'required|matches[re_password]');
-  //   $this->form_validation->set_rules('re_password', 'Confirm Password', 'required');
-  //
-  //   if($this->form_validation->run())
-  //   {
-  //     $query = $this->um->checkOldPass(sha1($this->input->post('old_password')));
-  //     if($query)
-  //     {
-  //       $query = $this->um->saveNewPass(sha1($this->input->post('newpassword')));
-  //       if($query)
-  //       {
-  //         sleep(2);
-  //         redirect('user/profil');
-  //       }
-  //       else
-  //       {
-  //         sleep(2);
-  //         redirect('user/profil');
-  //       }
-  //     }
-  //     else
-  //         show_error('The user you are trying to edit does not exist.');
-  //     }
-  //   }
-  // }
+
 }
