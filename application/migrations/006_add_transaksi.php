@@ -25,7 +25,7 @@ class Migration_Add_transaksi extends CI_Migration {
                                 'type' => 'DATE',
                                 'null' => TRUE,
                         ),
-                        'tanggal_end' => array(
+                        'periode_end' => array(
                                 'type' => 'DATE',
                                 'null' => TRUE,
                         ),
@@ -49,7 +49,11 @@ class Migration_Add_transaksi extends CI_Migration {
                                 'on update' => 'NOW()',
                                 'null' => FALSE,
                         ),
-
+                        'no_nota' => array(
+                                'type' => 'VARCHAR',
+                                'constraint' => '50',
+                                'null' => TRUE,
+                        ),
                 ));
                 $this->dbforge->add_key('id_transaksi', TRUE);
                 $this->dbforge->add_field('CONSTRAINT FOREIGN KEY (id_vendor) REFERENCES vendor(id_vendor)');
