@@ -168,7 +168,6 @@
                                                         }
                                                       }
                                                         ?>
-                                                        ?>
                                                     </select>
                                                     </div>
                                             </div>
@@ -311,7 +310,7 @@
                                                                 </div>
                                                                 <div>
                                                                   <label><h6 class="font-weight-bold">Divisi Penerima</h6></label>
-                                                                  <select name="nama_divisi_pengada" class="form-control">
+                                                                  <select name="id_divisi_penerima" class="form-control">
                                                                   <option value="">Pilih Divisi</option>
                                                                   <?php
                                                                   if($status == 1){
@@ -370,11 +369,11 @@
                                                                     <input type="text" name="harga" value="<?php echo ($this->input->post('harga') ? $this->input->post('harga') : $i->harga); ?>" />
                                                                     <span class="text-danger"><?php echo form_error('harga');?></span>
                                                                 </div>
-                                                                <!-- <div>
+                                                                <div>
                                                                     <span class="text-danger">*</span>Status :
                                                                     <input type="text" name="status" value="<?php echo ($this->input->post('status') ? $this->input->post('status') : $i->status); ?>" />
                                                                     <span class="text-danger"><?php echo form_error('status');?></span>
-                                                                </div> -->
+                                                                </div>
                                                         </div>
                                                         <div class="modal-footer d-flex justify-content-center">
                                                             <button type="submit" class="btn btn-info waves-effect waves-light">Save</button>

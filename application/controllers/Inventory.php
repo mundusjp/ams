@@ -193,7 +193,7 @@ class Inventory extends CI_Controller{
 				'kategori' => $this->input->post('kategori'),
                 'id_transaksi' => $this->input->post('id_transaksi'),
                 'harga' =>  $this->input->post('harga'),
-
+                
             );
             $inventory_id = $this->Inventory_model->add_inventory($params);
                $data['last'] = $this->Inventory_model->get_last_id();
@@ -389,14 +389,14 @@ class Inventory extends CI_Controller{
 					'tanggal' => $this->input->post('tanggal'),
                     'kategori' => $this->input->post('kategori'),
                     'harga' =>  $this->input->post('harga'),
-
+                    
 					// 'id_transaksi' => $this->input->post('id_transaksi'),
                 );
                 $var = array(
                     'serial_id' => $this->input->post('serial_id'),
                     'kondisi' => $this->input->post('kondisi'),
                     'durability' => $this->input->post('durability'),
-                    'status' => $this->input->post('status'),
+                    // 'status' => $this->input->post('status'),
                 );
                 $this->Inventory_model->update_inventory($id_inventory,$params);
                 $this->TidakHabis_model->update_tidakhabis($id_inventory,$var);
@@ -435,6 +435,15 @@ class Inventory extends CI_Controller{
         {
             $this->Habis_model->delete_habis($id_inventory);
             $this->Inventory_model->delete_inventory($id_inventory);
+            // $desc =$this->input->post('nama');
+            $log = array(
+            'id_user' => $this->session->userdata('id_user'),
+            'event' => 'menghapus Barang Habis Pakai',
+            'ref_id' =>  $id_inventory,
+            // 'eventDesc' => $desc,
+            'eventTable' => 'habispakai',
+        );
+        $eventlog_id = $this->Eventlog_model->add_eventlog($log);
             redirect('inventory/bhp');
         }
         else
@@ -449,6 +458,15 @@ class Inventory extends CI_Controller{
         {
             $this->TidakHabis_model->delete_tidakhabis($id_inventory);
             $this->Inventory_model->delete_inventory($id_inventory);
+             // $desc =$this->input->post('nama');
+             $log = array(
+                'id_user' => $this->session->userdata('id_user'),
+                'event' => 'menghapus Barang Tidak Habis Pakai',
+                'ref_id' =>  $id_inventory,
+                // 'eventDesc' => $desc,
+                'eventTable' => 'tidakhabispakai',
+            );
+            $eventlog_id = $this->Eventlog_model->add_eventlog($log);
             redirect('inventory/bthp');
         }
         else

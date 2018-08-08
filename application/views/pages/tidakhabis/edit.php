@@ -2,12 +2,12 @@
 
 	<div>
 		Divisi : 
-		<select name="id_divisi_pengada">
+		<select name="id_divisi_penerima	">
 			<option value="">select divisi</option>
 			<?php 
 			foreach($all_divisi as $divisi)
 			{
-				$selected = ($divisi['id_divisi'] == $inventory['id_divisi_pengada']) ? ' selected="selected"' : "";
+				$selected = ($divisi['id_divisi'] == $inventory['id_divisi_penerima']) ? ' selected="selected"' : "";
 
 				echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama'].'</option>';
 			} 
@@ -45,9 +45,9 @@
 		<span class="text-danger"><?php echo form_error('kategori');?></span>
 	</div>
 	<div>
-		<span class="text-danger">*</span>Id Beli/sewa : 
-		<input type="text" name="id_beli/sewa" value="<?php echo ($this->input->post('id_beli/sewa') ? $this->input->post('id_beli/sewa') : $inventory['id_beli/sewa']); ?>" />
-		<span class="text-danger"><?php echo form_error('id_beli/sewa');?></span>
+		<span class="text-danger">*</span>Id Transaksi : 
+		<input type="text" name="id_transaksi" value="<?php echo ($this->input->post('id_transaksi') ? $this->input->post('id_transaksi') : $inventory['id_transaksi']); ?>" />
+		<span class="text-danger"><?php echo form_error('id_transaksi');?></span>
 	</div>
 	<div>
 		<span class="text-danger">*</span>Serial_id : 
