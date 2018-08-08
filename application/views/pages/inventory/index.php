@@ -41,8 +41,7 @@
                                 <button type="submit" class="btn btn-info waves-effect waves-light">Pilih</button>
                                 <br>
                                 <br>
-                                <?php echo form_close();
-                                    }
+                                <?php echo form_close();}
                                   if($user['status']==1){
                                     $inv=$inventory;
                                   }
@@ -77,7 +76,7 @@
 											<td><?php echo $i['nama']; ?></td>
                       <td><?php
                       foreach($all_divisi as $d){
-                          if($d['id_divisi']==$i['id_divisi_penerima']) {echo $d['nama_divisi'];}
+                          if($d['id_divisi']==$i['id_divisi_pengada']) {echo $d['nama_divisi'];}
                       }?></td>
                       <td>
                         <?php
@@ -95,7 +94,7 @@
 											<td><?php echo $i['nama_divisi_pengada']; ?></td>
 											<td><?php echo $i['tanggal']; ?></td>
 											<td><?php echo $i['kategori']; ?></td>
-											<td><?php echo $i['id_transaksi']; ?></td>
+											<td><?php echo $i['id_beli/sewa']; ?></td>
 											<!-- <td>
     									        <a class="btn btn-outline-info waves-effect waves-light" href="<?php echo site_url('inventory/edit/'.$i['id_inventory']); ?>">Ubah</a>
     									        <a class="btn btn-outline-danger" href="<?php echo site_url('inventory/remove/'.$i['id_inventory']); ?>">Hapus</a>
