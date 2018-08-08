@@ -209,7 +209,7 @@
                                                 <th>Kondisi</th>
                                                 <th>Durability</th>
                                                 <th>Harga Perolehan</th>
-                                                <th>Status</th>
+                                                <!-- <th>Status</th> -->
                                                 <th>Tindakan</th>
                                             </tr>
                                         </thead>
@@ -242,7 +242,7 @@
                                                 <td><?php echo $i->kondisi; ?></td>
                                                 <td><?php echo $i->durability; ?></td>
                                                 <td><?php echo $i->harga; ?></td>
-                                                <td><?php echo $i->status; ?></td>
+                                                <!-- <td><?php echo $i->status; ?></td> -->
                                                 <td>
                                                 <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit-<?php echo $i->id_inventory;?>">Ubah</a>
                                                     <!-- <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Delete</a> -->
@@ -370,11 +370,11 @@
                                                                     <input type="text" name="harga" value="<?php echo ($this->input->post('harga') ? $this->input->post('harga') : $i->harga); ?>" />
                                                                     <span class="text-danger"><?php echo form_error('harga');?></span>
                                                                 </div>
-                                                                <div>
+                                                                <!-- <div>
                                                                     <span class="text-danger">*</span>Status :
                                                                     <input type="text" name="status" value="<?php echo ($this->input->post('status') ? $this->input->post('status') : $i->status); ?>" />
                                                                     <span class="text-danger"><?php echo form_error('status');?></span>
-                                                                </div>
+                                                                </div> -->
                                                         </div>
                                                         <div class="modal-footer d-flex justify-content-center">
                                                             <button type="submit" class="btn btn-info waves-effect waves-light">Save</button>

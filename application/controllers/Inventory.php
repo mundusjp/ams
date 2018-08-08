@@ -11,6 +11,7 @@ class Inventory extends CI_Controller{
         $this->load->model('Divisi_model');
         $this->load->model('Admin_model');
         $this->load->model('Kebutuhan_model');
+        $this->load->model('Eventlog_model');
     }
 
     /*
@@ -144,6 +145,15 @@ class Inventory extends CI_Controller{
                 'satuan' => $this->input->post('satuan'),
             );
             $this->Habis_model->add_habis($var);
+            $desc =($this->input->post('nama').' '. $this->input->post('jumlah').' '.$this->input->post('satuan'));
+            $log = array(
+				'id_user' => $this->session->userdata('id_user'),
+				'event' => 'menambahkan Barang Habis Pakai',
+				'ref_id' =>  $data['last']->id_inventory,
+				'eventDesc' => $desc,
+				'eventTable' => 'habispakai',
+            );
+            $eventlog_id = $this->Eventlog_model->add_eventlog($log);
             redirect('inventory/bhp');
         }
         else
@@ -197,6 +207,15 @@ class Inventory extends CI_Controller{
                 'status' => $this->input->post('status'),
             );
             $this->TidakHabis_model->add_tidakhabis($var);
+            $desc =($this->input->post('nama').' '. $this->input->post('serial_id').' '.$this->input->post('harga'));
+            $log = array(
+				'id_user' => $this->session->userdata('id_user'),
+				'event' => 'menambahkan Barang Tidak Habis Pakai',
+				'ref_id' =>  $data['last']->id_inventory,
+				'eventDesc' => $desc,
+				'eventTable' => 'tidakhabispakai',
+            );
+            $eventlog_id = $this->Eventlog_model->add_eventlog($log);
             redirect('inventory/bthp');
         }
         else
@@ -251,6 +270,15 @@ class Inventory extends CI_Controller{
                 );
                 $this->Inventory_model->update_inventory($id_inventory,$params);
                 $this->Habis_model->update_habis($id_inventory,$var);
+                $desc =$this->input->post('nama');
+                $log = array(
+				'id_user' => $this->session->userdata('id_user'),
+				'event' => 'mengubah Barang Habis Pakai',
+				'ref_id' =>  $id_inventory,
+				'eventDesc' => $desc,
+				'eventTable' => 'habispakai',
+            );
+            $eventlog_id = $this->Eventlog_model->add_eventlog($log);
                 redirect('inventory/bhp');
             }
             else
@@ -287,9 +315,11 @@ class Inventory extends CI_Controller{
                 $tanda = $this->input->post('tanda');
                 if( $tanda=="+"){
                     $jumlah = $a+$b ;
+                    $simbol = 'tambah';
                 }
                 else {
                     $jumlah = $a-$b;
+                    $simbol = 'kurang';
                     $par = array(
                         'id_divisi' => $this->input->post('id_divisi'),
                         'nama_barang' => $this->input->post('nama_barang'),
@@ -304,6 +334,15 @@ class Inventory extends CI_Controller{
                 );
 
                 $this->Habis_model->update_habis($id_inventory,$var);
+                $desc =($this->input->post('nama_barang').' '. 'ber'.$simbol.' '.$this->input->post('jumlah1'));
+                $log = array(
+				'id_user' => $this->session->userdata('id_user'),
+				'event' => $simbol,
+				'ref_id' =>  $id_inventory,
+				'eventDesc' => $desc,
+				'eventTable' => 'habispakai',
+            );
+            $eventlog_id = $this->Eventlog_model->add_eventlog($log);
                 redirect('inventory/bhp');
             }
             else
@@ -361,6 +400,15 @@ class Inventory extends CI_Controller{
                 );
                 $this->Inventory_model->update_inventory($id_inventory,$params);
                 $this->TidakHabis_model->update_tidakhabis($id_inventory,$var);
+                $desc =$this->input->post('serial_id');
+                $log = array(
+				'id_user' => $this->session->userdata('id_user'),
+				'event' => 'mengubah Barang Tidak Habis Pakai',
+				'ref_id' =>  $id_inventory,
+				'eventDesc' => $desc,
+				'eventTable' => 'tidakhabispakai',
+            );
+            $eventlog_id = $this->Eventlog_model->add_eventlog($log);
                 redirect('inventory/bthp');
             }
             else

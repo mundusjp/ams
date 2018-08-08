@@ -94,7 +94,7 @@
                                         </thead>
                                         <tbody>
                                             <?php $no=1;
-                                     foreach($vendor as $s){ ?>
+                                                foreach($vendor as $s){ ?>
                                             <tr>
                                                 <td>
                                                     <?php echo $no++; ?>
