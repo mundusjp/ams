@@ -193,7 +193,7 @@ class Inventory extends CI_Controller{
 				'kategori' => $this->input->post('kategori'),
                 'id_transaksi' => $this->input->post('id_transaksi'),
                 'harga' =>  $this->input->post('harga'),
-                
+
             );
             $inventory_id = $this->Inventory_model->add_inventory($params);
                $data['last'] = $this->Inventory_model->get_last_id();
@@ -389,7 +389,7 @@ class Inventory extends CI_Controller{
 					'tanggal' => $this->input->post('tanggal'),
                     'kategori' => $this->input->post('kategori'),
                     'harga' =>  $this->input->post('harga'),
-                    
+
 					// 'id_transaksi' => $this->input->post('id_transaksi'),
                 );
                 $var = array(
