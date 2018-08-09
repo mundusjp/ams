@@ -33,7 +33,8 @@
                                   <option value="0">Pilih Kantor</option><?php
                                   foreach($all_kantor as $kantor)
                                   {
-                                    echo '<option value="'.$kantor['id_kantor'].'">'.$kantor['nama_kantor'].'</option>';
+                                    $selected = ($kantor['id_kantor'] == $by_kantor) ? ' selected="selected"' : "";
+                                    echo '<option value="'.$kantor['id_kantor'].'"'.$selected.'>'.$kantor['nama_kantor'].'</option>';
                                   }
                                   ?>
                                 </select>

@@ -9,11 +9,13 @@ class Penggunaan extends CI_Controller{
         $this->load->model('Penggunaan_model');
         $this->load->model('Inventory_model');
         $this->load->model('Kantor_model');
+        $this->load->model('Divisi_model');
     }
 
     function index(){
       $data['penggunaan'] = $this->Penggunaan_model->get_all_penggunaan();
       $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
+      $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
 
       $data['_view'] = 'penggunaan/index';
       $this->load->view('templates/dashboard/header');

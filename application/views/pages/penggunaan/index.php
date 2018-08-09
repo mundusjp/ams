@@ -23,31 +23,24 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title"> Pilih Kantor dan Divisi</h4>
-                  <select class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
-                    <option>Pilih Kantor</option>
-                    <optgroup label="Terminal Operasi 1">
-                      <option value="TK">Teknik</option>
-                      <option value="HR">SDM</option>
-                      <option value="OP">Operasional</option>
-                      <option value="RD">R&D</option>
-                    </optgroup>
-                  </select>
-
-                  <select class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
-                    <option>Pilih Divisi</option>
-                    <optgroup label="Terminal Operasi 1">
-                      <option value="TK">Teknik</option>
-                      <option value="HR">SDM</option>
-                      <option value="OP">Operasional</option>
-                      <option value="RD">R&D</option>
-                    </optgroup>
-                    <optgroup label="Terminal Operasi 2">
-                      <option value="TK">Teknik</option>
-                      <option value="HR">SDM</option>
-                      <option value="OP">Operasional</option>
-                      <option value="RD">R&D</option>
-                    </optgroup>
-                  </select>
+                  <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
+                      <option value="0">Pilih Kantor</option><?php
+                      foreach($all_kantor as $kantor)
+                      {
+                        $selected = ($kantor['id_kantor'] == $by_kantor) ? ' selected="selected"' : "";
+                        echo '<option value="'.$kantor['id_kantor'].'" '.$selected.'>'.$kantor['nama_kantor'].'</option>';
+                      }
+                      ?>
+                    </select>
+                    <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
+                        <option value="0">Pilih Divisi</option><?php
+                        foreach($all_divisi as $divisi)
+                        {
+                          $selected = ($divisi['id_divisi'] == $by_kantor) ? ' selected="selected"' : "";
+                          echo '<option value="'.$divisi['id_divisi'].'" '.$selected.'>'.$divisi['nama_divisi'].'</option>';
+                        }
+                        ?>
+                      </select>
               <button type="submit" class="btn btn-info waves-effect waves-light">Pilih</button>
             </div>
           </div>

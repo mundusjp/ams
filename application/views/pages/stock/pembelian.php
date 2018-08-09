@@ -41,6 +41,12 @@
                                       <div class="modal-body mx-3">
                                       <?php echo form_open('stock/addbeli'); ?>
                                         <form class="floating-labels m-t-40">
+                                        <div class="form-group m-b-40">
+                                          <label for="namakantor"><h6 class="font-weight-bold">No Nota</h6></label>
+                                          <span class="bar"></span>
+                                          <input type="text" class="form-control" name="no_nota" value="<?php echo $this->input->post('no_nota'); ?>" />
+		                                      <span class="text-danger"><?php echo form_error('no_nota');?></span>
+                                          </div>
                                         <div class="form-group">
                                               <label><h6 class="font-weight-bold">Vendor :</h6></label>
                                               <select class="form-control" name="id_vendor">
@@ -63,7 +69,7 @@
                                           <div class="form-group m-b-40">
                                           <label for="namakantor"><h6 class="font-weight-bold">Total Harga</h6></label>
                                           <span class="bar"></span>
-                                          <input type="text" class="form-control" name="biaya" value="<?php echo $this->input->post('biaya'); ?>" />
+                                          <input type="number" class="form-control" name="biaya" value="<?php echo $this->input->post('biaya'); ?>" />
 		                                      <span class="text-danger"><?php echo form_error('biaya');?></span>
                                           </div>
 
@@ -94,6 +100,7 @@
                             <thead>
 								<tr>
 									<th>No.</th>
+                  <th>No Nota</th>
 									<th>Nama Vendor</th>
 									<th>Tanggal Transaksi</th>
 									<th>Total Harga</th>
@@ -108,6 +115,7 @@
                     <!-- <?php echo $b['id_transaksi']; ?> -->
                     <?php echo $no++; ?> 
                   </td>
+									<td><?php echo $b['no_nota']; ?></td>
                   <td>
                   <?php
                    foreach($all_vendor as $vendor)
@@ -124,7 +132,7 @@
 									<td><?php echo $b['deskripsi']; ?></td>
 									<td>
 										<a data-toggle="modal" href="#edit<?php echo $b['id_transaksi']; ?>">Edit</a> |
-                    <a href="<?php echo site_url('stock/removebeli/'.$b['id_transaksi']); ?>">Delete</a> |
+                    <!-- <a href="<?php echo site_url('stock/removebeli/'.$b['id_transaksi']); ?>">Delete</a> | -->
                     <a href="<?php echo site_url('inventory/detail_beli/'.$b['id_transaksi']); ?>">Detail</a>
 									</td>
 								</tr>
@@ -141,6 +149,11 @@
                                       <div class="modal-body mx-3">
                                       <?php echo form_open('stock/editbeli/'.$b['id_transaksi']); ?>
                                         <form class="form-body m-t-40">
+                                        <div class="form-group m-b-40">
+                                              <label for="namakantor"><h6 class="font-weight-bold">No Nota :</h6></label>
+                                              <span class="bar"></span>
+                                            	<input type="text" class="form-control" name="no_nota" value="<?php echo ($this->input->post('no_nota') ? $this->input->post('no_nota') : $b['no_nota']); ?>" />
+                                          </div>
                                           <div class="form-group m-b-40">
                                           <label for="id_kantor"><h6 class="font-weight-bold">Tanggal Transaksi</h6></label>
                                           <span class="bar"></span>
@@ -150,7 +163,7 @@
                                           <div class="form-group m-b-40">
                                               <label for="namakantor"><h6 class="font-weight-bold">Total Harga :</h6></label>
                                               <span class="bar"></span>
-                                            	<input type="text" class="form-control" name="biaya" value="<?php echo ($this->input->post('biaya') ? $this->input->post('biaya') : $b['biaya']); ?>" />
+                                            	<input type="number" class="form-control" name="biaya" value="<?php echo ($this->input->post('biaya') ? $this->input->post('biaya') : $b['biaya']); ?>" />
                                           </div>
                                           <div class="form-group m-b-40">
                                           <label for="deskripso"><h6 class="font-weight-bold">Deskripsi :</h6></label>
