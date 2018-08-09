@@ -23,7 +23,7 @@ class Expired_model extends CI_Model
         $this->db->select('*');
         $this->db->from('inventory');
         $this->db->join('tidakhabispakai', 'inventory.id_inventory = tidakhabispakai.id_inventory');
-        $this->db->where('tidakhabispakai.status',"ada");
+        $this->db->where('tidakhabispakai.status',"1");
         $query = $this->db->get();
         return $query->result();
     }
@@ -43,7 +43,7 @@ class Expired_model extends CI_Model
         $this->db->select('*');
         $this->db->from('inventory');
         $this->db->join('tidakhabispakai', 'inventory.id_inventory = tidakhabispakai.id_inventory');
-        $this->db->where('tidakhabispakai.status',"dibuang");
+        $this->db->where('tidakhabispakai.status',"3");
         $query = $this->db->get();
         return $query->result();
     }
@@ -53,7 +53,7 @@ class Expired_model extends CI_Model
         $this->db->select('*');
         $this->db->from('inventory');
         $this->db->join('tidakhabispakai', 'inventory.id_inventory = tidakhabispakai.id_inventory');
-        $this->db->where('tidakhabispakai.status',"dikembalik");
+        $this->db->where('tidakhabispakai.status',"4");
         $query = $this->db->get();
         return $query->result();
     }

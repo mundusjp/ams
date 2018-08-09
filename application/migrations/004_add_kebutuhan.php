@@ -33,6 +33,12 @@ class Migration_Add_kebutuhan extends CI_Migration {
                             'constraint' => '5',
                             'unsigned' => TRUE,
                         ),
+                        'satuan' => array(
+                                'type' => 'VARCHAR',
+                                'constraint' => '20',
+                                'null' => FALSE,
+                        ),
+                        'created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP',
                 ));
                 $this->dbforge->add_key('id_kebutuhan', TRUE);
                 $this->dbforge->add_field('CONSTRAINT FOREIGN KEY (id_divisi) REFERENCES divisi(id_divisi)');
