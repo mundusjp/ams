@@ -24,8 +24,8 @@
                 <!-- ============================================================== -->
                 <!-- tinggal masukin kodingan html disini                           -->
                 <!-- ============================================================== -->
-                <div id="ProfilePicture"class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myProfileModal" aria-hidden="true" style="display: none;">
-                    <div class="modal-dialog modal-lg">
+                <div id="ProfilePicture"class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myProfileModal" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
 
@@ -71,7 +71,7 @@
                           <div class="form-group">
                             <label for="example-email" class="col-md-6">NIPP</label>
                             <div class="col-md-6">
-                              <input type="text" name="nipp" value="<?php echo ($this->input->post('nipp') ? $this->input->post('nipp') : $user['nipp']); ?>"placeholder="<?php echo $user['nipp'];?>" class="form-control form-control-line">
+                              <input type="number" name="nipp" value="<?php echo ($this->input->post('nipp') ? $this->input->post('nipp') : $user['nipp']); ?>"placeholder="<?php echo $user['nipp'];?>" class="form-control form-control-line">
                             </div>
                           </div>
                           <div class="form-group">
@@ -185,15 +185,17 @@
                               </div>
                               <div class="form-group">
                                   <label class="col-md-12">New Password</label>
-                                  <div class="col-md-12">
-                                      <input type="password" value="<?php echo set_value('new'); ?>" name="new" class="form-control form-control-line" required>
+                                  <div class="controls col-md-12">
+                                      <input type="password" required value="<?php echo set_value('new'); ?>" name="new" class="form-control form-control-line" required>
                                   </div>
+                                  <span class="bar"></span>
                               </div>
                               <div class="form-group">
                                   <label class="col-md-12">Confirm Password</label>
-                                  <div class="col-md-12">
-                                      <input name="re_new" value="<?php echo set_value('re_new'); ?>" type="password" class="form-control form-control-line" required>
+                                  <div class="controls col-md-12">
+                                      <input name="re_new" required  data-validation-match-match="new" value="<?php echo set_value('re_new'); ?>" type="password" class="form-control form-control-line" required>
                                   </div>
+                                  <span class="bar"></span>
                               </div>
                               <div class="form-group">
                                   <div class="col-sm-12">

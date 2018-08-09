@@ -34,8 +34,8 @@
                 <?php echo form_close();?>
                 <br>
                 <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $user['id_user'];?>">Ubah</a>
-                <div class="modal fade" id="edit<?php echo $user['id_user'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
+                <div class="modal fade bd-example-modal-lg" id="edit<?php echo $user['id_user'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                       <div class="modal-header text-center">
                         <h3 class="modal-title w-100 font-weight-bold">Edit Profile</h3>
