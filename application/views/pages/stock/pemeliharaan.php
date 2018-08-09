@@ -100,7 +100,9 @@
                                             <tr>
                                                 <th>No.
                                                 </th>
-                                                <th>Id Inventory
+                                                <th>Nama Inventory
+                                                </th>
+                                                <th>Vendor
                                                 </th>
                                                 <th>Biaya
                                                 </th>
@@ -120,7 +122,6 @@
                                                     <?php echo $no++; ?> 
                                                 </td>
                                                 <td>
-                                                    <!-- <?php echo $p['id_inventory']; ?> -->
                                                     <?php 
                                                     foreach($all_inventory as $inventory)
                                                     {
@@ -130,11 +131,21 @@
                                                     ?>
                                                 </td>
                                                 <td>
+                                                <?php 
+                                                    foreach($all_vendor as $vendor)
+                                                    {
+                                                        if ($vendor['id_vendor'] == $p['id_vendor'])
+                                                        echo $vendor['nama'];
+                                                    } 
+                                                    ?>
+                                                </td>
+                                                <td>
                                                     <?php echo $p['biaya']; ?>
                                                 </td>
                                                
-                                                <?php $tgl=$p['tanggal'];?>
-				                                 <td><?php echo date('d-m-Y', strtotime($tgl))?></td>
+                                                <?php $date = explode(" ",$p['tanggal']);$date1 = $date[0]; ?>
+                                                <?php $date2 = explode("-",$date1);?>
+                                                <td><?php echo $date2[2].'-'.$date2[1].'-'.$date2[0]; ?></td>
                                                
                                                 <td>
                                                     <?php echo $p['deskripsi']; ?>
@@ -142,7 +153,7 @@
                                                 <td>
                                                     <a data-toggle="modal" href="#edit<?php echo $p['id_pemeliharaan']; ?>">Edit</a> |
                                                     <a href="<?php echo site_url('pemeliharaan/remove/'.$p['id_pemeliharaan']); ?>">Delete
-                            </a>
+                                                     </a>
                                                 </td>
                                             </tr>
                                             <!-- modal menambahkan fungsi  -->
@@ -171,6 +182,20 @@
                                                               } 
                                                               ?>
                                                             </select>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                <label><h6 class="font-weight-bold">Vendor</h6></label>
+                                                                <select   class="form-control" name="id_vendor">
+                                                                    <option value="">select vendor</option>
+                                                                <?php
+                                                                foreach($all_vendor as $vendor)
+                                                                {
+                                                                    $selected = ($vendor['id_vendor'] == $p['id_vendor']) ? ' selected="selected"' : "";
+
+                                                                    echo '<option value="'.$vendor['id_vendor'].'" '.$selected.'>'.$vendor['nama'].'</option>';
+                                                                }
+                                                                ?>
+                                                                </select>
                                                                 </div>
                                                                 <div class="form-group m-b-40">
                                                                     <label for="id_kantor"><h6 class="font-weight-bold">Biaya</h6></label>

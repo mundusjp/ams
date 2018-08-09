@@ -417,8 +417,19 @@
                                                         <input type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>" />
                                                         <span class="text-danger"><?php echo form_error('tanggal');?></span>
                                                     </div>
-
-
+                                                    <div class="form-group">
+                                                        <label><h6 class="font-weight-bold">Vendor :</h6></label>
+                                                        <select class="form-control" name="id_vendor">
+                                                        <option value="">select vendor</option>
+                                                        <?php
+                                                        foreach($all_vendor as $vendor)
+                                                        {
+                                                            $selected = ($vendor['id_vendor'] == $this->input->post('id_vendor')) ? ' selected="selected"' : "";
+                                                            echo '<option value="'.$vendor['id_vendor'].'" '.$selected.'>'.$vendor['nama'].'</option>';
+                                                        }
+                                                        ?>
+                                                        </select>
+                                                        </div>        
                                                     <div class="form-group m-b-40">
                                                         <label for="alamatkantor"><h6 class="font-weight-bold">Deskripsi</h6></label>
                                                         <span class="bar"></span>

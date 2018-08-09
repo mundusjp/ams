@@ -12,6 +12,8 @@ class Vendor extends CI_Controller{
             redirect('');
             }
         $this->load->model('Vendor_model');
+        $this->load->model('Eventlog_model');
+
     } 
 
     /*
@@ -52,6 +54,17 @@ class Vendor extends CI_Controller{
             );
             
             $vendor_id = $this->Vendor_model->add_vendor($params);
+            // $inventory_id = $this->Inventory_model->add_inventory($params);
+            // $data['last'] = $this->Inventory_model->get_last_id();
+            $desc =($this->session->userdata('nama').' '.'menambahkan'.' '.$this->input->post('nama'));
+            $log = array(
+				'id_user' => $this->session->userdata('id_user'),
+				'event' => 'menambahkan vendor',
+				'ref_id' =>  $vendor_id,
+				'eventDesc' => $desc,
+				'eventTable' => 'vendor',
+            );
+            $eventlog_id = $this->Eventlog_model->add_eventlog($log);
             redirect('vendor/index');
         }
         else
@@ -87,7 +100,16 @@ class Vendor extends CI_Controller{
 					'email' => $this->input->post('email'),
                 );
 
-                $this->Vendor_model->update_vendor($id_vendor,$params);            
+                $this->Vendor_model->update_vendor($id_vendor,$params);   
+                $desc =($this->session->userdata('nama').' '.'mengubah'.' '.$this->input->post('nama'));
+                $log = array(
+                    'id_user' => $this->session->userdata('id_user'),
+                    'event' => 'mengubah vendor',
+                    'ref_id' =>  $id_vendor,
+                    'eventDesc' => $desc,
+                    'eventTable' => 'vendor',
+                );
+                $eventlog_id = $this->Eventlog_model->add_eventlog($log);         
                 redirect('vendor/index');
             }
             else

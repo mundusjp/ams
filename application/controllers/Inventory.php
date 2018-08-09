@@ -12,6 +12,8 @@ class Inventory extends CI_Controller{
         $this->load->model('Admin_model');
         $this->load->model('Kebutuhan_model');
         $this->load->model('Eventlog_model');
+        $this->load->model('Vendor_model');
+
     }
 
     /*
@@ -95,6 +97,7 @@ class Inventory extends CI_Controller{
         $data['tidakhabis2'] = $this->TidakHabis_model->get_tidakhabis_by_kantor($id_kantor);
         $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
         $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
+        $data['all_vendor'] = $this->Vendor_model->get_all_vendor();
         $data['divisi_by_kantor'] = $this->Divisi_model->get_divisi_by_kantor($id_kantor);
         $data['_view'] = 'inventory/index';
         $this->load->view('templates/dashboard/header');

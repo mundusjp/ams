@@ -14,6 +14,9 @@
          $this->load->model('Transaksi_model');
          $this->load->model('Pemeliharaan_model');
          $this->load->model('Inventory_model');
+        $this->load->model('Vendor_model');
+        $this->load->model('Eventlog_model');
+
      }
 
 // ------------------------------------------------------------------------
@@ -67,6 +70,7 @@ function pemeliharaan()
     $data['pemeliharaan'] = $this->Pemeliharaan_model->get_all_pemeliharaan();
     $this->load->model('Inventory_model');
     $data['all_inventory'] = $this->Inventory_model->get_all_inventory();
+    $data['all_vendor'] = $this->Vendor_model->get_all_vendor();
     $data['_view'] = 'stock/pemeliharaan';
 
     $this->load->view('templates/dashboard/header');
@@ -100,11 +104,20 @@ if($this->form_validation->run())
     'periode_start' => $this->input->post('periode_start'),
     'periode_end' => $this->input->post('periode_end'),
     'biaya' => $this->input->post('biaya'),
-    'jenis_transaksi' => 'sewa  ',
+    'jenis_transaksi' => 'sewa',
     'deskripsi' => $this->input->post('deskripsi'),
         );
 
         $transaksi_id = $this->Transaksi_model->add_transaksi($params);
+        $desc =($this->session->userdata('nama').' '.'menambahkan'.' ');
+        $log = array(
+            'id_user' => $this->session->userdata('id_user'),
+            'event' => 'menambahkan penyewaan',
+            'ref_id' =>  $transaksi_id,
+            'eventDesc' => $desc,
+            'eventTable' => 'transaksi',
+        );
+        $eventlog_id = $this->Eventlog_model->add_eventlog($log);
         redirect('stock/penyewaan');
     }
     else
@@ -131,9 +144,19 @@ if($this->form_validation->run())
     'id_vendor' => $this->input->post('id_vendor'),
     'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
     'biaya' => $this->input->post('biaya'),
+    'jenis_transaksi' => 'beli',
     'deskripsi' => $this->input->post('deskripsi'),
         );
         $transaksi_id = $this->Transaksi_model->add_transaksi($params);
+        $desc =($this->session->userdata('nama').' '.'menambahkan'.' ');
+        $log = array(
+            'id_user' => $this->session->userdata('id_user'),
+            'event' => 'menambahkan pembelian',
+            'ref_id' =>  $transaksi_id,
+            'eventDesc' => $desc,
+            'eventTable' => 'transaksi',
+        );
+        $eventlog_id = $this->Eventlog_model->add_eventlog($log);
         redirect('stock/pembelian');
     }
     else
@@ -160,12 +183,22 @@ if($this->form_validation->run())
     {
         $params = array(
     'id_inventory' => $this->input->post('id_inventory'),
+    'id_vendor' =>  $this->input->post('id_vendor'),
     'biaya' => $this->input->post('biaya'),
     'tanggal' => $this->input->post('tanggal'),
     'deskripsi' => $this->input->post('deskripsi'),
         );
 
         $pemeliharaan_id = $this->Pemeliharaan_model->add_pemeliharaan($params);
+        $desc =($this->session->userdata('nama').' '.'menambahkan'.' ');
+        $log = array(
+            'id_user' => $this->session->userdata('id_user'),
+            'event' => 'menambahkan pemeliharaan',
+            'ref_id' =>  $pemeliharaan_id,
+            'eventDesc' => $desc,
+            'eventTable' => 'pemeliharaan',
+        );
+        $eventlog_id = $this->Eventlog_model->add_eventlog($log);
         redirect('stock/pemeliharaan');
     }
     else
@@ -211,6 +244,15 @@ function editsewa($id_sewa)
             );
 
             $this->Transaksi_model->update_transaksi($id_sewa,$params);
+            $desc =($this->session->userdata('nama').' '.'mengubah'.' ');
+             $log = array(
+            'id_user' => $this->session->userdata('id_user'),
+            'event' => 'mengubah penyewaan',
+            'ref_id' =>  $id_sewa,
+            'eventDesc' => $desc,
+            'eventTable' => 'transaksi',
+        );
+        $eventlog_id = $this->Eventlog_model->add_eventlog($log);
             redirect('stock/penyewaan');
         }
         else
@@ -249,6 +291,15 @@ function editbeli($id_beli)
             );
 
             $this->Transaksi_model->update_transaksi($id_beli,$params);
+            $desc =($this->session->userdata('nama').' '.'mengubah'.' ');
+            $log = array(
+           'id_user' => $this->session->userdata('id_user'),
+           'event' => 'mengubah pembelian',
+           'ref_id' =>  $id_beli,
+           'eventDesc' => $desc,
+           'eventTable' => 'transaksi',
+                );
+            $eventlog_id = $this->Eventlog_model->add_eventlog($log);
             redirect('stock/pembelian');
         }
         else
@@ -285,9 +336,20 @@ function editpemeliharaan($id_pemeliharaan)
                 'biaya' => $this->input->post('biaya'),
                 'tanggal' => $this->input->post('tanggal'),
                 'deskripsi' => $this->input->post('deskripsi'),
+                'id_vendor' =>  $this->input->post('id_vendor'),
+
             );
 
             $this->Pemeliharaan_model->update_pemeliharaan($id_pemeliharaan,$params);
+            $desc =($this->session->userdata('nama').' '.'mengubah'.' ');
+            $log = array(
+                    'id_user' => $this->session->userdata('id_user'),
+                    'event' => 'mengubah pemeliharaan',
+                    'ref_id' =>  $id_pemeliharaan,
+                    'eventDesc' => $desc,
+                    'eventTable' => 'transaksi',
+                );
+            $eventlog_id = $this->Eventlog_model->add_eventlog($log);
             redirect('stock/pemeliharaan');
         }
         else
