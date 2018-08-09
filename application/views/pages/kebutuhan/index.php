@@ -99,6 +99,11 @@
                                               <input type="text" class="form-control" name="jumlah" value="<?php echo $this->input->post('jumlah'); ?>" />
                                               <span class="bar"></span>
                                           </div>
+                                          <div class="form-group m-b-40">
+                                              <label><h6 class="font-weight-bold">Satuan</h6></label>
+                                              <input type="text" class="form-control" name="satuan" value="<?php echo $this->input->post('satuan'); ?>" />
+                                              <span class="bar"></span>
+                                          </div>
                                         </div>
                                       <div class="modal-footer d-flex justify-content-center">
                                         <button type="submit" class="btn btn-info waves-effect waves-light">Tambah</button>
@@ -127,6 +132,7 @@
 										<th>No.</th>
 										<th>Nama Barang</th>
 										<th>Jumlah</th>
+                    <th>Satuan</th>
 										<th>Divisi</th>
                     <th>Kantor</th>
                     <th>User</th>
@@ -140,6 +146,7 @@
                                         <td><?php echo $no; $no++; ?></td>
 										                    <td><?php echo $k['nama_barang']; ?></td>
 										                    <td><?php echo $k['jumlah']; ?></td>
+                                        <td><?php echo $k['satuan']; ?></td>
                                         <td><?php
                                         foreach($all_divisi as $d){
                                             if($d['id_divisi']==$k['id_divisi']) {echo $d['nama_divisi'];}
@@ -208,6 +215,11 @@
                                           <div class="form-group m-b-40">
                                               <label><h6 class="font-weight-bold">Jumlah</h6></label>
                                               <input type="text" class="form-control" name="jumlah" value="<?php echo ($this->input->post('jumlah') ? $this->input->post('jumlah') : $k['jumlah']); ?>" />
+                                              <span class="bar"></span>
+                                          </div>
+                                          <div class="form-group m-b-40">
+                                              <label><h6 class="font-weight-bold">Satuan</h6></label>
+                                              <input type="text" class="form-control" name="satuan" value="<?php echo ($this->input->post('satuan') ? $this->input->post('satuan') : $k['satuan']); ?>" />
                                               <span class="bar"></span>
                                           </div>
                                         </div>

@@ -72,6 +72,7 @@ class Kebutuhan extends CI_Controller{
 				'nama_barang' => $this->input->post('nama_barang'),
                 'jumlah' => $this->input->post('jumlah'),
                 'id_user' =>  $id_user,
+                'satuan' => $this->input->post('satuan'),
             );
 
             $kebutuhan_id = $this->Kebutuhan_model->add_kebutuhan($params);
@@ -107,7 +108,8 @@ class Kebutuhan extends CI_Controller{
                 $params = array(
 					'id_divisi' => $this->input->post('id_divisi'),
 					'nama_barang' => $this->input->post('nama_barang'),
-					'jumlah' => $this->input->post('jumlah'),
+                    'jumlah' => $this->input->post('jumlah'),
+                    'satuan' => $this->input->post('satuan'),
                 );
 
                 $this->Kebutuhan_model->update_kebutuhan($id_kebutuhan,$params);
