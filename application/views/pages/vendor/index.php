@@ -39,30 +39,35 @@
                                             </div>
                                             <div class="modal-body mx-3">
                                                 <?php echo form_open('vendor/add'); ?>
-                                                <form class="floating-labels m-t-40">
+                                                <form id="registrasi" class="floating-labels m-t-40">
 
                                                     <div class="form-group m-b-40">
                                                         <label for="id_kantor"><h6 class="font-weight-bold">Nama</h6></label>
                                                         <span class="bar"></span>
-                                                        <input type="text" class="form-control" name="nama" value="<?php echo $this->input->post('nama'); ?>" />
+                                                        <div class="controls"> 
+                                                        <input type="text" maxlength="50" class="form-control"  required name="nama"  value="<?php echo $this->input->post('nama'); ?>" /></div>
                                                         <span class="text-danger"><?php echo form_error('nama');?></span>
                                                     </div>
+                                                    
                                                     <div class="form-group m-b-40">
                                                         <label for="id_kantor"><h6 class="font-weight-bold">No Handphone</h6></label>
                                                         <span class="bar"></span>
-                                                        <input type="text" class="form-control" name="no_hp" value="<?php echo $this->input->post('no_hp'); ?>" />
+                                                        <div class="controls">
+                                                        <input type="number" minlength="11" maxlength="13" class="form-control "  required  name="no_hp" value="<?php echo $this->input->post('no_hp'); ?>" />
+                                                        </div>
                                                         <span class="text-danger"><?php echo form_error('no_hp');?></span>
                                                     </div>
                                                     <div class="form-group m-b-40">
                                                         <label for="id_kantor"><h6 class="font-weight-bold">Email</h6></label>
                                                         <span class="bar"></span>
-                                                        <input type="text" class="form-control" name="email" value="<?php echo $this->input->post('email'); ?>" />
+                                                        <div class="controls">
+                                                         <input type="email" name="email" class="form-control"  required  data-validation-required-message="This field is required" value="<?php echo $this->input->post('email'); ?>"> </div>
                                                         <span class="text-danger"><?php echo form_error('email');?></span>
                                                     </div>
                                                     <div class="form-group m-b-40">
                                                         <label for="id_kantor"><h6 class="font-weight-bold">Alamat</h6></label>
                                                         <span class="bar"></span>
-                                                        <input type="text" class="form-control" name="alamat" value="<?php echo $this->input->post('alamat'); ?>" />
+                                                        <input type="text" class="form-control" maxlength="191" required  name="alamat" value="<?php echo $this->input->post('alamat'); ?>" />
                                                         <span class="text-danger"><?php echo form_error('alamat');?></span>
                                                     </div>
                                             </div>
@@ -134,25 +139,27 @@
                                                                     <div class="form-group m-b-40">
                                                                         <label for="id_kantor"><h6 class="font-weight-bold">Nama</h6></label>
                                                                         <span class="bar"></span>
-                                                                        <input type="text" class="form-control" name="nama" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama') : $s['nama']); ?>" />
+                                                                        <input type="text" class="form-control" required name="nama" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama') : $s['nama']); ?>" />
                                                                         <span class="text-danger"><?php echo form_error('nama');?></span>
                                                                     </div>
                                                                     <div class="form-group m-b-40">
                                                                         <label for="id_kantor"><h6 class="font-weight-bold">No Handphone</h6></label>
                                                                         <span class="bar"></span>
-                                                                        <input type="text" class="form-control" name="no_hp" value="<?php echo ($this->input->post('no_hp') ? $this->input->post('no_hp') : $s['no_hp']); ?>" />
+                                                                        <input type="text" class="form-control" required name="no_hp" value="<?php echo ($this->input->post('no_hp') ? $this->input->post('no_hp') : $s['no_hp']); ?>" />
                                                                         <span class="text-danger"><?php echo form_error('no_hp');?></span>
                                                                     </div>
+                                                                    
                                                                     <div class="form-group m-b-40">
                                                                         <label for="id_kantor"><h6 class="font-weight-bold">Email</h6></label>
                                                                         <span class="bar"></span>
-                                                                        <input type="text" class="form-control" name="email" value="<?php echo ($this->input->post('email') ? $this->input->post('email') : $s['email']); ?>" />
+                                                                        <div class="controls">
+                                                                        <input type="email" class="form-control" required name="email" value="<?php echo ($this->input->post('email') ? $this->input->post('email') : $s['email']); ?>" /> </div>
                                                                         <span class="text-danger"><?php echo form_error('email');?></span>
                                                                     </div>
                                                                     <div class="form-group m-b-40">
                                                                         <label for="id_kantor"><h6 class="font-weight-bold">Alamat</h6></label>
                                                                         <span class="bar"></span>
-                                                                        <input type="text" class="form-control" name="alamat" value="<?php echo ($this->input->post('alamat') ? $this->input->post('alamat') : $s['alamat']); ?>" />
+                                                                        <input type="text" class="form-control" required name="alamat" value="<?php echo ($this->input->post('alamat') ? $this->input->post('alamat') : $s['alamat']); ?>" />
                                                                         <span class="text-danger"><?php echo form_error('alamat');?></span>
                                                                     </div>
 

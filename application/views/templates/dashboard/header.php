@@ -42,6 +42,8 @@
     <link href="<?php echo base_url('assets/vertical/css/pages/dashboard3.css')?>" rel="stylesheet">
     <!-- Dashboard 4 Page CSS -->
     <link href="<?php echo base_url('assets/vertical/css/pages/dashboard4.css')?>" rel="stylesheet">
+    <!-- validation bootstrap -->
+    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/> -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

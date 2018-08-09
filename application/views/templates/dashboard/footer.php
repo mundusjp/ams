@@ -97,6 +97,10 @@ function chkPwd(a)
 <!--Custom JavaScript -->
 <script src="<?php echo base_url('assets/vertical/js/custom.min.js')?>"></script>
 
+
+
+<!-- http://bootstrapvalidator.votintsev.ru/getting-started/#cdn -->
+<!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script> -->
 <!-- ============================================================== -->
 <!-- This page plugins -->
 <!-- ============================================================== -->
@@ -191,5 +195,11 @@ $('#upload').on('click', function() {
     $('#file-input').trigger('click');
 });
 </script>
+ <script>
+    ! function(window, document, $) {
+        "use strict";
+        $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
+    }(window, document, jQuery);
+    </script>
 </body>
 </html>
