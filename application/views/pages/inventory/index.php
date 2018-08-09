@@ -34,7 +34,8 @@
                                   <option value="0">Pilih Kantor</option><?php
                                   foreach($all_kantor as $kantor)
                                   {
-                                    echo '<option value="'.$kantor['id_kantor'].'">'.$kantor['nama_kantor'].'</option>';
+                                    $selected = ($kantor['id_kantor'] == $by_kantor) ? ' selected="selected"' : "";
+                                    echo '<option value="'.$kantor['id_kantor'].'"'.$selected.'>'.$kantor['nama_kantor'].'</option>';
                                   }
                                   ?>
                                 </select>
@@ -76,7 +77,7 @@
 											<td><?php echo $i['nama']; ?></td>
                       <td><?php
                       foreach($all_divisi as $d){
-                          if($d['id_divisi']==$i['id_divisi_pengada']) {echo $d['nama_divisi'];}
+                          if($d['id_divisi']==$i['id_divisi_penerima']) {echo $d['nama_divisi'];}
                       }?></td>
                       <td>
                         <?php
@@ -94,7 +95,7 @@
 											<td><?php echo $i['nama_divisi_pengada']; ?></td>
 											<td><?php echo $i['tanggal']; ?></td>
 											<td><?php echo $i['kategori']; ?></td>
-											<td><?php echo $i['id_beli/sewa']; ?></td>
+											<td><?php echo $i['id_transaksi']; ?></td>
 											<!-- <td>
     									        <a class="btn btn-outline-info waves-effect waves-light" href="<?php echo site_url('inventory/edit/'.$i['id_inventory']); ?>">Ubah</a>
     									        <a class="btn btn-outline-danger" href="<?php echo site_url('inventory/remove/'.$i['id_inventory']); ?>">Hapus</a>

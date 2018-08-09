@@ -23,6 +23,7 @@ class Inventory extends CI_Controller{
     {
         $id_user = $this->session->userdata('id_user');
         $by_kantor = $this->input->post('pilih_cabang');
+        $data['by_kantor'] = $by_kantor;
         $id_divisi = $this->session->userdata('id_divisi');
         $kantor = $this->Kantor_model->get_kantor_by_divisi($id_divisi);
         foreach ($kantor as $k) {
@@ -53,6 +54,7 @@ class Inventory extends CI_Controller{
       $id_user = $this->session->userdata('id_user');
       $data['user'] = $this->Admin_model->get_admin($id_user);
       $by_kantor = $this->input->post('pilih_cabang');
+      $data['by_kantor'] = $by_kantor;
       $id_divisi = $this->session->userdata('id_divisi');
       $kantor = $this->Kantor_model->get_kantor_by_divisi($id_divisi);
       foreach ($kantor as $k) {
@@ -83,6 +85,7 @@ class Inventory extends CI_Controller{
         $id_user = $this->session->userdata('id_user');
         $data['user'] = $this->Admin_model->get_admin($id_user);
         $by_kantor = $this->input->post('pilih_cabang');
+        $data['by_kantor'] = $by_kantor;
         $id_divisi = $this->session->userdata('id_divisi');
         $kantor = $this->Kantor_model->get_kantor_by_divisi($id_divisi);
         foreach ($kantor as $k) {
@@ -196,7 +199,7 @@ class Inventory extends CI_Controller{
 				'kategori' => $this->input->post('kategori'),
                 'id_transaksi' => $this->input->post('id_transaksi'),
                 'harga' =>  $this->input->post('harga'),
-                
+
             );
             $inventory_id = $this->Inventory_model->add_inventory($params);
                $data['last'] = $this->Inventory_model->get_last_id();
@@ -392,7 +395,7 @@ class Inventory extends CI_Controller{
 					'tanggal' => $this->input->post('tanggal'),
                     'kategori' => $this->input->post('kategori'),
                     'harga' =>  $this->input->post('harga'),
-                    
+
 					// 'id_transaksi' => $this->input->post('id_transaksi'),
                 );
                 $var = array(

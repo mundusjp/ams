@@ -181,30 +181,32 @@
                                               <label><h6 class="font-weight-bold">Nama Divisi</h6></label>
                                               <select name="id_divisi" class="form-control" >
                                               <option value="">Pilih Divisi</option>
-			                                    <?php
-                                          if($status == 1){
-                                            foreach($all_divisi as $div)
-                                            {
-                                              $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
-                                                  foreach($all_kantor as $kan){
-                                                      if($kan['id_kantor']==$div['id_kantor']) {
-                                                      echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
+                                              <?php
+                                              if($status == 1){
+                                                foreach($all_divisi as $div)
+                                                {
+                                                $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
+                                                      foreach($all_kantor as $kan){
+                                                          if($kan['id_kantor']==$div['id_kantor']) {
+                                                            $selected = ($kan['id_kantor'] == $k['id_kantor']) ? ' selected="selected"' : "";
+                                                            echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
+                                                          }
                                                       }
-                                                  }
-                                            }
-                                          }
-                                          else if ($status == 2){
-                                          foreach($divisi_by_kantor as $div)
-                                          {
-                                            $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
-                                                foreach($all_kantor as $kan){
-                                                    if($kan['id_kantor']==$div['id_kantor']) {
-                                                    echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$div['nama_divisi'].'</option>';
-                                                    }
                                                 }
-                                          }
-                                        }
-			                                    ?>
+                                              }
+                                              else if ($status == 2){
+                                              foreach($divisi_by_kantor as $div)
+                                              {
+                                                $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
+                                                    foreach($all_kantor as $kan){
+                                                        if($kan['id_kantor']==$div['id_kantor']) {
+                                                          $selected = ($kan['id_kantor'] == $k['id_kantor']) ? ' selected="selected"' : "";
+                                                          echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$div['nama_divisi'].'</option>';
+                                                        }
+                                                    }
+                                              }
+                                              }
+                                              ?>
                                               </select>
                                           </div>
                                           <div class="form-group m-b-40">
