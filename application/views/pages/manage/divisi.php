@@ -56,28 +56,24 @@
                                           <span aria-hidden="true">&times;</span>
                                         </button>
                                       </div>
-                                      <div class="modal-body mx-3">
-                                        <form class="floating-labels m-t-40">
-                                          <div class="form-group m-b-40">
-                                              <label for="namakantor"><h6 class="font-weight-bold">Nama Divisi </h6></label>
-                                              <input type="text" class="form-control" name="nama_divisi" value="<?php echo $this->input->post('nama_divisi'); ?>" />
-                                              <span class="bar"></span>
-                                          </div>
-                                          <div class="form-group m-b-40">
-                                              <span class="bar"></span>
-                                              <label><h6 class="font-weight-bold">Nama Kantor</h6></label>
-                                              <select name="id_kantor" class="form-control">
-                                          			<option value="">Pilih Kantor</option>
-                                          			<?php
-                                          			foreach($all_kantor as $kantor)
-                                          			{
-                                          				$selected = ($kantor['id_kantor'] == $this->input->post('id_kantor')) ? ' selected="selected"' : "";
+                                      <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                              <div class="form-group m-b-40">
+                                                <span class="bar"></span>
+                                                <label><h6 class="font-weight-bold">Nama Kantor</h6></label>
+                                                <select name="id_kantor" class="form-control">
+                                                <option value="">Pilih Kantor</option>
+                                                <?php
+                                                foreach($all_kantor as $kantor)
+                                                {
+                                                  $selected = ($kantor['id_kantor'] == $this->input->post('id_kantor')) ? ' selected="selected"' : "";
 
-                                          				echo '<option value="'.$kantor['id_kantor'].'" '.$selected.'>'.$kantor['nama_kantor'].'</option>';
-                                          			}
-                                          			?>
-                                          		</select>
-                                          </div>
+                                                  echo '<option value="'.$kantor['id_kantor'].'" '.$selected.'>'.$kantor['nama_kantor'].'</option>';
+                                                }
+                                                ?>
+                                                </select>
+                                              </div>
                                           <div class="form-group m-b-40">
                                               <label><h6 class="font-weight-bold">Gedung Kantor</h6></label>
                                               <input type="text" class="form-control" name="gedung" value="<?php echo $this->input->post('gedung'); ?>" />
@@ -85,8 +81,8 @@
                                               <span class="bar"></span>
                                           </div>
                                           <div class="form-group">
-                                              <label><h6 class="font-weight-bold">Lantai Kantor</h6></label>
-                                              <select name="lantai" class="form-control">
+                                              <label><h6 class="font-weight-bold">Lantai</h6></label>
+                                              <select name="lantai" class="form-control col-3">
                                                   <option value="1">1</option>
                                                     <?php $selected = (1 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="2">2</option>
@@ -114,12 +110,22 @@
                                               </select>
                                             </div>
                                         </div>
+                                        <div class="col-md-6">
+                                          <form class="floating-labels m-t-40">
+                                            <div class="form-group m-b-40">
+                                              <label for="namakantor"><h6 class="font-weight-bold">Nama Divisi </h6></label>
+                                              <input type="text" class="form-control" name="nama_divisi" value="<?php echo $this->input->post('nama_divisi'); ?>" />
+                                              <span class="bar"></span>
+                                            </div>
+                                          </div>
                                       <div class="modal-footer d-flex justify-content-center">
                                         <button type="submit" class="btn btn-info waves-effect waves-light">Tambah</button>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
+                              </div>
+                            </div>
                               <?php echo form_close();
                                 if (count($records)){?>
                                     <div class="table-responsive m-t-40">
