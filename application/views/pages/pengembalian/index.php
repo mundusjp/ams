@@ -34,11 +34,11 @@
                                             <tr>
                                                 <th>No.</th>
                                                 <th>Serial Id</th>
-                                                <th>Divisi Pengada</th>
+                                                <th>Divisi Penerima</th>
                                                 <th>Nama</th>
                                                 <!-- <th>Jenis</th> -->
                                                 <th>Merk</th>
-                                                <th>Nama Divisi Penerima</th>
+                                                <th>Divisi Pengada</th>
                                                 <th>Tanggal Beli</th>
                                                 <th>Kategori</th>
                                                 <th>Kondisi</th>
@@ -58,11 +58,11 @@
                                                     <?php echo $i->serial_id; ?>
                                                 </td>
                                                 <td>
-                                                    <!-- <?php echo $i->id_divisi_pengada; ?> -->
+                                                    <!-- <?php echo $i->id_divisi_penerima; ?> -->
                                                     <?php 
                                                     foreach($all_divisi as $divisi)
                                                     {
-                                                        if ($divisi['id_divisi'] == $i->id_divisi_pengada)
+                                                        if ($divisi['id_divisi'] == $i->id_divisi_penerima)
                                                         echo $divisi['nama_divisi'];
                                                     } 
                                                     ?>
@@ -96,7 +96,8 @@
                                                     <?php echo $i->status; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $i->update_at; ?>
+                                                <!-- <?php echo $i->updated_at; ?> -->
+                                                <?= date('d-m-Y', strtotime($i->updated_at)) ?>
                                                 </td>
 
                                             </tr>

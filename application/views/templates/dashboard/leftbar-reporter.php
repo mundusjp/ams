@@ -1,5 +1,5 @@
 <ul id="sidebarnav">
-    <li class="user-pro"> <a aria-expanded="false"><img src="<?php echo base_url('assets/vertical/images/users/manager.png')?>" alt="user-img" class="img-circle"><span class="hide-menu">Master</span></a></li>
+    <li class="user-pro"> <a aria-expanded="false"><img src="<?php echo base_url('assets/vertical/images/users/manager.png')?>" alt="user-img" class="img-circle"><span class="hide-menu">Reporter</span></a></li>
     <br>
       <li> <a class="waves-effect waves-dark" href="<?php echo base_url('home')?>" aria-expanded="false"><i class="icon-home"></i><span class="hide-menu">Home</span></a></li>
       <li> <a class="waves-effect waves-dark" href="<?php echo base_url('penggunaan/index')?>" aria-expanded="false"><i class="icon-chart"></i><span class="hide-menu">Division Usage</span></a></li>
@@ -17,6 +17,14 @@
             <li><a href="<?php echo base_url('stock/pembelian')?>">Stock Pembelian</a></li>
             <li><a href="<?php echo base_url('stock/penyewaan')?>">Stock Penyewaan</a></li>
             <li><a href="<?php echo base_url('stock/pemeliharaan')?>">Pemeliharaan Stock</a></li>
+            <li><a href="<?php echo base_url('expired/index')?>">Expired Stock</a></li>
+        </ul>
+      </li>
+      <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-heart"></i><span class="hide-menu">Untuk Dilla</span></a>
+        <ul aria-expanded="false" class="collapse">
+            <li><a href="<?php echo base_url('penjualan/index')?>">Penjualan</a></li>
+            <li><a href="<?php echo base_url('pembuangan/index')?>">Pembuangan</a></li>
+            <li><a href="<?php echo base_url('pengembalian/index')?>">Pengembalian</a></li>
         </ul>
       </li>
     </ul>
