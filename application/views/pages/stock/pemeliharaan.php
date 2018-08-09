@@ -151,9 +151,8 @@
                                                     <?php echo $p['deskripsi']; ?>
                                                 </td>
                                                 <td>
-                                                    <a data-toggle="modal" href="#edit<?php echo $p['id_pemeliharaan']; ?>">Edit</a> |
-                                                    <a href="<?php echo site_url('pemeliharaan/remove/'.$p['id_pemeliharaan']); ?>">Delete
-                                                     </a>
+                                                    <a data-toggle="modal" href="#edit<?php echo $p['id_pemeliharaan']; ?>">Edit</a>
+                                                    <!-- <a href="<?php echo site_url('pemeliharaan/remove/'.$p['id_pemeliharaan']); ?>">Delete</a> -->
                                                 </td>
                                             </tr>
                                             <!-- modal menambahkan fungsi  -->

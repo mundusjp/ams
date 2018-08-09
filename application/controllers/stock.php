@@ -99,6 +99,7 @@ $this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[1
 if($this->form_validation->run())
     {
         $params = array(
+    'no_nota' => $this->input->post('no_nota'),
     'id_vendor' => $this->input->post('id_vendor'),
     'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
     'periode_start' => $this->input->post('periode_start'),
@@ -141,6 +142,7 @@ $this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[1
 if($this->form_validation->run())
     {
         $params = array(
+    'no_nota' => $this->input->post('no_nota'),
     'id_vendor' => $this->input->post('id_vendor'),
     'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
     'biaya' => $this->input->post('biaya'),
@@ -148,7 +150,7 @@ if($this->form_validation->run())
     'deskripsi' => $this->input->post('deskripsi'),
         );
         $transaksi_id = $this->Transaksi_model->add_transaksi($params);
-        $desc =($this->session->userdata('nama').' '.'menambahkan'.' ');
+        $desc =($this->session->userdata('nama').' '.'menambahkan'.' '.$this->input->post('no_nota'));
         $log = array(
             'id_user' => $this->session->userdata('id_user'),
             'event' => 'menambahkan pembelian',
@@ -235,6 +237,7 @@ function editsewa($id_sewa)
   if($this->form_validation->run())
         {
             $params = array(
+      'no_nota' => $this->input->post('no_nota'),
       'id_vendor' => $this->input->post('id_vendor'),
       'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
       'periode_start' => $this->input->post('periode_start'),
@@ -244,7 +247,7 @@ function editsewa($id_sewa)
             );
 
             $this->Transaksi_model->update_transaksi($id_sewa,$params);
-            $desc =($this->session->userdata('nama').' '.'mengubah'.' ');
+            $desc =($this->session->userdata('nama').' '.'mengubah'.' '.$this->input->post('no_nota'));
              $log = array(
             'id_user' => $this->session->userdata('id_user'),
             'event' => 'mengubah penyewaan',
@@ -284,6 +287,7 @@ function editbeli($id_beli)
   if($this->form_validation->run())
         {
             $params = array(
+    'no_nota' => $this->input->post('no_nota'),
       'id_vendor' => $this->input->post('id_vendor'),
       'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
       'biaya' => $this->input->post('biaya'),
@@ -291,7 +295,7 @@ function editbeli($id_beli)
             );
 
             $this->Transaksi_model->update_transaksi($id_beli,$params);
-            $desc =($this->session->userdata('nama').' '.'mengubah'.' ');
+            $desc =($this->session->userdata('nama').' '.'mengubah'.' '.$this->input->post('no_nota'));
             $log = array(
            'id_user' => $this->session->userdata('id_user'),
            'event' => 'mengubah pembelian',

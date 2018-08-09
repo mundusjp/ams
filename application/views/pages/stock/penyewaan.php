@@ -41,6 +41,12 @@
                                       <div class="modal-body mx-3">
                                       <?php echo form_open('stock/addsewa'); ?>
                                         <form class="floating-labels m-t-40">
+                                        <div class="form-group m-b-40">
+                                          <label for="namakantor"><h6 class="font-weight-bold">No Nota</h6></label>
+                                          <span class="bar"></span>
+                                          <input type="text" class="form-control" name="no_nota" value="<?php echo $this->input->post('no_nota'); ?>" />
+		                                      <span class="text-danger"><?php echo form_error('no_nota');?></span>
+                                          </div>
                                         <div class="form-group">
                                               <label><h6 class="font-weight-bold">Vendor :</h6></label>
                                               <select class="form-control" name="id_vendor">
@@ -105,6 +111,7 @@
                                         <thead>
 										<tr>
 											<th>No.</th>
+                                            <th>No Nota</th>
 											<th>Nama Vendor</th>
 											<th>Tanggal Transaksi</th>
 											<th>Periode Start</th>
@@ -120,6 +127,9 @@
 											<td>
                                                 <?php echo $no++; ?>
                                             </td>
+                                            <td> 
+                                                <?php echo $s['no_nota']; ?>
+                                            </td>
 											<td><?php
                                             foreach($all_vendor as $vendor)
                                             {
@@ -128,21 +138,21 @@
                                             }
                                             ?>
                                             </td>
-                                            <td> 
-                                                <?php echo $s['tanggal_transaksi']; ?>
-                                            </td>
-                                            <td> 
-                                                <?php echo $s['periode_start']; ?>
-                                            </td>
-                                            <td> 
-                                                <?php echo $s['periode_end']; ?>
-                                            </td>
+                                            <?php $date = explode(" ",$s['tanggal_transaksi']);$date1 = $date[0]; ?>
+                                            <?php $date2 = explode("-",$date1);?>
+                                            <td><?php echo $date2[2].'-'.$date2[1].'-'.$date2[0]; ?></td>
+                                            <?php $date = explode(" ",$s['periode_start']);$date1 = $date[0]; ?>
+                                            <?php $date2 = explode("-",$date1);?>
+                                            <td><?php echo $date2[2].'-'.$date2[1].'-'.$date2[0]; ?></td>
+                                            <?php $date = explode(" ",$s['periode_end']);$date1 = $date[0]; ?>
+                                            <?php $date2 = explode("-",$date1);?>
+                                            <td><?php echo $date2[2].'-'.$date2[1].'-'.$date2[0]; ?></td>
 											<td><?php echo $s['biaya']; ?></td>
 											<td><?php echo $s['deskripsi']; ?></td>
 											<td>
 												<a data-toggle="modal" href="#edit<?php echo $s['id_transaksi']; ?>">Edit</a> |
-                                                <a href="<?php echo site_url('inventory/detail_sewa/'.$s['id_transaksi']); ?>">Detail</a> |
-												<a href="<?php echo site_url('stock/removesewa/'.$s['id_transaksi']); ?>">Delete</a>
+                                                <a href="<?php echo site_url('inventory/detail_sewa/'.$s['id_transaksi']); ?>">Detail</a>
+												<!-- <a href="<?php echo site_url('stock/removesewa/'.$s['id_transaksi']); ?>">Delete</a> -->
 											</td>
 										</tr>
                                                         <!-- modal menambahkan fungsi  -->
@@ -158,6 +168,11 @@
                                                     <div class="modal-body mx-3">
                                                     <?php echo form_open('stock/editsewa/'.$s['id_transaksi']); ?>
                                                         <form class="form-body m-t-40">
+                                                        <div class="form-group m-b-40">
+                                                        <label for="namakantor"><h6 class="font-weight-bold">No Nota :</h6></label>
+                                                        <span class="bar"></span>
+                                                            <input type="text" class="form-control" name="no_nota" value="<?php echo ($this->input->post('no_nota') ? $this->input->post('no_nota') : $s['no_nota']); ?>" />
+                                                    </div>
                                                         <div class="form-group">
                                                             <label><h6 class="font-weight-bold">Vendor</h6></label>
                                                             <select   class="form-control" name="id_vendor">
