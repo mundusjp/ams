@@ -4,7 +4,7 @@
                 <li> <a class="waves-effect waves-dark" href="<?php echo base_url('home')?>" aria-expanded="false"><i class="icon-home"></i><span class="hide-menu">Home</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="<?php echo base_url('penggunaan/index')?>" aria-expanded="false"><i class="icon-chart"></i><span class="hide-menu">Division Usage</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="<?php echo base_url('kebutuhan/index')?>" aria-expanded="false"><i class="icon-bag"></i><span class="hide-menu">Purchase List</span></a></li>
-                <li> <a class="waves-effect waves-dark" href="<?php echo base_url('vendor/index')?>" aria-expanded="false"><i class="icon-basket-loaded"></i><span class="hide-menu">Supplier</span></a></li>
+                <li> <a class="waves-effect waves-dark" href="<?php echo base_url('vendor/index')?>" aria-expanded="false"><i class="icon-basket-loaded"></i><span class="hide-menu">Vendor</span></a></li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-social-dropbox"></i><span class="hide-menu">Inventory</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="<?php echo base_url('inventory/overview')?>">Overview</a></li>
@@ -21,7 +21,7 @@
                         <li><a href="<?php echo base_url('expired/index')?>">Expired Stock</a></li>
                     </ul>
                 </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-love"></i><span class="hide-menu">Untuk Dilla</span></a>
+                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-heart"></i><span class="hide-menu">Untuk Dilla</span></a>
                     <ul aria-expanded="false" class="collapse">
                       <li><a href="<?php echo base_url('penjualan/index')?>">Penjualan</a></li>
                       <li><a href="<?php echo base_url('pembuangan/index')?>">Pembuangan</a></li>

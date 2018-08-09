@@ -56,56 +56,62 @@
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
-                      <div class="modal-body mx-3">
-                        <form class="floating-labels m-t-40">
-                          <div class="form-group m-b-40">
-                              <label><h6 class="font-weight-bold">Nama Lengkap</h6></label>
-                              <input type="text" class="form-control" name="nama" value="<?php echo $this->input->post('nama'); ?>" />
-                          </div>
-                          <div class="form-group m-b-40">
-                              <label><h6 class="font-weight-bold">Username</h6></label>
-                              <input type="text" class="form-control" name="username" value="<?php echo $this->input->post('username'); ?>" />
-                          </div>
-                          <div class="form-group m-b-40">
-                              <label><h6 class="font-weight-bold">Password</h6></label>
-                              <div class="controls">
+                      <div class="modal-body">
+                        <div class="row">
+                          <div class="col-md-6">
+                          <form class="floating-labels m-t-40">
+                            <div class="form-group m-b-40">
+                                <label><h6 class="font-weight-bold">Nama Lengkap</h6></label>
+                                <input type="text" class="form-control" name="nama" value="<?php echo $this->input->post('nama'); ?>" />
+                              </div>
+                              <div class="form-group m-b-40">
+                                <label><h6 class="font-weight-bold">Username</h6></label>
+                                <input type="text" class="form-control" name="username" value="<?php echo $this->input->post('username'); ?>" />
+                              </div>
+                              <div class="form-group m-b-40">
+                                <label><h6 class="font-weight-bold">Password</h6></label>
+                                <div class="controls">
                               <input type="password" class="form-control" name="password" value="<?php echo $this->input->post('password'); ?>" /></div>
+                            </div>
                           </div>
+                          <div class="col-md-6">
                           <!-- <div class="form-group m-b-40">
                               <label><h6 class="font-weight-bold">Konfirmasi Password</h6></label>
                               <div class="controls">
                                 <input type="password" name="password2" data-validation-match-match="password" class="form-control" required value="<?php echo $this->input->post('nama'); ?>" /></div>
                               <span class="bar"></span>
                           </div> -->
-                          <div class="form-group m-b-40">
-                              <label><h6 class="font-weight-bold">Status</h6></label>
-                              <select name="status" class="form-control" >
-                                  <option value="1">Master</option>
-                                    <?php $selected = (1 == $this->input->post('status')) ? ' selected="selected"' : ""; ?>
-                                  <option value="2">Reporter</option>
-                                    <?php $selected = (2 == $this->input->post('status')) ? ' selected="selected"' : ""; ?>
-                              </select>
-                          </div>
-                          <div class="form-group m-b-40">
-                              <span class="bar"></span>
-                              <label><h6 class="font-weight-bold">Nama Divisi</h6></label>
-                              <select name="id_divisi" class="form-control">
-                                <option value="">Pilih Divisi</option>
-                                <?php
-                                foreach($all_divisi as $div)
-                                {
-                                  $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
-                                  $nama_divisi = $div['nama_divisi'];
-                                  if($nama_divisi == "Rumah Tangga" || $nama_divisi == "Teknik" || $nama_divisi == "IT"){
-                                      foreach($all_kantor as $k){
-                                          if($k['id_kantor']==$div['id_kantor']) {
-                                          echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$k['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
+                            <div class="form-group m-b-40">
+                                <label><h6 class="font-weight-bold">Status</h6></label>
+                                <select name="status" class="form-control" >
+                                    <option value="1">Master</option>
+                                      <?php $selected = (1 == $this->input->post('status')) ? ' selected="selected"' : ""; ?>
+                                      <option value="2">Reporter</option>
+                                      <?php $selected = (2 == $this->input->post('status')) ? ' selected="selected"' : ""; ?>
+                                    </select>
+                                  </div>
+                                  <div class="form-group m-b-40">
+                                    <span class="bar"></span>
+                                    <label><h6 class="font-weight-bold">Nama Divisi</h6></label>
+                                    <select name="id_divisi" class="form-control">
+                                      <option value="">Pilih Divisi</option>
+                                      <?php
+                                      foreach($all_divisi as $div)
+                                      {
+                                    $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
+                                    $nama_divisi = $div['nama_divisi'];
+                                    if($nama_divisi == "Rumah Tangga" || $nama_divisi == "Teknik" || $nama_divisi == "IT"){
+                                        foreach($all_kantor as $k){
+                                            if($k['id_kantor']==$div['id_kantor']) {
+                                              echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$k['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
+                                            }
                                           }
-                                      }
+                                        }
                                   }
-                                }
                                 ?>
-                              </select>
+                                </select>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       <div class="modal-footer d-flex justify-content-center">
@@ -153,8 +159,14 @@
                             <td><?php echo $rec['email']; ?></td>
                             <td><?php echo $rec['no_hp']; ?></td>
                             <td>
+                              <div class="row">
+                                <div class="col-md-5">
                               <a data-toggle="modal" class="btn btn-outline-info waves-effect waves-light" href="#edit<?php echo $rec['id_user']; ?>" >Ubah</a>
+                              </div>
+                            <div class="col-md-5">
                               <a class="btn btn-outline-danger" href="<?php echo site_url('admin/remove/'.$rec['id_user']); ?>">Hapus</a>
+                              </div>
+                            </div>
                             </td>
                           </tr>
 
