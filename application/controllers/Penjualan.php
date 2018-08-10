@@ -13,12 +13,14 @@ class Penjualan extends CI_Controller{
             }
         $this->load->model('Expired_model');
         $this->load->model('Inventory_model');
+        $this->load->model('Divisi_model');
     }
 
     function index()
     {
         $data['inventory'] = $this->Inventory_model->get_all_inventory();
         $data['tidakhabis'] = $this->Expired_model->join_penjualan();
+        $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
 
         $data['_view'] = 'penjualan/index';
         $this->load->view('templates/dashboard/header');

@@ -23,7 +23,7 @@ class Migration_Add_penjualan extends CI_Migration {
                             'constraint' => 50,
                             'null' => FALSE,
                         ),
-                        'harga' => array(
+                        'harga_jual' => array(
                             'type' => 'INT',
                             'constraint' => '20',
                             'null' => FALSE,

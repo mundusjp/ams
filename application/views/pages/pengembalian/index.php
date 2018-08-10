@@ -43,7 +43,6 @@
                                                 <th>Kategori</th>
                                                 <th>Kondisi</th>
                                                 <th>Durability</th>
-                                                <th>Status</th>
                                                 <th>Tanggal Dikembalikan</th>
                                             </tr>
                                         </thead>
@@ -91,9 +90,6 @@
                                                 </td>
                                                 <td>
                                                     <?php echo $i->durability; ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $i->status; ?>
                                                 </td>
                                                 <td>
                                                 <!-- <?php echo $i->updated_at; ?> -->

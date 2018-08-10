@@ -34,6 +34,20 @@ class InventorySeeder extends Seeder {
 		];
 		$this->db->insert('inventory', $data);
 
+		$data = [
+			'id_inventory' => 3,
+			'nama' => 'Meja',
+			'jenis' => '2',
+			'merk' => 'Informa',
+            'nama_divisi_pengada' => 'Rumah Tangga',
+            'id_divisi_penerima' => 7,
+            'tanggal' => '2018-08-09',
+            'kategori' => 'beli',
+            'id_transaksi' => 2,
+            'harga' => 2500000,
+		];
+		$this->db->insert('inventory', $data);
+
 	}
 
 }

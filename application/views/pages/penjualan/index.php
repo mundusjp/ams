@@ -33,20 +33,17 @@
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-											<th>Id Inventory</th>
 											<th>Serial Id</th>
-											<th>Id Divisi Pengada</th>
+											<th>Divisi Penerima</th>
 											<th>Nama</th>
-											<th>Jenis</th>
 											<th>Merk</th>
 											<th>Nama Divisi Pengada</th>
 											<th>Tanggal Beli</th>
-											<th>Kategori</th>
 											<th>Kondisi</th>
 											<th>Durability</th>
-											<th>Status</th>
                                             <th>Pembeli</th>
-                                            <th>Harga</th>
+                                            <th>Harga Beli</th>
+                                            <th>Harga Jual</th>
                                             <th>Tanggal Jual</th>
                                             </tr>
                                         </thead>
@@ -57,20 +54,20 @@
                             $date = $date[0]; ?>
                             <?php $date1 = explode(" ", $i->tanggal_penjualan);
                             $date1 = $date1[0]; ?>
-                        <td><?php echo $i->id_inventory; ?></td>
                         <td><?php echo $i->serial_id; ?></td>
-                        <td><?php echo $i->id_divisi_pengada; ?></td>
+                        <td><?php
+                        foreach($all_divisi as $d){
+                            if($d['id_divisi']==$i->id_divisi_penerima) {echo $d['nama_divisi'];}
+                        }?></td>
                         <td><?php echo $i->nama; ?></td>
-                        <td><?php echo $i->jenis; ?></td>
                         <td><?php echo $i->merk; ?></td>
                         <td><?php echo $i->nama_divisi_pengada; ?></td>
                         <td><?php echo $date; ?></td>
-                        <td><?php echo $i->kategori; ?></td>
                         <td><?php echo $i->kondisi; ?></td>
                         <td><?php echo $i->durability; ?></td>
-                        <td><?php echo $i->status; ?></td>
                         <td><?php echo $i->pembeli; ?></td>
                         <td><?php echo $i->harga; ?></td>
+                        <td><?php echo $i->harga_jual; ?></td>
                         <td><?php echo $date1; ?></td>
                           </tr>
 											

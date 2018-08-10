@@ -13,6 +13,7 @@ class Expired extends CI_Controller{
             }
         $this->load->model('Expired_model');
         $this->load->model('Inventory_model');
+        $this->load->model('Divisi_model');
     }
 
     function index()
@@ -36,6 +37,7 @@ class Expired extends CI_Controller{
                 $count++;
             }
         }
+        $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
 
         $data['_view'] = 'expired/index';
         $this->load->view('templates/dashboard/header');
@@ -58,7 +60,7 @@ class Expired extends CI_Controller{
         {
             $params = array(
 				'pembeli' => $this->input->post('pembeli'),
-				'harga' => $this->input->post('harga'),
+				'harga_jual' => $this->input->post('harga'),
                 'tanggal_penjualan' => $this->input->post('tanggal'),
                 'id_inventory' => $this->input->post('id_inventory'),
             );

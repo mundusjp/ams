@@ -33,11 +33,9 @@
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-											<th>Id Inventory</th>
 											<th>Serial Id</th>
-											<th>Id Divisi Pengada</th>
+											<th>Divisi Penerima</th>
 											<th>Nama</th>
-											<th>Jenis</th>
 											<th>Merk</th>
 											<th>Nama Divisi Pengada</th>
 											<th>Tanggal</th>
@@ -61,11 +59,12 @@
                       <?php $diff = date_diff( $datetime, $date2 ); ?>
                       <?php $selisih = $diff->m + ($diff->y * 12); ?>
                       <?php if (($i->durability - $selisih) <= 6 ){ ?>
-                        <td><?php echo $i->id_inventory; ?></td>
                         <td><?php echo $i->serial_id; ?></td>
-                        <td><?php echo $i->id_divisi_penerima; ?></td>
+                        <td><?php
+                        foreach($all_divisi as $d){
+                            if($d['id_divisi']==$i->id_divisi_penerima) {echo $d['nama_divisi'];}
+                        }?></td>
                         <td><?php echo $i->nama; ?></td>
-                        <td><?php echo $i->jenis; ?></td>
                         <td><?php echo $i->merk; ?></td>
                         <td><?php echo $i->nama_divisi_pengada; ?></td>
                         <td><?php echo $date; ?></td>
