@@ -84,12 +84,13 @@
                         foreach($all_kantor as $kan){
                             if($kan['id_kantor']==$i['id_kantor']) {echo $kan['nama_kantor'];}
                         }?></td>
-											<td><?php if ($i['jenis'] == 1){
-                                    echo ('Habis Pakai');
-                                }
-                                else if ($i['jenis'] == 2){
-                                    echo ('Tidak Habis Pakai');
-                                }?>
+											<td><?php
+                        if ($i['jenis'] == 1){
+                            echo ('Habis Pakai');
+                        }
+                        else if ($i['jenis'] == 2){
+                            echo ('Tidak Habis Pakai');
+                        }?>
                       </td>
 											<td><?php echo $i['merk']; ?></td>
 											<td><?php echo $i['nama_divisi_pengada']; ?></td>

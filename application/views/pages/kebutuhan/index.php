@@ -28,7 +28,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Data Kebutuhan</h4>
                                 <?php if ($user['status'] == 1){
-                                  echo form_open("kebutuhan/index");?>
+                                  echo form_open("Kebutuhan/index");?>
                                 <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
                                   <option value="0">Pilih Kantor</option><?php
                                   foreach($all_kantor as $kantor)
@@ -99,6 +99,11 @@
                                               <input type="text" class="form-control" name="jumlah" value="<?php echo $this->input->post('jumlah'); ?>" />
                                               <span class="bar"></span>
                                           </div>
+                                          <div class="form-group m-b-40">
+                                              <label><h6 class="font-weight-bold">Satuan</h6></label>
+                                              <input type="text" class="form-control" name="satuan" value="<?php echo $this->input->post('satuan'); ?>" />
+                                              <span class="bar"></span>
+                                          </div>
                                         </div>
                                       <div class="modal-footer d-flex justify-content-center">
                                         <button type="submit" class="btn btn-info waves-effect waves-light">Tambah</button>
@@ -127,6 +132,7 @@
 										<th>No.</th>
 										<th>Nama Barang</th>
 										<th>Jumlah</th>
+                    <th>Satuan</th>
 										<th>Divisi</th>
                     <th>Kantor</th>
                     <th>User</th>
@@ -140,6 +146,7 @@
                                         <td><?php echo $no; $no++; ?></td>
 										                    <td><?php echo $k['nama_barang']; ?></td>
 										                    <td><?php echo $k['jumlah']; ?></td>
+                                        <td><?php echo $k['satuan']; ?></td>
                                         <td><?php
                                         foreach($all_divisi as $d){
                                             if($d['id_divisi']==$k['id_divisi']) {echo $d['nama_divisi'];}
@@ -152,15 +159,10 @@
                                         foreach($all_user as $u){
                                             if($u['id_user']==$k['id_user']) {echo $u['nama'];}
                                         }?></td>
-									 <td>
-                                      <div class="row">
-                                        <div class="col-4">
+										<td>
                                             <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $k['id_kebutuhan']; ?>">Ubah</a>
-                                          </div>
-                                          <div class="col-4">
-                                            <a class="btn btn-outline-danger" href="<?php echo site_url('kebutuhan/remove/'.$k['id_kebutuhan']); ?>">Hapus</a>
-                                          </div>
-                    </td>
+											                      <a class="btn btn-outline-danger" href="<?php echo site_url('kebutuhan/remove/'.$k['id_kebutuhan']); ?>">Hapus</a>
+										</td>
 									</tr>
 
                                 <div class="modal fade" id="edit<?php echo $k['id_kebutuhan'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -179,30 +181,32 @@
                                               <label><h6 class="font-weight-bold">Nama Divisi</h6></label>
                                               <select name="id_divisi" class="form-control" >
                                               <option value="">Pilih Divisi</option>
-			                                    <?php
-                                          if($status == 1){
-                                            foreach($all_divisi as $div)
-                                            {
-                                              $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
-                                                  foreach($all_kantor as $kan){
-                                                      if($kan['id_kantor']==$div['id_kantor']) {
-                                                      echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
+                                              <?php
+                                              if($status == 1){
+                                                foreach($all_divisi as $div)
+                                                {
+                                                $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
+                                                      foreach($all_kantor as $kan){
+                                                          if($kan['id_kantor']==$div['id_kantor']) {
+                                                            $selected = ($kan['id_kantor'] == $k['id_kantor']) ? ' selected="selected"' : "";
+                                                            echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
+                                                          }
                                                       }
-                                                  }
-                                            }
-                                          }
-                                          else if ($status == 2){
-                                          foreach($divisi_by_kantor as $div)
-                                          {
-                                            $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
-                                                foreach($all_kantor as $kan){
-                                                    if($kan['id_kantor']==$div['id_kantor']) {
-                                                    echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$div['nama_divisi'].'</option>';
-                                                    }
                                                 }
-                                          }
-                                        }
-			                                    ?>
+                                              }
+                                              else if ($status == 2){
+                                              foreach($divisi_by_kantor as $div)
+                                              {
+                                                $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
+                                                    foreach($all_kantor as $kan){
+                                                        if($kan['id_kantor']==$div['id_kantor']) {
+                                                          $selected = ($kan['id_kantor'] == $k['id_kantor']) ? ' selected="selected"' : "";
+                                                          echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$div['nama_divisi'].'</option>';
+                                                        }
+                                                    }
+                                              }
+                                              }
+                                              ?>
                                               </select>
                                           </div>
                                           <div class="form-group m-b-40">
@@ -213,6 +217,11 @@
                                           <div class="form-group m-b-40">
                                               <label><h6 class="font-weight-bold">Jumlah</h6></label>
                                               <input type="text" class="form-control" name="jumlah" value="<?php echo ($this->input->post('jumlah') ? $this->input->post('jumlah') : $k['jumlah']); ?>" />
+                                              <span class="bar"></span>
+                                          </div>
+                                          <div class="form-group m-b-40">
+                                              <label><h6 class="font-weight-bold">Satuan</h6></label>
+                                              <input type="text" class="form-control" name="satuan" value="<?php echo ($this->input->post('satuan') ? $this->input->post('satuan') : $k['satuan']); ?>" />
                                               <span class="bar"></span>
                                           </div>
                                         </div>
@@ -227,11 +236,20 @@
 
 									<?php }
                 }
-                else{?>
-                  <br>
+                else{?> <br>
+                  <?php
+                  if($by_kantor == -1){
+                    echo('Tidak ada data kebutuhan');
+                  }
+                  else {
+                  echo ('Tidak ada data kebutuhan untuk kantor: ');
+                    foreach($all_kantor as $kan){
+                      if($kan['id_kantor']==$by_kantor) echo $kan['nama_kantor'];
+                    }
+                  }?>
                   <br>
                   <?php
-                }?>
+                  }?>
 									</tbody>
 								</table>
 								</div>
