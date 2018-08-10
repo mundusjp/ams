@@ -91,3 +91,5 @@
 [2018-08-10 02:47:24] NULL.DEBUG: Aura\Cli_Kernel\CliKernel: success: seed [] []
 [2018-08-10 02:47:33] NULL.DEBUG: Aura\Cli_Kernel\CliKernel: command: seed ["TidakhabispakaiSeeder"] []
 [2018-08-10 02:47:33] NULL.DEBUG: Aura\Cli_Kernel\CliKernel: success: seed [] []
+[2018-08-10 03:22:11] NULL.DEBUG: Aura\Cli_Kernel\CliKernel: command: seed ["KebutuhanSeeder"] []
+[2018-08-10 03:22:11] NULL.DEBUG: Aura\Cli_Kernel\CliKernel: success: seed [] []
