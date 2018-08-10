@@ -192,6 +192,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <!-- button add -->
                                 <div class="row">
                                     <div class="col-3">
@@ -261,130 +262,155 @@
                                                     <!-- <a class="btn btn-outline-danger" href="<?php echo site_url('inventory/remove_bhp/'.$i->id_inventory); ?>">Hapus</a> -->
                                                 </td>
                                             </tr>
-                                            <!-- modal menambahkan fungsi  -->
-                                            <div class="modal fade" id="edit-<?php echo $i->id_inventory;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
+                                            <!-- modal mengedit   -->
+                                            <div class="modal fade bd-example-modal-lg" id="edit-<?php echo $i->id_inventory;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header text-center">
-                                                            <h3 class="modal-title w-100 font-weight-bold">Ubah Barang Habis Pakai</h3>
+                                                            <h3 class="modal-title w-100 font-weight-bold">Tambah Barang Habis Pakai</h3>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                               <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
-                                                        <div class="modal-body mx-3">
-                                                            <?php echo form_open('inventory/edit_bhp/'.$i->id_inventory); ?>
-                                                            <form class="floating-labels m-t-40">
-
-                                                                <div class="form-group">
-                                                                    <label><h6 class="font-weight-bold">Divisi Pengada</h6></label>
-                                                                    <select name="nama_divisi_pengada">
-                                                                    <option value="">Pilih Divisi</option>
-                                                                    <?php
-                                                                    if($status == 1){
-                                                                      foreach($all_divisi as $div)
+                                                        <div class="modal-body"><?php echo form_open('inventory/add_bhp'); ?><div class="row"><div class="col-12">
+                                                          <div class="row">
+                                                            <div class="col-4">
+                                                                <div class="form-group m-b-40">
+                                                                    <label for="id_kantor"><h6 class="font-weight-bold">Nama Barang</h6></label>
+                                                                    <div class="controls">
+                                                                    <input type="text" required  data-validation-required-message="This field is required" class="form-control" name="nama" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama') : $i->nama); ?>"></div>
+                                                                    <span class="bar"></span>
+                                                                </div>
+                                                              </div>
+                                                              <div class="col-3">
+                                                                <div class="form-group m-b-40">
+                                                                    <label for="merk"><h6 class="font-weight-bold">Merek</h6></label>
+                                                                    <div class="controls">
+                                                                    <input type="text"  required  data-validation-required-message="This field is required" class="form-control" name="merk" value="<?php echo ($this->input->post('merk') ? $this->input->post('merk') : $i->merk); ?>"></div>
+                                                                    <span class="bar"></span>
+                                                                </div>
+                                                              </div>
+                                                              <div class="col-1">
+                                                                <div class="form-group m-b-40">
+                                                                    <label for="jumlah"><h6 class="font-weight-bold">Jumlah</h6></label>
+                                                                    <div class="controls">
+                                                                    <input type="text" required  data-validation-required-message="This field is required" class="form-control" name="jumlah" value="<?php echo ($this->input->post('jumlah') ? $this->input->post('jumlah') : $i->jumlah); ?>"> </div>
+                                                                    <span class="bar"></span>
+                                                                </div>
+                                                              </div>
+                                                              <div class="col-1">
+                                                                <div class="form-group m-b-40">
+                                                                    <label for="satuan"><h6 class="font-weight-bold">Satuan</h6></label>
+                                                                    <div class="controls">
+                                                                    <input type="text" required  data-validation-required-message="This field is required" class="form-control" name="satuan" value="<?php echo ($this->input->post('satuan') ? $this->input->post('satuan') : $i->satuan); ?>"></div>
+                                                                    <span class="bar"></span>
+                                                                </div>
+                                                              </div>
+                                                              <div class="col-3">
+                                                                <div class="form-group m-b-40">
+                                                                    <label for="harga"><h6 class="font-weight-bold">Harga</h6></label>
+                                                                    <div class="controls">
+                                                                    <input required  data-validation-required-message="This field is required" type="number" class="form-control" name="harga" value="<?php echo ($this->input->post('harga') ? $this->input->post('harga') : $i->harga); ?>"></div>
+                                                                    <span class="bar"></span>
+                                                                </div>
+                                                              </div>
+                                                                <div class="form-group m-b-40 " style="display:none;">
+                                                                    <label for="jenis"><h6 class="font-weight-bold">Jenis</h6></label>
+                                                                    <div class="controls">
+                                                                    <input required  data-validation-required-message="This field is required" type="text" class="form-control" name="jenis" value="1"></div>
+                                                                    <span class="bar"></span>
+                                                                </div>
+                                                              </div>
+                                                              <div class="row">
+                                                                <div class="col-3">
+                                                                  <div class="form-group m-b-40">
+                                                                      <label for="id_transaksi"><h6 class="font-weight-bold">Nomor Nota</h6></label>
+                                                                      <div class="controls">
+                                                                      <input required  data-validation-required-message="This field is required" type="text" class="form-control" name="id_transaksi" value="<?php echo ($this->input->post('id_transaksi') ? $this->input->post('id_transaksi') : $i->id_transaksi); ?>"> </div>
+                                                                      <span class="bar"></span>
+                                                                  </div>
+                                                                </div>
+                                                                <div class="col-3">
+                                                                    <?php $date = explode(" ",$i->tanggal);$date = $date[0]; ?>
+                                                                    <div class="form-group m-b-40">
+                                                                        <label for="id_transaksi"><h6 class="font-weight-bold"><span class="text-danger">*</span>Tanggal : </h6></label>
+                                                                      <input type="date" class="form-control" name="tanggal" value="<?php echo ($this->input->post('tanggal') ? $this->input->post('tanggal') : $date); ?>" />
+                                                                      <span class="text-danger"><?php echo form_error('tanggal');?></span>
+                                                                  </div>
+                                                                </div>
+                                                                <div class="col-3">
+                                                                  <div class="form-group m-b-40">
+                                                                      <label><h6 class="font-weight-bold">Divisi Pengada</h6></label>
+                                                                      <select name="nama_divisi_pengada" class="form-control">
+                                                                      <option value="">Pilih Divisi</option>
+                                                                      <?php
+                                                                      if($status == 1){
+                                                                        foreach($all_divisi as $div)
+                                                                        {
+                                                                          $selected = ($div['nama_divisi'] == $i->nama_divisi_pengada) ? ' selected="selected"' : "";
+                                                                              foreach($all_kantor as $kan){
+                                                                                  if($kan['id_kantor']==$div['id_kantor']) {
+                                                                                  echo '<option value="'.$div['nama_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
+                                                                                  }
+                                                                              }
+                                                                        }
+                                                                      }
+                                                                      else if ($status == 2){
+                                                                      foreach($divisi_by_kantor as $div)
                                                                       {
                                                                         $selected = ($div['nama_divisi'] == $i->nama_divisi_pengada) ? ' selected="selected"' : "";
-                                                                            foreach($all_kantor as $kan){
-                                                                                if($kan['id_kantor']==$div['id_kantor']) {
-                                                                                echo '<option value="'.$div['nama_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
-                                                                                }
-                                                                            }
+                                                                        echo '<option value="'.$div['nama_divisi'].'" '.$selected.'>'.$div['nama_divisi'].'</option>';
                                                                       }
                                                                     }
-                                                                    else if ($status == 2){
-                                                                    foreach($divisi_by_kantor as $div)
-                                                                    {
-                                                                      $selected = ($div['nama_divisi'] == $i->nama_divisi_pengada) ? ' selected="selected"' : "";
-                                                                      echo '<option value="'.$div['nama_divisi'].'" '.$selected.'>'.$div['nama_divisi'].'</option>';
-                                                                    }
-                                                                  }
-                                                                    ?>
-                                                                </select>
+                                                                      ?>
+                                                                  </select>
+                                                                  </div>
                                                                 </div>
-                                                                <div>
-                                                                    <span class="text-danger">*</span>Nama :
-                                                                    <input type="text" name="nama" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama') : $i->nama); ?>" />
-                                                                    <span class="text-danger"><?php echo form_error('nama');?></span>
-                                                                </div>
-                                                                <div style="display:none;">
-                                                                    <span class="text-danger">*</span>Jenis :
-                                                                    <input type="text" name="jenis" value="<?php echo ($this->input->post('jenis') ? $this->input->post('jenis') : $i->jenis); ?>" />
-                                                                    <span class="text-danger"><?php echo form_error('jenis');?></span>
-                                                                </div>
-                                                                <div>
-                                                                    <span class="text-danger">*</span>Merk :
-                                                                    <input type="text" name="merk" value="<?php echo ($this->input->post('merk') ? $this->input->post('merk') : $i->merk); ?>" />
-                                                                    <span class="text-danger"><?php echo form_error('merk');?></span>
-                                                                </div>
-                                                                <div>
-                                                                    <span class="text-danger">*</span>Divisi Penerima
-                                                                    <select name="id_divisi_penerima" class="form-control">
-                                                                    <option value="">Pilih Divisi</option>
-                                                                    <?php
-                                                                    if($status == 1){
-                                                                      foreach($all_divisi as $div)
+                                                                <div class="col-3">
+                                                                  <div class="form-group m-b-40">
+                                                                      <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Divisi Penerima</h6></label>
+                                                                      <select name="id_divisi_penerima" class="form-control">
+                                                                      <option value="">Pilih Divisi</option>
+                                                                      <?php
+                                                                      if($status == 1){
+                                                                        foreach($all_divisi as $div)
+                                                                        {
+                                                                          $selected = ($div['id_divisi'] == $i->id_divisi_penerima) ? ' selected="selected"' : "";
+                                                                              foreach($all_kantor as $kan){
+                                                                                  if($kan['id_kantor']==$div['id_kantor']) {
+                                                                                  echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
+                                                                                  }
+                                                                              }
+                                                                        }
+                                                                      }
+                                                                      else if ($status == 2){
+                                                                      foreach($divisi_by_kantor as $div)
                                                                       {
                                                                         $selected = ($div['id_divisi'] == $i->id_divisi_penerima) ? ' selected="selected"' : "";
-                                                                            foreach($all_kantor as $kan){
-                                                                                if($kan['id_kantor']==$div['id_kantor']) {
-                                                                                echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
-                                                                                }
-                                                                            }
+                                                                        echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$div['nama_divisi'].'</option>';
                                                                       }
                                                                     }
-                                                                    else if ($status == 2){
-                                                                    foreach($divisi_by_kantor as $div)
-                                                                    {
-                                                                      $selected = ($div['id_divisi'] == $i->id_divisi_penerima) ? ' selected="selected"' : "";
-                                                                      echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$div['nama_divisi'].'</option>';
-                                                                    }
-                                                                  }
-                                                                    ?>
-                                                                </select>
-                                                                    <span class="text-danger"><?php echo form_error('nama_divisi_pengada');?></span>
-                                                                </div>
-                                                                <?php $date = explode(" ",$i->tanggal);$date = $date[0]; ?>
-                                                                <div>
-                                                                    <span class="text-danger">*</span>Tanggal :
-                                                                    <input type="date" name="tanggal" value="<?php echo ($this->input->post('tanggal') ? $this->input->post('tanggal') : $date); ?>" />
-                                                                    <span class="text-danger"><?php echo form_error('tanggal');?></span>
-                                                                </div>
-                                                                <div>
-
-                                                                    <!-- <input type="text" name="kategori" value="<?php echo ($this->input->post('kategori') ? $this->input->post('kategori') : $i->kategori); ?>" /> -->
-                                                                    <label><h6 class="font-weight-bold">Kategori</h6></label>
-                                                                    <select name="kategori" class="form-control" >
-                                                                            <?php $selected = ("beli" === $i->kategori ) ? ' selected="selected"' : "";
-                                                                            echo '<option value="beli" '.$selected.'>Beli</option>'; ?>
-                                                                            <?php $selected = ("sewa"  === $i->kategori) ? ' selected="selected"' : "";
-                                                                            echo '<option value="sewa" '.$selected.'>Sewa</option>'; ?>
+                                                                      ?>
                                                                     </select>
-                                                                    <span class="text-danger"><?php echo form_error('kategori');?></span>
+                                                                      <span class="text-danger"><?php echo form_error('nama_divisi_pengada');?></span>
+                                                                  </div>
                                                                 </div>
-                                                                <div>
-                                                                    <span class="text-danger">*</span>Jumlah :
-                                                                    <input type="number" name="jumlah" value="<?php echo ($this->input->post('jumlah') ? $this->input->post('jumlah') : $i->jumlah); ?>" />
-                                                                    <span class="text-danger"><?php echo form_error('jumlah');?></span>
-                                                                </div>
-                                                                <div>
-                                                                    <span class="text-danger">*</span>Satuan :
-                                                                    <input type="text" name="satuan" value="<?php echo ($this->input->post('satuan') ? $this->input->post('satuan') : $i->satuan); ?>" />
-                                                                    <span class="text-danger"><?php echo form_error('satuan');?></span>
-                                                                </div>
-                                                                <div>
-                                                                    <span class="text-danger">*</span>Harga satuan :
-                                                                    <input type="text" name="harga" value="<?php echo ($this->input->post('harga') ? $this->input->post('harga') : $i->harga); ?>" />
-                                                                    <span class="text-danger"><?php echo form_error('harga');?></span>
-                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
                                                         </div>
-                                                        <div class="modal-footer d-flex justify-content-center">
-                                                            <button type="submit" class="btn btn-info waves-effect waves-light">Simpan</button>
+                                                        <div class="modal-footer d-flex">
+                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
+                                                            <button type="submit" class="btn btn-info waves-effect waves-light text-left">Tambah</button>
                                                         </div>
                                                         <?php echo form_close(); ?>
                                                     </div>
                                                 </div>
                                             </div>
+
+
                                             <!-- modal menambahkan fungsi  -->
+
                                             <div class="modal fade" id="update-<?php echo $i->id_inventory;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">

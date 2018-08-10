@@ -214,6 +214,7 @@
                                             </div>
                                           </div>
                                           <div class="modal-footer d-flex">
+                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
                                             <button type="submit" class="btn btn-info waves-effect waves-light">Tambah</button>
                                           </div>
                                         </div>
@@ -241,9 +242,7 @@
                                                 <th>No.</th>
                                                 <th>Serial ID</th>
                                                 <th>Nama</th>
-                                                <th>Divisi Penerima</th>
                                                 <th>Merk</th>
-                                                <th>Divisi Pengada</th>
                                                 <th>Kategori</th>
                                                 <th>Kondisi</th>
                                                 <th>Durability</th>
@@ -266,6 +265,13 @@
                                                 <td><?php echo $i->merk; ?></td>
                                                 <td><?php echo $i->kategori; ?></td>
                                                 <td><?php echo $i->kondisi; ?></td>
+                                                <td><?php echo $i->durability; ?></td>
+                                                <td>
+                                                  <?php
+                                                  foreach($all_kantor as $kan){
+                                                      if($kan['id_kantor']==$i->id_kantor) {echo $kan['nama_kantor'];}
+                                                  }?>
+                                                </td>
                                                 <td><?php echo $i->nama_divisi_pengada; ?></td>
                                                 <td>
                                                     <?php
@@ -456,79 +462,126 @@
                                                             </div>
                                                           </div>
                                                         </div>
-                                                        </div>
-                                                        <div class="modal-footer d-flex">
-                                                          <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
-                                                          <button type="submit" class="btn btn-info waves-effect waves-light">Ubah</button>
-                                                        </div>
-                                                        <?php echo form_close(); ?>
-                                                    </div>
-                                                </div>
+                                                      </div>
+                                                      <div class="modal-footer d-flex">
+                                                        <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
+                                                        <button type="submit" class="btn btn-info waves-effect waves-light">Ubah</button>
+                                                      </div>
+                                                      <?php echo form_close(); ?>
+                                                  </div>
+                                               </div>
                                             </div>
-                                            <!-- modal menambahkan fungsi  -->
-                                            <div class="modal fade" id="ubah-<?php echo $i->id_inventory;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                              <div class="modal-dialog" role="document">
+                                          </div>
+                                          <!-- modal menambahkan fungsi  -->
+                                          <div class="modal fade bs-example-modal-lg" id="ubah-<?php echo $i->id_inventory;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header text-center">
-                                                  <h3 class="modal-title w-100 font-weight-bold">Tambah Pemeliharaan</h3>
-                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                  </button>
-                                                </div>
-                                                <div class="modal-body mx-3">
-                                                  <?php echo form_open('stock/addpemeliharaan'); ?>
-                                                  <form class="floating-labels m-t-40">
-                                                      <div >
-                                                          <span class="text-danger">*</span>Inventory :
+                                                      <h3 class="modal-title w-100 font-weight-bold">Tambah Pemeliharaan</h3>
+                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                      </button>
+                                                    </div>
+                                                    <div class="modal-body"><div class="row"><div class="col-lg-12">
+                                                    <?php echo form_open('stock/addpemeliharaan'); ?>
+                                                    <form class="floating-labels m-b-40">
+                                                    <div class="row">
+                                                      <div class="col-4">
+                                                        <div class="form-group m-t-40">
+                                                          <label><h6 class="font-weight-bold">Inventory :</h6></label>
                                                           <input disabled type="text" name="serial_id" value="<?php echo ($this->input->post('serial_id') ? $this->input->post('serial_id') : $i->serial_id); ?>" />
                                                           <span class="text-danger"><?php echo form_error('serial_id');?></span>
-                                                    </div>
-                                                    <div style="display:none;">
-                                                        <span class="text-danger">*</span>Inventory :
-                                                        <input  type="text" name="id_inventory" value="<?php echo ($this->input->post('id_inventory') ? $this->input->post('id_inventory') : $i->id_inventory); ?>" />
-                                                        <span class="text-danger"><?php echo form_error('serial_id');?></span>
-                                                    </div>
-                                                    <div class="form-group m-b-40">
-                                                        <label for="namakantor"><h6 class="font-weight-bold">Biaya</h6></label>
-                                                        <span class="bar"></span>
-                                                        <input type="number" class="form-control" name="biaya" value="<?php echo $this->input->post('biaya'); ?>" />
-                                                        <span class="text-danger"><?php echo form_error('biaya');?></span>
-                                                    </div>
-                                                    <div class="form-group m-b-40">
-                                                        <label for="id_kantor"><h6 class="font-weight-bold">Tanggal </h6></label>
-                                                        <span class="bar"></span>
-                                                        <input type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>" />
-                                                        <span class="text-danger"><?php echo form_error('tanggal');?></span>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label><h6 class="font-weight-bold">Vendor :</h6></label>
-                                                        <select class="form-control" name="id_vendor">
-                                                        <option value="">select vendor</option>
-                                                        <?php
-                                                        foreach($all_vendor as $vendor)
-                                                        {
-                                                            $selected = ($vendor['id_vendor'] == $this->input->post('id_vendor')) ? ' selected="selected"' : "";
-                                                            echo '<option value="'.$vendor['id_vendor'].'" '.$selected.'>'.$vendor['nama'].'</option>';
-                                                        }
-                                                        ?>
-                                                        </select>
                                                         </div>
-                                                    <div class="form-group m-b-40">
-                                                        <label for="alamatkantor"><h6 class="font-weight-bold">Deskripsi</h6></label>
-                                                        <span class="bar"></span>
-                                                        <textarea rows="4" class="form-control" type="text" name="deskripsi" value="<?php echo $this->input->post('deskripsi'); ?>"></textarea>
-                                                        <span class="text-danger"><?php echo form_error('deskripsi');?></span>
+                                                      </div>
+                                                      <div class="col-4">
+                                                        <div class="form-group m-t-40">
+                                                          <label><h6 class="font-weight-bold">Nama Barang :</h6></label>
+                                                          <input disabled type="text" name="nama" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama') : $i->nama); ?>" />
+                                                          <span class="text-danger"><?php echo form_error('nama');?></span>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-4">
+                                                        <div class="form-group m-t-40">
+                                                          <label><h6 class="font-weight-bold">Merek Barang :</h6></label>
+                                                          <input disabled type="text" name="merk" value="<?php echo ($this->input->post('merk') ? $this->input->post('merk') : $i->merk); ?>" />
+                                                          <span class="text-danger"><?php echo form_error('merk');?></span>
+                                                        </div>
+                                                      </div>
+                                                      <!-- <div class="col-4">
+                                                        <div class="form-group m-t-40">
+                                                          <label><h6 class="font-weight-bold">Merek :</h6></label>
+                                                          <input disabled type="text" name="merk" value="<?php echo ($this->input->post('merk') ? $this->input->post('merk') : $i->merk); ?>" />
+                                                          <span class="text-danger"><?php echo form_error('merk');?></span>
+                                                        </div>
+                                                      </div> -->
+                                                      <div class="col-4">
+                                                        <div style="display:none;">
+                                                          <span class="text-danger">*</span>Inventory :
+                                                          <input  type="text" name="id_inventory" value="<?php echo ($this->input->post('id_inventory') ? $this->input->post('id_inventory') : $i->id_inventory); ?>" />
+                                                          <span class="text-danger"><?php echo form_error('serial_id');?></span>
+                                                        </div>
+                                                      </div>
                                                     </div>
-                                            </div>
-
-                                            <div class="modal-footer d-flex justify-content-center">
-                                                <button class="btn btn-info waves-effect waves-light" type="submit">Tambah</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php echo form_close(); ?>
-                                            <?php } ?>
+                                                    <hr>
+                                                    <div class="row">
+                                                      <div class="col-4">
+                                                        <div class="form-group m-b-40">
+                                                          <label><h6 class="font-weight-bold">Vendor :</h6></label>
+                                                          <select class="form-control" name="id_vendor">
+                                                            <option value="">Pilih Vendor</option>
+                                                            <?php
+                                                            foreach($all_vendor as $vendor)
+                                                            {
+                                                                $selected = ($vendor['id_vendor'] == $this->input->post('id_vendor')) ? ' selected="selected"' : "";
+                                                                echo '<option value="'.$vendor['id_vendor'].'" '.$selected.'>'.$vendor['nama'].'</option>';
+                                                              }
+                                                              ?>
+                                                            </select>
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                          <div class="form-group m-b-40">
+                                                            <label for="namakantor"><h6 class="font-weight-bold">Biaya</h6></label>
+                                                            <span class="bar"></span>
+                                                            <input type="number" class="form-control" name="biaya" value="<?php echo $this->input->post('biaya'); ?>" />
+                                                            <span class="text-danger"><?php echo form_error('biaya');?></span>
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                          <div class="form-group m-b-40">
+                                                            <label for="id_kantor"><h6 class="font-weight-bold">Tanggal Perawatan </h6></label>
+                                                            <span class="bar"></span>
+                                                            <input type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>" />
+                                                            <span class="text-danger"><?php echo form_error('tanggal');?></span>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <hr>
+                                                      <div class="row">
+                                                        <div class="col-6">
+                                                          <div class="form-group m-b-40">
+                                                            <label for="alamatkantor"><h6 class="font-weight-bold">Detail Pemeliharaan:</h6></label>
+                                                            <span class="bar"></span>
+                                                            <textarea rows="4" class="form-control" type="text" name="deskripsi" value="<?php echo $this->input->post('deskripsi'); ?>"></textarea>
+                                                            <span class="text-danger"><?php echo form_error('deskripsi');?></span>
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                          <label><h6 class="text-muted font-weight-bold">Keterangan</h6></label>
+                                                          <p>1. Perubahan melalui beberapa proses birokrasi. Jika tidak Penting, Jangan Ubah apa-apa.</p>
+                                                          <p>2. Ini cuma keterangan tambahan.</p>
+                                                        </div>
+                                                      </div></div></div>
+                                                      <div class="modal-footer d-flex">
+                                                        <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
+                                                        <button class="btn btn-info waves-effect waves-light" type="submit">Tambah</button>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                          <?php echo form_close(); ?>
+                                          <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
