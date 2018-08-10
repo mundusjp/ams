@@ -14,6 +14,8 @@ class Admin extends CI_Controller{
         $this->load->model('admin_model');
         $this->load->model('Divisi_model');
         $this->load->model('Kantor_model');
+        $this->load->model('Eventlog_model');
+
     }
     /*
      * Adding a new user
@@ -47,6 +49,15 @@ class Admin extends CI_Controller{
             );
 
             $user_id = $this->admin_model->add_admin($params);
+            $desc =($this->input->post('nama').' '.$this->input->post('username'));
+            $log = array(
+				'id_user' => $this->session->userdata('id_user'),
+				'event' => 'menambahkan user',
+				'ref_id' =>  $user_id,
+				'eventDesc' => $desc,
+				'eventTable' => 'user',
+            );
+            $eventlog_id = $this->Eventlog_model->add_eventlog($log);
             redirect('manage/user');
         }
         else
@@ -99,6 +110,15 @@ class Admin extends CI_Controller{
                 );
 
                 $this->admin_model->update_admin($id_admin,$params);
+                $desc =($this->input->post('nama').' '.$this->input->post('username'));
+                $log = array(
+                    'id_user' => $this->session->userdata('id_user'),
+                    'event' => 'mengubah biodata',
+                    'ref_id' =>  $id_admin,
+                    'eventDesc' => $desc,
+                    'eventTable' => 'user',
+                );
+                $eventlog_id = $this->Eventlog_model->add_eventlog($log);
                 redirect('manage/user');
             }
             else
@@ -124,6 +144,13 @@ class Admin extends CI_Controller{
         if(isset($user['id_user']))
         {
             $this->admin_model->delete_admin($id_admin);
+            $log = array(
+                'id_user' => $this->session->userdata('id_user'),
+                'event' => 'menghapus user',
+                'ref_id' =>  $id_admin,
+                'eventTable' => 'user',
+            );
+            $eventlog_id = $this->Eventlog_model->add_eventlog($log);
             redirect('manage/user');
         }
         else

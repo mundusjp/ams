@@ -13,6 +13,8 @@ class Divisi extends CI_Controller{
           }
         $this->load->model('Divisi_model');
         $this->load->model('Kantor_model');
+        $this->load->model('Eventlog_model');
+
     }
 
     /*
@@ -38,6 +40,15 @@ class Divisi extends CI_Controller{
             );
 
             $divisi_id = $this->Divisi_model->add_divisi($params);
+            $desc =($this->input->post('nama_divisi').' '.$this->input->post('gedung'));
+            $log = array(
+				'id_user' => $this->session->userdata('id_user'),
+				'event' => 'menambahkan divisi',
+				'ref_id' =>  $divisi_id,
+				'eventDesc' => $desc,
+				'eventTable' => 'divisi',
+            );
+            $eventlog_id = $this->Eventlog_model->add_eventlog($log);
             redirect('manage/divisi');
         }
         // else
@@ -77,6 +88,15 @@ class Divisi extends CI_Controller{
                 );
 
                 $this->Divisi_model->update_divisi($id_divisi,$params);
+                $desc =($this->input->post('nama_divisi').' '.$this->input->post('gedung'));
+                $log = array(
+                    'id_user' => $this->session->userdata('id_user'),
+                    'event' => 'mengubah divisi',
+                    'ref_id' =>  $id_divisi,
+                    'eventDesc' => $desc,
+                    'eventTable' => 'divisi',
+                );
+                $eventlog_id = $this->Eventlog_model->add_eventlog($log);
                 redirect('manage/divisi');
             }
             else
@@ -103,6 +123,13 @@ class Divisi extends CI_Controller{
         if(isset($divisi['id_divisi']))
         {
             $this->Divisi_model->delete_divisi($id_divisi);
+                $log = array(
+                    'id_user' => $this->session->userdata('id_user'),
+                    'event' => 'menghapus divisi',
+                    'ref_id' =>  $id_divisi,
+                    'eventTable' => 'divisi',
+                );
+                $eventlog_id = $this->Eventlog_model->add_eventlog($log);
             redirect('manage/divisi');
         }
         else

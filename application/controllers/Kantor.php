@@ -12,6 +12,8 @@ class Kantor extends CI_Controller{
           redirect('');
           }
         $this->load->model('Kantor_model');
+        $this->load->model('Eventlog_model');
+
     }
 
     /*
@@ -34,6 +36,15 @@ class Kantor extends CI_Controller{
             );
 
             $kantor_id = $this->Kantor_model->add_kantor($params);
+            $desc =($this->input->post('nama_kantor').' '.$this->input->post('status'));
+            $log = array(
+				'id_user' => $this->session->userdata('id_user'),
+				'event' => 'menambahkan kantor',
+				'ref_id' =>  $kantor_id,
+				'eventDesc' => $desc,
+				'eventTable' => 'kantor',
+            );
+            $eventlog_id = $this->Eventlog_model->add_eventlog($log);
             redirect('manage/kantor');
         }
         // else
@@ -68,6 +79,15 @@ class Kantor extends CI_Controller{
                 );
 
                 $this->Kantor_model->update_kantor($id_kantor,$params);
+                $desc =($this->input->post('nama_kantor').' '.$this->input->post('status'));
+                $log = array(
+                    'id_user' => $this->session->userdata('id_user'),
+                    'event' => 'mengubah kantor',
+                    'ref_id' =>  $id_kantor,
+                    'eventDesc' => $desc,
+                    'eventTable' => 'kantor',
+                );
+                $eventlog_id = $this->Eventlog_model->add_eventlog($log);
                 redirect('manage/kantor');
             }
             else
@@ -91,6 +111,15 @@ class Kantor extends CI_Controller{
         if(isset($kantor['id_kantor']))
         {
             $this->Kantor_model->delete_kantor($id_kantor);
+            // $desc =($this->input->post('nama_kantor').' '.$this->input->post('status'));
+                $log = array(
+                    'id_user' => $this->session->userdata('id_user'),
+                    'event' => 'menghapus kantor',
+                    'ref_id' =>  $id_kantor,
+                    // 'eventDesc' => $desc,
+                    'eventTable' => 'kantor',
+                );
+                $eventlog_id = $this->Eventlog_model->add_eventlog($log);
             redirect('manage/kantor');
         }
         else
