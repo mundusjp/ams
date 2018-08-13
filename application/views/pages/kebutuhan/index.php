@@ -30,7 +30,7 @@
                                 <?php if ($user['status'] == 1){
                                   echo form_open("Kebutuhan/index");?>
                                 <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
-                                  <option value="0">Pilih Kantor</option><?php
+                                  <option value="0">Semua Kantor</option><?php
                                   foreach($all_kantor as $kantor)
                                   {
                                     $selected = ($kantor['id_kantor'] == $by_kantor) ? ' selected="selected"' : "";
@@ -185,7 +185,7 @@
                                               if($status == 1){
                                                 foreach($all_divisi as $div)
                                                 {
-                                                $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
+                                                $selected = ($k['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
                                                       foreach($all_kantor as $kan){
                                                           if($kan['id_kantor']==$div['id_kantor']) {
                                                             $selected = ($kan['id_kantor'] == $k['id_kantor']) ? ' selected="selected"' : "";

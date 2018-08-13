@@ -18,40 +18,27 @@
         <!-- ============================================================== -->
         <!-- Ini working space teman teman. Tinggal tambah table dkk-->
         <!-- ============================================================== -->
-<?php if ($user['status'] == 1){
-        echo form_open("penggunaan/index");?>
-        <div class="row">
-          <div class="col-12">
+        <div class="card">
+            <div class="card-body">
               <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title"> Pilih Kantor dan Divisi</h4>
-                          <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
-                            <option value="0">Semua Kantor</option><?php
-                            foreach($all_kantor as $kantor)
-                            {
-                              $selected = ($kantor['id_kantor'] == $by_kantor) ? ' selected="selected"' : "";
-                              echo '<option value="'.$kantor['id_kantor'].'" '.$selected.'>'.$kantor['nama_kantor'].'</option>';
-                            }?>
-                          </select>
-                          <select name="pilih_divisi" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
-                            <option value="0">Semua Divisi</option><?php
-                            foreach($all_divisi as $divisi)
-                            {
-                              $selected = ($divisi['nama_divisi'] == $by_divisi) ? ' selected="selected"' : "";
-                              echo '<option value="'.$divisi['nama_divisi'].'" '.$selected.'>'.$divisi['nama_divisi'].'</option>';
-                            }?>
-                          </select>
-                      <button type="submit" class="btn btn-info waves-effect waves-light">Pilih</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <?php
-        }?>
-          <div class="card">
-              <div class="card-body">
+                  <div class="card-body">
                   <h4 class="card-title">Data Penggunaan Barang</h4>
                   <h6 class="card-subtitle">Daftar penggunaan seluruh barang habis pakai</h6>
+                  <?php if ($user['status'] == 1){
+                    echo form_open("penggunaan/index");?>
+                  <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
+                    <option value="0">Semua Kantor</option><?php
+                    foreach($all_kantor as $kantor)
+                    {
+                      $selected = ($kantor['id_kantor'] == $by_kantor) ? ' selected="selected"' : "";
+                      echo '<option value="'.$kantor['id_kantor'].'" '.$selected.'>'.$kantor['nama_kantor'].'</option>';
+                    }
+                    ?>
+                  </select>
+                  <button type="submit" class="btn btn-info waves-effect waves-light">Pilih</button>
+                  <br>
+                  <br>
+                  <?php echo form_close();}?>
             <!-- <?php echo form_open("penggunaan/index");?>
                   <select name="pilih_triwulan" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
                     <option value="-1">Semua Triwulan</option><?php
@@ -116,17 +103,21 @@
               }
          else{?> <br>
                 <?php
-                // if($by_kantor == -1){
+                if($by_kantor == 0 && $by_divisi == 0){
                   echo('Tidak ada data penggunaan barang');
-                // }
-                // else {
-                // echo ('Tidak ada data kebutuhan untuk kantor: ');
-                //   foreach($all_kantor as $kan){
-                //     if($kan['id_kantor']==$by_kantor) echo $kan['nama_kantor'];
-                //   }
-                }?>
+                }
+                else{
+                  echo ('Tidak ada data kebutuhan untuk kantor ');
+                  foreach($all_kantor as $kan){
+                    if($kan['id_kantor']==$by_kantor) echo $kan['nama_kantor'];
+                  }
+                }
+          }?>
+
               </div>
           </div>
+        </div>
+    </div>
         <!-- ============================================================== -->
         <!-- Ini adalah akhir dari working space. No more coding below      -->
         <!-- ============================================================== -->
