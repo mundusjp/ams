@@ -12,6 +12,7 @@ class Inventory extends CI_Controller{
         $this->load->model('Admin_model');
         $this->load->model('Kebutuhan_model');
         $this->load->model('Eventlog_model');
+        $this->load->model('Penggunaan_model');
         $this->load->model('Vendor_model');
 
     }
@@ -124,8 +125,8 @@ class Inventory extends CI_Controller{
 		$this->form_validation->set_rules('merk','Merk','required|max_length[50]');
 		$this->form_validation->set_rules('nama_divisi_pengada','Nama Divisi Pengada','required|max_length[50]');
 		$this->form_validation->set_rules('tanggal','Tanggal','required');
-        $this->form_validation->set_rules('id_transaksi','Id Transaksi','required|integer');
-        $this->form_validation->set_rules('jumlah','Jumlah','required');
+    $this->form_validation->set_rules('id_transaksi','Id Transaksi','required|integer');
+    $this->form_validation->set_rules('jumlah','Jumlah','required');
 		$this->form_validation->set_rules('satuan','Satuan','required');
 
 		if($this->form_validation->run())
@@ -143,7 +144,7 @@ class Inventory extends CI_Controller{
             );
             $inventory_id = $this->Inventory_model->add_inventory($params);
                $data['last'] = $this->Inventory_model->get_last_id();
-                echo  $data['last']->id_inventory ;
+                $id = $data['last']->id_inventory;
             $var = array(
                'id_inventory' =>  $data['last']->id_inventory,
                 // 'inventory_id' => $this->input->post('inventory_id'),
@@ -160,6 +161,25 @@ class Inventory extends CI_Controller{
 				'eventTable' => 'habispakai',
             );
             $eventlog_id = $this->Eventlog_model->add_eventlog($log);
+
+            $inv = $this->Inventory_model->get_inventory($id);
+            $time = $inv['tanggal'];
+            $time = explode(" ", $time);
+            $date = $time[0];
+            $date = explode("-", $date);
+            $bulan = $date[1];
+            if ($bulan == "01" || $bulan == "02" || $bulan == "03") $triwulan = "janmar";
+            else if ($bulan == "04" || $bulan == "05" || $bulan == "06") $triwulan = "aprjun";
+            else if ($bulan == "07" || $bulan == "08" || $bulan == "09") $triwulan = "julsep";
+            else if ($bulan == "10" || $bulan == "11" || $bulan == "12") $triwulan = "oktdes";
+            $tahun = $date[0];
+            $peng = array(
+              'id_inventory' => $inventory_id,
+              'jumlah_penggunaan' => $this->input->post('jumlah'),
+               'tahun' => $tahun,
+               'triwulan' =>$triwulan,
+            );
+            $penggunaan_id = $this->Penggunaan_model->add_penggunaan($peng);
             redirect('inventory/bhp');
         }
         else
@@ -308,56 +328,72 @@ class Inventory extends CI_Controller{
         if(isset($data['inventory']['id_inventory']))
         {
             $this->load->library('form_validation');
-
-
             $this->form_validation->set_rules('jumlah1','Jumlah1','required');
             $this->form_validation->set_rules('jumlah','Jumlah','required');
-			$this->form_validation->set_rules('tanda','Tanda','required');
+			      $this->form_validation->set_rules('tanda','Tanda','required');
 
-			if($this->form_validation->run())
+			      if($this->form_validation->run())
             {
-                 $a = $this->input->post('jumlah');
-                $b =$this->input->post('jumlah1');
-                $tanda = $this->input->post('tanda');
-                if( $tanda=="+"){
-                    $jumlah = $a+$b ;
-                    $simbol = 'tambah';
-                }
-                else {
-                    $jumlah = $a-$b;
-                    $simbol = 'kurang';
-                    $par = array(
+              $a = $this->input->post('jumlah');
+              $b =$this->input->post('jumlah1');
+              $tanda = $this->input->post('tanda');
+              if( $tanda=="+"){
+                $jumlah = $a+$b ;
+                $simbol = 'tambah';
+                $par = array(
+                        'id_divisi' => $this->input->post('id_divisi'),
+                        'id_inventory' => $this->input->post('id_inventory'),
+                        'jumlah_penggunaan' => $b,
+                        'id_user' => $this->input->post('id_user'),
+                        );
+              }
+              else {
+                $jumlah = $a-$b;
+                $simbol = 'kurang';
+                $par = array(
                         'id_divisi' => $this->input->post('id_divisi'),
                         'nama_barang' => $this->input->post('nama_barang'),
                         'jumlah' => $b,
                         'id_user' => $this->input->post('id_user'),
-                    );
-                    $kebutuhan_id = $this->Kebutuhan_model->add_kebutuhan($par);
-                }
+                        );
+                $kebutuhan_id = $this->Kebutuhan_model->add_kebutuhan($par);
+              }
+              $var = array(
+                      'jumlah' => $jumlah,
+                      );
+              $this->Habis_model->update_habis($id_inventory,$var);
+              $desc =($this->input->post('nama_barang').' '. 'ber'.$simbol.' '.$this->input->post('jumlah1'));
+              $log = array(
+				              'id_user' => $this->session->userdata('id_user'),
+				              'event' => $simbol,
+				              'ref_id' =>  $id_inventory,
+				              'eventDesc' => $desc,
+				              'eventTable' => 'habispakai',
+                      );
+              $eventlog_id = $this->Eventlog_model->add_eventlog($log);
+              $time = new DateTime();
+              $time = explode(" ",$datetime);
+              $date = $time[0];
+              $date = explode("-", $date);
+              $bulan = $date[1];
+              $tahun = $date[0];
+              $penggunaan = $this->Penggunaan_model->get_penggunaan($id_inventory);
+              if ($bulan == "01" || $bulan == "02" || $bulan == "03") $triwulan = "janmar";
+              else if ($bulan == "04" || $bulan == "05" || $bulan == "06") $triwulan = "aprjun";
+              else if ($bulan == "07" || $bulan == "08" || $bulan == "09") $triwulan = "julsep";
+              else if ($bulan == "10" || $bulan == "11" || $bulan == "12") $triwulan = "oktdes";
+              // if($penggunaan->triwulan == $triwulan){
+              //   $jumlahBaru = $penggunaan->jumlah_penggunaan + $b;
+              //   $penggunaan->jumlah_penggunaan =
+              // }
 
-                $var = array(
-                    'jumlah' => $jumlah,
-                );
-
-                $this->Habis_model->update_habis($id_inventory,$var);
-                $desc =($this->input->post('nama_barang').' '. 'ber'.$simbol.' '.$this->input->post('jumlah1'));
-                $log = array(
-				'id_user' => $this->session->userdata('id_user'),
-				'event' => $simbol,
-				'ref_id' =>  $id_inventory,
-				'eventDesc' => $desc,
-				'eventTable' => 'habispakai',
-            );
-            $eventlog_id = $this->Eventlog_model->add_eventlog($log);
-                redirect('inventory/bhp');
+              redirect('inventory/bhp');
             }
             else
             {
-
-				$data['all_divisi'] = $this->Divisi_model->get_all_divisi();
-
-                $data['_view'] = 'inventory/edit_bhp';
-                $this->load->view('pages/habis/edit',$data);
+              $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
+              $data['_view'] = 'inventory/edit_bhp';
+              $this->load->view('pages/habis/edit',$data);
             }
         }
         else

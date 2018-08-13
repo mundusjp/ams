@@ -36,6 +36,14 @@ class Inventory_model extends CI_Model
     {
         return $this->db->select("id_inventory")->limit(1)->order_by('id_inventory',"DESC")->get("inventory")->row();
     }
+    function get_time($id_inventory)
+    {
+      $this->db->select('tanggal');
+      $this->db->from('inventory');
+      $this->db->where('id_inventory', $id_inventory);
+      $query = $this->db->get();
+      return $query->result_array();
+    }
     function get_inventory($id_inventory)
     {
         return $this->db->get_where('inventory',array('id_inventory'=>$id_inventory))->row_array();
