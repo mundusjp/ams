@@ -535,7 +535,8 @@ class Inventory extends CI_Controller{
     function detail_beli($id_beli)
     {
         $data['inventory'] = $this->Inventory_model->get_beli($id_beli);
-
+        $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
+        $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
         $data['_view'] = 'inventory/index';
         $this->load->view('templates/dashboard/header');
       $this->load->view('templates/dashboard/topbar');
@@ -548,7 +549,8 @@ class Inventory extends CI_Controller{
     function detail_sewa($id_sewa)
     {
         $data['inventory'] = $this->Inventory_model->get_sewa($id_sewa);
-
+        $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
+        $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
         $data['_view'] = 'inventory/index';
         $this->load->view('templates/dashboard/header');
       $this->load->view('templates/dashboard/topbar');

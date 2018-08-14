@@ -32,7 +32,7 @@
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-											<th>Id Inventory</th>
+											<th>No.</th>
 											<th>Id Divisi Pengada</th>
 											<th>Nama</th>
 											<th>Jenis</th>
@@ -41,14 +41,17 @@
 											<th>Tanggal</th>
 											<th>Kategori</th>
 											<!-- <th>Id Beli/sewa</th> -->
-											<th>Actions</th>
+											<!-- <th>Actions</th> -->
                                             </tr>
                                         </thead>
                                         <tbody>
-										<?php foreach($inventory as $i){ ?>
+										<?php $no=1; foreach($inventory as $i){ ?>
     									<tr>
-											<td><?php echo $i->id_inventory; ?></td>
-											<td><?php echo $i->id_divisi_pengada; ?></td>
+											<td><?php echo $no++; ?></td>
+                                            <td><?php
+                                                foreach($all_divisi as $d){
+                                                    if($d['id_divisi']==$i->id_divisi_penerima) {echo $d['nama_divisi'];}
+                                                }?></td>
 											<td><?php echo $i->nama; ?></td>
 											<td><?php echo $i->jenis; ?></td>
 											<td><?php echo $i->merk; ?></td>
@@ -56,10 +59,10 @@
 											<td><?php echo $i->tanggal; ?></td>
 											<td><?php echo $i->kategori; ?></td>
 											<!-- <td><?php echo $i->id_beli/sewa; ?></td> -->
-											<td>
+											<!-- <td>
     									        <a href="<?php echo site_url('inventory/edit/'.$i->id_inventory); ?>">Edit</a> | 
     									        <a href="<?php echo site_url('inventory/remove/'.$i->id_inventory); ?>">Delete</a>
-    									    </td>
+    									    </td> -->
    										 </tr>
 										<?php } ?>
                                         </tbody>

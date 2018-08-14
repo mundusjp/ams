@@ -261,7 +261,7 @@
 									                 <td>
 										                 <button class="btn btn-outline-info" data-toggle="modal" href="#edit<?php echo $b['id_transaksi']; ?>">Edit</button>
                                      <!-- <a href="<?php echo site_url('stock/removebeli/'.$b['id_transaksi']); ?>">Delete</a> | -->
-                                     <button class="btn btn-outline-primary" href="<?php echo site_url('inventory/detail_beli/'.$b['id_transaksi']); ?>">Detail</button>
+                                     <a class="btn btn-outline-primary" href="<?php echo site_url('inventory/detail_beli/'.$b['id_transaksi']); ?>">Detail</a>
 									                 </td>
 								                 </tr>
                                <?php } ?>

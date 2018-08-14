@@ -217,14 +217,13 @@
                                                 <th>No.</th>
                                                 <th>Nama</th>
                                                 <th>Divisi Penerima</th>
-                                                <th>Kantor</th>
+                                                <!-- <th>Kantor</th> -->
                                                 <!-- <th>Jenis</th> -->
                                                 <th>Merk</th>
                                                 <th>Divisi Pengada</th>
                                                 <th>Tanggal</th>
                                                 <th>Kategori</th>
                                                 <th>Jumlah</th>
-                                                <th>Satuan</th>
                                                 <th>Harga satuan</th>
                                                 <th>Tindakan</th>
                                             </tr>
@@ -240,22 +239,19 @@
                                                     foreach($all_divisi as $divisi)
                                                     {
                                                         if ($divisi['id_divisi'] == $i->id_divisi_penerima)
-                                                        echo $divisi['nama_divisi'];
+                                                        echo $divisi['nama_divisi'].' - ';
+                                                    }
+                                                    foreach($all_kantor as $kan){
+                                                        if($kan['id_kantor']==$i->id_kantor) {echo $kan['nama_kantor'];}
                                                     }
                                                     ?>
                                                 </td>
-                                                <td>
-                                                  <?php
-                                                  foreach($all_kantor as $kan){
-                                                      if($kan['id_kantor']==$i->id_kantor) {echo $kan['nama_kantor'];}
-                                                  }?>
-                                                </td>
+                                                
                                                 <td><?php echo $i->merk; ?></td>
                                                 <td><?php echo $i->nama_divisi_pengada; ?></td>
                                                 <td><?= date('d-m-Y', strtotime($i->tanggal)) ?></td>
                                                 <td><?php echo $i->kategori; ?></td>
-                                                <td><?php echo $i->jumlah; ?></td>
-                                                <td><?php echo $i->satuan; ?></td>
+                                                <td><?php echo $i->jumlah.' '.$i->satuan; ?></td>
                                                 <td><?php echo $i->harga; ?></td>
 
                                                 <td>
