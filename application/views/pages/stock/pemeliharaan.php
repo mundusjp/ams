@@ -48,13 +48,13 @@
                                                         <label><h6 class="font-weight-bold">Inventory</h6></label>
                                                         <select class="form-control" name="id_inventory">
                                               <option value="">select inventory</option>
-                                              <?php 
+                                              <?php
                                                 foreach($all_inventory as $inventory)
                                                 {
                                                     $selected = ($inventory['id_inventory'] == $this->input->post('id_inventory')) ? ' selected="selected"' : "";
 
                                                     echo '<option value="'.$inventory['id_inventory'].'" '.$selected.'>'.$inventory['nama'].'</option>';
-                                                } 
+                                                }
                                                 ?>
                                             </select>
                                                     </div>
@@ -70,7 +70,7 @@
                                                         <input type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>" />
                                                         <span class="text-danger"><?php echo form_error('tanggal');?></span>
                                                     </div>
-                                                   
+
 
                                                     <div class="form-group m-b-40">
                                                         <label for="alamatkantor"><h6 class="font-weight-bold">Deskripsi</h6></label>
@@ -80,7 +80,8 @@
                                                     </div>
                                             </div>
 
-                                            <div class="modal-footer d-flex justify-content-center">
+                                            <div class="modal-footer d-flex">
+                                                <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
                                                 <button class="btn btn-info waves-effect waves-light" type="submit">Tambah</button>
                                             </div>
                                         </div>
@@ -90,8 +91,8 @@
                                 <!-- button add -->
                                 <div class="row">
                                     <div class="col-3">
-                                        <button type="button" class="btn btn-info waaves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKantor"> add 
-                      </button>
+                                        <button type="button" class="btn btn-info waaves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKantor"> add
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="table-responsive m-t-40">
@@ -119,34 +120,34 @@
                                             <tr>
                                                 <td>
                                                     <!-- <?php echo $p['id_pemeliharaan']; ?> -->
-                                                    <?php echo $no++; ?> 
+                                                    <?php echo $no++; ?>
                                                 </td>
                                                 <td>
-                                                    <?php 
+                                                    <?php
                                                     foreach($all_inventory as $inventory)
                                                     {
                                                         if ($inventory['id_inventory'] == $p['id_inventory'])
                                                         echo $inventory['nama'];
-                                                    } 
+                                                    }
                                                     ?>
                                                 </td>
                                                 <td>
-                                                <?php 
+                                                <?php
                                                     foreach($all_vendor as $vendor)
                                                     {
                                                         if ($vendor['id_vendor'] == $p['id_vendor'])
                                                         echo $vendor['nama'];
-                                                    } 
+                                                    }
                                                     ?>
                                                 </td>
                                                 <td>
                                                     <?php echo $p['biaya']; ?>
                                                 </td>
-                                               
+
                                                 <?php $date = explode(" ",$p['tanggal']);$date1 = $date[0]; ?>
                                                 <?php $date2 = explode("-",$date1);?>
                                                 <td><?php echo $date2[2].'-'.$date2[1].'-'.$date2[0]; ?></td>
-                                               
+
                                                 <td>
                                                     <?php echo $p['deskripsi']; ?>
                                                 </td>
@@ -156,8 +157,8 @@
                                                 </td>
                                             </tr>
                                             <!-- modal menambahkan fungsi  -->
-                                            <div class="modal fade" id="edit<?php echo $p['id_pemeliharaan'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
+                                            <div class="modal fade bs-example-modal-lg" id="edit<?php echo $p['id_pemeliharaan'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header text-center">
                                                             <h3 class="modal-title w-100 font-weight-bold">Edit Pembelian</h3>
@@ -165,20 +166,20 @@
                                                         <span aria-hidden="true">&times;</span>
                                                         </button>
                                                         </div>
-                                                        <div class="modal-body mx-3">
-                                                            <?php echo form_open('stock/editpemeliharaan/'.$p['id_pemeliharaan']); ?>
-                                                            <form class="form-body m-t-40">
+                                                        <div class="modal-body">
+                                                          <?php echo form_open('stock/editpemeliharaan/'.$p['id_pemeliharaan']); ?>
+                                                          <form class="form-body m-t-40">
                                                                 <div class="form-group">
                                                                     <label><h6 class="font-weight-bold">Inventory</h6></label>
                                                                     <select class="form-control" name="id_inventory">
                                                             <option value="">select inventory</option>
-                                                            <?php 
+                                                            <?php
                                                               foreach($all_inventory as $inventory)
                                                               {
                                                                 $selected = ($inventory['id_inventory'] == $p['id_inventory']) ? ' selected="selected"' : "";
 
                                                                 echo '<option value="'.$inventory['id_inventory'].'" '.$selected.'>'.$inventory['nama'].'</option>';
-                                                              } 
+                                                              }
                                                               ?>
                                                             </select>
                                                                 </div>
@@ -214,7 +215,8 @@
                                                                 </div>
 
                                                         </div>
-                                                        <div class="modal-footer d-flex justify-content-center">
+                                                        <div class="modal-footer d-flex">
+                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
                                                             <button type="submit" class="btn btn-info waves-effect waves-light">Save</button>
                                                         </div>
                                                         <?php echo form_close(); ?>

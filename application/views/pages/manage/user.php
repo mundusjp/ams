@@ -114,7 +114,8 @@
                             </div>
                           </div>
                         </div>
-                      <div class="modal-footer d-flex justify-content-center">
+                      <div class="modal-footer d-flex">
+                        <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
                         <button type="submit" class="btn btn-info waves-effect waves-light">Tambah</button>
                       </div>
                     </div>
@@ -179,9 +180,9 @@
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
-                      <div class="modal-body mx-3">
+                      <div class="modal-body">
                         <?php echo form_open('admin/edit/'.$rec['id_user']); ?>
-                        <form class="floating-labels m-t-40">
+                        <form class="floating-labels m-t-40"><div class="row">
                           <div class="form-group m-b-40">
                               <label><h6 class="font-weight-bold">Nama Lengkap</h6></label>
                               <input type="text" class="form-control" name="nama" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama') : $rec['nama']); ?>" />
@@ -215,7 +216,7 @@
                           </div>
                           <div class="form-group m-b-40">
                               <span class="bar"></span>
-                              <label><h6 class="font-weight-bold">Nama Divisi</h6></label>
+                              <label><h6 class="font-weight-bold">Divisi</h6></label>
                               <select name="id_divisi" class="form-control">
                                 <option value="">Pilih Divisi</option>
                                 <?php
@@ -236,7 +237,8 @@
                               </select>
                           </div>
                         </div>
-                      <div class="modal-footer d-flex justify-content-center">
+                      <div class="modal-footer d-flex">
+                        <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
                         <button type="submit" class="btn btn-info waves-effect waves-light">Simpan</button>
                       </div>
                       <?php echo form_close(); ?>

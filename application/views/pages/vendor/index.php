@@ -37,45 +37,57 @@
                                           <span aria-hidden="true">&times;</span>
                                         </button>
                                             </div>
-                                            <div class="modal-body mx-3">
-                                                <?php echo form_open('vendor/add'); ?>
-                                                <form id="registrasi" class="floating-labels m-t-40">
-
+                                            <div class="modal-body"><div class="row"><div class="col-lg-12">
+                                              <?php echo form_open('vendor/add'); ?>
+                                              <form id="registrasi" class="floating-labels m-t-40">
+                                              <div class="row">
+                                                <div class="col-md-8">
                                                     <div class="form-group m-b-40">
                                                         <label for="id_kantor"><h6 class="font-weight-bold">Nama</h6></label>
                                                         <span class="bar"></span>
-                                                        <div class="controls"> 
+                                                        <div class="controls">
                                                         <input type="text" maxlength="50" class="form-control"  required name="nama"  value="<?php echo $this->input->post('nama'); ?>" /></div>
                                                         <span class="text-danger"><?php echo form_error('nama');?></span>
                                                     </div>
-                                                    
+                                                </div>
+                                                <div class="col-md-4">
                                                     <div class="form-group m-b-40">
                                                         <label for="id_kantor"><h6 class="font-weight-bold">No Handphone</h6></label>
                                                         <span class="bar"></span>
                                                         <div class="controls">
-                                                        <input type="number" minlength="11" maxlength="13" class="form-control "  required  name="no_hp" value="<?php echo $this->input->post('no_hp'); ?>" />
+                                                        <input type="number" minlength="11" maxlength="13" class="form-control "  required  name="no_hp" value="<?php echo $this->input->post('no_hp'); ?>" placeholder="08xx-xxxx-xxxx" />
                                                         </div>
                                                         <span class="text-danger"><?php echo form_error('no_hp');?></span>
                                                     </div>
-                                                    <div class="form-group m-b-40">
-                                                        <label for="id_kantor"><h6 class="font-weight-bold">Email</h6></label>
-                                                        <span class="bar"></span>
-                                                        <div class="controls">
-                                                         <input type="email" name="email" class="form-control"  required  data-validation-required-message="This field is required" value="<?php echo $this->input->post('email'); ?>"> </div>
-                                                        <span class="text-danger"><?php echo form_error('email');?></span>
-                                                    </div>
+                                                </div>
+                                              </div>
+
+                                              <div class="row">
+                                                <div class="col-md-6">
+                                                  <div class="form-group m-b-40">
+                                                      <label for="id_kantor"><h6 class="font-weight-bold">Email</h6></label>
+                                                      <span class="bar"></span>
+                                                      <div class="controls">
+                                                       <input type="email" name="email" class="form-control"  required  data-validation-required-message="This field is required" value="<?php echo $this->input->post('email'); ?>" placeholder="example@example.com"> </div>
+                                                      <span class="text-danger"><?php echo form_error('email');?></span>
+                                                  </div>
+                                                </div>
+                                                <div class="col-md-6">
                                                     <div class="form-group m-b-40">
                                                         <label for="id_kantor"><h6 class="font-weight-bold">Alamat</h6></label>
                                                         <span class="bar"></span>
-                                                        <input type="text" class="form-control" maxlength="191" required  name="alamat" value="<?php echo $this->input->post('alamat'); ?>" />
+                                                        <textarea rows="4" type="text" class="form-control" maxlength="191" required  name="alamat" value="<?php echo $this->input->post('alamat'); ?>" placeholder="Jl. Contoh, Kecamatan, Kota, Kabupaten, Negara, Kode Pos" /></textarea>
                                                         <span class="text-danger"><?php echo form_error('alamat');?></span>
                                                     </div>
-                                            </div>
+                                                </div>
+                                            </div></div></div>
 
-                                            <div class="modal-footer d-flex justify-content-center">
+                                            <div class="modal-footer d-flex">
+                                                <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
                                                 <button class="btn btn-info waves-effect waves-light" type="submit">Tambah</button>
                                             </div>
                                         </div>
+                                      </div>
                                     </div>
                                 </div>
                                 <?php echo form_close(); ?>
@@ -126,49 +138,59 @@
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header text-center">
-                                                            <h3 class="modal-title w-100 font-weight-bold">Edit Supplier</h3>
+                                                            <h3 class="modal-title w-100 font-weight-bold">Ubah Supplier</h3>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                         </button>
                                                         </div>
-                                                        <div class="modal-body mx-3">
-                                                            <?php echo form_open('vendor/edit/'.$s['id_vendor']); ?>
-                                                            <form class="form-body m-t-40">
-                                                                <div class="form-group">
-
-                                                                    <div class="form-group m-b-40">
-                                                                        <label for="id_kantor"><h6 class="font-weight-bold">Nama</h6></label>
-                                                                        <span class="bar"></span>
-                                                                        <input type="text" class="form-control" required name="nama" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama') : $s['nama']); ?>" />
-                                                                        <span class="text-danger"><?php echo form_error('nama');?></span>
-                                                                    </div>
-                                                                    <div class="form-group m-b-40">
-                                                                        <label for="id_kantor"><h6 class="font-weight-bold">No Handphone</h6></label>
-                                                                        <span class="bar"></span>
-                                                                        <input type="text" class="form-control" required name="no_hp" value="<?php echo ($this->input->post('no_hp') ? $this->input->post('no_hp') : $s['no_hp']); ?>" />
-                                                                        <span class="text-danger"><?php echo form_error('no_hp');?></span>
-                                                                    </div>
-                                                                    
-                                                                    <div class="form-group m-b-40">
-                                                                        <label for="id_kantor"><h6 class="font-weight-bold">Email</h6></label>
-                                                                        <span class="bar"></span>
-                                                                        <div class="controls">
-                                                                        <input type="email" class="form-control" required name="email" value="<?php echo ($this->input->post('email') ? $this->input->post('email') : $s['email']); ?>" /> </div>
-                                                                        <span class="text-danger"><?php echo form_error('email');?></span>
-                                                                    </div>
-                                                                    <div class="form-group m-b-40">
-                                                                        <label for="id_kantor"><h6 class="font-weight-bold">Alamat</h6></label>
-                                                                        <span class="bar"></span>
-                                                                        <input type="text" class="form-control" required name="alamat" value="<?php echo ($this->input->post('alamat') ? $this->input->post('alamat') : $s['alamat']); ?>" />
-                                                                        <span class="text-danger"><?php echo form_error('alamat');?></span>
-                                                                    </div>
-
+                                                        <div class="modal-body">
+                                                            <div class="modal-body"><div class="row"><div class="col-lg-12">
+                                                              <?php echo form_open('vendor/edit/'.$s['id_vendor']); ?>
+                                                              <form id="editvendor" class="floating-labels m-t-40">
+                                                              <div class="row">
+                                                                <div class="col-md-8">
+                                                                  <div class="form-group m-b-40">
+                                                                      <label for="id_kantor"><h6 class="font-weight-bold">Nama</h6></label>
+                                                                      <span class="bar"></span>
+                                                                      <input type="text" class="form-control" required name="nama" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama') : $s['nama']); ?>" />
+                                                                      <span class="text-danger"><?php echo form_error('nama');?></span>
+                                                                  </div>
                                                                 </div>
-                                                                <div class="modal-footer d-flex justify-content-center">
+                                                                <div class="col-md-4">
+                                                                  <div class="form-group m-b-40">
+                                                                      <label for="id_kantor"><h6 class="font-weight-bold">No Handphone</h6></label>
+                                                                      <span class="bar"></span>
+                                                                      <input type="text" class="form-control" required name="no_hp" value="<?php echo ($this->input->post('no_hp') ? $this->input->post('no_hp') : $s['no_hp']); ?>" />
+                                                                      <span class="text-danger"><?php echo form_error('no_hp');?></span>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="form-group m-b-40">
+                                                                      <label for="id_kantor"><h6 class="font-weight-bold">Email</h6></label>
+                                                                      <span class="bar"></span>
+                                                                      <div class="controls">
+                                                                      <input type="email" class="form-control" required name="email" value="<?php echo ($this->input->post('email') ? $this->input->post('email') : $s['email']); ?>" /> </div>
+                                                                      <span class="text-danger"><?php echo form_error('email');?></span>
+                                                                  </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="form-group m-b-40">
+                                                                      <label for="id_kantor"><h6 class="font-weight-bold">Alamat</h6></label>
+                                                                      <span class="bar"></span>
+                                                                      <textarea rows="4" type="text" class="form-control" required name="alamat" value="<?php echo ($this->input->post('alamat') ? $this->input->post('alamat') : $s['alamat']); ?>" /><?php echo $s['alamat']?></textarea>
+                                                                      <span class="text-danger"><?php echo form_error('alamat');?></span>
+                                                                  </div>
+                                                                </div>
+                                                            </div></div></div>
+                                                                </div>
+                                                                <div class="modal-footer d-flex">
+                                                                    <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
                                                                     <button type="submit" class="btn btn-info waves-effect waves-light">Save</button>
                                                                 </div>
                                                                 <?php echo form_close(); ?>
-
+                                                              </div>
                                                         </div>
                                                     </div>
                                                 </div>
