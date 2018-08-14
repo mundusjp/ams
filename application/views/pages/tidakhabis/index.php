@@ -126,7 +126,7 @@
                                                   </div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                  <div class="form-group m-b-40">
+                                                  <div class="form-group m-b-40" style="display:none">
                                                         <label for="tanggal"><h6 class="font-weight-bold">Tanggal</h6></label>
                                                         <input type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>">
                                                         <span class="bar"></span>
@@ -307,7 +307,7 @@
                                                   </div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                  <div class="form-group m-b-40">
+                                                  <div class="form-group m-b-40" style="display:none">
                                                         <label for="tanggal"><h6 class="font-weight-bold">Tanggal</h6></label>
                                                         <input type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>">
                                                         <span class="bar"></span>
@@ -536,13 +536,22 @@
                                                           <div class="row">
                                                             <div class="col-md-3">
                                                               <div class="form-group m-b-40">
-                                                                <label><h6 class="font-weight-bold">Nota Transaksi</h6></label>
-                                                                <input class="form-control" type="text" name="transaksi" value="<?php echo ($this->input->post('id_transaksi') ? $this->input->post('id_transaksi') : $i->id_transaksi); ?>">
-                                                                <span class="text-danger"><?php echo form_error('transaksi');?></span>
+                                                              <label><h6 class="font-weight-bold">Pembelian Dari:</h6></label>
+                                                              <select   class="form-control" name="id_vendor">
+                                                                <option value="">Pilih Nota Transaksi</option>
+                                                                <?php if($i->kategori=='sewa') $all_nota=$all_sewa;
+                                                                else $all_nota=$all_beli;
+                                                                foreach($all_nota as $nota)
+                                                                {
+                                                                    $selected = ($nota['id_transaksi'] == $i->id_transaksi) ? ' selected="selected"' : "";
+                                                                    echo '<option value="'.$nota['id_transaksi'].'" '.$selected.'>'.$nota['no_nota'].'</option>';
+                                                                }
+                                                                ?>
+                                                              </select>
                                                               </div>
                                                             </div>
                                                             <div class="col-md-3">
-                                                              <div class="form-group m-b-40">
+                                                              <div class="form-group m-b-40" style="display:none;">
                                                                  <!-- <input type="text" name="kategori" value="<?php echo ($this->input->post('kategori') ? $this->input->post('kategori') : $i->kategori); ?>" /> -->
                                                                  <label><h6 class="font-weight-bold">Kategori</h6></label>
                                                                  <select name="kategori" class="form-control" >
@@ -563,7 +572,7 @@
                                                             </div>
                                                             <div class="col-md-3">
                                                               <?php $date = explode(" ",$i->tanggal);$date = $date[0]; ?>
-                                                              <div class="form-group m-b-40">
+                                                              <div class="form-group m-b-40" style="display:none">
                                                                   <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Tanggal :</h6></label>
                                                                   <input  class="form-control" type="date" name="tanggal" value="<?php echo ($this->input->post('tanggal') ? $this->input->post('tanggal') : $date); ?>" />
                                                                   <span class="text-danger"><?php echo form_error('tanggal');?></span>

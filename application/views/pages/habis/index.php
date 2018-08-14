@@ -120,12 +120,7 @@
                                                     </div>
                                                     </div>
                                                     <div class="col-3">
-                                                      <div class="form-group m-b-40">
-                                                          <label for="tanggal"><h6 class="font-weight-bold">Tanggal</h6></label>
-                                                          <div class="controls">
-                                                          <input required  data-validation-required-message="This field is required" type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>"></div>
-                                                          <span class="bar"></span>
-                                                      </div>
+                                                     
                                                     </div>
                                                     <div class="col-3">
                                                       <div class="form-group m-b-40">
@@ -279,7 +274,7 @@
                                                               <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
-                                                        <div class="modal-body"><?php echo form_open('inventory/add_bhp'); ?><div class="row"><div class="col-12">
+                                                        <div class="modal-body"><?php echo form_open('inventory/edit_bhp/'.$i->id_inventory); ?><div class="row"><div class="col-12">
                                                           <div class="row">
                                                             <div class="col-4">
                                                                 <div class="form-group m-b-40">
@@ -331,15 +326,22 @@
                                                               <div class="row">
                                                                 <div class="col-3">
                                                                   <div class="form-group m-b-40">
-                                                                      <label for="id_transaksi"><h6 class="font-weight-bold">Nomor Nota</h6></label>
-                                                                      <div class="controls">
-                                                                      <input required  data-validation-required-message="This field is required" type="text" class="form-control" name="id_transaksi" value="<?php echo ($this->input->post('id_transaksi') ? $this->input->post('id_transaksi') : $i->id_transaksi); ?>"> </div>
-                                                                      <span class="bar"></span>
+                                                                  <label><h6 class="font-weight-bold">No Nota:</h6></label>
+                                                                    <select class="form-control" name="id_transaksi">
+                                                                    <option value="">Pilih Nota</option>
+                                                                    <?php
+                                                                    foreach($all_nota as $nota)
+                                                                    {
+                                                                        $selected = ($nota['id_transaksi'] == $i->id_transaksi) ? ' selected="selected"' : "";
+                                                                        echo '<option value="'.$nota['id_transaksi'].'" '.$selected.'>'.$nota['no_nota'].'</option>';
+                                                                    }
+                                                                    ?>
+                                                                    </select>
                                                                   </div>
                                                                 </div>
                                                                 <div class="col-3">
                                                                     <?php $date = explode(" ",$i->tanggal);$date = $date[0]; ?>
-                                                                    <div class="form-group m-b-40">
+                                                                    <div class="form-group m-b-40" style="display:none;">
                                                                         <label for="id_transaksi"><h6 class="font-weight-bold"><span class="text-danger">*</span>Tanggal : </h6></label>
                                                                       <input type="date" class="form-control" name="tanggal" value="<?php echo ($this->input->post('tanggal') ? $this->input->post('tanggal') : $date); ?>" />
                                                                       <span class="text-danger"><?php echo form_error('tanggal');?></span>
@@ -408,7 +410,7 @@
                                                         </div>
                                                         <div class="modal-footer d-flex">
                                                             <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
-                                                            <button type="submit" class="btn btn-info waves-effect waves-light text-left">Tambah</button>
+                                                            <button type="submit" class="btn btn-info waves-effect waves-light text-left">Ubah</button>
                                                         </div>
                                                         <?php echo form_close(); ?>
                                                     </div>
