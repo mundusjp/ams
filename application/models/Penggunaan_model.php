@@ -14,7 +14,7 @@ class Penggunaan_model extends CI_Model
 
     function update_penggunaan($id_penggunaan,$params)
     {
-        $this->db->where('id_penggunaan',$id_penggunaan;
+        $this->db->where('id_penggunaan',$id_penggunaan);
         return $this->db->update('penggunaan',$params);
     }
 
