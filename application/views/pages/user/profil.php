@@ -60,7 +60,7 @@
                         </button>
                       </div>
                       <div class="modal-body mx-3">
-                        <?php echo form_open('user/edit/'.$user['id_user']); ?>
+                        <form action="<?php echo('user/edit/'.$user['id_user'])?>" method="post" enctype="multipart/form-data" />
                         <form class="form-horizontal form-material">
                           <div class="form-group">
                             <label class="col-md-6">Username</label>
@@ -78,6 +78,12 @@
                             <label class="col-md-6">Jabatan</label>
                             <div class="col-md-6">
                               <input type="text" name="jabatan" value="<?php echo ($this->input->post('jabatan') ? $this->input->post('jabatan') : $user['jabatan']); ?>"placeholder="<?php echo $user['jabatan'];?>" class="form-control form-control-line">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-6">Photo</label>
+                            <div class="col-md-6">
+                              <?php echo form_upload(['name' => 'photo', 'class' => 'form_control']); ?>
                             </div>
                           </div>
                           <div class="form-group">
@@ -211,63 +217,22 @@
                           <div class="card-body">
                               <div class="profiletimeline">
                                   <div class="sl-item">
-                                      <div class="sl-left"> <img src="<?php echo base_url('assets/vertical/images/users/1.jpg')?>" alt="user" class="img-circle" /> </div>
+                                  <?php foreach($eventlog as $e){?>
+                                    <div class="sl-left"> <img src="<?php echo base_url('assets/vertical/images/users/1.jpg')?>" alt="user" class="img-circle" /> </div>
                                       <div class="sl-right">
-                                          <div><a href="javascript:void(0)" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>
-                                              <p>assign a new task <a href="javascript:void(0)"> Design weblayout</a></p>
-                                              <div class="row">
-                                                  <div class="col-lg-3 col-md-6 m-b-20"><img src="<?php echo base_url('assets/vertical/images/big/img1.jpg" class="img-responsive radius')?>" /></div>
-                                                  <div class="col-lg-3 col-md-6 m-b-20"><img src="<?php echo base_url('assets/vertical/images/big/img2.jpg" class="img-responsive radius')?>" /></div>
-                                                  <div class="col-lg-3 col-md-6 m-b-20"><img src="<?php echo base_url('assets/vertical/images/big/img3.jpg" class="img-responsive radius')?>" /></div>
-                                                  <div class="col-lg-3 col-md-6 m-b-20"><img src="<?php echo base_url('assets/vertical/images/big/img4.jpg" class="img-responsive radius')?>" /></div>
-                                              </div>
+                                          <?php $this->load->helper('date'); ?>
+                                          <?php $post_date = strtotime($e['eventTime']); ?>
+                                          <?php $now = time(); ?>
+                                          <div><a href="javascript:void(0)" class="link"><?php echo $e['nama'] ?></a> <span class="sl-date"><?php echo timespan($post_date, $now) . ' ago';?></span>
+                                              <p> <?php echo $e['event'] ?> <?php echo $e['eventDesc'] ?></p>
                                           </div>
                                       </div>
-                                  </div>
+                                    </div>
                                   <hr>
-                                  <div class="sl-item">
-                                      <div class="sl-left"> <img src="<?php echo base_url('assets/vertical/images/users/2.jpg')?>" alt="user" class="img-circle" /> </div>
-                                      <div class="sl-right">
-                                          <div> <a href="javascript:void(0)" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>
-                                              <div class="m-t-20 row">
-                                                  <div class="col-md-3 col-xs-12"><img src="<?php echo base_url('assets/vertical/images/big/img1.jpg')?>" alt="user" class="img-responsive radius" /></div>
-                                                  <div class="col-md-9 col-xs-12">
-                                                      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. </p> <a href="javascript:void(0)" class="btn btn-success"> Design weblayout</a></div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <hr>
-                                  <div class="sl-item">
-                                      <div class="sl-left"> <img src="<?php echo base_url('assets/vertical/images/users/3.jpg" alt="user" class="img-circle')?>" /> </div>
-                                      <div class="sl-right">
-                                          <div><a href="javascript:void(0)" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>
-                                              <p class="m-t-10"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper </p>
-                                          </div>
 
-                                      </div>
-                                  </div>
-                                  <hr>
-                                  <div class="sl-item">
-                                      <div class="sl-left"> <img src="<?php echo base_url('assets/vertical/images/users/4.jpg')?>" alt="user" class="img-circle" /> </div>
-                                      <div class="sl-right">
-                                          <div><a href="javascript:void(0)" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>
-                                              <blockquote class="m-t-10">
-                                                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                                              </blockquote>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <!-- Column -->
-        </div>
-        <!-- Row -->
-
+                                  <?php } ?>
+                                      
+                                  
         <!-- ============================================================== -->
         <!-- Ini adalah akhir dari working space. No more coding below      -->
         <!-- ============================================================== -->

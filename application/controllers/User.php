@@ -19,6 +19,8 @@ class User extends CI_Controller{
    $id_user = $this->session->userdata('id_user');
    $data['user'] = $this->admin_model->get_admin($id_user);
    $data['_view'] = 'user/my-profile';
+   $data['eventlog'] = $this->admin_model->get_all_eventlog();
+
    $this->load->view('templates/dashboard/header');
    $this->load->view('templates/dashboard/topbar');
    $this->load->view('templates/dashboard/leftbar');
@@ -70,32 +72,43 @@ function profilpic($id_admin)
 
      if(isset($data['user']['id_user']))
      {
-         $this->load->library('form_validation');
+        $this->load->library('form_validation');
 
-  $this->form_validation->set_rules('username','Username','required|max_length[50]');
-  $this->form_validation->set_rules('nipp','Nipp','integer');
-  $this->form_validation->set_rules('jabatan','Jabatan','max_length[50]');
-  //$this->form_validation->set_rules('photo','Photo','max_length[191]');
+        $this->form_validation->set_rules('username','Username','required|max_length[50]');
+        $this->form_validation->set_rules('nipp','Nipp','integer');
+        $this->form_validation->set_rules('jabatan','Jabatan','max_length[50]');
+        //$this->form_validation->set_rules('photo','Photo','max_length[191]');
+        $this->load->library('upload');
+        $config['upload_path'] = './uploads/';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['max_size'] = '2048';
+        $config['max_width'] = '1024';
+        $config['max_height'] = '768';
+        $nama_file = "gambar_".time();
+        $config['file_name'] = $nama_file;
 
-  if($this->form_validation->run())
-         {
-             $params = array(
-      'username' => $this->input->post('username'),
-      'nipp' => $this->input->post('nipp'),
-      'jabatan' => $this->input->post('jabatan'),
-      //'photo' => $this->input->post('photo'),
-             );
+        $this->upload->initialize($config);
+        $field_name = "photo";
+        if($this->form_validation->run() && $this->upload->do_upload($field_name))
+        {
+            $gambar = $this->upload->data();
+            $params = array(
+                'username' => $this->input->post('username'),
+                'nipp' => $this->input->post('nipp'),
+                'jabatan' => $this->input->post('jabatan'),
+                'photo' => $gambar['file_name'],
+            );
 
-             $this->admin_model->update_admin($id_admin,$params);
-             sleep(1);
-             redirect('user/profil');
-         }
-         else
-         {
-             show_error("Validasi Gagal");
-         }
-     }
-     else
+            $this->admin_model->update_admin($id_admin,$params);
+            sleep(1);
+            redirect('user/profil');
+        }
+        else
+        {
+            show_error("Validasi Gagal");
+        }
+    }
+    else
          show_error('The user you are trying to edit does not exist.');
  }
 
