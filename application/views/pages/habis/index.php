@@ -105,12 +105,19 @@
                                                   </div>
                                                   <div class="row">
                                                     <div class="col-3">
-                                                      <div class="form-group m-b-40">
-                                                          <label for="id_transaksi"><h6 class="font-weight-bold">Nomor Nota</h6></label>
-                                                          <div class="controls">
-                                                          <input required  data-validation-required-message="This field is required" type="text" class="form-control" name="id_transaksi" value="<?php echo $this->input->post('id_transaksi'); ?>"> </div>
-                                                          <span class="bar"></span>
-                                                      </div>
+                                                    <div class="form-group m-b-40">
+                                                    <label><h6 class="font-weight-bold">No Nota:</h6></label>
+                                                    <select class="form-control" name="id_transaksi">
+                                                    <option value="">Pilih Nota</option>
+                                                    <?php
+                                                    foreach($all_nota as $nota)
+                                                    {
+                                                        $selected = ($nota['id_transaksi'] == $this->input->post('id_transaksi')) ? ' selected="selected"' : "";
+                                                        echo '<option value="'.$nota['id_transaksi'].'" '.$selected.'>'.$nota['no_nota'].'</option>';
+                                                    }
+                                                    ?>
+                                                    </select>
+                                                    </div>
                                                     </div>
                                                     <div class="col-3">
                                                       <div class="form-group m-b-40">

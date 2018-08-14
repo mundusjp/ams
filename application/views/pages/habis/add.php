@@ -46,8 +46,8 @@
 	</div>
 	<div>
 		<span class="text-danger">*</span>Id Beli/sewa : 
-		<input type="text" name="id_beli/sewa" value="<?php echo $this->input->post('id_beli/sewa'); ?>" />
-		<span class="text-danger"><?php echo form_error('id_beli/sewa');?></span>
+		<input type="text" name="id_transaksi" value="<?php echo $this->input->post('id_transaksi'); ?>" />
+		<span class="text-danger"><?php echo form_error('id_transaksi');?></span>
 	</div>
 	<div>
 		<span class="text-danger">*</span>Jumlah : 

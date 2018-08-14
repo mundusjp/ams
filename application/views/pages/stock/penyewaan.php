@@ -113,10 +113,10 @@
 											<th>No.</th>
                                             <th>No Nota</th>
 											<th>Nama Vendor</th>
-											<th>Tanggal Transaksi</th>
+                                            <th>Biaya</th>
+                                            <th>Tanggal Transaksi</th>
 											<th>Periode Start</th>
-											<th>Periode End</th>
-											<th>Biaya</th>
+                                            <th>Periode End</th>
 											<th>Deskripsi</th>
 											<th>Actions</th>
 										</tr>
@@ -138,6 +138,7 @@
                                             }
                                             ?>
                                             </td>
+											<td><?php echo $s['biaya']; ?></td>
                                             <?php $date = explode(" ",$s['tanggal_transaksi']);$date1 = $date[0]; ?>
                                             <?php $date2 = explode("-",$date1);?>
                                             <td><?php echo $date2[2].'-'.$date2[1].'-'.$date2[0]; ?></td>
@@ -147,9 +148,8 @@
                                             <?php $date = explode(" ",$s['periode_end']);$date1 = $date[0]; ?>
                                             <?php $date2 = explode("-",$date1);?>
                                             <td><?php echo $date2[2].'-'.$date2[1].'-'.$date2[0]; ?></td>
-											<td><?php echo $s['biaya']; ?></td>
-											<td><?php echo $s['deskripsi']; ?></td>
-											<td>
+                                            <td><?php echo $s['deskripsi']; ?></td>
+                                            <td>
 												<a data-toggle="modal" href="#edit<?php echo $s['id_transaksi']; ?>">Edit</a> |
                                                 <a href="<?php echo site_url('inventory/detail_sewa/'.$s['id_transaksi']); ?>">Detail</a>
 												<!-- <a href="<?php echo site_url('stock/removesewa/'.$s['id_transaksi']); ?>">Delete</a> -->
