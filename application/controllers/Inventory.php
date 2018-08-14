@@ -373,26 +373,37 @@ class Inventory extends CI_Controller{
                       );
               $eventlog_id = $this->Eventlog_model->add_eventlog($log);
 
-              // $time = new DateTime();
-              // $time = explode(" ",$datetime);
-              // $date = $time[0];
-              // $date = explode("-", $date);
-              // $bulan = $date[1];
-              // $tahun = $date[0];
-              // $penggunaan = $this->Penggunaan_model->get_penggunaan($id_inventory);
-              // if ($bulan == "01" || $bulan == "02" || $bulan == "03") $triwulan = "janmar";
-              // else if ($bulan == "04" || $bulan == "05" || $bulan == "06") $triwulan = "aprjun";
-              // else if ($bulan == "07" || $bulan == "08" || $bulan == "09") $triwulan = "julsep";
-              // else if ($bulan == "10" || $bulan == "11" || $bulan == "12") $triwulan = "oktdes";
-              // if($penggunaan->triwulan == $triwulan && $penggunaan->tahun == $tahun){
-              //   $jumlahBaru = $penggunaan->jumlah_penggunaan + $b;
-              //   $peng = array(
-              //             'jumlah_penggunaan' => $jumlahBaru,
-              //           );
-              //   $id_penggunaan
-              //   $this->Penggunaan_model->update_penggunaan($id_inventory, $peng);
-              // }
-
+              $time = new DateTime();
+              $time = $time->format('Y-m-d H:i:s');
+              $time = explode(" ", $time);
+              $date = $time[0];
+              $date = explode("-", $date);
+              $bulan = $date[1];
+              $tahun = $date[0];
+              $penggunaan = $this->Penggunaan_model->get_penggunaan($id_inventory);
+              if ($bulan == "01" || $bulan == "02" || $bulan == "03") $triwulan = "janmar";
+              else if ($bulan == "04" || $bulan == "05" || $bulan == "06") $triwulan = "aprjun";
+              else if ($bulan == "07" || $bulan == "08" || $bulan == "09") $triwulan = "julsep";
+              else if ($bulan == "10" || $bulan == "11" || $bulan == "12") $triwulan = "oktdes";
+              foreach($penggunaan as $p){
+                if($p['triwulan'] == $triwulan && $p['tahun'] == $tahun){
+                  $jumlahBaru = $p['jumlah_penggunaan'] + $b;
+                  $peng = array(
+                            'jumlah_penggunaan' => $jumlahBaru,
+                          );
+                  $id_penggunaan = $p['id_penggunaan'];
+                  $this->Penggunaan_model->update_penggunaan($id_penggunaan, $peng);
+                }
+                else{
+                  $peng = array(
+                    'id_inventory' => $id_inventory,
+                    'jumlah_penggunaan' => $b,
+                    'tahun' => $tahun,
+                    'triwulan' =>$triwulan,
+                  );
+                  $penggunaan_id = $this->Penggunaan_model->add_penggunaan($peng);
+                }
+              }
               redirect('inventory/bhp');
             }
             else
