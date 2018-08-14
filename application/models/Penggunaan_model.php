@@ -12,6 +12,12 @@ class Penggunaan_model extends CI_Model
         return $this->db->insert_id();
     }
 
+    function update_penggunaan($id_penggunaan,$params)
+    {
+        $this->db->where('id_penggunaan',$id_penggunaan;
+        return $this->db->update('penggunaan',$params);
+    }
+
     function get_penggunaan($id_inventory)
     {
       $this->db->select('*');

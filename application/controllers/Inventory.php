@@ -195,59 +195,58 @@ class Inventory extends CI_Controller{
     {
         $this->load->library('form_validation');
 
-		$this->form_validation->set_rules('nama','Nama','required|max_length[50]');
-		$this->form_validation->set_rules('jenis','Jenis','required|integer');
-		$this->form_validation->set_rules('merk','Merk','required|max_length[50]');
-		$this->form_validation->set_rules('nama_divisi_pengada','Nama Divisi Pengada','required|max_length[50]');
-		$this->form_validation->set_rules('tanggal','Tanggal','required');
-		$this->form_validation->set_rules('kategori','Kategori','required|max_length[10]');
+		    $this->form_validation->set_rules('nama','Nama','required|max_length[50]');
+		    $this->form_validation->set_rules('jenis','Jenis','required|integer');
+		    $this->form_validation->set_rules('merk','Merk','required|max_length[50]');
+		    $this->form_validation->set_rules('nama_divisi_pengada','Nama Divisi Pengada','required|max_length[50]');
+		    $this->form_validation->set_rules('tanggal','Tanggal','required');
+		    $this->form_validation->set_rules('kategori','Kategori','required|max_length[10]');
         $this->form_validation->set_rules('id_transaksi','Id Beli/sewa','required|integer');
         $this->form_validation->set_rules('serial_id','Serial_id','required');
         $this->form_validation->set_rules('kondisi','Kondisi','required');
         $this->form_validation->set_rules('durability','Durability','required');
-		$this->form_validation->set_rules('status','Status','required');
+		    $this->form_validation->set_rules('status','Status','required');
 
 		if($this->form_validation->run())
         {
             $params = array(
-				'id_divisi_penerima' => $this->input->post('id_divisi_penerima'),
-				'nama' => $this->input->post('nama'),
-				'jenis' => $this->input->post('jenis'),
-				'merk' => $this->input->post('merk'),
-				'nama_divisi_pengada' => $this->input->post('nama_divisi_pengada'),
-				'tanggal' => $this->input->post('tanggal'),
-				'kategori' => $this->input->post('kategori'),
-                'id_transaksi' => $this->input->post('id_transaksi'),
-                'harga' =>  $this->input->post('harga'),
-
+				               'id_divisi_penerima' => $this->input->post('id_divisi_penerima'),
+				               'nama' => $this->input->post('nama'),
+				               'jenis' => $this->input->post('jenis'),
+				               'merk' => $this->input->post('merk'),
+				               'nama_divisi_pengada' => $this->input->post('nama_divisi_pengada'),
+				               'tanggal' => $this->input->post('tanggal'),
+				               'kategori' => $this->input->post('kategori'),
+                       'id_transaksi' => $this->input->post('id_transaksi'),
+                       'harga' =>  $this->input->post('harga'),
             );
             $inventory_id = $this->Inventory_model->add_inventory($params);
-               $data['last'] = $this->Inventory_model->get_last_id();
-                echo  $data['last']->id_inventory ;
+            $data['last'] = $this->Inventory_model->get_last_id();
+            echo  $data['last']->id_inventory ;
             $var = array(
-               'id_inventory' =>  $data['last']->id_inventory,
+                    'id_inventory' =>  $data['last']->id_inventory,
                 // 'inventory_id' => $this->input->post('inventory_id'),
-                'serial_id' => $this->input->post('serial_id'),
-                'kondisi' => $this->input->post('kondisi'),
-                'durability' => $this->input->post('durability'),
-                'status' => $this->input->post('status'),
-            );
+                    'serial_id' => $this->input->post('serial_id'),
+                    'kondisi' => $this->input->post('kondisi'),
+                    'durability' => $this->input->post('durability'),
+                    'status' => $this->input->post('status'),
+                  );
             $this->TidakHabis_model->add_tidakhabis($var);
             $desc =($this->input->post('nama').' '. $this->input->post('serial_id').' '.$this->input->post('harga'));
             $log = array(
-				'id_user' => $this->session->userdata('id_user'),
-				'event' => 'menambahkan Barang Tidak Habis Pakai',
-				'ref_id' =>  $data['last']->id_inventory,
-				'eventDesc' => $desc,
-				'eventTable' => 'tidakhabispakai',
+				            'id_user' => $this->session->userdata('id_user'),
+				            'event' => 'menambahkan Barang Tidak Habis Pakai',
+				            'ref_id' =>  $data['last']->id_inventory,
+				            'eventDesc' => $desc,
+				            'eventTable' => 'tidakhabispakai',
             );
             $eventlog_id = $this->Eventlog_model->add_eventlog($log);
             redirect('inventory/bthp');
         }
         else
         {
-			$this->load->model('Divisi_model');
-			$data['all_divisi'] = $this->Divisi_model->get_all_divisi();
+			      $this->load->model('Divisi_model');
+			      $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
 
             $data['_view'] = 'inventory/add';
             $this->load->view('pages/tidakhabis/add',$data);
@@ -340,12 +339,12 @@ class Inventory extends CI_Controller{
               if( $tanda=="+"){
                 $jumlah = $a+$b ;
                 $simbol = 'tambah';
-                $par = array(
-                        'id_divisi' => $this->input->post('id_divisi'),
-                        'id_inventory' => $this->input->post('id_inventory'),
-                        'jumlah_penggunaan' => $b,
-                        'id_user' => $this->input->post('id_user'),
-                        );
+              //   $par = array(
+              //           'id_divisi' => $this->input->post('id_divisi'),
+              //           'id_inventory' => $this->input->post('id_inventory'),
+              //           'jumlah_penggunaan' => $b,
+              //           'id_user' => $this->input->post('id_user'),
+              //           );
               }
               else {
                 $jumlah = $a-$b;
@@ -371,20 +370,25 @@ class Inventory extends CI_Controller{
 				              'eventTable' => 'habispakai',
                       );
               $eventlog_id = $this->Eventlog_model->add_eventlog($log);
-              $time = new DateTime();
-              $time = explode(" ",$datetime);
-              $date = $time[0];
-              $date = explode("-", $date);
-              $bulan = $date[1];
-              $tahun = $date[0];
-              $penggunaan = $this->Penggunaan_model->get_penggunaan($id_inventory);
-              if ($bulan == "01" || $bulan == "02" || $bulan == "03") $triwulan = "janmar";
-              else if ($bulan == "04" || $bulan == "05" || $bulan == "06") $triwulan = "aprjun";
-              else if ($bulan == "07" || $bulan == "08" || $bulan == "09") $triwulan = "julsep";
-              else if ($bulan == "10" || $bulan == "11" || $bulan == "12") $triwulan = "oktdes";
-              // if($penggunaan->triwulan == $triwulan){
+
+              // $time = new DateTime();
+              // $time = explode(" ",$datetime);
+              // $date = $time[0];
+              // $date = explode("-", $date);
+              // $bulan = $date[1];
+              // $tahun = $date[0];
+              // $penggunaan = $this->Penggunaan_model->get_penggunaan($id_inventory);
+              // if ($bulan == "01" || $bulan == "02" || $bulan == "03") $triwulan = "janmar";
+              // else if ($bulan == "04" || $bulan == "05" || $bulan == "06") $triwulan = "aprjun";
+              // else if ($bulan == "07" || $bulan == "08" || $bulan == "09") $triwulan = "julsep";
+              // else if ($bulan == "10" || $bulan == "11" || $bulan == "12") $triwulan = "oktdes";
+              // if($penggunaan->triwulan == $triwulan && $penggunaan->tahun == $tahun){
               //   $jumlahBaru = $penggunaan->jumlah_penggunaan + $b;
-              //   $penggunaan->jumlah_penggunaan =
+              //   $peng = array(
+              //             'jumlah_penggunaan' => $jumlahBaru,
+              //           );
+              //   $id_penggunaan
+              //   $this->Penggunaan_model->update_penggunaan($id_inventory, $peng);
               // }
 
               redirect('inventory/bhp');
