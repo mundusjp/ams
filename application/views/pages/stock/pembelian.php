@@ -53,7 +53,8 @@
                             <div class="col-3">
                               <div class="form-group">
                                 <label><h6 class="font-weight-bold">Pembelian Dari:</h6></label>
-                                <select class="form-control" name="id_vendor">
+                                <div class="control">
+                                <select required class="form-control" name="id_vendor">
                                   <option value="">Pilih Vendor</option>
                                   <?php
                                   foreach($all_vendor as $vendor)
@@ -63,21 +64,24 @@
                                   }
                                   ?>
                                 </select>
+                                </div>
                               </div>
                             </div>
                             <div class="col-3">
                               <div class="form-group m-b-40">
                                 <label for="namakantor"><h6 class="font-weight-bold">Total Harga</h6></label>
                                 <span class="bar"></span>
-                                <input type="number" class="form-control" name="biaya" value="<?php echo $this->input->post('biaya'); ?>" />
-		                              <span class="text-danger"><?php echo form_error('biaya');?></span>
+                                <div class="control">
+                                <input required type="number" class="form-control" name="biaya" value="<?php echo $this->input->post('biaya'); ?>" />
+		                              </div>
+                                  <span class="text-danger"><?php echo form_error('biaya');?></span>
                                 </div>
                               </div>
                               <div class="col-3">
                                 <div class="form-group m-b-40">
                                   <label for="id_kantor"><h6 class="font-weight-bold">Tanggal Transaksi</h6></label>
                                   <span class="bar"></span>
-                                  <input type="date" class="form-control mydatepicker" name="tanggal_transaksi" value="<?php echo $this->input->post('tanggal_transaksi'); ?>" />
+                                  <input  required type="date" class="form-control mydatepicker" name="tanggal_transaksi" value="<?php echo $this->input->post('tanggal_transaksi'); ?>" />
 	                                 <span class="text-danger"><?php echo form_error('tanggal_transaksi');?></span>
                                  </div>
                                </div>
@@ -86,7 +90,7 @@
                                    <div class="form-group m-b-40">
                                      <label for="namakantor"><h6 class="font-weight-bold">No Nota</h6></label>
                                      <span class="bar"></span>
-                                     <input type="text" class="form-control" name="no_nota" value="<?php echo $this->input->post('no_nota'); ?>" />
+                                     <input required type="text" class="form-control" name="no_nota" value="<?php echo $this->input->post('no_nota'); ?>" />
 		                                   <span class="text-danger"><?php echo form_error('no_nota');?></span>
                                      </div>
                                    </div>
@@ -96,7 +100,7 @@
                                      <div class="form-group m-b-40">
                                        <label for="alamatkantor"><h6 class="font-weight-bold">Deskripsi</h6></label>
                                        <span class="bar"></span>
-                                       <textarea rows="4" class="form-control" type="text" name="deskripsi" value="<?php echo $this->input->post('deskripsi'); ?>" ></textarea>
+                                       <textarea required rows="4" class="form-control" type="text" name="deskripsi" value="<?php echo $this->input->post('deskripsi'); ?>" ></textarea>
 		                                     <span class="text-danger"><?php echo form_error('deskripsi');?></span>
                                        </div>
                                      </div>

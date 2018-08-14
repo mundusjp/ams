@@ -39,6 +39,16 @@ class Admin_model extends CI_Model
           return $query->result_array();
     }
     
+    function get_all_eventlog()
+    {
+        $this->db->select('*');
+        $this->db->from('eventlog');
+        $this->db->order_by('id_event', 'desc');
+        $this->db->join('user', 'eventlog.id_user = user.id_user');
+        $query = $this->db->get();
+          return $query->result_array();
+    }
+
     function get_all_admin()
     {
         $this->db->order_by('id_user', 'desc');
