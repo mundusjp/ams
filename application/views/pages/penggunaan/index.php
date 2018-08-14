@@ -103,7 +103,7 @@
               }
          else{?> <br>
                 <?php
-                if($by_kantor == 0 && $by_divisi == 0){
+                if($by_kantor == 0){
                   echo('Tidak ada data penggunaan barang');
                 }
                 else{

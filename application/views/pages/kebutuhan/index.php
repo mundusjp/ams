@@ -271,11 +271,11 @@
                 }
                 else{?> <br>
                   <?php
-                  if($by_kantor == -1){
+                  if($by_kantor == 0){
                     echo('Tidak ada data kebutuhan');
                   }
                   else {
-                  echo ('Tidak ada data kebutuhan untuk kantor: ');
+                  echo ('Tidak ada data kebutuhan untuk kantor ');
                     foreach($all_kantor as $kan){
                       if($kan['id_kantor']==$by_kantor) echo $kan['nama_kantor'];
                     }
