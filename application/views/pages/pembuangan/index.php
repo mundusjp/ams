@@ -38,7 +38,7 @@
                                                 <th>Nama</th>
                                                 <!-- <th>Jenis</th> -->
                                                 <th>Merk</th>
-                                                <th>Nama Divisi Pengada</th>
+                                                <th>Divisi Pengada</th>
                                                 <th>Tanggal Beli</th>
                                                 <th>Kategori</th>
                                                 <th>Kondisi</th>
@@ -59,12 +59,12 @@
                                                 </td>
                                                 <td>
                                                     <!-- <?php echo $i->id_divisi_pengada; ?> -->
-                                                    <?php 
+                                                    <?php
                                                     foreach($all_divisi as $divisi)
                                                     {
                                                         if ($divisi['id_divisi'] == $i->id_divisi_penerima)
                                                         echo $divisi['nama_divisi'];
-                                                    } 
+                                                    }
                                                     ?>
                                                 </td>
                                                 <td>

@@ -17,6 +17,8 @@
         $this->load->model('Vendor_model');
         $this->load->model('Eventlog_model');
         $this->load->model('admin_model');
+        $this->load->model('Kantor_model');
+        $this->load->model('Divisi_model');
      }
 
 // ------------------------------------------------------------------------
@@ -61,6 +63,8 @@ function pembelian()
     $this->load->model('Vendor_model');
     $data['all_inventory'] = $this->Inventory_model->get_all_inventory();
     $data['all_vendor'] = $this->Vendor_model->get_all_vendor();
+    $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
+    $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
     $data['_view'] = 'stock/pembelian';
 
     $this->load->view('templates/dashboard/header');
@@ -154,6 +158,7 @@ if($this->form_validation->run())
     'id_vendor' => $this->input->post('id_vendor'),
     'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
     'biaya' => $this->input->post('biaya'),
+    'id_divisi' => $this->input->post('id_divisi'),
     'jenis_transaksi' => 'beli',
     'deskripsi' => $this->input->post('deskripsi'),
         );
@@ -429,7 +434,7 @@ function detail($id_beli)
     $data['_view'] = 'stock/detail';
     $this->load->view('pages/beli/detail',$data);
     $this->load->view('templates/dashboard/footer');
-   
+
 }
 
 }
