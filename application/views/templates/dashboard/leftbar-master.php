@@ -1,5 +1,6 @@
-<ul id="sidebarnav">-
-              <li class="user-pro"> <a aria-expanded="false"><img src="<?php echo base_url("assets/vertical/images/users/".$user['photo'])?>" alt="user-img" class="img-circle"><span class="hide-menu">Master</span></a></li>
+<ul id="sidebarnav">
+              <?php $user_img = !empty($user['photo']) ? $user['photo'] : 'manager.png'; ?>
+              <li class="user-pro"> <a aria-expanded="false"><img src="<?php echo base_url("assets/vertical/images/users/".$user_img)?>" alt="user-img" class="img-circle"><span class="hide-menu">Master</span></a></li>
               <br>
                 <li> <a class="waves-effect waves-dark" href="<?php echo base_url('home')?>" aria-expanded="false"><i class="icon-home"></i><span class="hide-menu">Home</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="<?php echo base_url('penggunaan/index')?>" aria-expanded="false"><i class="icon-chart"></i><span class="hide-menu">Division Usage</span></a></li>

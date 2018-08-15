@@ -50,7 +50,8 @@
                 <?php
                     $nama = $user['nama'];
                 ?>
-                    <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url("assets/vertical/images/users/".$user['photo'])?>" alt="user" class=""> <span class="hidden-md-down"><?php echo $nama ?> &nbsp;<i class="fa fa-angle-down"></i></span> </a>
+                    <?php $user_img = !empty($user['photo']) ? $user['photo'] : 'manager.png'; ?>
+                    <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url("assets/vertical/images/users/".$user_img)?>" alt="user" class=""> <span class="hidden-md-down"><?php echo $nama ?> &nbsp;<i class="fa fa-angle-down"></i></span> </a>
                     <div class="dropdown-menu dropdown-menu-right animated flipInY">
                         <!-- text-->
                         <a href="<?php echo base_url('user/profil'); ?>" class="dropdown-item"><i class="ti-user"></i> My Profile</a>

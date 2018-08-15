@@ -33,7 +33,8 @@
                             </div>
                             <center>
                               <h3 class="box-title">Your Profile Picture</h3>
-                              <img src="<?php echo base_url("assets/vertical/images/users/".$user['photo'])?>" width="300">
+                              <?php $user_img = !empty($user['photo']) ? $user['photo'] : 'manager.png'; ?>
+                              <img src="<?php echo base_url("assets/vertical/images/users/".$user_img)?>" width="300">
                             </center>
                             <br>
                             <div class="modal-footer">
@@ -78,7 +79,8 @@
 
 
                 <!-- /.modal -->
-                <center class="m-t-30"> <img src="<?php echo base_url("assets/vertical/images/users/".$user['photo'])?>" alt="default" class="img-responsive img-circle hover" width="150" data-toggle="modal" data-target="#ProfilePicture"/>
+                <?php $user_img = !empty($user['photo']) ? $user['photo'] : 'manager.png'; ?>
+                <center class="m-t-30"> <img src="<?php echo base_url("assets/vertical/images/users/".$user_img)?>" alt="default" class="img-responsive img-circle hover" width="150" data-toggle="modal" data-target="#ProfilePicture"/>
                     <h4 class="card-title m-t-10"><?php echo $user['username'];?></h4>
                     <h5 class="card-subtitle">NIPP.<?php echo $user['nipp'];?></h5>
                     <h6 class="card-subtitle font-weight-bold"><?php echo $user['jabatan'];?></h6>
@@ -214,7 +216,8 @@
                               <div class="profiletimeline">
                                   <div class="sl-item">
                                   <?php foreach($eventlog as $e){?>
-                                    <div class="sl-left"> <img src="<?php echo base_url("assets/vertical/images/users/".$e['photo'])?>" alt="user" class="img-circle" /> </div>
+                                    <?php $user_image = !empty($e['photo']) ? $e['photo'] : 'manager.png'; ?>
+                                    <div class="sl-left"> <img src="<?php echo base_url("assets/vertical/images/users/".$user_image)?>" alt="default" class="img-circle" /> </div>
                                       <div class="sl-right">
                                           <?php $this->load->helper('date'); ?>
                                           <?php $post_date = strtotime($e['eventTime']); ?>
