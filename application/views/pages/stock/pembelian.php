@@ -308,6 +308,8 @@
                                      <?php echo $no++; ?>
                                    </td>
 									                 <td><?php echo $b['no_nota']; ?></td>
+                                   <td></td>
+                                   <td></td>
                                    <td>
                                      <?php
                                      foreach($all_vendor as $vendor)
