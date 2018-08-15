@@ -15,14 +15,30 @@ class Pembuangan extends CI_Controller{
         $this->load->model('Inventory_model');
         $this->load->model('Divisi_model');
         $this->load->model('admin_model');
+        $this->load->model('Kantor_model');
     }
 
     function index()
     {
         $id_user = $this->session->userdata('id_user');
+        $id_divisi = $this->session->userdata('id_divisi');
+        $by_kantor = $this->input->post('pilih_cabang');
+        $kantor = $this->Kantor_model->get_kantor_by_divisi($id_divisi);
+        foreach ($kantor as $k) {
+          $id_kantor = $k['id_kantor'];
+        }
+        $data['by_kantor'] = $by_kantor;
+        if($by_kantor == 0){
+          $data['pembuangan'] = $this->Expired_model->join_pembuangan();
+        }
+        else{
+          $data['pembuangan'] = $this->Expired_model->join_pembuangan_by_kantor($by_kantor);
+        }
+        $data['pembuangan2'] = $this->Expired_model->join_pembuangan_by_kantor($id_kantor);
         $data['user'] = $this->admin_model->get_admin($id_user);
+        $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
         $data['inventory'] = $this->Inventory_model->get_all_inventory();
-        $data['tidakhabis'] = $this->Expired_model->join_pembuangan();
+        //$data['tidakhabis'] = $this->Expired_model->join_pembuangan();
         $this->load->model('Divisi_model');
 
         $data['all_divisi'] = $this->Divisi_model->get_all_divisi();

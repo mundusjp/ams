@@ -68,12 +68,27 @@ class Expired_model extends CI_Model
         return $query->result();
     }
 
+    function join_pembuangan_by_kantor($by_kantor)
+    {
+        $this->db->select('*');
+        $this->db->from('inventory');
+        $this->db->join('tidakhabispakai', 'inventory.id_inventory = tidakhabispakai.id_inventory');
+        $this->db->join('divisi', 'inventory.id_divisi_penerima = divisi.id_divisi');
+        $this->db->join('kantor', 'divisi.id_kantor = kantor.id_kantor');
+        $this->db->where('kantor.id_kantor', $by_kantor);
+        $this->db->where('tidakhabispakai.status',"dibuang");
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     function join_pembuangan()
     {
         $this->db->select('*');
         $this->db->from('inventory');
         $this->db->join('tidakhabispakai', 'inventory.id_inventory = tidakhabispakai.id_inventory');
         $this->db->where('tidakhabispakai.status',"dibuang");
+        $this->db->join('divisi', 'inventory.id_divisi_penerima = divisi.id_divisi');
+        $this->db->join('kantor', 'divisi.id_kantor = kantor.id_kantor');
         $query = $this->db->get();
         return $query->result();
     }

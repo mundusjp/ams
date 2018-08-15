@@ -30,7 +30,16 @@
                                 <h5 class="card-title">EXPIRED INVENTORIES</h5>
                                 <div class="d-flex m-t-30 m-b-20 no-block align-items-center">
                                     <span class="display-5 text-danger"><i class="icon-close"></i></span>
-                                    <a href="<?php echo base_url('expired/index')?>" class="link display-5 ml-auto"><?php echo $count ?></a>
+                                    <a href="<?php echo base_url('expired/index')?>" class="link display-5 ml-auto">
+                                      <?php
+                                      $status = $this->session->userdata('level');
+                                      if ($status == 1){
+                                              echo $count_expired;
+                                            }
+                                            else if ($status == 2){
+                                              echo $count_expired2;
+                                            }?>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -42,7 +51,6 @@
                                 <h5 class="card-title">NEED RESTOCK</h5>
                                 <div class="d-flex m-t-30 m-b-20 no-block align-items-center">
                                     <span class="display-5 text-purple"><i class="icon-basket-loaded"></i></span>
-                                    <?php $status = $this->session->userdata('level');?>
                                             <a href="<?php echo base_url('kebutuhan/index')?>" class="link display-5 ml-auto">
                                             <?php if ($status == 1){
                                                     echo $count_kebutuhan;

@@ -27,18 +27,41 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Data Barang yang dibuang</h4>
-                                <h6 class="card-subtitle">Data table example</h6>
+                                <!-- <h6 class="card-subtitle">Data table example</h6> -->
+                                <?php if ($user['status'] == 1){
+                                  echo form_open("Pembuangan/index");?>
+                                <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
+                                  <option value="0">Semua Kantor</option><?php
+                                  foreach($all_kantor as $kantor)
+                                  {
+                                    $selected = ($kantor['id_kantor'] == $by_kantor) ? ' selected="selected"' : "";
+                                    echo '<option value="'.$kantor['id_kantor'].'" '.$selected.'>'.$kantor['nama_kantor'].'</option>';
+                                  }
+                                  ?>
+                                </select>
+                                <button type="submit" class="btn btn-info waves-effect waves-light">Pilih</button>
+                                <br>
+                                <br>
+                                <?php echo form_close();}
+                                if($user['status']==1){
+                                  $pem=$pembuangan;
+                                }
+                                else if($user['status']==2){
+                                  $pem=$pembuangan2;
+                                }
+                    if (count($pem)){?>
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>No.</th>
                                                 <th>Serial Id</th>
-                                                <th>Divisi Penerima</th>
                                                 <th>Nama</th>
+                                                <th>Divisi Pengada</th>
+                                                <th>Divisi Penerima</th>
+                                                <th>Kantor</th>
                                                 <!-- <th>Jenis</th> -->
                                                 <th>Merk</th>
-                                                <th>Divisi Pengada</th>
                                                 <th>Tanggal Beli</th>
                                                 <th>Kategori</th>
                                                 <th>Kondisi</th>
@@ -48,7 +71,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php $no=1;foreach($tidakhabis as $i){ ?>
+                                            <?php $no=1;foreach($pem as $i){ ?>
                                             <tr>
                                                 <td>
                                                     <!-- <?php echo $i->id_inventory; ?> -->
@@ -56,6 +79,12 @@
                                                 </td>
                                                 <td>
                                                     <?php echo $i->serial_id; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $i->nama; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $i->nama_divisi_pengada; ?>
                                                 </td>
                                                 <td>
                                                     <!-- <?php echo $i->id_divisi_pengada; ?> -->
@@ -67,17 +96,15 @@
                                                     }
                                                     ?>
                                                 </td>
-                                                <td>
-                                                    <?php echo $i->nama; ?>
-                                                </td>
+                                                <td><?php
+                                                foreach($all_kantor as $kan){
+                                                    if($kan['id_kantor']==$i->id_kantor) {echo $kan['nama_kantor'];}
+                                                }?></td>
                                                 <!-- <td>
                                                     <?php echo $i->jenis; ?>
                                                 </td> -->
                                                 <td>
                                                     <?php echo $i->merk; ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $i->nama_divisi_pengada; ?>
                                                 </td>
                                                 <td>
                                                     <!-- <?php echo $i->tanggal; ?> -->
@@ -102,7 +129,19 @@
                                                 </td>
 
                                             </tr>
-                                            <?php } ?>
+                                            <?php }
+                                          }
+                                           else{
+                                            if($by_kantor == 0){
+                                              echo('Tidak ada data pembuangan');
+                                            }
+                                            else {
+                                            echo ('Tidak ada data pembuangan untuk kantor ');
+                                              foreach($all_kantor as $kan){
+                                                if($kan['id_kantor']==$by_kantor) echo $kan['nama_kantor'];
+                                              }
+                                            }
+                                          }?>
                                         </tbody>
                                     </table>
                                 </div>

@@ -41,7 +41,7 @@
       }
       $data['count'] = $count;
       $data['count_kebutuhan'] = count($this->Kebutuhan_model->get_all_kebutuhan());
-
+      $data['count_expired'] = count($this->Expired_model->join());
       $id_divisi = $this->session->userdata('id_divisi');
       $by_kantor = $this->input->post('pilih_cabang');
       $kantor = $this->Kantor_model->get_kantor_by_divisi($id_divisi);
@@ -49,7 +49,7 @@
         $id_kantor = $k['id_kantor'];
       }
       $data['count_kebutuhan2'] = count($this->Kebutuhan_model->get_kebutuhan_by_kantor($id_kantor));
-
+      $data['count_expired2'] = count($this->Expired_model->join_by_kantor($id_kantor));
       $data['title'] = ucfirst($page);
 
       $this->load->view('templates/dashboard/header');
