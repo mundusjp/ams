@@ -43,8 +43,8 @@ class Inventory extends CI_Controller{
 
         $data['_view'] = 'inventory/index';
         $this->load->view('templates/dashboard/header');
-      $this->load->view('templates/dashboard/topbar');
-      $this->load->view('templates/dashboard/leftbar');
+      $this->load->view('templates/dashboard/topbar', $data);
+      $this->load->view('templates/dashboard/leftbar', $data);
       // $this->load->view('templates/dashboard/rightbar');
       $this->load->view('pages/inventory/index',$data);
       $this->load->view('templates/dashboard/footer');
@@ -75,8 +75,8 @@ class Inventory extends CI_Controller{
       $data['divisi_by_kantor'] = $this->Divisi_model->get_divisi_by_kantor($id_kantor);
       $data['_view'] = 'inventory/index';
         $this->load->view('templates/dashboard/header');
-      $this->load->view('templates/dashboard/topbar');
-      $this->load->view('templates/dashboard/leftbar');
+      $this->load->view('templates/dashboard/topbar', $data);
+      $this->load->view('templates/dashboard/leftbar', $data);
       // $this->load->view('templates/dashboard/rightbar');
       $this->load->view('pages/habis/index',$data);
       $this->load->view('templates/dashboard/footer');
@@ -108,8 +108,8 @@ class Inventory extends CI_Controller{
         $data['divisi_by_kantor'] = $this->Divisi_model->get_divisi_by_kantor($id_kantor);
         $data['_view'] = 'inventory/index';
         $this->load->view('templates/dashboard/header');
-      $this->load->view('templates/dashboard/topbar');
-      $this->load->view('templates/dashboard/leftbar');
+      $this->load->view('templates/dashboard/topbar', $data);
+      $this->load->view('templates/dashboard/leftbar', $data);
       // $this->load->view('templates/dashboard/rightbar');
       $this->load->view('pages/tidakhabis/index',$data);
       $this->load->view('templates/dashboard/footer');
@@ -534,13 +534,15 @@ class Inventory extends CI_Controller{
 
     function detail_beli($id_beli)
     {
+        $id_user = $this->session->userdata('id_user');
+        $data['user'] = $this->admin_model->get_admin($id_user);
         $data['inventory'] = $this->Inventory_model->get_beli($id_beli);
         $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
         $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
         $data['_view'] = 'inventory/index';
         $this->load->view('templates/dashboard/header');
-      $this->load->view('templates/dashboard/topbar');
-      $this->load->view('templates/dashboard/leftbar');
+      $this->load->view('templates/dashboard/topbar', $data);
+      $this->load->view('templates/dashboard/leftbar', $data);
       // $this->load->view('templates/dashboard/rightbar');
       $this->load->view('pages/beli/detail',$data);
       $this->load->view('templates/dashboard/footer');
@@ -548,13 +550,15 @@ class Inventory extends CI_Controller{
     }
     function detail_sewa($id_sewa)
     {
+        $id_user = $this->session->userdata('id_user');
+        $data['user'] = $this->admin_model->get_admin($id_user);
         $data['inventory'] = $this->Inventory_model->get_sewa($id_sewa);
         $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
         $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
         $data['_view'] = 'inventory/index';
         $this->load->view('templates/dashboard/header');
-      $this->load->view('templates/dashboard/topbar');
-      $this->load->view('templates/dashboard/leftbar');
+      $this->load->view('templates/dashboard/topbar', $data);
+      $this->load->view('templates/dashboard/leftbar', $data);
       // $this->load->view('templates/dashboard/rightbar');
       $this->load->view('pages/beli/detail',$data);
       $this->load->view('templates/dashboard/footer');

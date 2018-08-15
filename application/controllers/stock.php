@@ -16,7 +16,7 @@
          $this->load->model('Inventory_model');
         $this->load->model('Vendor_model');
         $this->load->model('Eventlog_model');
-
+        $this->load->model('admin_model');
      }
 
 // ------------------------------------------------------------------------
@@ -24,12 +24,14 @@
 // ------------------------------------------------------------------------
 function overview()
 {
+    $id_user = $this->session->userdata('id_user');
+    $data['user'] = $this->admin_model->get_admin($id_user);
     $data['sewa'] = $this->Transaksi_model->get_all_sewa();
 
     $data['_view'] = 'stock/penyewaan';
     $this->load->view('templates/dashboard/header');
-    $this->load->view('templates/dashboard/topbar');
-    $this->load->view('templates/dashboard/leftbar');
+    $this->load->view('templates/dashboard/topbar', $data);
+    $this->load->view('templates/dashboard/leftbar', $data);
     $this->load->view('templates/dashboard/rightbar');
     $this->load->view('pages/stock/overview',$data);
     $this->load->view('templates/dashboard/footer');
@@ -37,13 +39,15 @@ function overview()
 // ------------------------------------------------------------------------
 function penyewaan()
 {
+    $id_user = $this->session->userdata('id_user');
+    $data['user'] = $this->admin_model->get_admin($id_user);
     $data['sewa'] = $this->Transaksi_model->get_all_sewa();
     $this->load->model('Vendor_model');
     $data['all_vendor'] = $this->Vendor_model->get_all_vendor();
     $data['_view'] = 'stock/penyewaan';
     $this->load->view('templates/dashboard/header');
-    $this->load->view('templates/dashboard/topbar');
-    $this->load->view('templates/dashboard/leftbar');
+    $this->load->view('templates/dashboard/topbar', $data);
+    $this->load->view('templates/dashboard/leftbar', $data);
     // $this->load->view('templates/dashboard/rightbar');
     $this->load->view('pages/stock/penyewaan',$data);
     $this->load->view('templates/dashboard/footer');
@@ -51,6 +55,8 @@ function penyewaan()
 // ------------------------------------------------------------------------
 function pembelian()
 {
+    $id_user = $this->session->userdata('id_user');
+    $data['user'] = $this->admin_model->get_admin($id_user);
     $data['beli'] = $this->Transaksi_model->get_all_beli();
     $this->load->model('Vendor_model');
     $data['all_inventory'] = $this->Inventory_model->get_all_inventory();
@@ -58,8 +64,8 @@ function pembelian()
     $data['_view'] = 'stock/pembelian';
 
     $this->load->view('templates/dashboard/header');
-    $this->load->view('templates/dashboard/topbar');
-    $this->load->view('templates/dashboard/leftbar');
+    $this->load->view('templates/dashboard/topbar', $data);
+    $this->load->view('templates/dashboard/leftbar', $data);
     $this->load->view('templates/dashboard/rightbar');
     $this->load->view('pages/stock/pembelian',$data);
     $this->load->view('templates/dashboard/footer');
@@ -67,6 +73,8 @@ function pembelian()
 // ------------------------------------------------------------------------
 function pemeliharaan()
 {
+    $id_user = $this->session->userdata('id_user');
+    $data['user'] = $this->admin_model->get_admin($id_user);
     $data['pemeliharaan'] = $this->Pemeliharaan_model->get_all_pemeliharaan();
     $this->load->model('Inventory_model');
     $data['all_inventory'] = $this->Inventory_model->get_all_inventory();
@@ -74,8 +82,8 @@ function pemeliharaan()
     $data['_view'] = 'stock/pemeliharaan';
 
     $this->load->view('templates/dashboard/header');
-    $this->load->view('templates/dashboard/topbar');
-    $this->load->view('templates/dashboard/leftbar');
+    $this->load->view('templates/dashboard/topbar', $data);
+    $this->load->view('templates/dashboard/leftbar', $data);
     $this->load->view('templates/dashboard/rightbar');
     $this->load->view('pages/stock/pemeliharaan',$data);
     $this->load->view('templates/dashboard/footer');

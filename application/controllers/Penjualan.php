@@ -43,8 +43,8 @@ class Penjualan extends CI_Controller{
 
         $data['_view'] = 'penjualan/index';
         $this->load->view('templates/dashboard/header');
-        $this->load->view('templates/dashboard/topbar');
-        $this->load->view('templates/dashboard/leftbar');
+        $this->load->view('templates/dashboard/topbar', $data);
+        $this->load->view('templates/dashboard/leftbar', $data);
         $this->load->view('templates/dashboard/rightbar');
         $this->load->view('pages/penjualan/index',$data);
         $this->load->view('templates/dashboard/footer');

@@ -13,7 +13,7 @@ class Vendor extends CI_Controller{
             }
         $this->load->model('Vendor_model');
         $this->load->model('Eventlog_model');
-
+        $this->load->model('admin_model');
     } 
 
     /*
@@ -21,12 +21,14 @@ class Vendor extends CI_Controller{
      */
     function index()
     {
+        $id_user = $this->session->userdata('id_user');
+        $data['user'] = $this->admin_model->get_admin($id_user);
         $data['vendor'] = $this->Vendor_model->get_all_vendor();
         
         $data['_view'] = 'vendor/index';
         $this->load->view('templates/dashboard/header');
-        $this->load->view('templates/dashboard/topbar');
-        $this->load->view('templates/dashboard/leftbar');
+        $this->load->view('templates/dashboard/topbar', $data);
+        $this->load->view('templates/dashboard/leftbar', $data);
         $this->load->view('templates/dashboard/rightbar');
           $this->load->view('pages/vendor/index',$data);
           $this->load->view('templates/dashboard/footer');

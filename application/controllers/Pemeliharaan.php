@@ -12,6 +12,7 @@ class Pemeliharaan extends CI_Controller{
           redirect('');
           }
         $this->load->model('Pemeliharaan_model');
+        $this->load->model('admin_model');
     }
 
     /*
@@ -19,14 +20,16 @@ class Pemeliharaan extends CI_Controller{
      */
     function index()
     {
+        $id_user = $this->session->userdata('id_user');
+        $data['user'] = $this->admin_model->get_admin($id_user);
         $data['pemeliharaan'] = $this->Pemeliharaan_model->get_all_pemeliharaan();
         $this->load->model('Inventory_model');
-                $data['all_inventory'] = $this->Inventory_model->get_all_inventory();
+        $data['all_inventory'] = $this->Inventory_model->get_all_inventory();
 
         $data['_view'] = 'pemeliharaan/index';
         $this->load->view('templates/dashboard/header');
-      $this->load->view('templates/dashboard/topbar');
-      $this->load->view('templates/dashboard/leftbar');
+      $this->load->view('templates/dashboard/topbar', $data);
+      $this->load->view('templates/dashboard/leftbar', $data);
       $this->load->view('templates/dashboard/rightbar');
         $this->load->view('pages/pemeliharaan/index',$data);
         $this->load->view('templates/dashboard/footer');

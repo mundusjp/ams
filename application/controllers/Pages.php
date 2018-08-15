@@ -11,12 +11,15 @@
       $this->load->model('Inventory_model');
       $this->load->model('Kebutuhan_model');
       $this->load->model('Kantor_model');
+      $this->load->model('admin_model');
     }
 
     public function view($page ='home'){
       if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
         show_404();
       }
+      $id_user = $this->session->userdata('id_user');
+      $data['user'] = $this->admin_model->get_admin($id_user);
       $data['inventory'] = $this->Inventory_model->get_all_inventory();
       $data['tidakhabis'] = $this->Expired_model->join();
       $tidakhabis = $this->Expired_model->join();
@@ -50,8 +53,8 @@
       $data['title'] = ucfirst($page);
 
       $this->load->view('templates/dashboard/header');
-      $this->load->view('templates/dashboard/topbar');
-      $this->load->view('templates/dashboard/leftbar');
+      $this->load->view('templates/dashboard/topbar', $data);
+      $this->load->view('templates/dashboard/leftbar', $data);
       // $this->load->view('templates/dashboard/rightbar');
         $this->load->view('pages/'.$page,$data);
       $this->load->view('templates/dashboard/footer');

@@ -12,8 +12,7 @@ class Beli extends CI_Controller{
           redirect('');
           }
         $this->load->model('Beli_model');
-
-
+        $this->load->model('admin_model');
     }
 
     /*
@@ -21,13 +20,15 @@ class Beli extends CI_Controller{
      */
     function index()
     {
+        $id_user = $this->session->userdata('id_user');
+        $data['user'] = $this->admin_model->get_admin($id_user);
         $data['beli'] = $this->Beli_model->get_all_beli();
         $this->load->model('Supplier_model');
 		$data['all_supplier'] = $this->Supplier_model->get_all_supplier();
         $data['_view'] = 'beli/index';
         $this->load->view('templates/dashboard/header');
-        $this->load->view('templates/dashboard/topbar');
-        $this->load->view('templates/dashboard/leftbar');
+        $this->load->view('templates/dashboard/topbar', $data);
+        $this->load->view('templates/dashboard/leftbar', $data);
         $this->load->view('templates/dashboard/rightbar');
         $this->load->view('pages/beli/index',$data);
         $this->load->view('templates/dashboard/footer');

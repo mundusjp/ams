@@ -14,10 +14,13 @@ class Pengembalian extends CI_Controller{
         $this->load->model('Expired_model');
         $this->load->model('Inventory_model');
         $this->load->model('Divisi_model');
+        $this->load->model('admin_model');
     }
 
     function index()
     {
+        $id_user = $this->session->userdata('id_user');
+        $data['user'] = $this->admin_model->get_admin($id_user);
         $data['inventory'] = $this->Inventory_model->get_all_inventory();
         $data['tidakhabis'] = $this->Expired_model->join_pengembalian();
         $this->load->model('Divisi_model');
@@ -26,8 +29,8 @@ class Pengembalian extends CI_Controller{
 
         $data['_view'] = 'pengembalian/index';
         $this->load->view('templates/dashboard/header');
-        $this->load->view('templates/dashboard/topbar');
-        $this->load->view('templates/dashboard/leftbar');
+        $this->load->view('templates/dashboard/topbar', $data);
+        $this->load->view('templates/dashboard/leftbar', $data);
         $this->load->view('templates/dashboard/rightbar');
         $this->load->view('pages/pengembalian/index',$data);
         $this->load->view('templates/dashboard/footer');

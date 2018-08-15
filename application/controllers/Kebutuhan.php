@@ -48,8 +48,8 @@ class Kebutuhan extends CI_Controller{
 
         $data['_view'] = 'kebutuhan/index';
         $this->load->view('templates/dashboard/header');
-        $this->load->view('templates/dashboard/topbar');
-        $this->load->view('templates/dashboard/leftbar');
+        $this->load->view('templates/dashboard/topbar', $data);
+        $this->load->view('templates/dashboard/leftbar', $data);
         $this->load->view('templates/dashboard/rightbar');
         $this->load->view('pages/kebutuhan/index',$data);
         $this->load->view('templates/dashboard/footer');

@@ -10,7 +10,6 @@ class Eventlog extends CI_Controller{
         parent::__construct();
         $this->load->model('Eventlog_model');
         $this->load->model('admin_model');
-
     } 
 
     /*
@@ -18,12 +17,14 @@ class Eventlog extends CI_Controller{
      */
     function index()
     {
+        $id_user = $this->session->userdata('id_user');
+        $data['user'] = $this->admin_model->get_admin($id_user);
         $data['eventlog'] = $this->Eventlog_model->get_all_eventlog();
-			$data['all_user'] = $this->admin_model->get_all_admin();
+		$data['all_user'] = $this->admin_model->get_all_admin();
         $data['_view'] = 'eventlog/index';
         $this->load->view('templates/dashboard/header');
-        $this->load->view('templates/dashboard/topbar');
-        $this->load->view('templates/dashboard/leftbar');
+        $this->load->view('templates/dashboard/topbar', $data);
+        $this->load->view('templates/dashboard/leftbar', $data);
         $this->load->view('templates/dashboard/rightbar');
         $this->load->view('pages/eventlog/index',$data);
         $this->load->view('templates/dashboard/footer');
