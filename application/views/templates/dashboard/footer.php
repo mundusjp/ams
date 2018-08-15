@@ -203,20 +203,6 @@ jQuery('#datepicker-autoclose').datepicker({
     autoclose: true,
     todayHighlight: true
 });
-
-$(document).ready(function () {
-
-    $('#leftbarCollapse').on('click', function () {
-        $('#leftbar').toggleClass('scroll-sidebar');
-    });
-
-$(document).ready(function () {
-
-    $('#rightbarCollapse').on('click', function () {
-        $('#rightbar').toggleClass('slimscrollright');
-    });
-
-});
 </script>
 <script>
 $('#upload').on('click', function() {
