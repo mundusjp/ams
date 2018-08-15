@@ -105,17 +105,15 @@ function chkPwd(a)
 <script src="<?php echo base_url('assets/vertical/js/sidebarmenu.js')?>"></script>
 <!--Custom JavaScript -->
 <script src="<?php echo base_url('assets/vertical/js/custom.min.js')?>"></script>
-
-
-
+<!--stickey kit -->
+<script src="<?php echo base_url('assets/vertical/node_modules/sticky-kit-master/dist/sticky-kit.min.js')?>"></script>
+<script src="<?php echo base_url('assets/vertical/node_modules/sparkline/jquery.sparkline.min.js')?>"></script>
 <!-- http://bootstrapvalidator.votintsev.ru/getting-started/#cdn -->
 <!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script> -->
 <!-- ============================================================== -->
 <!-- This page plugins -->
 <!-- ============================================================== -->
-<!--stickey kit -->
-<script src="<?php echo base_url('assets/vertical/node_modules/sticky-kit-master/dist/sticky-kit.min.js')?>"></script>
-<script src="<?php echo base_url('assets/vertical/node_modules/sparkline/jquery.sparkline.min.js')?>"></script>
+
 <!-- Flot Charts JavaScript -->
 <script src="<?php echo base_url('assets/vertical/node_modules/flot/jquery.flot.js')?>"></script>
 <script src="<?php echo base_url('assets/vertical/node_modules/flot.tooltip/js/jquery.flot.tooltip.min.js')?>"></script>
@@ -204,6 +202,20 @@ jQuery('.mydatepicker, #datepicker').datepicker();
 jQuery('#datepicker-autoclose').datepicker({
     autoclose: true,
     todayHighlight: true
+});
+
+$(document).ready(function () {
+
+    $('#leftbarCollapse').on('click', function () {
+        $('#leftbar').toggleClass('scroll-sidebar');
+    });
+
+$(document).ready(function () {
+
+    $('#rightbarCollapse').on('click', function () {
+        $('#rightbar').toggleClass('slimscrollright');
+    });
+
 });
 </script>
 <script>

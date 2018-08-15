@@ -1,7 +1,7 @@
 <!-- Right sidebar -->
 <!-- ============================================================== -->
 <!-- .right-sidebar -->
-<div class="right-sidebar">
+<div class="right-sidebar" id="rightbar">
     <div class="slimscrollright">
         <div class="rpanel-title"> Color Scheme <span><i class="ti-close right-side-toggle"></i></span> </div>
         <div class="r-panel-body">
