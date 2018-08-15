@@ -18,6 +18,7 @@
             <li><a href="<?php echo base_url('inventory/overview')?>">Overview</a></li>
             <li><a href="<?php echo base_url('inventory/bhp')?>">Barang Habis Pakai</a></li>
             <li><a href="<?php echo base_url('inventory/bthp')?>">Barang Tidak Habis Pakai</a></li>
+            <li><a href="<?php echo base_url('expired/index')?>">Barang Kadaluarsa</a></li>
         </ul>
       </li>
       <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-info"></i><span class="hide-menu">Follow-Up</span></a>
