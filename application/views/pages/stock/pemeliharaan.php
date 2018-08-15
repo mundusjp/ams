@@ -31,72 +31,6 @@
                                 </h4>
                                 <h6 class="card-subtitle">Data table example
                                 </h6>
-                                <!-- modal menambahkan fungsi  -->
-                                <div class="modal fade bs-example-modal-lg" id="ModalTambahKantor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header text-center">
-                                                <h3 class="modal-title w-100 font-weight-bold">Tambah Pemeliharaan</h3>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                  <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body"><div class="row"><div class="col-lg-12">
-                                              <div class="row">
-                                                <div class="col-md-3">
-                                                <?php echo form_open('stock/addpemeliharaan'); ?>
-                                                <form class="floating-labels m-t-40">
-                                                    <div class="form-group">
-                                                        <label><h6 class="font-weight-bold">Inventory</h6></label>
-                                                        <select class="form-control" name="id_inventory">
-                                              <option value="">select inventory</option>
-                                              <?php
-                                                foreach($all_inventory as $inventory)
-                                                {
-                                                    $selected = ($inventory['id_inventory'] == $this->input->post('id_inventory')) ? ' selected="selected"' : "";
-
-                                                    echo '<option value="'.$inventory['id_inventory'].'" '.$selected.'>'.$inventory['nama'].'</option>';
-                                                }
-                                                ?>
-                                            </select>
-                                                    </div>
-                                                    <div class="form-group m-b-40">
-                                                        <label for="namakantor"><h6 class="font-weight-bold">Biaya</h6></label>
-                                                        <span class="bar"></span>
-                                                        <input type="number" class="form-control" name="biaya" value="<?php echo $this->input->post('biaya'); ?>" />
-                                                        <span class="text-danger"><?php echo form_error('biaya');?></span>
-                                                    </div>
-                                                    <div class="form-group m-b-40">
-                                                        <label for="id_kantor"><h6 class="font-weight-bold">Tanggal </h6></label>
-                                                        <span class="bar"></span>
-                                                        <input type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>" />
-                                                        <span class="text-danger"><?php echo form_error('tanggal');?></span>
-                                                    </div>
-
-
-                                                    <div class="form-group m-b-40">
-                                                        <label for="alamatkantor"><h6 class="font-weight-bold">Deskripsi</h6></label>
-                                                        <span class="bar"></span>
-                                                        <textarea rows="4" class="form-control" type="text" name="deskripsi" value="<?php echo $this->input->post('deskripsi'); ?>"></textarea>
-                                                        <span class="text-danger"><?php echo form_error('deskripsi');?></span>
-                                                    </div>
-                                            </div>
-
-                                            <div class="modal-footer d-flex">
-                                                <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
-                                                <button class="btn btn-info waves-effect waves-light" type="submit">Tambah</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php echo form_close(); ?>
-                                <!-- button add -->
-                                <div class="row">
-                                    <div class="col-3">
-                                        <button type="button" class="btn btn-info waaves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKantor"> add
-                                        </button>
-                                    </div>
-                                </div>
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
@@ -208,7 +142,7 @@
                                                                 <div class="form-group m-b-40">
                                                                     <label for="namakantor"><h6 class="font-weight-bold">Tanggal :</h6></label>
                                                                     <span class="bar"></span>
-                                                                    <input type="date" class="form-control" name="tanggal" value="<?php echo ($this->input->post('tanggal') ? $this->input->post('tanggal') : $p['tanggal']); ?>" />
+                                                                    <input type="text" class="form-control mydatepicker" name="tanggal" value="<?php echo ($this->input->post('tanggal') ? $this->input->post('tanggal') : $p['tanggal']); ?>" />
                                                                 </div>
                                                                 <div class="form-group m-b-40">
                                                                     <label for="deskripso"><h6 class="font-weight-bold">Deskripsi :</h6></label>

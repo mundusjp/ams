@@ -153,7 +153,7 @@
                                           </div>
                                           <div class="form-group m-b-40">
                                               <label><h6 class="font-weight-bold">Tanggal</h6></label>
-                                              <input type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>" />
+                                              <input type="text" class="form-control mydatepicker" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>" />
                                               <span class="bar"></span>
                                           </div>
                                         </div>
