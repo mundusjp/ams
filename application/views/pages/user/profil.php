@@ -33,14 +33,10 @@
                             </div>
                             <center>
                               <h3 class="box-title">Your Profile Picture</h3>
-                              <img src="<?php echo base_url('assets/vertical/images/users/5.jpg')?>" width="300">
+                              <img src="<?php echo base_url("assets/vertical/images/users/".$user['photo'])?>" width="300">
                             </center>
                             <br>
                             <div class="modal-footer">
-                              <form method="post" enctype="multipart/form-data">
-                                <button id="upload" type="button" class="btn btn-primary waves-effect text-left" action=""> Change Photo </button>
-                                <input id="file-input" type="file" name="name" style="display: none;" />
-                              </form>
                                 <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Close</button>
                             </div>
                           </center>
@@ -54,41 +50,23 @@
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header text-center">
-                        <h3 clasas="modal-title w-100 fontn-weight-bold"> <a >Edit User </h3>
+                        <h3 clasas="modal-title w-100 fontn-weight-bold"> <a >Edit Profile Picture</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body mx-3">
-                        <form action="<?php echo('user/edit/'.$user['id_user'])?>" method="post" enctype="multipart/form-data" />
+                        <form action="<?php echo('edit/'.$user['id_user'])?>" method="post" enctype="multipart/form-data"/>
                         <form class="form-horizontal form-material">
-                          <div class="form-group">
-                            <label class="col-md-6">Username</label>
-                            <div class="col-md-6">
-                              <input type="text" name="username" value="<?php echo ($this->input->post('username') ? $this->input->post('username') : $user['username']); ?>" placeholder="<?php echo $user['username'];?>" class="form-control form-control-line">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="example-email" class="col-md-6">NIPP</label>
-                            <div class="col-md-6">
-                              <input type="number" name="nipp" value="<?php echo ($this->input->post('nipp') ? $this->input->post('nipp') : $user['nipp']); ?>"placeholder="<?php echo $user['nipp'];?>" class="form-control form-control-line">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-md-6">Jabatan</label>
-                            <div class="col-md-6">
-                              <input type="text" name="jabatan" value="<?php echo ($this->input->post('jabatan') ? $this->input->post('jabatan') : $user['jabatan']); ?>"placeholder="<?php echo $user['jabatan'];?>" class="form-control form-control-line">
-                            </div>
-                          </div>
                           <div class="form-group">
                             <label class="col-md-6">Photo</label>
                             <div class="col-md-6">
-                              <?php echo form_upload(['name' => 'photo', 'class' => 'form_control']); ?>
+                            <input type="file" name="photo" class="form-control form-control-line">
                             </div>
                           </div>
                           <div class="form-group">
                             <div class="col-sm-12">
-                              <button class="btn btn-success" onclick="swalupdate()">Update Profile</button>
+                              <button class="btn btn-success" onclick="swalupdate()">Update Profile Picture</button>
                             </div>
                           </div>
                         </form>
@@ -100,12 +78,12 @@
 
 
                 <!-- /.modal -->
-                <center class="m-t-30"> <img src="<?php echo base_url('assets/vertical/images/users/5.jpg')?>" alt="default" class="img-responsive img-circle hover" width="150" data-toggle="modal" data-target="#ProfilePicture"/>
+                <center class="m-t-30"> <img src="<?php echo base_url("assets/vertical/images/users/".$user['photo'])?>" alt="default" class="img-responsive img-circle hover" width="150" data-toggle="modal" data-target="#ProfilePicture"/>
                     <h4 class="card-title m-t-10"><?php echo $user['username'];?></h4>
                     <h5 class="card-subtitle">NIPP.<?php echo $user['nipp'];?></h5>
                     <h6 class="card-subtitle font-weight-bold"><?php echo $user['jabatan'];?></h6>
                 </center>
-                <h6 class="text-right text-primary" data-toggle="modal" data-target="#EditProfile" href="">Edit</h6>
+                <h6 class="text-right text-primary" data-toggle="modal" data-target="#EditProfile" href="">Edit Profile Picture</h6>
               </div>
               <div>
                 <hr> </div>
@@ -149,9 +127,27 @@
                                     </div>
                               </div>
                               <div class="form-group">
+                                  <label class="col-md-12">Username</label>
+                                  <div class="col-md-12">
+                                      <input type="text" name="username" value="<?php echo ($this->input->post('username') ? $this->input->post('username') : $user['username']); ?>" placeholder="<?php echo $user['username'];?>" class="form-control form-control-line">
+                                    </div>
+                              </div>
+                              <div class="form-group">
+                                  <label class="col-md-12">NIPP</label>
+                                  <div class="col-md-12">
+                                      <input type="text" name="nipp" value="<?php echo ($this->input->post('nipp') ? $this->input->post('nipp') : $user['nipp']); ?>" placeholder="<?php echo $user['nipp'];?>" class="form-control form-control-line">
+                                    </div>
+                              </div>
+                              <div class="form-group">
                                 <label for="example-email" class="col-md-12">Email</label>
                                   <div class="col-md-12">
                                       <input type="email" name="email" value="<?php echo ($this->input->post('email') ? $this->input->post('email') : $user['email']); ?>"placeholder="<?php echo $user['email'];?>" class="form-control form-control-line" name="example-email" id="example-email">
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="example-email" class="col-md-12">Jabatan</label>
+                                  <div class="col-md-12">
+                                      <input type="text" name="jabatan" value="<?php echo ($this->input->post('jabatan') ? $this->input->post('jabatan') : $user['jabatan']); ?>"placeholder="<?php echo $user['jabatan'];?>" class="form-control form-control-line">
                                   </div>
                               </div>
                               <div class="form-group">
@@ -218,7 +214,7 @@
                               <div class="profiletimeline">
                                   <div class="sl-item">
                                   <?php foreach($eventlog as $e){?>
-                                    <div class="sl-left"> <img src="<?php echo base_url('assets/vertical/images/users/1.jpg')?>" alt="user" class="img-circle" /> </div>
+                                    <div class="sl-left"> <img src="<?php echo base_url("assets/vertical/images/users/".$e['photo'])?>" alt="user" class="img-circle" /> </div>
                                       <div class="sl-right">
                                           <?php $this->load->helper('date'); ?>
                                           <?php $post_date = strtotime($e['eventTime']); ?>

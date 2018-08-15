@@ -22,8 +22,8 @@ class User extends CI_Controller{
    $data['eventlog'] = $this->admin_model->get_all_eventlog();
 
    $this->load->view('templates/dashboard/header');
-   $this->load->view('templates/dashboard/topbar');
-   $this->load->view('templates/dashboard/leftbar');
+   $this->load->view('templates/dashboard/topbar', $data);
+   $this->load->view('templates/dashboard/leftbar', $data);
    $this->load->view('templates/dashboard/rightbar');
    $this->load->view('pages/user/profil',$data);
    $this->load->view('templates/dashboard/footer');
@@ -67,45 +67,51 @@ function profilpic($id_admin)
 
  function edit($id_admin)
  {
+     $this->load->helper(array('form', 'file', 'url'));
      // check if the user exists before trying to edit it
      $data['user'] = $this->admin_model->get_admin($id_admin);
 
      if(isset($data['user']['id_user']))
      {
-        $this->load->library('form_validation');
+        // $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('username','Username','required|max_length[50]');
-        $this->form_validation->set_rules('nipp','Nipp','integer');
-        $this->form_validation->set_rules('jabatan','Jabatan','max_length[50]');
-        //$this->form_validation->set_rules('photo','Photo','max_length[191]');
+        // $this->form_validation->set_rules('username','Username','required|max_length[50]');
+        // $this->form_validation->set_rules('nipp','Nipp','integer');
+        // $this->form_validation->set_rules('jabatan','Jabatan','max_length[50]');
+        //$this->form_validation->set_rules('photo','Photo','max_length[191]');        
         $this->load->library('upload');
-        $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg';
-        $config['max_size'] = '2048';
-        $config['max_width'] = '1024';
-        $config['max_height'] = '768';
+         //nama file saya beri nama langsung dan diikuti fungsi time
+        $config['upload_path'] = './assets/vertical/images/users/'; //path folder
+        $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
+        $config['max_size'] = '3048'; //maksimum besar file 2M
+        $config['max_width']  = '3288'; //lebar maksimum 1288 px
+        $config['max_height']  = '3768'; //tinggi maksimu 768 px
         $nama_file = "gambar_".time();
-        $config['file_name'] = $nama_file;
-
+        $config['file_name'] = $nama_file; //nama yang terupload nantinya
+    
         $this->upload->initialize($config);
-        $field_name = "photo";
-        if($this->form_validation->run() && $this->upload->do_upload($field_name))
-        {
-            $gambar = $this->upload->data();
-            $params = array(
-                'username' => $this->input->post('username'),
-                'nipp' => $this->input->post('nipp'),
-                'jabatan' => $this->input->post('jabatan'),
-                'photo' => $gambar['file_name'],
-            );
-
-            $this->admin_model->update_admin($id_admin,$params);
-            sleep(1);
-            redirect('user/profil');
-        }
-        else
-        {
-            show_error("Validasi Gagal");
+        
+        if($_FILES['photo']['name']){
+            
+            $field_name = "photo";
+            if($this->upload->do_upload($field_name))
+            {
+                $gambar = $this->upload->data();
+                $params = array(
+                    // 'username' => $this->input->post('username'),
+                    // 'nipp' => $this->input->post('nipp'),
+                    // 'jabatan' => $this->input->post('jabatan'),
+                    'photo' => $gambar['file_name'],
+                );
+                // $this->session->set_userdata('photo', $gambar['file_name']);
+                $this->admin_model->update_admin($id_admin,$params);
+                sleep(1);
+                redirect('user/profil');
+            }
+            else
+            {
+                show_error("Validasi Gagal");
+            }
         }
     }
     else
@@ -125,6 +131,9 @@ function profilpic($id_admin)
   $this->form_validation->set_rules('no_hp','No Hp','integer');
   $this->form_validation->set_rules('alamat','Alamat','max_length[191]');
   $this->form_validation->set_rules('email','Email','max_length[191]|valid_email');
+  $this->form_validation->set_rules('username','Username','required|max_length[50]');
+  $this->form_validation->set_rules('nipp','Nipp','integer');
+  $this->form_validation->set_rules('jabatan','Jabatan','max_length[50]');
   //$this->form_validation->set_rules('photo','Photo','max_length[191]');
 
   if($this->form_validation->run())
@@ -134,6 +143,9 @@ function profilpic($id_admin)
       'no_hp' => $this->input->post('no_hp'),
       'alamat' => $this->input->post('alamat'),
       'email' => $this->input->post('email'),
+      'username' => $this->input->post('username'),
+      'nipp' => $this->input->post('nipp'),
+      'jabatan' => $this->input->post('jabatan'),
       //'photo' => $this->input->post('photo'),
              );
 
