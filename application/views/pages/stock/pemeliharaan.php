@@ -32,8 +32,8 @@
                                 <h6 class="card-subtitle">Data table example
                                 </h6>
                                 <!-- modal menambahkan fungsi  -->
-                                <div class="modal fade" id="ModalTambahKantor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
+                                <div class="modal fade bs-example-modal-lg" id="ModalTambahKantor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header text-center">
                                                 <h3 class="modal-title w-100 font-weight-bold">Tambah Pemeliharaan</h3>
@@ -41,7 +41,7 @@
                                           <span aria-hidden="true">&times;</span>
                                         </button>
                                             </div>
-                                            <div class="modal-body mx-3">
+                                            <div class="modal-body">
                                                 <?php echo form_open('stock/addpemeliharaan'); ?>
                                                 <form class="floating-labels m-t-40">
                                                     <div class="form-group">

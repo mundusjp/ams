@@ -138,8 +138,7 @@ function chkPwd(a)
 <!-- Validator -->
 <script src="<?php echo base_url('assets/vertical/js/pages/validation.js')?>"></script>
 <!-- Image cropper JavaScript -->
-<script src="<?php echo base_url('assets/vertical/node_modules/cropper/cropper.min.js')?>"></script>
-<script src="<?php echo base_url('assets/vertical/node_modules/cropper/cropper-init.js')?>"></script>
+<script src="<?php echo base_url('assets/vertical/node_modules/bootstrap-datepicker/bootstrap-datepicker.min.js')?>"></script>
 <!-- Magnific popup JavaScript -->
 <script src="<?php echo base_url('assets/vertical/node_modules/Magnific-Popup-master/dist/jquery.magnific-popup.min.js')?>"></script>
 <script src="<?php echo base_url('assets/vertical/node_modules/Magnific-Popup-master/dist/jquery.magnific-popup-init.js')?>"></script>
@@ -197,6 +196,14 @@ $('#example23').DataTable({
     buttons: [
         'copy', 'csv', 'excel', 'pdf', 'print'
     ]
+});
+</script>
+<script>
+// Date Picker
+jQuery('.mydatepicker, #datepicker').datepicker();
+jQuery('#datepicker-autoclose').datepicker({
+    autoclose: true,
+    todayHighlight: true
 });
 </script>
 <script>

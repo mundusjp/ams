@@ -14,12 +14,29 @@ class Expired extends CI_Controller{
         $this->load->model('Expired_model');
         $this->load->model('Inventory_model');
         $this->load->model('Divisi_model');
+        $this->load->model('Admin_model');
+        $this->load->model('Kantor_model');
     }
 
     function index()
     {
+        $id_user = $this->session->userdata('id_user');
+        $id_divisi = $this->session->userdata('id_divisi');
+        $by_kantor = $this->input->post('pilih_cabang');
+        $kantor = $this->Kantor_model->get_kantor_by_divisi($id_divisi);
+        foreach ($kantor as $k) {
+          $id_kantor = $k['id_kantor'];
+        }
+        if($by_kantor == 0){
+          $data['expired'] = $this->Expired_model->join();
+        }
+        else{
+          $data['expired'] = $this->Expired_model->join_by_kantor($by_kantor);
+        }
+        $data['expired2'] = $this->Expired_model->join_by_kantor($id_kantor);
+        $data['by_kantor'] = $by_kantor;
         $data['inventory'] = $this->Inventory_model->get_all_inventory();
-        $data['tidakhabis'] = $this->Expired_model->join();
+        //$data['tidakhabis'] = $this->Expired_model->join();
         $tidakhabis = $this->Expired_model->join();
         // $from = new DateTime($data['tanggal']);
         $data['date2'] = new DateTime();
@@ -38,6 +55,8 @@ class Expired extends CI_Controller{
             }
         }
         $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
+        $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
+        $data['user'] = $this->Admin_model->get_admin($id_user);
 
         $data['_view'] = 'expired/index';
         $this->load->view('templates/dashboard/header');
@@ -47,7 +66,7 @@ class Expired extends CI_Controller{
         $this->load->view('pages/expired/index',$data);
         $this->load->view('templates/dashboard/footer');
     }
-    
+
     function add($id_inventory)
     {
         $data['inventory'] = $this->Inventory_model->get_inventory($id_inventory);

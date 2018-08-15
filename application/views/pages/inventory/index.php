@@ -31,7 +31,7 @@
                                 <?php if ($user['status'] == 1){
                                   echo form_open("inventory/overview");?>
                                 <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
-                                  <option value="0">Pilih Kantor</option><?php
+                                  <option value="0">Semua Kantor</option><?php
                                   foreach($all_kantor as $kantor)
                                   {
                                     $selected = ($kantor['id_kantor'] == $by_kantor) ? ' selected="selected"' : "";
@@ -106,7 +106,19 @@
                                         </tbody>
                                     </table>
                                 </div>
-                              <?php } ?>
+                              <?php }
+                              else{?> <br>
+                                     <?php
+                                     if($by_kantor == 0){
+                                       echo('Tidak ada data barang');
+                                     }
+                                     else{
+                                       echo ('Tidak ada data barang untuk kantor ');
+                                       foreach($all_kantor as $kan){
+                                         if($kan['id_kantor']==$by_kantor) echo $kan['nama_kantor'];
+                                       }
+                                     }
+                               }?>
                             </div>
 						</div>
 				</div>
