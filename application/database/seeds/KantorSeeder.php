@@ -21,6 +21,14 @@ class KantorSeeder extends Seeder {
 			'status' => 2,
 		];
 		$this->db->insert('kantor', $data);
+
+		$data = [
+			'id_kantor' => 3,
+			'nama_kantor' => 'IPC PTP',
+			'alamat' => 'Tanjung Priok',
+			'status' => 2,
+		];
+		$this->db->insert('kantor', $data);
 	}
 
 }

@@ -26,7 +26,7 @@ class Migration_Add_tidakhabispakai extends CI_Migration {
                         'durability' => array(
                             'type' => 'INT',
                             'constraint' => '10',
-                            'null' => FALSE,
+                            'null' => TRUE,
                         ),
                         'status' => array(
                             'type' => 'ENUM("ada", "dijual", "dibuang", "dikembalikan")',

@@ -18,6 +18,11 @@ class Migration_Add_transaksi extends CI_Migration {
                             'constraint' => 5,
                             'unsigned' => TRUE,
                         ),
+                        'id_kantor' => array(
+                                'type' => 'INT',
+                                'constraint' => 5,
+                                'unsigned' => TRUE,
+                        ),
                         'tanggal_transaksi' => array(
                                 'type' => 'DATE',
                         ),
@@ -57,6 +62,7 @@ class Migration_Add_transaksi extends CI_Migration {
                 ));
                 $this->dbforge->add_key('id_transaksi', TRUE);
                 $this->dbforge->add_field('CONSTRAINT FOREIGN KEY (id_vendor) REFERENCES vendor(id_vendor)');
+                $this->dbforge->add_field('CONSTRAINT FOREIGN KEY (id_kantor) REFERENCES kantor(id_kantor)');
                 $this->dbforge->create_table('transaksi');
         }
 
