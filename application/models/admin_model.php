@@ -38,13 +38,26 @@ class Admin_model extends CI_Model
         $query = $this->db->get();
           return $query->result_array();
     }
-    
+
     function get_all_eventlog()
     {
         $this->db->select('*');
         $this->db->from('eventlog');
         $this->db->order_by('id_event', 'desc');
         $this->db->join('user', 'eventlog.id_user = user.id_user');
+        $query = $this->db->get();
+          return $query->result_array();
+    }
+
+    function get_eventlog_by_kantor($id_kantor)
+    {
+        $this->db->select('*');
+        $this->db->from('eventlog');
+        $this->db->order_by('id_event', 'desc');
+        $this->db->join('user', 'eventlog.id_user = user.id_user');
+        $this->db->join('divisi', 'user.id_divisi = divisi.id_divisi');
+        $this->db->join('kantor', 'divisi.id_kantor = kantor.id_kantor');
+        $this->db->where('kantor.id_kantor', $id_kantor);
         $query = $this->db->get();
           return $query->result_array();
     }
