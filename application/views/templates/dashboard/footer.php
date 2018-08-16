@@ -198,9 +198,15 @@ $('#example23').DataTable({
 </script>
 <script>
 // Date Picker
-jQuery('.mydatepicker, #datepicker').datepicker();
+jQuery('.mydatepicker, #datepicker').datepicker({ dateFormat: 'dd-mm-yy' });
 jQuery('#datepicker-autoclose').datepicker({
     autoclose: true,
+    todayHighlight: true
+});
+jQuery('#date-range').datepicker({
+    toggleActive: true
+});
+jQuery('#datepicker-inline').datepicker({
     todayHighlight: true
 });
 </script>
