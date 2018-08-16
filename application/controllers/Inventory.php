@@ -224,12 +224,17 @@ class Inventory extends CI_Controller{
                        'harga' =>  $this->input->post('harga'),
             );
             $inventory_id = $this->Inventory_model->add_inventory($params);
+            $time = $this->Inventory_model->get_time('inventory_id');
             $data['last'] = $this->Inventory_model->get_last_id();
-            echo  $data['last']->id_inventory ;
+            $data['time'] = $this->Inventory_model->get_last_time();
+            $id_divisi = $this->session->userdata('id_divisi');
+            $id_kantor = $this->Divisi_model->get_divisi($id_divisi);
+            $kantor1 = $this->Kantor_model->get_kantor($id_kantor['id_kantor']);
+            $gen =$kantor1['nama_kantor'].'-'.$this->input->post('serial_id').'-'.$inventory_id.'-'.date('y', strtotime($data['time']->tanggal));
             $var = array(
                     'id_inventory' =>  $data['last']->id_inventory,
                 // 'inventory_id' => $this->input->post('inventory_id'),
-                    'serial_id' => $this->input->post('serial_id'),
+                    'serial_id' => $gen,
                     'kondisi' => $this->input->post('kondisi'),
                     'durability' => $this->input->post('durability'),
                     'status' => $this->input->post('status'),

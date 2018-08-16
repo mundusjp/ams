@@ -36,6 +36,10 @@ class Inventory_model extends CI_Model
     {
         return $this->db->select("id_inventory")->limit(1)->order_by('id_inventory',"DESC")->get("inventory")->row();
     }
+    function get_last_time()
+    {
+        return $this->db->select("tanggal")->limit(1)->order_by('id_inventory',"DESC")->get("inventory")->row();
+    }
     function get_time($id_inventory)
     {
       $this->db->select('tanggal');

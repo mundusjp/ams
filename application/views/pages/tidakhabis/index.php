@@ -60,7 +60,7 @@
                                               <div class="row">
                                                 <div class="col-md-2">
                                                   <div class="form-group m-b-40">
-                                                      <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Serial ID :</h6></label>
+                                                      <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Kode :</h6></label>
                                                       <div class="controls">
                                                       <input type="text" required class="form-control" name="serial_id" value="<?php echo $this->input->post('serial_id'); ?>">
                                                       </div>
@@ -243,7 +243,7 @@
                                               <div class="row">
                                                 <div class="col-md-2">
                                                   <div class="form-group m-b-40">
-                                                      <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Serial ID :</h6></label>
+                                                      <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Kode :</h6></label>
                                                       <div class="control">
                                                       <input required type="text" class="form-control" name="serial_id" value="<?php echo $this->input->post('serial_id'); ?>">
                                                       </div>
@@ -431,7 +431,7 @@
                                         <thead>
                                             <tr>
                                                 <th>No.</th>
-                                                <th>Serial ID</th>
+                                                <th>PengkodeanID</th>
                                                 <th>Nama</th>
                                                 <th>Merk</th>
                                                 <th>Kategori</th>
@@ -477,12 +477,13 @@
                                                 <!-- <td><?php echo $i->status; ?></td> -->
                                                 <td>
                                                   <div class="row">
-                                                    <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal"  href="#edit-<?php echo $i->id_inventory;?>">Ubah</a>
+                                                    <a class=" btn-outline-info waves-effect waves-light" data-toggle="modal"  href="#edit-<?php echo $i->id_inventory;?>">Ubah|</a>
+                                                    <a class=" btn-outline-warning waves-effect waves-light" data-toggle="modal"  href="#ubah-<?php echo $i->id_inventory;?>">Rawat</a>
+                                                 
                                                   </div>
-                                                  <div class="row">
-                                                    <!-- <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Delete</a> -->
-                                                    <a class="btn btn-outline-warning waves-effect waves-light" data-toggle="modal"  href="#ubah-<?php echo $i->id_inventory;?>">Rawat</a>
-                                                  </div>
+                                                  <!-- <div class="row">
+                                                    <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Delete</a>
+                                                  </div> -->
                                                 </td>
                                             </tr>
                                               <!-- modal menambahkan fungsi  -->
