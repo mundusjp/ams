@@ -72,7 +72,7 @@
                                 <label for="namakantor"><h6 class="font-weight-bold">Total Harga</h6></label>
                                 <span class="bar"></span>
                                 <div class="control">
-                                <input required type="number" class="form-control" name="biaya" value="<?php echo $this->input->post('biaya'); ?>" />
+                                <input min="1"   required type="number" class="form-control" name="biaya" value="<?php echo $this->input->post('biaya'); ?>" />
 		                              </div>
                                   <span class="text-danger"><?php echo form_error('biaya');?></span>
                                 </div>
@@ -186,7 +186,8 @@
                                       <div class="form-group m-b-40">
                                         <label for="namakantor"><h6 class="font-weight-bold">Total Harga :</h6></label>
                                         <span class="bar"></span>
-                                        <input type="number" class="form-control" onsubmit="thousandseparator()" name="biaya" value="<?php echo ($this->input->post('biaya') ? $this->input->post('biaya') : $b['biaya']); ?>" />
+                                        <div class="controller">
+                                        <input type="number" min="1" class="form-control" onsubmit="thousandseparator()" name="biaya" value="<?php echo ($this->input->post('biaya') ? $this->input->post('biaya') : $b['biaya']); ?>" /> </div>
                                       </div>
                                     </div>
                                     <div class="col-3">

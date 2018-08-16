@@ -477,8 +477,8 @@
                                                 <!-- <td><?php echo $i->status; ?></td> -->
                                                 <td>
                                                   <div class="row">
-                                                    <a class=" btn-outline-info waves-effect waves-light" data-toggle="modal"  href="#edit-<?php echo $i->id_inventory;?>">Ubah|</a>
-                                                    <a class=" btn-outline-warning waves-effect waves-light" data-toggle="modal"  href="#ubah-<?php echo $i->id_inventory;?>">Rawat</a>
+                                                    <a class=" btn-outline-info waves-effect waves-light" data-toggle="modal"  href="#edit-<?php echo $i->id_inventory;?>">Ubah </a> |
+                                                    <a class=" btn-outline-warning waves-effect waves-light" data-toggle="modal"  href="#ubah-<?php echo $i->id_inventory;?>"> Rawat</a>
                                                  
                                                   </div>
                                                   <!-- <div class="row">
@@ -746,7 +746,7 @@
                                                             <input type="number" class="form-control" name="biaya" value="<?php echo $this->input->post('biaya'); ?>" />
                                                             <span class="text-danger"><?php echo form_error('biaya');?></span>
                                                           </div>
-                                                        </div>
+                                                        </div>                                                                                                                                                                                                     
                                                         <div class="col-4">
                                                           <div class="form-group m-b-40">
                                                             <label for="id_kantor"><h6 class="font-weight-bold">Tanggal Perawatan </h6></label>
