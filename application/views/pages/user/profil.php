@@ -215,7 +215,16 @@
                           <div class="card-body">
                               <div class="profiletimeline">
                                   <div class="sl-item">
-                                  <?php foreach($eventlog as $e){?>
+                                  <?php
+                                  $status = $this->session->userdata('level');
+                                  if($user['status']==1){
+                                    $ev=$eventlog;
+                                  }
+                                  else if($user['status']==2){
+                                    $ev=$eventlog2;
+                                  }
+                      if (count($ev)){
+                                  foreach($ev as $e){?>
                                     <?php $user_image = !empty($e['photo']) ? $e['photo'] : 'manager.png'; ?>
                                     <div class="sl-left"> <img src="<?php echo base_url("assets/vertical/images/users/".$user_image)?>" alt="default" class="img-circle" /> </div>
                                       <div class="sl-right">
@@ -227,14 +236,15 @@
                                           </div>
                                       </div>
                                     <hr>
-                                  <?php } ?>
+                                  <?php }
+                                } ?>
                                   </div>
                                   </div>
                                   </div>
                                   </div>
-                                  
-                                      
-                                  
+
+
+
         <!-- ============================================================== -->
         <!-- Ini adalah akhir dari working space. No more coding below      -->
         <!-- ============================================================== -->
