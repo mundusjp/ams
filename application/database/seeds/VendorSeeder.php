@@ -24,6 +24,15 @@ class VendorSeeder extends Seeder {
 		];
 		$this->db->insert('vendor', $data);
 
+		$data = [
+			'id_vendor' => 3,
+			'nama' => 'Toko Informa',
+			'alamat' => 'Jakarta Pusat',
+			'no_hp' => '081534362728',
+			'email' => 'informa@gmail.com',
+		];
+		$this->db->insert('vendor', $data);
+
 	}
 
 }

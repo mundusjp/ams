@@ -18,9 +18,15 @@ class User extends CI_Controller{
  function profil(){
    $id_user = $this->session->userdata('id_user');
    $data['user'] = $this->admin_model->get_admin($id_user);
-   $data['_view'] = 'user/my-profile';
-   $data['eventlog'] = $this->admin_model->get_all_eventlog();
+   $id_divisi = $this->session->userdata('id_divisi');
+   //$by_kantor = $this->input->post('pilih_cabang');
+   $divisi = $this->Divisi_model->get_divisi($id_divisi);
+   $id_kantor = $divisi['id_kantor'];
 
+   $data['eventlog'] = $this->admin_model->get_all_eventlog();
+   $data['eventlog2'] = $this->admin_model->get_eventlog_by_kantor($id_kantor);
+
+   $data['_view'] = 'user/my-profile';
    $this->load->view('templates/dashboard/header');
    $this->load->view('templates/dashboard/topbar', $data);
    $this->load->view('templates/dashboard/leftbar', $data);
@@ -78,7 +84,7 @@ function profilpic($id_admin)
         // $this->form_validation->set_rules('username','Username','required|max_length[50]');
         // $this->form_validation->set_rules('nipp','Nipp','integer');
         // $this->form_validation->set_rules('jabatan','Jabatan','max_length[50]');
-        //$this->form_validation->set_rules('photo','Photo','max_length[191]');        
+        //$this->form_validation->set_rules('photo','Photo','max_length[191]');
         $this->load->library('upload');
          //nama file saya beri nama langsung dan diikuti fungsi time
         $config['upload_path'] = './assets/vertical/images/users/'; //path folder
@@ -88,11 +94,11 @@ function profilpic($id_admin)
         $config['max_height']  = '3768'; //tinggi maksimu 768 px
         $nama_file = "gambar_".time();
         $config['file_name'] = $nama_file; //nama yang terupload nantinya
-    
+
         $this->upload->initialize($config);
-        
+
         if($_FILES['photo']['name']){
-            
+
             $field_name = "photo";
             if($this->upload->do_upload($field_name))
             {

@@ -8,8 +8,15 @@ class HabispakaiSeeder extends Seeder {
 
 		$data = [
 			'id_inventory' => 1,
-			'jumlah' => 100,
+			'jumlah' => 50,
 			'satuan' => 'kg',
+		];
+		$this->db->insert('habispakai', $data);
+		
+		$data = [
+			'id_inventory' => 2,
+			'jumlah' => 50,
+			'satuan' => 'kotak',
 		];
         $this->db->insert('habispakai', $data);
         

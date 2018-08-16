@@ -83,9 +83,11 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                   <div class="form-group m-b-40">
-                                                      <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Kondisi :</h6></label>
-                                                      <input required class="form-control" type="text" name="kondisi" value="<?php echo $this->input->post('kondisi'); ?>" />
-                                                      <span class="text-danger"><?php echo form_error('kondisi');?></span>
+                                                      <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Jumlah :</h6></label>
+                                                      <div class="controls">
+                                                      <input required min="1" class="form-control" type="text" name="jumlah" value="<?php echo $this->input->post('jumlah'); ?>" />
+                                                      </div>
+                                                      <span class="text-danger"><?php echo form_error('jumlah');?></span>
                                                   </div>
                                                 </div>
                                                 <div class="col-md-2">
@@ -266,9 +268,11 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                   <div class="form-group m-b-40">
-                                                      <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Kondisi :</h6></label>
-                                                      <input required  class="form-control" type="text" name="kondisi" value="<?php echo $this->input->post('kondisi'); ?>" />
-                                                      <span class="text-danger"><?php echo form_error('kondisi');?></span>
+                                                      <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Jumlah :</h6></label>
+                                                      <div class="controls">
+                                                      <input required min="1" class="form-control" type="text" name="jumlah" value="<?php echo $this->input->post('jumlah'); ?>" />
+                                                      </div>
+                                                      <span class="text-danger"><?php echo form_error('jumlah');?></span>
                                                   </div>
                                                 </div>
                                                 <div class="col-md-2">
@@ -477,8 +481,8 @@
                                                 <!-- <td><?php echo $i->status; ?></td> -->
                                                 <td>
                                                   <div class="row">
-                                                    <a class=" btn-outline-info waves-effect waves-light" data-toggle="modal"  href="#edit-<?php echo $i->id_inventory;?>">Ubah|</a>
-                                                    <a class=" btn-outline-warning waves-effect waves-light" data-toggle="modal"  href="#ubah-<?php echo $i->id_inventory;?>">Rawat</a>
+                                                    <a class=" btn-outline-info waves-effect waves-light" data-toggle="modal"  href="#edit-<?php echo $i->id_inventory;?>">Ubah </a> |
+                                                    <a class=" btn-outline-warning waves-effect waves-light" data-toggle="modal"  href="#ubah-<?php echo $i->id_inventory;?>"> Rawat</a>
                                                  
                                                   </div>
                                                   <!-- <div class="row">
@@ -746,7 +750,7 @@
                                                             <input type="number" class="form-control" name="biaya" value="<?php echo $this->input->post('biaya'); ?>" />
                                                             <span class="text-danger"><?php echo form_error('biaya');?></span>
                                                           </div>
-                                                        </div>
+                                                        </div>                                                                                                                                                                                                     
                                                         <div class="col-4">
                                                           <div class="form-group m-b-40">
                                                             <label for="id_kantor"><h6 class="font-weight-bold">Tanggal Perawatan </h6></label>
