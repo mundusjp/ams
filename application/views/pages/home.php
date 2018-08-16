@@ -18,6 +18,108 @@
         <!-- End Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
+        <!-- GETTING STARTED -->
+        <!-- ============================================================== -->
+        <style>
+          a.link { color: #FFFFFF; }
+          a.link:hover { color: #dddddd; }
+        </style>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row">
+              <!-- column -->
+              <div class="col-md-12">
+                <div class="card text-center">
+                  <div class="card-body ">
+                    <!-- contents -->
+                    <h2 class="text-primary"> Getting Started </h2>
+                    <p> Get to know about this system first before you can use it smoothly!</p>
+                    <div class="row">
+                      <!-- <h4 class="text-primary font-weight-bold"> What would you like to do?</h4> -->
+                      <div class="col-md-12"><div class="row">
+                      <div class="col-md-3">
+                        <div class="card">
+                          <img class="card-img" height="300" src="<?php echo base_url('assets/vertical/images/custom/terima.jpg')?>">
+                          <div class="card-img-overlay card-inverse">
+                            <span class="display-2"><a class="link" href="<?php echo base_url('gettingstarted/masuk')?>"><i class="icon-social-dropbox" style="
+                              /* color: white; */
+                              font-size: 100px;
+                              position: absolute;
+                              top: 50%;
+                              left: 50%;
+                              transform: translate(-50%, -50%);
+                              -ms-transform: translate(-50%, -50%);
+                              text-align: center;"><h3 class="font-weight-bold">Barang Masuk</h3></i></a>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="card">
+                          <img class="card-img" height="300" src="<?php echo base_url('assets/vertical/images/custom/perbaiki.jpg')?>">
+                          <div class="card-img-overlay card-inverse">
+                            <span class="display-2"><a class="link" href="<?php echo base_url('gettingstarted/perawatan')?>"><i class="icon-wrench" style="
+                              /* color: white; */
+                              font-size: 100px;
+                              position: absolute;
+                              top: 50%;
+                              left: 50%;
+                              transform: translate(-50%, -50%);
+                              -ms-transform: translate(-50%, -50%);
+                              text-align: center;"><h3 class="font-weight-bold">Perawatan Barang </h3></i></a>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="card">
+                          <img class="card-img" height="300" src="<?php echo base_url('assets/vertical/images/custom/expired.jpg')?>">
+                          <div class="card-img-overlay card-inverse">
+                            <span class="display-2"><a class="link" href="<?php echo base_url('gettingstarted/kadaluarsa')?>"><i class="icon-close" style="
+                              /* color: white; */
+                              font-size: 100px;
+                              position: absolute;
+                              top: 50%;
+                              left: 50%;
+                              transform: translate(-50%, -50%);
+                              -ms-transform: translate(-50%, -50%);
+                              text-align: center;"><h3 class="font-weight-bold">Barang Kadaluarsa</h3></i></a>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="card">
+                          <img class="card-img" height="300" src="<?php echo base_url('assets/vertical/images/custom/update.jpg')?>">
+                          <div class="card-img-overlay card-inverse">
+                            <div class="overlay">
+                            <span class="display-2"><a class="link" href="<?php echo base_url('gettingstarted/perbaharui')?>"><i class="icon-refresh" style="
+                              /* color: white; */
+                              font-size: 100px;
+                              position: absolute;
+                              top: 50%;
+                              left: 50%;
+                              transform: translate(-50%, -50%);
+                              -ms-transform: translate(-50%, -50%);
+                              text-align: center;"><h3 class="font-weight-bold">Perbaharui Stock</h3></a></i>
+                            </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div></div></div>
+                    <!-- ./contents -->
+                  </div>
+                </div>
+              </div>
+              <!-- ./ column -->
+            </div>
+          </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- END OF GETTING STARTED -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
         <!-- ABAIKAN!! HANYA DEMO -->
         <!-- ============================================================== -->
         <div class="row">

@@ -15,7 +15,7 @@
     <!-- This page CSS -->
     <!-- Popup CSS -->
     <link href="<?php echo base_url('assets/vertical/node_modules/Magnific-Popup-master/dist/magnific-popup.css')?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/vertical/dist/css/pages/user-card.css" rel="stylesheet')?>">
+    <link href="<?php echo base_url('assets/vertical/dist/css/pages/user-card.css')?>" rel="stylesheet')">
     <!-- form css -->
     <link href="<?php echo base_url('assets/vertical/css/pages/floating-label.css')?>" rel="stylesheet">
     <!-- chartist CSS -->
