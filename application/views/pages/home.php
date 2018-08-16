@@ -32,13 +32,8 @@
                                     <span class="display-5 text-danger"><i class="icon-close"></i></span>
                                     <a href="<?php echo base_url('expired/index')?>" class="link display-5 ml-auto">
                                       <?php
-                                      $status = $this->session->userdata('level');
-                                      if ($status == 1){
-                                              echo $count_expired;
-                                            }
-                                            else if ($status == 2){
-                                              echo $count_expired2;
-                                            }?>
+
+                                      echo $count;?>
                                     </a>
                                 </div>
                             </div>
@@ -52,7 +47,9 @@
                                 <div class="d-flex m-t-30 m-b-20 no-block align-items-center">
                                     <span class="display-5 text-purple"><i class="icon-basket-loaded"></i></span>
                                             <a href="<?php echo base_url('kebutuhan/index')?>" class="link display-5 ml-auto">
-                                            <?php if ($status == 1){
+                                            <?php 
+                                            $status = $this->session->userdata('level');
+                                            if ($status == 1){
                                                     echo $count_kebutuhan;
                                                   }
                                                   else if ($status == 2){
