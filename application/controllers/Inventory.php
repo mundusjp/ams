@@ -206,12 +206,12 @@ class Inventory extends CI_Controller{
 		    $this->form_validation->set_rules('kategori','Kategori','required|max_length[10]');
         $this->form_validation->set_rules('id_transaksi','Id Transaksi','required|integer');
         $this->form_validation->set_rules('serial_id','Serial_id','required');
-        $this->form_validation->set_rules('kondisi','Kondisi','required');
+        $this->form_validation->set_rules('jumlah','Jumlah','required');
         $this->form_validation->set_rules('durability','Durability','required');
 		    $this->form_validation->set_rules('status','Status','required');
 
 		if($this->form_validation->run())
-        {
+        { for ($i=0; $i <  $this->input->post('jumlah') ; $i++) {
             $params = array(
 				               'id_divisi_penerima' => $this->input->post('id_divisi_penerima'),
 				               'nama' => $this->input->post('nama'),
@@ -220,8 +220,8 @@ class Inventory extends CI_Controller{
 				               'nama_divisi_pengada' => $this->input->post('nama_divisi_pengada'),
 				            //    'tanggal' => $this->input->post('tanggal'),
 				               'kategori' => $this->input->post('kategori'),
-                       'id_transaksi' => $this->input->post('id_transaksi'),
-                       'harga' =>  $this->input->post('harga'),
+                            'id_transaksi' => $this->input->post('id_transaksi'),
+                             'harga' =>  $this->input->post('harga'),
             );
             $inventory_id = $this->Inventory_model->add_inventory($params);
             $time = $this->Inventory_model->get_time('inventory_id');
@@ -235,7 +235,7 @@ class Inventory extends CI_Controller{
                     'id_inventory' =>  $data['last']->id_inventory,
                 // 'inventory_id' => $this->input->post('inventory_id'),
                     'serial_id' => $gen,
-                    'kondisi' => $this->input->post('kondisi'),
+                    'kondisi' =>'baik',
                     'durability' => $this->input->post('durability'),
                     'status' => $this->input->post('status'),
                   );
@@ -249,6 +249,7 @@ class Inventory extends CI_Controller{
 				            'eventTable' => 'tidakhabispakai',
             );
             $eventlog_id = $this->Eventlog_model->add_eventlog($log);
+        }
             redirect('inventory/bthp');
         }
         else
@@ -540,7 +541,7 @@ class Inventory extends CI_Controller{
     function detail_beli($id_beli)
     {
         $id_user = $this->session->userdata('id_user');
-        $data['user'] = $this->admin_model->get_admin($id_user);
+        $data['user'] = $this->Admin_model->get_admin($id_user);
         $data['inventory'] = $this->Inventory_model->get_beli($id_beli);
         $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
         $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
@@ -556,7 +557,7 @@ class Inventory extends CI_Controller{
     function detail_sewa($id_sewa)
     {
         $id_user = $this->session->userdata('id_user');
-        $data['user'] = $this->admin_model->get_admin($id_user);
+        $data['user'] = $this->Admin_model->get_admin($id_user);
         $data['inventory'] = $this->Inventory_model->get_sewa($id_sewa);
         $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
         $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
