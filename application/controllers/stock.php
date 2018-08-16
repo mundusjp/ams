@@ -42,10 +42,23 @@ function overview()
 function penyewaan()
 {
     $id_user = $this->session->userdata('id_user');
+    $id_divisi = $this->session->userdata('id_divisi');
+    $by_kantor = $this->input->post('pilih_cabang');
+    $divisi = $this->Divisi_model->get_divisi($id_divisi);
+    $id_kantor = $divisi['id_kantor'];
+    if($by_kantor == 0){
+      $data['penyewaan'] = $this->Transaksi_model->get_all_sewa();
+    }
+    else{
+      $data['penyewaan'] = $this->Transaksi_model->get_sewa_by_kantor($by_kantor);
+    }
+    $data['penyewaan2'] = $this->Transaksi_model->get_sewa_by_kantor($id_kantor);
+    $data['by_kantor'] = $by_kantor;
     $data['user'] = $this->admin_model->get_admin($id_user);
-    $data['sewa'] = $this->Transaksi_model->get_all_sewa();
+    //$data['sewa'] = $this->Transaksi_model->get_all_sewa();
     $this->load->model('Vendor_model');
     $data['all_vendor'] = $this->Vendor_model->get_all_vendor();
+    $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
     $data['_view'] = 'stock/penyewaan';
     $this->load->view('templates/dashboard/header');
     $this->load->view('templates/dashboard/topbar', $data);
@@ -58,6 +71,18 @@ function penyewaan()
 function pembelian()
 {
     $id_user = $this->session->userdata('id_user');
+    $id_divisi = $this->session->userdata('id_divisi');
+    $by_kantor = $this->input->post('pilih_cabang');
+    $divisi = $this->Divisi_model->get_divisi($id_divisi);
+    $id_kantor = $divisi['id_kantor'];
+    if($by_kantor == 0){
+      $data['pembelian'] = $this->Transaksi_model->get_all_beli();
+    }
+    else{
+      $data['pembelian'] = $this->Transaksi_model->get_beli_by_kantor($by_kantor);
+    }
+    $data['pembelian2'] = $this->Transaksi_model->get_beli_by_kantor($id_kantor);
+    $data['by_kantor'] = $by_kantor;
     $data['user'] = $this->admin_model->get_admin($id_user);
     $data['beli'] = $this->Transaksi_model->get_all_beli();
     $this->load->model('Vendor_model');
@@ -110,9 +135,19 @@ $this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[1
 
 if($this->form_validation->run())
     {
+      $status = $this->session->userdata('level');
+      if($status == 1){
+        $id_kantor = $this->input->post('id_kantor');
+      }
+      else if($status == 2){
+        $id_divisi = $this->session->userdata('id_divisi');
+        $divisi = $this->Divisi_model->get_divisi($id_divisi);
+        $id_kantor = $divisi['id_kantor'];
+      }
         $params = array(
     'no_nota' => $this->input->post('no_nota'),
     'id_vendor' => $this->input->post('id_vendor'),
+    'id_kantor' => $id_kantor,
     'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
     'periode_start' => $this->input->post('periode_start'),
     'periode_end' => $this->input->post('periode_end'),
@@ -153,12 +188,21 @@ $this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[1
 
 if($this->form_validation->run())
     {
+        $status = $this->session->userdata('level');
+        if($status == 1){
+          $id_kantor = $this->input->post('id_kantor');
+        }
+        else if($status == 2){
+          $id_divisi = $this->session->userdata('id_divisi');
+          $divisi = $this->Divisi_model->get_divisi($id_divisi);
+          $id_kantor = $divisi['id_kantor'];
+        }
         $params = array(
     'no_nota' => $this->input->post('no_nota'),
     'id_vendor' => $this->input->post('id_vendor'),
     'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
     'biaya' => $this->input->post('biaya'),
-    'id_divisi' => $this->input->post('id_divisi'),
+    'id_kantor' => $id_kantor,
     'jenis_transaksi' => 'beli',
     'deskripsi' => $this->input->post('deskripsi'),
         );
