@@ -132,7 +132,7 @@
                                 <h5 class="card-title">EXPIRED INVENTORIES</h5>
                                 <div class="d-flex m-t-30 m-b-20 no-block align-items-center">
                                     <span class="display-5 text-danger"><i class="icon-close"></i></span>
-                                    <a href="<?php echo base_url('expired/index')?>" class="link display-5 ml-auto">
+                                    <a href="<?php echo base_url('expired/index')?>" class="display-5 ml-auto">
                                       <?php
                                       $status = $this->session->userdata('level');
                                       if ($status == 1){
@@ -153,7 +153,7 @@
                                 <h5 class="card-title">NEED RESTOCK</h5>
                                 <div class="d-flex m-t-30 m-b-20 no-block align-items-center">
                                     <span class="display-5 text-purple"><i class="icon-basket-loaded"></i></span>
-                                            <a href="<?php echo base_url('kebutuhan/index')?>" class="link display-5 ml-auto">
+                                            <a href="<?php echo base_url('kebutuhan/index')?>" class="display-5 ml-auto">
                                             <?php if ($status == 1){
                                                     echo $count_kebutuhan;
                                                   }
@@ -172,7 +172,7 @@
                                 <h5 class="card-title">OPEN PROJECTS</h5>
                                 <div class="d-flex m-t-30 m-b-20 no-block align-items-center">
                                     <span class="display-5 text-primary"><i class="icon-folder-alt"></i></span>
-                                    <a href="javscript:void(0)" class="link display-5 ml-auto">311</a>
+                                    <a href="javscript:void(0)" class="display-5 ml-auto">311</a>
                                 </div>
                             </div>
                         </div>
@@ -184,7 +184,7 @@
                                 <h5 class="card-title">NEW INVOICES</h5>
                                 <div class="d-flex m-t-30 m-b-20 no-block align-items-center">
                                     <span class="display-5 text-success"><i class="icon-wallet"></i></span>
-                                    <a href="javscript:void(0)" class="link display-5 ml-auto">117</a>
+                                    <a href="javscript:void(0)" class="display-5 ml-auto">117</a>
                                 </div>
                             </div>
                         </div>
