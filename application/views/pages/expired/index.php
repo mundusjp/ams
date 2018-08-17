@@ -82,6 +82,7 @@
                       <?php $datetime = new DateTime($i->tanggal); ?>
                       <?php $diff = date_diff( $datetime, $date2 ); ?>
                       <?php $selisih = $diff->m + ($diff->y * 12); ?>
+                      <?php if(!empty($i->durability)) { ?>
                       <?php if (($i->durability - $selisih) <= 6 ){ ?>
                         <td><?php echo $no++;?>
                         <td><?php echo $i->serial_id; ?></td>
@@ -195,6 +196,7 @@
                                         <?php echo form_close(); ?>
 
                       <?php } ?>
+                            <?php } ?>
 
 										<?php }
                   }
