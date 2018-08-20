@@ -28,6 +28,8 @@
     <link href="<?php echo base_url('assets/vertical/css/pages/easy-pie-chart.css')?>" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="<?php echo base_url('assets/vertical/css/style.min.css')?>" rel="stylesheet">
+    <!-- step wizard -->
+    <link href="<?php echo base_url('assets/vertical/node_modules/wizard/steps.css')?>" rel="stylesheet">
     <!--alerts CSS -->
     <link href="<?php echo base_url('assets/vertical/node_modules/sweetalert/sweetalert.css')?>" rel="stylesheet" type="text/css">
     <!-- Color picker plugins css -->

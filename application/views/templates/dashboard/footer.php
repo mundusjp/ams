@@ -105,6 +105,8 @@ function chkPwd(a)
 <script src="<?php echo base_url('assets/vertical/js/sidebarmenu.js')?>"></script>
 <!--Custom JavaScript -->
 <script src="<?php echo base_url('assets/vertical/js/custom.min.js')?>"></script>
+<script src="<?php echo base_url('assets/vertical/node_modules/wizard/jquery.steps.min.js')?>"></script>
+<script src="<?php echo base_url('assets/vertical/node_modules/wizard/jquery.validate.min.js')?>"></script>
 <!--stickey kit -->
 <script src="<?php echo base_url('assets/vertical/node_modules/sticky-kit-master/dist/sticky-kit.min.js')?>"></script>
 <script src="<?php echo base_url('assets/vertical/node_modules/sparkline/jquery.sparkline.min.js')?>"></script>
@@ -130,6 +132,8 @@ function chkPwd(a)
 <script src="<?php echo base_url('assets/vertical/js/custom.min.js')?>"></script>
 <script src="<?php echo base_url('assets/vertical/js/pages/jasny-bootstrap.js')?>"></script>
 <script src="<?php echo base_url('assets/vertical/js/pages/validation.js')?>"></script>
+<!-- step wizard -->
+<script src="<?php echo base_url('assets/vertical/node_modules/wizard/steps.js')?>"></script>
 <!-- Sweet-Alert  -->
 <script src="<?php echo base_url('assets/vertical/node_modules/sweetalert/sweetalert.min.js')?>"></script>
 <script src="<?php echo base_url('assets/vertical/node_modules/sweetalert/jquery.sweet-alert.custom.js')?>"></script>

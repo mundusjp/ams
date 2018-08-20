@@ -41,7 +41,7 @@
                         <div class="card">
                           <img class="card-img" height="300" src="<?php echo base_url('assets/vertical/images/custom/terima.jpg')?>">
                           <div class="card-img-overlay card-inverse">
-                            <span class="display-2"><a class="link" href="<?php echo base_url('gettingstarted/masuk')?>"><i class="icon-social-dropbox" style="
+                            <span class="display-2"><a class="link" href="<?php echo base_url('getstarted/masuk')?>"><i class="icon-social-dropbox" style="
                               /* color: white; */
                               font-size: 100px;
                               position: absolute;
@@ -58,7 +58,7 @@
                         <div class="card">
                           <img class="card-img" height="300" src="<?php echo base_url('assets/vertical/images/custom/perbaiki.jpg')?>">
                           <div class="card-img-overlay card-inverse">
-                            <span class="display-2"><a class="link" href="<?php echo base_url('gettingstarted/perawatan')?>"><i class="icon-wrench" style="
+                            <span class="display-2"><a class="link" href="<?php echo base_url('getstarted/perawatan')?>"><i class="icon-wrench" style="
                               /* color: white; */
                               font-size: 100px;
                               position: absolute;
@@ -75,7 +75,7 @@
                         <div class="card">
                           <img class="card-img" height="300" src="<?php echo base_url('assets/vertical/images/custom/expired.jpg')?>">
                           <div class="card-img-overlay card-inverse">
-                            <span class="display-2"><a class="link" href="<?php echo base_url('gettingstarted/kadaluarsa')?>"><i class="icon-close" style="
+                            <span class="display-2"><a class="link" href="<?php echo base_url('getstarted/kadaluarsa')?>"><i class="icon-close" style="
                               /* color: white; */
                               font-size: 100px;
                               position: absolute;
@@ -93,7 +93,7 @@
                           <img class="card-img" height="300" src="<?php echo base_url('assets/vertical/images/custom/update.jpg')?>">
                           <div class="card-img-overlay card-inverse">
                             <div class="overlay">
-                            <span class="display-2"><a class="link" href="<?php echo base_url('gettingstarted/perbaharui')?>"><i class="icon-refresh" style="
+                            <span class="display-2"><a class="link" href="<?php echo base_url('getstarted/perbaharui')?>"><i class="icon-refresh" style="
                               /* color: white; */
                               font-size: 100px;
                               position: absolute;
@@ -166,7 +166,7 @@
                         </div>
                     </div>
                     <!-- column -->
-                    <div class="col-md-6">
+                    <!-- <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">OPEN PROJECTS</h5>
@@ -176,9 +176,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- column -->
-                    <div class="col-md-6">
+                    <!-- <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">NEW INVOICES</h5>
@@ -188,7 +188,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- column -->
                 </div>
             </div>
@@ -220,7 +220,19 @@
         <!-- ============================================================== -->
         <!-- Ini working space teman teman. Tinggal tambah table dkk-->
         <!-- ============================================================== -->
+        <!-- <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body"> -->
+                <!-- ============================================================== -->
+                <!-- tinggal uncomment dan masukin kodingan html disini             -->
+                <!-- ============================================================== -->
 
+
+              <!-- </div>
+            </div>
+          </div>
+        </div> -->
 
 
 

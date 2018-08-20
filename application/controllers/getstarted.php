@@ -4,13 +4,16 @@
  * www.crudigniter.com
  */
 
-class GettingStarted extends CI_Controller{
+class Getstarted extends CI_Controller{
     function __construct()
     {
         parent::__construct();
         if($this->session->userdata('status') != "login"){
             redirect('');
           }
+          $this->load->model('Divisi_model');
+          $this->load->model('admin_model');
+          $this->load->model('Kantor_model');
     }
 
     function masuk()
@@ -19,7 +22,7 @@ class GettingStarted extends CI_Controller{
         $data['user'] = $this->admin_model->get_admin($id_user);
         $data['kantor'] = $this->Kantor_model->get_all_kantor();
 
-        $data['_view'] = 'manage/kantor';
+        $data['_view'] = 'getstarted/masuk';
         $this->load->view('templates/dashboard/header');
       $this->load->view('templates/dashboard/topbar', $data);
       $this->load->view('templates/dashboard/leftbar', $data);
@@ -35,7 +38,7 @@ class GettingStarted extends CI_Controller{
         $data['user'] = $this->admin_model->get_admin($id_user);
         $data['kantor'] = $this->Kantor_model->get_all_kantor();
 
-        $data['_view'] = 'manage/kantor';
+        $data['_view'] = 'getstarted/perawatan';
         $this->load->view('templates/dashboard/header');
       $this->load->view('templates/dashboard/topbar', $data);
       $this->load->view('templates/dashboard/leftbar', $data);
@@ -51,7 +54,7 @@ class GettingStarted extends CI_Controller{
         $data['user'] = $this->admin_model->get_admin($id_user);
         $data['kantor'] = $this->Kantor_model->get_all_kantor();
 
-        $data['_view'] = 'manage/kantor';
+        $data['_view'] = 'getstarted/kadaluarsa';
         $this->load->view('templates/dashboard/header');
       $this->load->view('templates/dashboard/topbar', $data);
       $this->load->view('templates/dashboard/leftbar', $data);
@@ -67,7 +70,7 @@ class GettingStarted extends CI_Controller{
         $data['user'] = $this->admin_model->get_admin($id_user);
         $data['kantor'] = $this->Kantor_model->get_all_kantor();
 
-        $data['_view'] = 'manage/kantor';
+        $data['_view'] = 'getstarted/perbaharui';
         $this->load->view('templates/dashboard/header');
       $this->load->view('templates/dashboard/topbar', $data);
       $this->load->view('templates/dashboard/leftbar', $data);
