@@ -26,10 +26,10 @@
                 <!-- ============================================================== -->
                 <div class="card-body wizard-content">
                     <h4 class="card-title">Langkah - Langkah</h4>
-                    <h6 class="card-subtitle">Ikuti Langkah untuk Memasukkan List Barang Baru</a></h6>
+                    <h6 class="card-subtitle">Ikuti Langkah untuk Memasukkan List Perawatan Barang</a></h6>
                     <form action="#" class="tab-wizard wizard-circle">
                         <!-- Step 1 -->
-                        <h6>Barang Masuk</h6>
+                        <h6>Perawatan Barang</h6>
                         <section>
                           <div class="row">
                             <div class="col-lg-12 content-mid">
