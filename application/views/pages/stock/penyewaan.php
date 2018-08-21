@@ -119,7 +119,7 @@
                                       <div class="col-3">
                                         <div class="form-group m-b-40">
                                             <label for="id_divisi"><h6 class="font-weight-bold">Diadakan Oleh:</h6></label>
-                                            <select name="id_divisi" class="form-control">
+                                            <select name="id_kantor" class="form-control">
                                             <option value="">Pilih Kantor</option>
                                              <?php
                                               foreach($all_kantor as $kan)

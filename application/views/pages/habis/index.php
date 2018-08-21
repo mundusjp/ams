@@ -110,10 +110,17 @@
                                                     <select class="form-control" name="id_transaksi">
                                                     <option value="">Pilih Nota</option>
                                                     <?php
-                                                    foreach($all_nota as $nota)
+                                                      if($user['status']==1){
+                                                        $nota=$nota1;
+                                                      }
+                                                      else if($user['status']==2){
+                                                        $nota=$nota2;
+                                                      }
+
+                                                    foreach($nota as $n)
                                                     {
-                                                        $selected = ($nota['id_transaksi'] == $this->input->post('id_transaksi')) ? ' selected="selected"' : "";
-                                                        echo '<option value="'.$nota['id_transaksi'].'" '.$selected.'>'.$nota['no_nota'].'</option>';
+                                                        $selected = ($n['id_transaksi'] == $this->input->post('id_transaksi')) ? ' selected="selected"' : "";
+                                                        echo '<option value="'.$n['id_transaksi'].'" '.$selected.'>'.$n['no_nota'].'</option>';
                                                     }
                                                     ?>
                                                     </select>
@@ -268,7 +275,7 @@
                                                 <div class="modal-dialog modal-lg" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header text-center">
-                                                            <h3 class="modal-title w-100 font-weight-bold">Tambah Barang Habis Pakai</h3>
+                                                            <h3 class="modal-title w-100 font-weight-bold">Ubah Barang Habis Pakai</h3>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                               <span aria-hidden="true">&times;</span>
                                                             </button>
@@ -329,10 +336,16 @@
                                                                     <select class="form-control" name="id_transaksi">
                                                                     <option value="">Pilih Nota</option>
                                                                     <?php
-                                                                    foreach($all_nota as $nota)
+                                                                    if($user['status']==1){
+                                                                      $nota=$nota1;
+                                                                    }
+                                                                    else if($user['status']==2){
+                                                                      $nota=$nota2;
+                                                                    }
+                                                                    foreach($nota as $n)
                                                                     {
-                                                                        $selected = ($nota['id_transaksi'] == $i->id_transaksi) ? ' selected="selected"' : "";
-                                                                        echo '<option value="'.$nota['id_transaksi'].'" '.$selected.'>'.$nota['no_nota'].'</option>';
+                                                                        $selected = ($n['id_transaksi'] == $i->id_transaksi) ? ' selected="selected"' : "";
+                                                                        echo '<option value="'.$n['id_transaksi'].'" '.$selected.'>'.$n['no_nota'].'</option>';
                                                                     }
                                                                     ?>
                                                                     </select>

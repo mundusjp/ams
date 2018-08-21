@@ -116,7 +116,7 @@
                                  <div class="col-3">
                                    <div class="form-group m-b-40">
                                        <label for="id_divisi"><h6 class="font-weight-bold">Diadakan Oleh:</h6></label>
-                                       <select name="id_divisi" class="form-control">
+                                       <select name="id_kantor" class="form-control">
                                          <option value="">Pilih Kantor</option>
                                            <?php
                                             foreach($all_kantor as $kan)
@@ -124,13 +124,6 @@
                                            $selected = ($kan['id_kantor'] == $this->input->post('id_kantor')) ? ' selected="selected"' : "";
                                            echo '<option value="'.$kan['id_kantor'].'" '.$selected.'>'.$kan['nama_kantor'].'</option>';
                                          }
-                                     //   else if ($status == 2){
-                                     //   foreach($divisi_by_kantor as $div)
-                                     //   {
-                                     //     $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
-                                     //     echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$div['nama_divisi'].'</option>';
-                                     //   }
-                                     // }
                                        ?>
                                    </select>
                                        <span class="bar"></span>

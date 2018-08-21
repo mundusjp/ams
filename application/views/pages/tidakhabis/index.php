@@ -106,7 +106,13 @@
                                                     <select required class="form-control" name="id_transaksi">
                                                     <option value="">Nota</option>
                                                     <?php
-                                                    foreach($all_sewa as $nota)
+                                                    if($user['status']==1){
+                                                      $nota_sewa=$nota_sewa1;
+                                                    }
+                                                    else if($user['status']==2){
+                                                      $nota_sewa=$nota_sewa2;
+                                                    }
+                                                    foreach($nota_sewa as $nota)
                                                     {
                                                         $selected = ($nota['id_transaksi'] == $this->input->post('id_transaksi')) ? ' selected="selected"' : "";
                                                         echo '<option value="'.$nota['id_transaksi'].'" '.$selected.'>'.$nota['no_nota'].'</option>';
@@ -291,7 +297,13 @@
                                                     <select required class="form-control" name="id_transaksi">
                                                     <option value="">Nota</option>
                                                     <?php
-                                                    foreach($all_beli as $nota)
+                                                    if($user['status']==1){
+                                                      $nota_beli=$nota_beli1;
+                                                    }
+                                                    else if($user['status']==2){
+                                                      $nota_beli=$nota_beli2;
+                                                    }
+                                                    foreach($nota_beli as $nota)
                                                     {
                                                         $selected = ($nota['id_transaksi'] == $this->input->post('id_transaksi')) ? ' selected="selected"' : "";
                                                         echo '<option value="'.$nota['id_transaksi'].'" '.$selected.'>'.$nota['no_nota'].'</option>';
@@ -483,7 +495,7 @@
                                                   <div class="row">
                                                     <a class=" btn-outline-info waves-effect waves-light" data-toggle="modal"  href="#edit-<?php echo $i->id_inventory;?>">Ubah </a> |
                                                     <a class=" btn-outline-warning waves-effect waves-light" data-toggle="modal"  href="#ubah-<?php echo $i->id_inventory;?>"> Rawat</a>
-                                                 
+
                                                   </div>
                                                   <!-- <div class="row">
                                                     <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Delete</a>
@@ -547,8 +559,17 @@
                                                               <label><h6 class="font-weight-bold">Pembelian Dari:</h6></label>
                                                               <select   class="form-control" name="id_vendor">
                                                                 <option value="">Pilih Nota Transaksi</option>
-                                                                <?php if($i->kategori=='sewa') $all_nota=$all_sewa;
-                                                                else $all_nota=$all_beli;
+                                                                <?php
+                                                                if($user['status']==1){
+                                                                  $nota_sewa=$nota_sewa1;
+                                                                  $nota_beli=$nota_beli1;
+                                                                }
+                                                                else if($user['status']==2){
+                                                                  $nota_sewa=$nota_sewa2;
+                                                                  $nota_beli=$nota_beli2;
+                                                                }
+                                                                if($i->kategori=='sewa') $all_nota=$nota_sewa;
+                                                                else $all_nota=$nota_beli;
                                                                 foreach($all_nota as $nota)
                                                                 {
                                                                     $selected = ($nota['id_transaksi'] == $i->id_transaksi) ? ' selected="selected"' : "";
@@ -750,7 +771,7 @@
                                                             <input type="number" class="form-control" name="biaya" value="<?php echo $this->input->post('biaya'); ?>" />
                                                             <span class="text-danger"><?php echo form_error('biaya');?></span>
                                                           </div>
-                                                        </div>                                                                                                                                                                                                     
+                                                        </div>
                                                         <div class="col-4">
                                                           <div class="form-group m-b-40">
                                                             <label for="id_kantor"><h6 class="font-weight-bold">Tanggal Perawatan </h6></label>

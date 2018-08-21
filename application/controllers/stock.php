@@ -190,23 +190,30 @@ if($this->form_validation->run())
     {
       $status = $this->session->userdata('level');
        if($status == 1){
-         $id_kantor = $this->input->post('id_kantor');
+         $params = array(
+     'no_nota' => $this->input->post('no_nota'),
+     'id_vendor' => $this->input->post('id_vendor'),
+     'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
+     'biaya' => $this->input->post('biaya'),
+     'id_kantor' => $this->input->post('id_kantor'),
+     'jenis_transaksi' => 'beli',
+     'deskripsi' => $this->input->post('deskripsi'),
+         );
        }
        else if($status == 2){
          $id_divisi = $this->session->userdata('id_divisi');
          $divisi = $this->Divisi_model->get_divisi($id_divisi);
          $id_kantor = $divisi['id_kantor'];
+         $params = array(
+     'no_nota' => $this->input->post('no_nota'),
+     'id_vendor' => $this->input->post('id_vendor'),
+     'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
+     'biaya' => $this->input->post('biaya'),
+     'id_kantor' => $id_kantor,
+     'jenis_transaksi' => 'beli',
+     'deskripsi' => $this->input->post('deskripsi'),
+         );
        }
-        $params = array(
-    'no_nota' => $this->input->post('no_nota'),
-    'id_vendor' => $this->input->post('id_vendor'),
-    'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
-    'biaya' => $this->input->post('biaya'),
-    'id_divisi' => $this->input->post('id_divisi'),
-    'id_kantor' => $id_kantor,
-    'jenis_transaksi' => 'beli',
-    'deskripsi' => $this->input->post('deskripsi'),
-        );
         $transaksi_id = $this->Transaksi_model->add_transaksi($params);
         $desc =($this->session->userdata('nama').' '.'menambahkan'.' '.$this->input->post('no_nota'));
         $log = array(
