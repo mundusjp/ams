@@ -26,8 +26,23 @@
 				<!-- ============================================================== -->
 				<div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data penyewaan</h4>
-                                <h6 class="card-subtitle">Data table example</h6>
+                              <h4 class="card-title">Data Penyewaan</h4>
+                               <!-- <h6 class="card-subtitle">Data table example</h6> -->
+                               <?php if ($user['status'] == 1){
+                                 echo form_open("stock/penyewaan");?>
+                               <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
+                                 <option value="0">Semua Kantor</option><?php
+                                 foreach($all_kantor as $kantor)
+                                 {
+                                   $selected = ($kantor['id_kantor'] == $by_kantor) ? ' selected="selected"' : "";
+                                   echo '<option value="'.$kantor['id_kantor'].'" '.$selected.'>'.$kantor['nama_kantor'].'</option>';
+                                 }
+                                 ?>
+                               </select>
+                               <button type="submit" class="btn btn-info waves-effect waves-light">Pilih</button>
+                               <br>
+                               <br>
+                               <?php echo form_close();}?>
 								<!-- modal menambahkan fungsi  -->
                                 <div class="modal fade bs-example-modal-lg" id="ModalTambahKantor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog modal-lg" role="document">
@@ -77,7 +92,7 @@
                                             <div class="form-group m-b-40">
                                                 <label for="id_kantor"><h6 class="font-weight-bold">Tanggal Transaksi</h6></label>
                                                 <span class="bar"></span>
-                                                <input type="text" class="form-control mydatepicker" name="tanggal_transaksi" value="<?php echo $this->input->post('tanggal_transaksi'); ?>" />
+                                                 <input type="date" class="form-control" name="tanggal_transaksi" value="<?php echo $this->input->post('tanggal_transaksi'); ?>" />
   	                                          	<span class="text-danger"><?php echo form_error('tanggal_transaksi');?></span>
                                             </div>
                                           </div>
@@ -86,20 +101,37 @@
                                           <div class="col-md-8">
                                             <label for="id_kantor"><h6 class="font-weight-bold">Periode Sewa</h6></label>
                                             <div class="form-group m-b-40">
-                                                <div class="input-daterange input-group" id="date-range">
                                                   <span class="bar"></span>
-                                                  <input type="text" class="form-control mydatepicker" name="periode_start" value="<?php echo $this->input->post('periode_start'); ?>" />
+                                                   <input type="date" class="form-control" name="periode_start" value="<?php echo $this->input->post('periode_start'); ?>" />
     	                                          	<span class="text-danger"><?php echo form_error('periode_start');?></span>
                                                   <div class="input-group-append">
                                                     <span class="input-group-text b-0 bg-info text-white">s.d.</span>
                                                   </div>
                                                   <span class="bar"></span>
-                                                  <input type="text" class="form-control mydatepicker" name="periode_end" value="<?php echo $this->input->post('periode_end'); ?>" />
+                                                  <input type="date" class="form-control" name="periode_end" value="<?php echo $this->input->post('periode_end'); ?>" />
     	                                          	<span class="text-danger"><?php echo form_error('periode_end');?></span>
-                                              </div>
                                             </div>
                                           </div>
                                         </div>
+                                        <?php
+                                      $status = $this->session->userdata('level');
+                                      if($status == 1){?>
+                                      <div class="col-3">
+                                        <div class="form-group m-b-40">
+                                            <label for="id_divisi"><h6 class="font-weight-bold">Diadakan Oleh:</h6></label>
+                                            <select name="id_divisi" class="form-control">
+                                            <option value="">Pilih Kantor</option>
+                                             <?php
+                                              foreach($all_kantor as $kan)
+                                              {
+                                                $selected = ($kan['id_kantor'] == $this->input->post('id_kantor')) ? ' selected="selected"' : "";
+                                                echo '<option value="'.$kan['id_kantor'].'" '.$selected.'>'.$kan['nama_kantor'].'</option>';
+                                              }
+                                            ?>
+                                        </select>
+                                            <span class="bar"></span>
+                                        </div>
+                                      </div><?php }?>
                                         <div class="row">
                                           <div class="col-md-6">
                                             <div class="form-group m-b-40">
@@ -125,7 +157,14 @@
                                   </div>
                                 </div>
                                 <?php echo form_close(); ?>
-                                <?php $no=1; foreach($sewa as $s){ ?>
+                                <?php
+                               if($user['status']==1){
+                                 $sewa=$penyewaan;
+                               }
+                               else if($user['status']==2){
+                                 $sewa=$penyewaan2;
+                               }
+                               $no=1; foreach($sewa as $s){ ?>
                                 <div class="modal fade bs-example-modal-lg" id="edit<?php echo $s['id_transaksi'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
@@ -174,7 +213,7 @@
                                           <div class="form-group m-b-40">
                                               <label for="id_kantor"><h6 class="font-weight-bold">Tanggal Transaksi</h6></label>
                                               <span class="bar"></span>
-                                              <input type="text" class="form-control mydatepicker"  name="tanggal_transaksi" value="<?php echo ($this->input->post('tanggal_transaksi') ? $this->input->post('tanggal_transaksi') : $s['tanggal_transaksi']); ?>" />
+                                              <input type="date" class="form-control"  name="tanggal_transaksi" value="<?php echo ($this->input->post('tanggal_transaksi') ? $this->input->post('tanggal_transaksi') : $s['tanggal_transaksi']); ?>" />
                                               <span class="text-danger"><?php echo form_error('tanggal_transaksi');?></span>
                                           </div>
                                         </div>
@@ -183,17 +222,15 @@
                                         <div class="col-md-8">
                                           <label for="id_kantor"><h6 class="font-weight-bold">Periode Sewa</h6></label>
                                           <div class="form-group m-b-40">
-                                              <div class="input-daterange input-group" id="date-range">
                                                 <span class="bar"></span>
-                                                <input type="text" class="form-control mydatepicker"  name="periode_start" value="<?php echo ($this->input->post('periode_start') ? $this->input->post('periode_start') : $s['periode_start']); ?>" />
-                                                <span class="text-danger mydatepicker"><?php echo form_error('periode_start');?></span>
+                                                <input type="date" class="form-control"  name="periode_start" value="<?php echo ($this->input->post('periode_start') ? $this->input->post('periode_start') : $s['periode_start']); ?>" />
+                                                  <span class="text-danger"><?php echo form_error('periode_start');?></span>
                                                 <div class="input-group-append">
                                                   <span class="input-group-text b-0 bg-info text-white">s.d.</span>
                                                 </div>
                                                 <span class="bar"></span>
-                                                <input type="text" class="form-control mydatepicker" name="periode_end" value="<?php echo ($this->input->post('periode_end') ? $this->input->post('periode_end') : $s['periode_end']); ?>" />
+                                              <input type="date" class="form-control" name="periode_end" value="<?php echo ($this->input->post('periode_end') ? $this->input->post('periode_end') : $s['periode_end']); ?>" />
                                                 <span class="text-danger"><?php echo form_error('periode_end');?></span>
-                                            </div>
                                           </div>
                                         </div>
                                       </div>
@@ -228,9 +265,11 @@
 								<!-- button add -->
                                 <div class="row">
                                   <div class="col-3">
-                                    <button type="button" class="btn btn-info waaves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKantor" > add </button>
+                                  <button type="button" class="btn btn-info waaves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKantor" > Tambah </button>
                                   </div>
                                 </div>
+                                <?php
+                   if (count($sewa)){?>
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
@@ -238,6 +277,7 @@
 											<th>No.</th>
                                             <th>No Nota</th>
 											<th>Nama Vendor</th>
+                         <th>Nama Kantor</th>
                                             <th>Biaya</th>
                                             <th>Tanggal Transaksi</th>
 											<th>Periode Start</th>
@@ -263,6 +303,10 @@
                                             }
                                             ?>
                                             </td>
+                                            <td><?php
+                                           foreach($all_kantor as $kan){
+                                               if($kan['id_kantor']==$s['id_kantor']) {echo $kan['nama_kantor'];}
+                                           }?></td>
 											                      <td><?php echo $s['biaya']; ?></td>
                                             <?php $date = explode(" ",$s['tanggal_transaksi']);$date1 = $date[0]; ?>
                                             <?php $date2 = explode("-",$date1);?>
@@ -281,7 +325,21 @@
 											                      </td>
 										                      </tr>
 
-										<?php } ?>
+                                        <?php } }
+                                         else{?> <br>
+                                           <?php
+                                           if($by_kantor == 0){
+                                             echo('Tidak ada data penyewaan');
+                                           }
+                                           else {
+                                           echo ('Tidak ada data penyewaan untuk kantor ');
+                                             foreach($all_kantor as $kan){
+                                               if($kan['id_kantor']==$by_kantor) echo $kan['nama_kantor'];
+                                             }
+                                           }?>
+                                           <br>
+                                           <?php
+                                           }?>
 										</tbody>
 									</table>
                                     <!--  -->

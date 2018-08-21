@@ -29,8 +29,23 @@
 <!-- ================================================================================== -->
 <!--                                      START                                         -->
 <!-- ================================================================================== -->
-            <h4 class="card-title">Data pembelian</h4>
-              <h6 class="card-subtitle">Data table example</h6>
+<h4 class="card-title">Data Pembelian</h4>
+ <!-- <h6 class="card-subtitle">Data table example</h6> -->
+ <?php if ($user['status'] == 1){
+   echo form_open("stock/pembelian");?>
+ <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
+   <option value="0">Semua Kantor</option><?php
+   foreach($all_kantor as $kantor)
+   {
+     $selected = ($kantor['id_kantor'] == $by_kantor) ? ' selected="selected"' : "";
+     echo '<option value="'.$kantor['id_kantor'].'" '.$selected.'>'.$kantor['nama_kantor'].'</option>';
+   }
+   ?>
+ </select>
+ <button type="submit" class="btn btn-info waves-effect waves-light">Pilih</button>
+ <br>
+ <br>
+ <?php echo form_close();}?>
                   <!-- ================================================= -->
                   <!--                    MODAL CENTER                   -->
                   <!-- ================================================= -->
@@ -81,7 +96,7 @@
                                 <div class="form-group m-b-40">
                                   <label for="id_kantor"><h6 class="font-weight-bold">Tanggal Transaksi</h6></label>
                                   <span class="bar"></span>
-                                  <input  required type="text" class="form-control mydatepicker" name="tanggal_transaksi" value="<?php echo $this->input->post('tanggal_transaksi'); ?>" />
+                                  <input  required type="date" class="form-control" name="tanggal_transaksi" value="<?php echo $this->input->post('tanggal_transaksi'); ?>" />
 	                                 <span class="text-danger"><?php echo form_error('tanggal_transaksi');?></span>
                                  </div>
                                </div>
@@ -95,36 +110,32 @@
                                      </div>
                                    </div>
                                  </div>
+                                 <?php
+                               $status = $this->session->userdata('level');
+                               if($status == 1){?>
                                  <div class="col-3">
                                    <div class="form-group m-b-40">
                                        <label for="id_divisi"><h6 class="font-weight-bold">Diadakan Oleh:</h6></label>
                                        <select name="id_divisi" class="form-control">
-                                       <option value="">Pilih Divisi</option>
-                                       <?php
-                                       $status = $this->session->userdata('level');
-                                       if($status == 1){
-                                         foreach($all_divisi as $div)
+                                         <option value="">Pilih Kantor</option>
+                                           <?php
+                                            foreach($all_kantor as $kan)
                                          {
-                                           $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
-                                               foreach($all_kantor as $kan){
-                                                   if($kan['id_kantor']==$div['id_kantor']) {
-                                                   echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
-                                                   }
-                                               }
+                                           $selected = ($kan['id_kantor'] == $this->input->post('id_kantor')) ? ' selected="selected"' : "";
+                                           echo '<option value="'.$kan['id_kantor'].'" '.$selected.'>'.$kan['nama_kantor'].'</option>';
                                          }
-                                       }
-                                       else if ($status == 2){
-                                       foreach($divisi_by_kantor as $div)
-                                       {
-                                         $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
-                                         echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$div['nama_divisi'].'</option>';
-                                       }
-                                     }
+                                     //   else if ($status == 2){
+                                     //   foreach($divisi_by_kantor as $div)
+                                     //   {
+                                     //     $selected = ($div['id_divisi'] == $this->input->post('id_divisi')) ? ' selected="selected"' : "";
+                                     //     echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$div['nama_divisi'].'</option>';
+                                     //   }
+                                     // }
                                        ?>
                                    </select>
                                        <span class="bar"></span>
                                    </div>
-                                 </div>
+                                 </div><?php }?>
                                  <div class="row">
                                    <div class="col-9">
                                      <div class="form-group m-b-40">
@@ -286,15 +297,21 @@
                               <!-- ========== -->
                               <!--  TABLES    -->
                               <!-- ========== -->
+                              <?php if($user['status']==1){
+                                $beli=$pembelian;
+                              }
+                              else if($user['status']==2){
+                                $beli=$pembelian2;
+                              }
+                  if (count($beli)){?>
                               <div class="table-responsive m-t-40">
                                 <table id="myTable" class="table table-bordered table-striped">
                                   <thead>
 						                        <tr>
 			                                   <th>No.</th>
                                          <th>No Nota</th>
-                                         <th>Nama Divisi</th>
-                                         <th>Nama Cabang</th>
 									                       <th>Nama Vendor</th>
+                                          <th>Nama Cabang</th>
                                          <th>Total Harga</th>
 									                       <th>Tanggal Transaksi</th>
 									                       <th>Deskripsi</th>
@@ -309,8 +326,6 @@
                                      <?php echo $no++; ?>
                                    </td>
 									                 <td><?php echo $b['no_nota']; ?></td>
-                                   <td></td>
-                                   <td></td>
                                    <td>
                                      <?php
                                      foreach($all_vendor as $vendor)
@@ -320,6 +335,10 @@
                                      }
                                      ?>
                                    </td>
+                                   <td><?php
+                                 foreach($all_kantor as $kan){
+                                     if($kan['id_kantor']==$b['id_kantor']) {echo $kan['nama_kantor'];}
+                                 }?></td>
                                    <td><?php echo $b['biaya']; ?></td>
                                    <?php $date = explode(" ",$b['tanggal_transaksi']);$date1 = $date[0]; ?>
                                    <?php $date2 = explode("-",$date1);?>
@@ -331,7 +350,22 @@
                                      <a class="btn btn-outline-primary" href="<?php echo site_url('inventory/detail_beli/'.$b['id_transaksi']); ?>">Detail</a>
 									                 </td>
 								                 </tr>
-                               <?php } ?>
+                               <?php }
+                          }
+                          else{?> <br>
+                            <?php
+                            if($by_kantor == 0){
+                              echo('Tidak ada data pembelian');
+                            }
+                            else {
+                            echo ('Tidak ada data pembelian untuk kantor ');
+                              foreach($all_kantor as $kan){
+                                if($kan['id_kantor']==$by_kantor) echo $kan['nama_kantor'];
+                              }
+                            }?>
+                            <br>
+                            <?php
+                            }?>
 								               </tbody>
 							               </table>
 							             </div>

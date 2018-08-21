@@ -23,7 +23,8 @@ class Kantor_model extends CI_Model
      */
      function get_kantor_by_divisi($id_divisi){
        $this->db->select('*');
-       $this->db->from('divisi');
+       $this->db->from('kantor');
+       $this->db->join('divisi', 'kantor.id_kantor = divisi.id_kantor');
        $this->db->where('divisi.id_divisi', $id_divisi);
        $query = $this->db->get();
          return $query->result_array();

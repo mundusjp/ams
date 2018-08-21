@@ -47,9 +47,13 @@ class Admin extends CI_Controller{
         'status' => $this->input->post('status'),
 				'id_divisi' => $this->input->post('id_divisi'),
             );
-
+            $id_divisi = $this->input->post('id_divisi');
+            $kantor = $this->Kantor_model->get_kantor_by_divisi($id_divisi);
+            foreach($kantor as $k){
+              $nama_kantor = $k['nama_kantor'];
+            }
             $user_id = $this->admin_model->add_admin($params);
-            $desc =($this->input->post('nama').' '.$this->input->post('username'));
+            $desc =($this->input->post('nama').' ke kantor '.$nama_kantor);
             $log = array(
 				'id_user' => $this->session->userdata('id_user'),
 				'event' => 'menambahkan user',
@@ -84,14 +88,8 @@ class Admin extends CI_Controller{
 			$this->form_validation->set_rules('password','Password','max_length[50]|required');
 			$this->form_validation->set_rules('username','Username','required|max_length[50]');
 			$this->form_validation->set_rules('nama','Nama','required|max_length[50]');
-			$this->form_validation->set_rules('nipp','Nipp','integer');
-			$this->form_validation->set_rules('jabatan','Jabatan','max_length[50]');
 			$this->form_validation->set_rules('status','Status','required|integer');
 			$this->form_validation->set_rules('id_divisi','Id Divisi','required|integer');
-			$this->form_validation->set_rules('no_hp','No Hp','integer');
-			$this->form_validation->set_rules('alamat','Alamat','max_length[191]');
-			$this->form_validation->set_rules('email','Email','max_length[191]|valid_email');
-			$this->form_validation->set_rules('photo','Photo','max_length[191]');
 
 			if($this->form_validation->run())
             {
@@ -100,13 +98,7 @@ class Admin extends CI_Controller{
 					'password' => $this->input->post('password'),
 					'username' => $this->input->post('username'),
 					'nama' => $this->input->post('nama'),
-					'nipp' => $this->input->post('nipp'),
-					'jabatan' => $this->input->post('jabatan'),
 					'status' => $this->input->post('status'),
-					'no_hp' => $this->input->post('no_hp'),
-					'alamat' => $this->input->post('alamat'),
-					'email' => $this->input->post('email'),
-					'photo' => $this->input->post('photo'),
                 );
 
                 $this->admin_model->update_admin($id_admin,$params);
