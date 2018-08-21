@@ -65,13 +65,16 @@ class Inventory extends CI_Controller{
       if($by_kantor == 0){
         $data['habis'] = $this->Habis_model->get_all_habis_kantor();
         $data['nota1'] = $this->Transaksi_model->get_all_beli();
+        $data['divisi1'] = $this->Divisi_model->get_all_divisi();
       }
       else{
         $data['habis'] = $this->Habis_model->get_habis_by_kantor($by_kantor);
         $data['nota1'] = $this->Transaksi_model->get_beli_by_kantor($by_kantor);
+        $data['divisi1'] = $this->Divisi_model->get_divisi_by_kantor($by_kantor);
       }
       $data['habis2'] = $this->Habis_model->get_habis_by_kantor($id_kantor);
       $data['nota2'] = $this->Transaksi_model->get_beli_by_kantor($id_kantor);
+      $data['divisi2'] = $this->Divisi_model->get_divisi_by_kantor($id_kantor);
       $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
       $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
       $data['divisi'] = $this->Divisi_model->get_divisi($id_divisi);
@@ -102,16 +105,19 @@ class Inventory extends CI_Controller{
           $data['tidakhabis'] = $this->TidakHabis_model->get_all_tidakhabis_kantor();
           $data['nota_beli1'] = $this->Transaksi_model->get_all_beli();
           $data['nota_sewa1'] = $this->Transaksi_model->get_all_sewa();
+          $data['divisi1'] = $this->Divisi_model->get_all_divisi();
         }
         else{
           $data['tidakhabis'] = $this->TidakHabis_model->get_tidakhabis_by_kantor($by_kantor);
           $data['nota_beli1'] = $this->Transaksi_model->get_beli_by_kantor($by_kantor);
           $data['nota_sewa1'] = $this->Transaksi_model->get_sewa_by_kantor($by_kantor);
+          $data['divisi1'] = $this->Divisi_model->get_divisi_by_kantor($by_kantor);
 
         }
         $data['tidakhabis2'] = $this->TidakHabis_model->get_tidakhabis_by_kantor($id_kantor);
         $data['nota_beli2'] = $this->Transaksi_model->get_beli_by_kantor($id_kantor);
         $data['nota_sewa2'] = $this->Transaksi_model->get_sewa_by_kantor($id_kantor);
+        $data['divisi2'] = $this->Divisi_model->get_divisi_by_kantor($id_kantor);
         $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
         $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
         $data['all_vendor'] = $this->Vendor_model->get_all_vendor();
