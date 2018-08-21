@@ -476,7 +476,7 @@
                                                       if($kan['id_kantor']==$i->id_kantor) {echo $kan['nama_kantor'];}
                                                     }?>
                                                 </td>
-                                                <td><?php echo $i->harga; ?></td>
+                                                <td><?php echo 'Rp ' . number_format($i->harga); ?></td>
                                                 <td><?= date('d-m-Y', strtotime($i->tanggal)) ?></td>
                                                 <!-- <td><?php echo $i->status; ?></td> -->
                                                 <td>
