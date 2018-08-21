@@ -98,9 +98,28 @@
                                           </div>
                                         </div>
                                         <div class="row">
+                                          <?php
+                                          $status = $this->session->userdata('level');
+                                          if($status == 1){?>
+                                          <div class="col-md-4">
+                                            <div class="form-group m-b-40">
+                                                <label for="id_divisi"><h6 class="font-weight-bold">Diadakan Oleh:</h6></label>
+                                                <select name="id_kantor" class="form-control">
+                                                <option value="">Pilih Kantor</option>
+                                                 <?php
+                                                  foreach($all_kantor as $kan)
+                                                  {
+                                                    $selected = ($kan['id_kantor'] == $this->input->post('id_kantor')) ? ' selected="selected"' : "";
+                                                    echo '<option value="'.$kan['id_kantor'].'" '.$selected.'>'.$kan['nama_kantor'].'</option>';
+                                                  }
+                                                ?>
+                                                </select>
+                                                <span class="bar"></span>
+                                            </div>
+                                          </div><?php }?>
                                           <div class="col-md-8">
                                             <label for="id_kantor"><h6 class="font-weight-bold">Periode Sewa</h6></label>
-                                            <div class="form-group m-b-40">
+                                            <div class="input-group form-group m-b-40">
                                                   <span class="bar"></span>
                                                    <input type="date" class="form-control" name="periode_start" value="<?php echo $this->input->post('periode_start'); ?>" />
     	                                          	<span class="text-danger"><?php echo form_error('periode_start');?></span>
@@ -113,25 +132,6 @@
                                             </div>
                                           </div>
                                         </div>
-                                        <?php
-                                      $status = $this->session->userdata('level');
-                                      if($status == 1){?>
-                                      <div class="col-3">
-                                        <div class="form-group m-b-40">
-                                            <label for="id_divisi"><h6 class="font-weight-bold">Diadakan Oleh:</h6></label>
-                                            <select name="id_kantor" class="form-control">
-                                            <option value="">Pilih Kantor</option>
-                                             <?php
-                                              foreach($all_kantor as $kan)
-                                              {
-                                                $selected = ($kan['id_kantor'] == $this->input->post('id_kantor')) ? ' selected="selected"' : "";
-                                                echo '<option value="'.$kan['id_kantor'].'" '.$selected.'>'.$kan['nama_kantor'].'</option>';
-                                              }
-                                            ?>
-                                        </select>
-                                            <span class="bar"></span>
-                                        </div>
-                                      </div><?php }?>
                                         <div class="row">
                                           <div class="col-md-6">
                                             <div class="form-group m-b-40">
@@ -157,6 +157,8 @@
                                   </div>
                                 </div>
                                 <?php echo form_close(); ?>
+
+
                                 <?php
                                if($user['status']==1){
                                  $sewa=$penyewaan;
@@ -219,9 +221,28 @@
                                         </div>
                                       </div>
                                       <div class="row">
+                                        <?php
+                                        $status = $this->session->userdata('level');
+                                        if($status == 1){?>
+                                        <div class="col-md-4">
+                                          <div class="form-group m-b-40">
+                                              <label for="id_divisi"><h6 class="font-weight-bold">Diadakan Oleh:</h6></label>
+                                              <select name="id_kantor" class="form-control">
+                                              <option value="">Pilih Kantor</option>
+                                               <?php
+                                                foreach($all_kantor as $kan)
+                                                {
+                                                  $selected = ($kan['id_kantor'] == $this->input->post('id_kantor')) ? ' selected="selected"' : "";
+                                                  echo '<option value="'.$kan['id_kantor'].'" '.$selected.'>'.$kan['nama_kantor'].'</option>';
+                                                }
+                                              ?>
+                                              </select>
+                                              <span class="bar"></span>
+                                          </div>
+                                        </div><?php }?>
                                         <div class="col-md-8">
                                           <label for="id_kantor"><h6 class="font-weight-bold">Periode Sewa</h6></label>
-                                          <div class="form-group m-b-40">
+                                          <div class="input-group form-group m-b-40">
                                                 <span class="bar"></span>
                                                 <input type="date" class="form-control"  name="periode_start" value="<?php echo ($this->input->post('periode_start') ? $this->input->post('periode_start') : $s['periode_start']); ?>" />
                                                   <span class="text-danger"><?php echo form_error('periode_start');?></span>
