@@ -255,11 +255,11 @@
                                                 <td><?= date('d-m-Y', strtotime($i->tanggal)) ?></td>
                                                 <td><?php echo $i->kategori; ?></td>
                                                 <td><?php echo $i->jumlah.' '.$i->satuan; ?></td>
-                                                <td><?php echo $i->harga; ?></td>
+                                                <td><?php echo 'Rp' .number_format($i->harga); ?></td>
 
                                                 <td>
-                                                    <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit-<?php echo $i->id_inventory;?>">Ubah</a>
-                                                    <a class="btn btn-outline-warning waves-effect waves-light" data-toggle="modal" href="#update-<?php echo $i->id_inventory;?>">Update</a>
+                                                    <a class="text-info waves-effect waves-light" data-toggle="modal" href="#edit-<?php echo $i->id_inventory;?>">Ubah</a>
+                                                    <a class="text-warning waves-effect waves-light" data-toggle="modal" href="#update-<?php echo $i->id_inventory;?>">Update</a>
                                                     <!-- <a class="btn btn-outline-danger" href="<?php echo site_url('inventory/remove_bhp/'.$i->id_inventory); ?>">Hapus</a> -->
                                                 </td>
                                             </tr>
@@ -434,39 +434,67 @@
                                                             <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
-                                                        <div class="modal-body mx-3">
-                                                            <?php echo form_open('inventory/update_bhp/'.$i->id_inventory); ?>
-                                                            <form class="floating-labels m-t-40">
-
-
-                                                                <div>
-                                                                    <span class="text-danger">*</span>Nama :
-                                                                    <input type="text" readonly name="nama" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama') : $i->nama); ?>" />
+                                                        <div class="modal-body"><div class="row"><div class="col-lg-12">
+                                                          <?php echo form_open('inventory/update_bhp/'.$i->id_inventory); ?>
+                                                          <form class="floating-labels m-t-40">
+                                                          <h4 class="text-primary">Info Stock Saat Ini</h4>
+                                                          <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group m-b-40">
+                                                                    <label><h6 class="font-weight-bold">Nama :</h6></label>
+                                                                    <input class="form-control" type="text" readonly name="nama" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama') : $i->nama); ?>" />
                                                                     <span class="text-danger"><?php echo form_error('nama');?></span>
                                                                 </div>
-                                                                <div>
-                                                                    <span class="text-danger ">*</span>Jumlah sebelumnya:
-                                                                    <input type="number" readonly  name="jumlah" value="<?php echo ($this->input->post('jumlah') ? $this->input->post('jumlah') : $i->jumlah); ?>" />
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group m-b-40">
+                                                                    <label><h6 class="font-weight-bold">Qty:</h6></label>
+                                                                    <input class="form-control" type="number" readonly  name="jumlah" value="<?php echo ($this->input->post('jumlah') ? $this->input->post('jumlah') : $i->jumlah); ?>" />
                                                                     <span class="text-danger"><?php echo form_error('jumlah');?></span>
                                                                 </div>
-                                                                <div>
-                                                                    <span class="text-danger">*</span>Satuan :
-                                                                    <input type="text" readonly name="satuan" value="<?php echo ($this->input->post('satuan') ? $this->input->post('satuan') : $i->satuan); ?>" />
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group m-b-40">
+                                                                    <label><h6 class="font-weight-bold">Satuan : </h6></label>
+                                                                    <input class="form-control" type="text" readonly name="satuan" value="<?php echo ($this->input->post('satuan') ? $this->input->post('satuan') : $i->satuan); ?>" />
                                                                     <span class="text-danger"><?php echo form_error('satuan');?></span>
                                                                 </div>
-                                                                <div class="form-group m-b-40">
-                                                                <label for="tanda"><h6 class="font-weight-bold">Kategori</h6></label>
-                                                              <br>
-                                                        <!-- <input type="text" class="form-control" name="kategori" value="<?php echo $this->input->post('tanda'); ?>"> -->
-                                                                    <input type="radio" name="tanda" value="+" checked> Stock baru<br>
-                                                                    <input type="radio" name="tanda" value="-"> Deficit<br>
+                                                            </div>
+                                                          </div>
+                                                          <hr><h4 class="text-primary">Update Stock</h4>
+                                                          <div class="row">
 
+                                                            <div class="col-md-3">
+                                                              <div class="form-group m-b-40">
+                                                                  <label><h6 class="font-weight-bold">Qty:</h6></label>
+                                                                  <input class="form-control" type="number" readonly  name="jumlah" value="<?php echo ($this->input->post('jumlah') ? $this->input->post('jumlah') : $i->jumlah); ?>" />
+                                                                  <span class="text-danger"><?php echo form_error('jumlah');?></span>
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group m-b-40">
+                                                                    <label><h6 class="font-weight-bold">Satuan :</h6></label>
+                                                                    <input class="form-control" type="text" readonly name="satuan" value="<?php echo ($this->input->post('satuan') ? $this->input->post('satuan') : $i->satuan); ?>" />
+                                                                    <span class="text-danger"><?php echo form_error('satuan');?></span>
                                                                 </div>
-                                                                <div>
-                                                                    <span class="text-danger ">*</span>Kuantitas:
-                                                                    <input type="number"  name="jumlah1" value="<?php echo $this->input->post('jumlah1') ; ?>" />
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group m-b-40">
+                                                                <label for="tanda"><h6 class="font-weight-bold">Action</h6></label>
+                                                                  <br>
+                                                        <!-- <input type="text" class="form-control" name="kategori" value="<?php echo $this->input->post('tanda'); ?>"> -->
+                                                                    <input type="radio" name="tanda" value="+" checked>&nbsp;<i class="ti-plus"></i> Stock<br>
+                                                                    <input type="radio" name="tanda" value="-">&nbsp;<i class="ti-minus"></i> Stock<br>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group m-b-40">
+                                                                    <label><h6 class="font-weight-bold"><span class="text-danger ">*</span>Jumlah</h6></label>
+                                                                    <input class="form-control" type="number"  name="jumlah1" value="<?php echo $this->input->post('jumlah1') ; ?>" />
                                                                     <span class="text-danger"><?php echo form_error('jumlah1');?></span>
                                                                 </div>
+                                                            </div>
+                                                            <div class="col-md-3">
                                                                 <div  style="display:none;">
                                                                     <span class="text-danger ">*</span>id_divisi_penerima
                                                                     <input type="number"   name="id_divisi" value="<?php echo ($this->input->post('id_divisi') ? $this->input->post('id_divisi') : $i->id_divisi_penerima); ?>" />
@@ -483,7 +511,8 @@
                                                                     <input type="number"name="id_user" value="<?php echo $id;?>" />
                                                                     <span class="text-danger"><?php echo form_error('nama_barang');?></span>
                                                                 </div>
-                                                        </div>
+                                                            </div>
+                                                          </div></div></div>
                                                         <div class="modal-footer d-flex justify-content-center">
                                                             <button type="submit" class="btn btn-info waves-effect waves-light">Simpan</button>
                                                         </div>
@@ -491,6 +520,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                          </div>
                                             <?php } ?>
                                         </tbody>
                                     </table>
