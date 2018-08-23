@@ -258,8 +258,8 @@
                                                 <td><?php echo $i->harga; ?></td>
 
                                                 <td>
-                                                    <a class=" btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit-<?php echo $i->id_inventory;?>">Ubah</a>
-                                                    <a class=" btn-outline-warning" data-toggle="modal" href="#update-<?php echo $i->id_inventory;?>">Update</a>
+                                                    <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit-<?php echo $i->id_inventory;?>">Ubah</a>
+                                                    <a class="btn btn-outline-warning waves-effect waves-light" data-toggle="modal" href="#update-<?php echo $i->id_inventory;?>">Update</a>
                                                     <!-- <a class="btn btn-outline-danger" href="<?php echo site_url('inventory/remove_bhp/'.$i->id_inventory); ?>">Hapus</a> -->
                                                 </td>
                                             </tr>

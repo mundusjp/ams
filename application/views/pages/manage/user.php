@@ -161,12 +161,8 @@
                             <td><?php echo $rec['no_hp']; ?></td>
                             <td>
                               <div class="row">
-                                <div class="col-md-5">
                               <a data-toggle="modal" class="btn btn-outline-info waves-effect waves-light" href="#edit<?php echo $rec['id_user']; ?>" >Ubah</a>
-                              </div>
-                            <div class="col-md-5">
                               <a class="btn btn-outline-danger" href="<?php echo site_url('admin/remove/'.$rec['id_user']); ?>">Hapus</a>
-                              </div>
                             </div>
                             </td>
                           </tr>

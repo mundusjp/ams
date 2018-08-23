@@ -480,11 +480,8 @@
                                                 <td><?= date('d-m-Y', strtotime($i->tanggal)) ?></td>
                                                 <!-- <td><?php echo $i->status; ?></td> -->
                                                 <td>
-                                                  <div class="row">
-                                                    <a class=" btn-outline-info waves-effect waves-light" data-toggle="modal"  href="#edit-<?php echo $i->id_inventory;?>">Ubah </a> |
-                                                    <a class=" btn-outline-warning waves-effect waves-light" data-toggle="modal"  href="#ubah-<?php echo $i->id_inventory;?>"> Rawat</a>
-
-                                                  </div>
+                                                    <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal"  href="#edit-<?php echo $i->id_inventory;?>">Ubah </a>
+                                                    <a class="btn btn-outline-warning waves-effect waves-light" data-toggle="modal"  href="#ubah-<?php echo $i->id_inventory;?>"> Rawat</a>
                                                   <!-- <div class="row">
                                                     <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Delete</a>
                                                   </div> -->
