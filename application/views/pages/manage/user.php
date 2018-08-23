@@ -111,6 +111,13 @@
                                 ?>
                                 </select>
                               </div>
+                              <div class="form-group">
+                                  <label><h6 class="font-weight-bold">Confirm Password</h6></label>
+                                  <div class="controls">
+                                      <input name="re_new" required  data-validation-match-match="password" type="password" class="form-control form-control-line" required>
+                                  </div>
+                                  <span class="bar"></span>
+                              </div>
                             </div>
                           </div>
                         </div>
