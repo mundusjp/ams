@@ -11,7 +11,7 @@
         <!-- ============================================================== -->
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-                <h4 class="text-themecolor">Inventory</h4>
+                <h4 class="text-themecolor">Detail</h4>
             </div>
         </div>
         <!-- ============================================================== -->
@@ -26,8 +26,8 @@
                 <!-- ============================================================== -->
 						<div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data inventory</h4>
-                                <h6 class="card-subtitle">Data table example</h6>
+                                <h4 class="card-title">Detail <?php echo $kategori?></h4>
+                                <h6 class="card-subtitle">Data barang pada nota <?php echo $nota['no_nota']?></h6>
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
@@ -60,7 +60,7 @@
 											<td><?php echo $i->kategori; ?></td>
 											<!-- <td><?php echo $i->id_beli/sewa; ?></td> -->
 											<!-- <td>
-    									        <a href="<?php echo site_url('inventory/edit/'.$i->id_inventory); ?>">Edit</a> | 
+    									        <a href="<?php echo site_url('inventory/edit/'.$i->id_inventory); ?>">Edit</a> |
     									        <a href="<?php echo site_url('inventory/remove/'.$i->id_inventory); ?>">Delete</a>
     									    </td> -->
    										 </tr>
@@ -69,7 +69,7 @@
                                     </table>
                                 </div>
                             </div>
-						</div>		
+						</div>
 				</div>
             </div>
           </div>

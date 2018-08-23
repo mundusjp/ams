@@ -557,6 +557,8 @@ class Inventory extends CI_Controller{
     function detail_beli($id_beli)
     {
         $id_user = $this->session->userdata('id_user');
+        $data['kategori'] = "Pembelian";
+        $data['nota'] = $this->Transaksi_model->get_transaksi($id_beli);
         $data['user'] = $this->Admin_model->get_admin($id_user);
         $data['inventory'] = $this->Inventory_model->get_beli($id_beli);
         $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
@@ -573,6 +575,8 @@ class Inventory extends CI_Controller{
     function detail_sewa($id_sewa)
     {
         $id_user = $this->session->userdata('id_user');
+        $data['kategori'] = "Penyewaan";
+        $data['nota'] = $this->Transaksi_model->get_transaksi($id_sewa);
         $data['user'] = $this->Admin_model->get_admin($id_user);
         $data['inventory'] = $this->Inventory_model->get_sewa($id_sewa);
         $data['all_kantor'] = $this->Kantor_model->get_all_kantor();

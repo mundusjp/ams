@@ -84,8 +84,9 @@
                     <h4 class="card-title m-t-10"><?php echo $user['username'];?></h4>
                     <h5 class="card-subtitle">NIPP.<?php echo $user['nipp'];?></h5>
                     <h6 class="card-subtitle font-weight-bold"><?php echo $user['jabatan'];?></h6>
-                </center>
-                <h6 class="text-right text-primary" data-toggle="modal" data-target="#EditProfile" href="">Edit Profile Picture</h6>
+
+                <button class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#EditProfile" href="">Edit Profile Picture</button>
+</center>
               </div>
               <div>
                 <hr> </div>

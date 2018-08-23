@@ -26,7 +26,7 @@
                 <!-- ============================================================== -->
 						<div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data barang yang sudah expired</h4>
+                                <h4 class="card-title">Data barang yang kadaluarsa</h4>
                                 <!-- <h6 class="card-subtitle">Data table example</h6> -->
                                 <?php if ($user['status'] == 1){
                                   echo form_open("Expired/index");?>
@@ -55,7 +55,7 @@
                                         <thead>
                                             <tr>
                       <th>No.</th>
-											<th>Serial Id</th>
+											<th>Serial ID</th>
 											<th>Divisi Penerima</th>
 											<th>Nama</th>
 											<th>Merk</th>
@@ -107,15 +107,15 @@
                         <?php if ($i->kategori == 'beli'){ ?>
 
                         <td>
-                                <a href="<?php echo site_url('expired/buang/'.$i->id_inventory); ?>">Buang</a> |
-                                <a data-toggle="modal" href="#addpenjualan<?php echo $i->id_inventory; ?>">Jual</a> |
-                                <a data-toggle="modal" href="#addperpanjang<?php echo $i->id_inventory; ?>">Perpanjang</a>
+                                <a class="btn btn-outline-danger" href="<?php echo site_url('expired/buang/'.$i->id_inventory); ?>">Buang</a>
+                                <a class="btn btn-outline-warning waves-effect waves-light" data-toggle="modal" href="#addpenjualan<?php echo $i->id_inventory; ?>">Jual</a>
+                                <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#addperpanjang<?php echo $i->id_inventory; ?>">Perpanjang</a>
                             </td>
                         <?php }
                             else { ?>
                             <td>
-                                <a href="<?php echo site_url('expired/kembalikan/'.$i->id_inventory); ?>">Kembalikan</a> |
-                                <a href="<?php echo site_url('expired/perpanjang/'.$i->id_inventory); ?>">Perpanjang</a>
+                                <a class="btn btn-outline-danger" href="<?php echo site_url('expired/kembalikan/'.$i->id_inventory); ?>">Kembalikan</a>
+                                <a class="btn btn-outline-info waves-effect waves-light" href="<?php echo site_url('expired/perpanjang/'.$i->id_inventory); ?>">Perpanjang</a>
                             </td>
                         <?php } ?>
                           </tr>

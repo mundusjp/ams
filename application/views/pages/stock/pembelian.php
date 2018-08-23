@@ -103,7 +103,7 @@
                                <div class="col-3">
                                  <form class="floating-labels m-t-40">
                                    <div class="form-group m-b-40">
-                                     <label for="namakantor"><h6 class="font-weight-bold">No Nota</h6></label>
+                                     <label for="namakantor"><h6 class="font-weight-bold">No. Nota</h6></label>
                                      <span class="bar"></span>
                                      <input required type="text" class="form-control" name="no_nota" value="<?php echo $this->input->post('no_nota'); ?>" />
 		                                   <span class="text-danger"><?php echo form_error('no_nota');?></span>
@@ -338,9 +338,9 @@
                                    <td><?php echo $date2[2].'-'.$date2[1].'-'.$date2[0]; ?></td>
 								                   <td><?php echo $b['deskripsi']; ?></td>
 									                 <td>
-										                 <a class="text-info" data-toggle="modal" href="#edit<?php echo $b['id_transaksi']; ?>">Edit</a> |
+										                 <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $b['id_transaksi']; ?>">Ubah</a>
                                      <!-- <a href="<?php echo site_url('stock/removebeli/'.$b['id_transaksi']); ?>">Delete</a> | -->
-                                     <a class="text-primary" href="<?php echo site_url('inventory/detail_beli/'.$b['id_transaksi']); ?>">Detail</a>
+                                     <a class="btn btn-outline-warning waves-effect waves-light" href="<?php echo site_url('inventory/detail_beli/'.$b['id_transaksi']); ?>">Detail</a>
 									                 </td>
 								                 </tr>
                                <?php }

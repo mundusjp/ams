@@ -26,7 +26,7 @@
                         <!-- ============================================================== -->
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data Pemasok</h4>
+                                <h4 class="card-title">Data Vendor</h4>
                                 <!-- modal menambahkan fungsi  -->
                                 <div class="modal fade" id="ModalTambahKantor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -52,7 +52,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group m-b-40">
-                                                        <label for="id_kantor"><h6 class="font-weight-bold">No Handphone</h6></label>
+                                                        <label for="id_kantor"><h6 class="font-weight-bold">No. Ponsel</h6></label>
                                                         <span class="bar"></span>
                                                         <div class="controls">
                                                         <input type="number" minlength="11" maxlength="13" class="form-control "  required  name="no_hp" value="<?php echo $this->input->post('no_hp'); ?>" placeholder="08xx-xxxx-xxxx" />
@@ -103,7 +103,7 @@
                                             <tr>
                                                 <th>No.</th>
                                                 <th>Nama</th>
-                                                <th>No Handphone</th>
+                                                <th>No. Ponsel</th>
                                                 <th>Email</th>
                                                 <th>Alamat</th>
                                                 <th>Tindakan</th>
@@ -138,7 +138,7 @@
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header text-center">
-                                                            <h3 class="modal-title w-100 font-weight-bold">Ubah Supplier</h3>
+                                                            <h3 class="modal-title w-100 font-weight-bold">Ubah Vendor</h3>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                         </button>
@@ -158,7 +158,7 @@
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                   <div class="form-group m-b-40">
-                                                                      <label for="id_kantor"><h6 class="font-weight-bold">No Handphone</h6></label>
+                                                                      <label for="id_kantor"><h6 class="font-weight-bold">No. Ponsel</h6></label>
                                                                       <span class="bar"></span>
                                                                       <input type="text" class="form-control" required name="no_hp" value="<?php echo ($this->input->post('no_hp') ? $this->input->post('no_hp') : $s['no_hp']); ?>" />
                                                                       <span class="text-danger"><?php echo form_error('no_hp');?></span>

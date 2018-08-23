@@ -56,7 +56,7 @@
                                             <tr>
                                                 <th>No.</th>
                                                 <th>Serial Id</th>
-                                                <th>Nama</th>
+                                                <th>Nama Barang</th>
                                                 <th>Divisi Pengada</th>
                                                 <th>Divisi Penerima</th>
                                                 <th>Kantor</th>

@@ -29,15 +29,15 @@
                             <div class="card-body">
                                 <h4 class="card-title">Data Pemeliharaan
                                 </h4>
-                                <h6 class="card-subtitle">Data table example
-                                </h6>
+                                <!-- <h6 class="card-subtitle">Data table example
+                                </h6> -->
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>No.
                                                 </th>
-                                                <th>Nama Inventory
+                                                <th>Nama Barang
                                                 </th>
                                                 <th>Vendor
                                                 </th>
@@ -47,7 +47,7 @@
                                                 </th>
                                                 <th>Deskripsi
                                                 </th>
-                                                <th>Actions
+                                                <th>Tindakan
                                                 </th>
                                             </tr>
                                         </thead>
@@ -88,7 +88,7 @@
                                                     <?php echo $p['deskripsi']; ?>
                                                 </td>
                                                 <td>
-                                                    <a data-toggle="modal" href="#edit<?php echo $p['id_pemeliharaan']; ?>">Edit</a>
+                                                    <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $p['id_pemeliharaan']; ?>">Ubah</a>
                                                     <!-- <a href="<?php echo site_url('pemeliharaan/remove/'.$p['id_pemeliharaan']); ?>">Delete</a> -->
                                                 </td>
                                             </tr>
@@ -97,7 +97,7 @@
                                                 <div class="modal-dialog modal-lg" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header text-center">
-                                                            <h3 class="modal-title w-100 font-weight-bold">Edit Pembelian</h3>
+                                                            <h3 class="modal-title w-100 font-weight-bold">Ubah Pemeliharaan</h3>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                         </button>
@@ -153,7 +153,7 @@
                                                         </div>
                                                         <div class="modal-footer d-flex">
                                                             <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
-                                                            <button type="submit" class="btn btn-info waves-effect waves-light">Save</button>
+                                                            <button type="submit" class="btn btn-info waves-effect waves-light">Simpan</button>
                                                         </div>
                                                         <?php echo form_close(); ?>
                                                     </div>

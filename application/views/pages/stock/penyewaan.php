@@ -74,7 +74,7 @@
                                           </div>
                                           <div class="col-md-3">
                                             <div class="form-group m-b-40">
-                                              <label for="namakantor"><h6 class="font-weight-bold">No Nota</h6></label>
+                                              <label for="namakantor"><h6 class="font-weight-bold">No. Nota</h6></label>
                                               <span class="bar"></span>
                                               <input type="text" class="form-control" name="no_nota" value="<?php echo $this->input->post('no_nota'); ?>" />
       		                                    <span class="text-danger"><?php echo form_error('no_nota');?></span>
@@ -171,7 +171,7 @@
                                   <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
                                     <div class="modal-header text-center">
-                                        <h3 class="modal-title w-100 font-weight-bold">Edit Pembelian</h3>
+                                        <h3 class="modal-title w-100 font-weight-bold">Ubah Penyewaan</h3>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                         </button>
@@ -340,8 +340,8 @@
                                             <td><?php echo $date2[2].'-'.$date2[1].'-'.$date2[0]; ?></td>
                                             <td><?php echo $s['deskripsi']; ?></td>
                                             <td>
-												                        <a class="text-info" data-toggle="modal" href="#edit<?php echo $s['id_transaksi']; ?>">Edit</a> |
-                                                <a href="<?php echo site_url('inventory/detail_sewa/'.$s['id_transaksi']); ?>">Detail</a>
+												                        <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $s['id_transaksi']; ?>">Ubah</a>
+                                                <a class="btn btn-outline-warning waves-effect waves-light" href="<?php echo site_url('inventory/detail_sewa/'.$s['id_transaksi']); ?>">Detail</a>
 												                        <!-- <a href="<?php echo site_url('stock/removesewa/'.$s['id_transaksi']); ?>">Delete</a> -->
 											                      </td>
 										                      </tr>
