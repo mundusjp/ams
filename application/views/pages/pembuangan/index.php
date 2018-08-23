@@ -66,7 +66,6 @@
                                                 <th>Kategori</th>
                                                 <th>Kondisi</th>
                                                 <th>Durability</th>
-                                                <th>Status</th>
                                                 <th>Tanggal Buang</th>
                                             </tr>
                                         </thead>
@@ -118,9 +117,6 @@
                                                 </td>
                                                 <td>
                                                     <?php echo $i->durability; ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $i->status; ?>
                                                 </td>
                                                 <td>
                                                 <?php $date = explode(" ",$i->updated_at);

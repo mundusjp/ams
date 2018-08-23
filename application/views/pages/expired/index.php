@@ -112,7 +112,7 @@
                         <?php }
                             else { ?>
                             <td>
-                                <a class="text-danger" href="<?php echo site_url('expired/kembalikan/'.$i->id_inventory); ?>">Kembalikan</a>
+                                <a class="text-danger" href="<?php echo site_url('expired/kembalikan/'.$i->id_inventory); ?>">Kembalikan</a> &nbsp;|
                                 <a class="text-info waves-effect waves-light" href="<?php echo site_url('expired/perpanjang/'.$i->id_inventory); ?>">Perpanjang</a>
                             </td>
                         <?php } ?>
