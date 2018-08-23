@@ -29,7 +29,7 @@
                               <h4 class="card-title">Data Penyewaan</h4>
                                <!-- <h6 class="card-subtitle">Data table example</h6> -->
                                <?php if ($user['status'] == 1){
-                                 echo form_open("stock/penyewaan");?>
+                                 echo form_open("transaction/penyewaan");?>
                                <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
                                  <option value="0">Semua Kantor</option><?php
                                  foreach($all_kantor as $kantor)
@@ -54,7 +54,7 @@
                                         </button>
                                       </div>
                                       <div class="modal-body"><div class="row"><div class="col-lg-12">
-                                        <?php echo form_open('stock/addsewa'); ?>
+                                        <?php echo form_open('transaction/addsewa'); ?>
                                         <form class="floating-labels m-t-40">
                                         <div class="row">
                                           <div class="col-md-3">
@@ -177,7 +177,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body"><div class="row"><div class="col-lg-12">
-                                    <?php echo form_open('stock/editsewa/'.$s['id_transaksi']); ?>
+                                    <?php echo form_open('transaction/editsewa/'.$s['id_transaksi']); ?>
                                     <form class="form-body m-b-40">
                                       <div class="row">
                                         <div class="col-md-3">
@@ -296,15 +296,15 @@
                                         <thead>
 										<tr>
 											<th>No.</th>
-                                            <th>No. Nota</th>
-											<th>Nama Vendor</th>
-                         <th>Nama Kantor</th>
+                                            <th>No.Nota&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+											<th>Nama Vendor&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+                         <th>Nama Kantor&emsp;&emsp;</th>
                                             <th>Biaya</th>
                                             <th>Tanggal Transaksi</th>
-											<th>Periode Start</th>
-                                            <th>Periode End</th>
-											<th>Deskripsi</th>
-											<th>Actions</th>
+											<th>Periode_Start</th>
+                                            <th>Periode_End</th>
+											<th>Deskripsi&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+											<th>Tindakan&emsp;&emsp;</th>
 										</tr>
 										</thead>
 										<tbody>
@@ -340,9 +340,9 @@
                                             <td><?php echo $date2[2].'-'.$date2[1].'-'.$date2[0]; ?></td>
                                             <td><?php echo $s['deskripsi']; ?></td>
                                             <td>
-												                        <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $s['id_transaksi']; ?>">Ubah</a>
-                                                <a class="btn btn-outline-warning waves-effect waves-light" href="<?php echo site_url('inventory/detail_sewa/'.$s['id_transaksi']); ?>">Detail</a>
-												                        <!-- <a href="<?php echo site_url('stock/removesewa/'.$s['id_transaksi']); ?>">Delete</a> -->
+												                        <a class="text-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $s['id_transaksi']; ?>">&nbsp;&nbsp;Ubah</a>&nbsp;|
+                                                <a class="text-warning waves-effect waves-light" href="<?php echo site_url('inventory/detail_sewa/'.$s['id_transaksi']); ?>">&nbsp;Detail</a>
+												                        <!-- <a href="<?php echo site_url('transaction/removesewa/'.$s['id_transaksi']); ?>">Delete</a> -->
 											                      </td>
 										                      </tr>
 

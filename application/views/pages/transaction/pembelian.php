@@ -32,7 +32,7 @@
 <h4 class="card-title">Data Pembelian</h4>
  <!-- <h6 class="card-subtitle">Data table example</h6> -->
  <?php if ($user['status'] == 1){
-   echo form_open("stock/pembelian");?>
+   echo form_open("transaction/pembelian");?>
  <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
    <option value="0">Semua Kantor</option><?php
    foreach($all_kantor as $kantor)
@@ -63,7 +63,7 @@
                           </button>
                         </div>
                         <div class="modal-body"> <div class="row"><div class="col-12">
-                          <?php echo form_open('stock/addbeli'); ?>
+                          <?php echo form_open('transaction/addbeli'); ?>
                           <div class="row">
                             <div class="col-3">
                               <div class="form-group">
@@ -169,7 +169,7 @@
                                     <span aria-hidden="true">&times;</span>
                                   </button>
                                 </div>
-                                <div class="modal-body"><?php echo form_open('stock/editbeli/'.$b['id_transaksi']); ?><div class="row"><div class="col-12">
+                                <div class="modal-body"><?php echo form_open('transaction/editbeli/'.$b['id_transaksi']); ?><div class="row"><div class="col-12">
                                   <div class="row">
                                     <div class="col-3">
                                       <div class="form-group">
@@ -302,13 +302,13 @@
                                   <thead>
 						                        <tr>
 			                                   <th>No.</th>
-                                         <th>No. Nota</th>
-									                       <th>Nama Vendor</th>
+                                         <th>No. Nota&emsp;&emsp;</th>
+									                       <th>Nama Vendor&emsp;&emsp;</th>
                                           <th>Nama Cabang</th>
                                          <th>Total Harga</th>
 									                       <th>Tanggal Transaksi</th>
-									                       <th>Deskripsi</th>
-									                       <th>Actions</th>
+									                       <th>Deskripsi&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+									                       <th>Tindakan&emsp;&emsp;</th>
 								                   </tr>
 							                   </thead>
 							                   <tbody>
@@ -338,9 +338,9 @@
                                    <td><?php echo $date2[2].'-'.$date2[1].'-'.$date2[0]; ?></td>
 								                   <td><?php echo $b['deskripsi']; ?></td>
 									                 <td>
-										                 <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $b['id_transaksi']; ?>">Ubah</a>
-                                     <!-- <a href="<?php echo site_url('stock/removebeli/'.$b['id_transaksi']); ?>">Delete</a> | -->
-                                     <a class="btn btn-outline-warning waves-effect waves-light" href="<?php echo site_url('inventory/detail_beli/'.$b['id_transaksi']); ?>">Detail</a>
+										                 <a class="text-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $b['id_transaksi']; ?>">&nbsp;&nbsp;&nbsp;Ubah</a> &nbsp;|
+                                     <!-- <a href="<?php echo site_url('transaction/removebeli/'.$b['id_transaksi']); ?>">Delete</a> | -->
+                                     <a class="text-warning waves-effect waves-light" href="<?php echo site_url('inventory/detail_beli/'.$b['id_transaksi']); ?>">&nbsp;Detail</a>
 									                 </td>
 								                 </tr>
                                <?php }
