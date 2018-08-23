@@ -4,7 +4,7 @@
  * www.crudigniter.com
  */
 
- class Stock extends CI_Controller{
+ class transaction extends CI_Controller{
      function __construct()
      {
          parent::__construct();
@@ -30,12 +30,12 @@ function overview()
     $data['user'] = $this->admin_model->get_admin($id_user);
     $data['sewa'] = $this->Transaksi_model->get_all_sewa();
 
-    $data['_view'] = 'stock/penyewaan';
+    $data['_view'] = 'transaction/penyewaan';
     $this->load->view('templates/dashboard/header');
     $this->load->view('templates/dashboard/topbar', $data);
     $this->load->view('templates/dashboard/leftbar', $data);
     $this->load->view('templates/dashboard/rightbar');
-    $this->load->view('pages/stock/overview',$data);
+    $this->load->view('pages/transaction/overview',$data);
     $this->load->view('templates/dashboard/footer');
 }
 // ------------------------------------------------------------------------
@@ -59,12 +59,12 @@ function penyewaan()
     $this->load->model('Vendor_model');
     $data['all_vendor'] = $this->Vendor_model->get_all_vendor();
     $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
-    $data['_view'] = 'stock/penyewaan';
+    $data['_view'] = 'transaction/penyewaan';
     $this->load->view('templates/dashboard/header');
     $this->load->view('templates/dashboard/topbar', $data);
     $this->load->view('templates/dashboard/leftbar', $data);
     // $this->load->view('templates/dashboard/rightbar');
-    $this->load->view('pages/stock/penyewaan',$data);
+    $this->load->view('pages/transaction/penyewaan',$data);
     $this->load->view('templates/dashboard/footer');
 }
 // ------------------------------------------------------------------------
@@ -90,13 +90,13 @@ function pembelian()
     $data['all_vendor'] = $this->Vendor_model->get_all_vendor();
     $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
     $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
-    $data['_view'] = 'stock/pembelian';
+    $data['_view'] = 'transaction/pembelian';
 
     $this->load->view('templates/dashboard/header');
     $this->load->view('templates/dashboard/topbar', $data);
     $this->load->view('templates/dashboard/leftbar', $data);
     $this->load->view('templates/dashboard/rightbar');
-    $this->load->view('pages/stock/pembelian',$data);
+    $this->load->view('pages/transaction/pembelian',$data);
     $this->load->view('templates/dashboard/footer');
 }
 // ------------------------------------------------------------------------
@@ -108,13 +108,13 @@ function pemeliharaan()
     $this->load->model('Inventory_model');
     $data['all_inventory'] = $this->Inventory_model->get_all_inventory();
     $data['all_vendor'] = $this->Vendor_model->get_all_vendor();
-    $data['_view'] = 'stock/pemeliharaan';
+    $data['_view'] = 'transaction/pemeliharaan';
 
     $this->load->view('templates/dashboard/header');
     $this->load->view('templates/dashboard/topbar', $data);
     $this->load->view('templates/dashboard/leftbar', $data);
     $this->load->view('templates/dashboard/rightbar');
-    $this->load->view('pages/stock/pemeliharaan',$data);
+    $this->load->view('pages/transaction/pemeliharaan',$data);
     $this->load->view('templates/dashboard/footer');
 
 }
@@ -166,14 +166,14 @@ if($this->form_validation->run())
             'eventTable' => 'transaksi',
         );
         $eventlog_id = $this->Eventlog_model->add_eventlog($log);
-        redirect('stock/penyewaan');
+        redirect('transaction/penyewaan');
     }
     else
     {
         $this->load->model('Vendor_model');
         $data['all_vendor'] = $this->Vendor_model->get_all_vendor();
 
-        $data['_view'] = 'stock/sewa';
+        $data['_view'] = 'transaction/sewa';
         $this->load->view('pages/beli/add',$data);
     }
 }
@@ -224,7 +224,7 @@ if($this->form_validation->run())
             'eventTable' => 'transaksi',
         );
         $eventlog_id = $this->Eventlog_model->add_eventlog($log);
-        redirect('stock/pembelian');
+        redirect('transaction/pembelian');
     }
     else
     {
@@ -266,15 +266,15 @@ if($this->form_validation->run())
             'eventTable' => 'pemeliharaan',
         );
         $eventlog_id = $this->Eventlog_model->add_eventlog($log);
-        redirect('stock/pemeliharaan');
+        redirect('transaction/pemeliharaan');
     }
     else
     {
   $this->load->model('Inventory_model');
   $data['all_inventory'] = $this->Inventory_model->get_all_inventory();
 
-        $data['_view'] = 'stock/pemeliharaan';
-        $this->load->view('pages/stock/pemeliharaan',$data);
+        $data['_view'] = 'transaction/pemeliharaan';
+        $this->load->view('pages/transaction/pemeliharaan',$data);
     }
 }
 
@@ -321,15 +321,15 @@ function editsewa($id_sewa)
             'eventTable' => 'transaksi',
         );
         $eventlog_id = $this->Eventlog_model->add_eventlog($log);
-            redirect('stock/penyewaan');
+            redirect('transaction/penyewaan');
         }
         else
         {
     $this->load->model('Vendor_model');
     $data['all_vendor'] = $this->Vendor_model->get_all_vendor();
 
-            $data['_view'] = 'stock/editsewa';
-            $this->load->view('pages/stock/penyewaan',$data);
+            $data['_view'] = 'transaction/editsewa';
+            $this->load->view('pages/transaction/penyewaan',$data);
         }
     }
     else
@@ -369,7 +369,7 @@ function editbeli($id_beli)
            'eventTable' => 'transaksi',
                 );
             $eventlog_id = $this->Eventlog_model->add_eventlog($log);
-            redirect('stock/pembelian');
+            redirect('transaction/pembelian');
         }
         else
         {
@@ -377,7 +377,7 @@ function editbeli($id_beli)
     $data['all_vendor'] = $this->Vendor_model->get_all_vendor();
 
             $data['_view'] = 'beli/edit';
-            $this->load->view('pages/stock/pembelian',$data);
+            $this->load->view('pages/transaction/pembelian',$data);
         }
     }
     else
@@ -419,15 +419,15 @@ function editpemeliharaan($id_pemeliharaan)
                     'eventTable' => 'transaksi',
                 );
             $eventlog_id = $this->Eventlog_model->add_eventlog($log);
-            redirect('stock/pemeliharaan');
+            redirect('transaction/pemeliharaan');
         }
         else
         {
             $this->load->model('Inventory_model');
             $data['all_inventory'] = $this->Inventory_model->get_all_inventory();
 
-            $data['_view'] = 'stock/pemeliharaan';
-            $this->load->view('pages/stock/pemeliharaan',$data);
+            $data['_view'] = 'transaction/pemeliharaan';
+            $this->load->view('pages/transaction/pemeliharaan',$data);
         }
     }
     else
@@ -445,7 +445,7 @@ function removesewa($id_sewa)
     if(isset($sewa['id_transaksi']))
     {
         $this->Transaksi_model->delete_transaksi($id_sewa);
-        redirect('stock/penyewaan');
+        redirect('transaction/penyewaan');
     }
     else
         show_error('The sewa you are trying to delete does not exist.');
@@ -459,7 +459,7 @@ function removebeli($id_beli)
     if(isset($beli['id_transaksi']))
     {
         $this->Transaksi_model->delete_transaksi($id_beli);
-        redirect('stock/pembelian');
+        redirect('transaction/pembelian');
     }
     else
         show_error('The beli you are trying to delete does not exist.');
@@ -473,7 +473,7 @@ function removepemeliharaan($id_pemeliharaan)
     if(isset($pemeliharaan['id_pemeliharaan']))
     {
         $this->Pemeliharaan_model->delete_pemeliharaan($id_pemeliharaan);
-        redirect('stock/pemeliharaan');
+        redirect('transaction/pemeliharaan');
     }
     else
         show_error('The pemeliharaan you are trying to delete does not exist.');
@@ -483,7 +483,7 @@ function detail($id_beli)
     // check if the beli exists before trying to edit it
     $data['beli'] = $this->Transaksi_model->get_transaksi($id_beli);
     $data['all_inventory'] = $this->Inventory_model->get_transaksi($id_beli);
-    $data['_view'] = 'stock/detail';
+    $data['_view'] = 'transaction/detail';
     $this->load->view('pages/beli/detail',$data);
     $this->load->view('templates/dashboard/footer');
 

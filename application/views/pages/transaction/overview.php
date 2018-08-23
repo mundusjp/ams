@@ -11,7 +11,7 @@
         <!-- ============================================================== -->
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-                <h4 class="text-themecolor">Overview Stock</h4>
+                <h4 class="text-themecolor">Overview transaction</h4>
             </div>
         </div>
         <!-- ============================================================== -->
