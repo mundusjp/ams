@@ -98,37 +98,37 @@
                                     </div>
                                 </div>
                                 <div class="table-responsive m-t-40">
-                                    <table id="myTable" class="table table-bordered table-striped">
+                                    <table id="myTable" class="tablesaw table-striped table-hover table-bordered table" data-tablesaw-mode="columntoggle">
                                         <thead>
                                             <tr>
-                                                <th>No.</th>
-                                                <th>Nama</th>
-                                                <th>No. Ponsel</th>
-                                                <th>Email</th>
-                                                <th>Alamat</th>
-                                                <th>Tindakan</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">No.</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Nama</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">No. Ponsel</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="3">Email</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Alamat</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="5">Tindakan</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php $no=1;
                                      foreach($vendor as $s){ ?>
-                                            <tr>
-                                                <td>
+                                            <tr style="padding=10px 10px 10px 10px;">
+                                                <td  style="padding=10px 10px 10px 10px;">
                                                     <?php echo $no++; ?>
                                                 </td>
-                                                <td>
+                                                <td  style="padding=10px 10px 10px 10px;">
                                                     <?php echo $s['nama']; ?>
                                                 </td>
-                                                <td>
+                                                <td  style="padding=10px 10px 10px 10px;">
                                                     <?php echo $s['no_hp']; ?>
                                                 </td>
-                                                <td>
+                                                <td  style="padding=10px 10px 10px 10px;">
                                                     <?php echo $s['email']; ?>
                                                 </td>
-                                                <td>
+                                                <td  style="padding=10px 10px 10px 10px;">
                                                     <?php echo $s['alamat']; ?>
                                                 </td>
-                                                <td>
+                                                <td  style="padding=10px 10px 10px 10px;">
                                                     <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $s['id_vendor']; ?>">Ubah</a>
                                                     <a class="btn btn-outline-danger" href="<?php echo site_url('vendor/remove/'.$s['id_vendor']); ?>">Hapus</a>
                                                 </td>

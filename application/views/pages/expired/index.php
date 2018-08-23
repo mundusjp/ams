@@ -51,21 +51,21 @@
                                 }
                     if (count($exp)){?>
                                 <div class="table-responsive m-t-40">
-                                    <table id="myTable" class="table table-bordered table-striped">
+                                    <table id="myTable" class="tablesaw table-striped table-hover table-bordered table" data-tablesaw-mode="columntoggle">
                                         <thead>
-                                            <tr>
-                      <th>No.</th>
-											<th>Serial_ID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
-											<th>Divisi Penerima</th>
-											<th>Nama&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
-											<th>Merk</th>
-											<th>Divisi_Pengada</th>
-                      <th>Kantor&emsp;</th>
-											<th>Tanggal&emsp;</th>
-											<th>Kategori</th>
-											<th>Kondisi</th>
-											<th>Durability</th>
-                      <th>Usia</th>
+                                            <tr >
+                                            <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">No.</th>
+                                            <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Serial_ID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+                                            <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Divisi Penerima</th>
+                                            <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Nama&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+                                            <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="3">Merk</th>
+                                            <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Divisi_Pengada</th>
+                                            <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="5">Kantor&emsp;</th>
+                                            <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="6">Tanggal&emsp;</th>
+                                            <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="7">Kategori</th>
+                                            <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="8">Kondisi</th>
+                                            <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="9">Durability</th>
+                                            <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="10">Usia</th>
 
 
 											<!-- <th>Id Beli/sewa</th> -->

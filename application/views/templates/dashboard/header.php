@@ -22,6 +22,8 @@
     <link href="<?php echo base_url('assets/vertical/node_modules/morrisjs/morris.css')?>" rel="stylesheet">
     <!-- Vector CSS -->
     <link href="<?php echo base_url('assets/vertical/node_modules/jqvmap-master/dist/jqvmap.css')?>" rel="stylesheet" />
+    <!-- Vector CSS -->
+    <link href="<?php echo base_url('assets/vertical/node_modules/tablesaw-master/dist/tablesaw.css')?>" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="<?php echo base_url('assets/vertical/css/style.min.css')?>" rel="stylesheet">
     <!--c3 CSS -->

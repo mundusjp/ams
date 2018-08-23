@@ -431,23 +431,23 @@
                                   }
                                 if (count($inv)){?>
                                 <div class="table-responsive">
-                                    <table id="myTable" class="table table-bordered table-striped">
+                                    <table id="myTable" class="tablesaw table-striped table-hover table-bordered table" data-tablesaw-mode="columntoggle">
                                         <thead>
                                             <tr>
-                                                <th>No.</th>
-                                                <th>PengkodeanID</th>
-                                                <th>Nama</th>
-                                                <th>Merk</th>
-                                                <th>Kategori</th>
-                                                <th>Kondisi</th>
-                                                <th>Durability</th>
-                                                <th>Divisi Pengada</th>
-                                                <th>Divisi Penerima</th>
-                                                <th>Kantor</th>
-                                                <th>Harga Perolehan</th>
-                                                <th>Tanggal Pembelian</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">No.</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">PengkodeanID</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Nama</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Merk</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="3">Kategori</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Kondisi</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="5">Durability</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="6">Divisi Pengada</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="7">Divisi Penerima</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="8">Kantor</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="9">Harga Perolehan</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="10">Tanggal Pembelian</th>
                                                 <!-- <th>Status</th> -->
-                                                <th>Tindakan</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="11">Tindakan</th>
                                             </tr>
                                         </thead>
                                         <tbody>
