@@ -328,7 +328,7 @@
                                            foreach($all_kantor as $kan){
                                                if($kan['id_kantor']==$s['id_kantor']) {echo $kan['nama_kantor'];}
                                            }?></td>
-											                      <td><?php echo $s['biaya']; ?></td>
+											                      <td><?php echo 'Rp' . number_format($s['biaya']); ?></td>
                                             <?php $date = explode(" ",$s['tanggal_transaksi']);$date1 = $date[0]; ?>
                                             <?php $date2 = explode("-",$date1);?>
                                             <td><?php echo $date2[2].'-'.$date2[1].'-'.$date2[0]; ?></td>

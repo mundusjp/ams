@@ -332,15 +332,15 @@
                                  foreach($all_kantor as $kan){
                                      if($kan['id_kantor']==$b['id_kantor']) {echo $kan['nama_kantor'];}
                                  }?></td>
-                                   <td><?php echo $b['biaya']; ?></td>
+                                   <td><?php echo 'Rp' . number_format($b['biaya']); ?></td>
                                    <?php $date = explode(" ",$b['tanggal_transaksi']);$date1 = $date[0]; ?>
                                    <?php $date2 = explode("-",$date1);?>
                                    <td><?php echo $date2[2].'-'.$date2[1].'-'.$date2[0]; ?></td>
 								                   <td><?php echo $b['deskripsi']; ?></td>
 									                 <td>
-										                 <button class="btn btn-outline-info" data-toggle="modal" href="#edit<?php echo $b['id_transaksi']; ?>">Edit</button>
+										                 <a class="text-info" data-toggle="modal" href="#edit<?php echo $b['id_transaksi']; ?>">Edit</a> |
                                      <!-- <a href="<?php echo site_url('stock/removebeli/'.$b['id_transaksi']); ?>">Delete</a> | -->
-                                     <a class="btn btn-outline-primary" href="<?php echo site_url('inventory/detail_beli/'.$b['id_transaksi']); ?>">Detail</a>
+                                     <a class="text-primary" href="<?php echo site_url('inventory/detail_beli/'.$b['id_transaksi']); ?>">Detail</a>
 									                 </td>
 								                 </tr>
                                <?php }
