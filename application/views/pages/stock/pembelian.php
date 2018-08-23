@@ -205,7 +205,7 @@
                                       <div class="col-3">
                                         <form class="form-body m-t-40">
                                           <div class="form-group m-b-40">
-                                            <label for="namakantor"><h6 class="font-weight-bold">No Nota :</h6></label>
+                                            <label for="namakantor"><h6 class="font-weight-bold">No. Nota :</h6></label>
                                             <span class="bar"></span>
                             	               <input type="text" class="form-control" name="no_nota" value="<?php echo ($this->input->post('no_nota') ? $this->input->post('no_nota') : $b['no_nota']); ?>" />
                                            </div>
@@ -302,7 +302,7 @@
                                   <thead>
 						                        <tr>
 			                                   <th>No.</th>
-                                         <th>No Nota</th>
+                                         <th>No. Nota</th>
 									                       <th>Nama Vendor</th>
                                           <th>Nama Cabang</th>
                                          <th>Total Harga</th>

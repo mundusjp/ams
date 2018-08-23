@@ -33,13 +33,11 @@
                                         <thead>
                                             <tr>
 											<th>No.</th>
-											<th>Id Divisi Pengada</th>
-											<th>Nama</th>
-											<th>Jenis</th>
-											<th>Merk</th>
-											<th>Nama Divisi Pengada</th>
+                      <th>Nama</th>
+                      <th>Merk</th>
+                      <th>Divisi Pengada</th>
+											<th>Divisi Penerima</th>
 											<th>Tanggal</th>
-											<th>Kategori</th>
 											<!-- <th>Id Beli/sewa</th> -->
 											<!-- <th>Actions</th> -->
                                             </tr>
@@ -48,16 +46,14 @@
 										<?php $no=1; foreach($inventory as $i){ ?>
     									<tr>
 											<td><?php echo $no++; ?></td>
-                                            <td><?php
-                                                foreach($all_divisi as $d){
-                                                    if($d['id_divisi']==$i->id_divisi_penerima) {echo $d['nama_divisi'];}
-                                                }?></td>
 											<td><?php echo $i->nama; ?></td>
-											<td><?php echo $i->jenis; ?></td>
 											<td><?php echo $i->merk; ?></td>
 											<td><?php echo $i->nama_divisi_pengada; ?></td>
+                      <td><?php
+                          foreach($all_divisi as $d){
+                              if($d['id_divisi']==$i->id_divisi_penerima) {echo $d['nama_divisi'];}
+                          }?></td>
 											<td><?php echo $i->tanggal; ?></td>
-											<td><?php echo $i->kategori; ?></td>
 											<!-- <td><?php echo $i->id_beli/sewa; ?></td> -->
 											<!-- <td>
     									        <a href="<?php echo site_url('inventory/edit/'.$i->id_inventory); ?>">Edit</a> |
