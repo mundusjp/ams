@@ -197,7 +197,7 @@
                                         </div>
                                         <div class="col-md-3">
                                           <div class="form-group m-b-40">
-                                            <label for="namakantor"><h6 class="font-weight-bold">No Nota</h6></label>
+                                            <label for="namakantor"><h6 class="font-weight-bold">No. Nota</h6></label>
                                             <span class="bar"></span>
                                             <input type="text" class="form-control" name="no_nota" value="<?php echo ($this->input->post('no_nota') ? $this->input->post('no_nota') : $s['no_nota']); ?>" />
                                             <span class="text-danger"><?php echo form_error('no_nota');?></span>
@@ -296,7 +296,7 @@
                                         <thead>
 										<tr>
 											<th>No.</th>
-                                            <th>No Nota</th>
+                                            <th>No. Nota</th>
 											<th>Nama Vendor</th>
                          <th>Nama Kantor</th>
                                             <th>Biaya</th>
