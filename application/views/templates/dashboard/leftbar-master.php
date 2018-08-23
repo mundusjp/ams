@@ -13,7 +13,6 @@
                 </li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-note"></i><span class="hide-menu">Transaction</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="<?php echo base_url('stock/overview')?>">Overview</a></li>
                         <li><a href="<?php echo base_url('stock/pembelian')?>">Pembelian</a></li>
                         <li><a href="<?php echo base_url('stock/penyewaan')?>">Penyewaan</a></li>
                         <li><a href="<?php echo base_url('stock/pemeliharaan')?>">Pemeliharaan</a></li>
