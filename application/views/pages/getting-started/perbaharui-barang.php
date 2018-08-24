@@ -27,7 +27,7 @@
                 <div class="card-body wizard-content">
                     <h4 class="card-title">Langkah - Langkah</h4>
                     <h6 class="card-subtitle">Ikuti Langkah untuk Memperbaharui Stock Barang</a></h6>
-                    <form action="#" class="tab-wizard wizard-circle">
+                    <form action="<?php echo base_url('home')?>" class="tab-wizard wizard-circle">
                         <!-- Step 1 -->
                         <h6>Update Stock</h6>
                         <section>
@@ -92,7 +92,7 @@
                           </div>
                         </section>
                         <!-- Step 4 -->
-                        <h6>Update Barang</h6>
+                        <h6>Pencarian Barang</h6>
                         <section>
                           <div class="row">
                             <div class="col-lg-12 content-mid">
@@ -106,27 +106,47 @@
                                   left: 50%;
                                   transform: translate(-50%, -50%);
                                   -ms-transform: translate(-50%, -50%);
-                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 3:&nbsp;Update Barang</h3><br><p><h6>Lihat Kolom Bagian "Tindakan" dan Klik "Update". Anda Dapat Membuka Halaman Tersebut <a href="<?php echo base_url('inventory/bhp')?>" target="_blank" rel="noreferrer nofollow">Disini.</a></h6></p></span>
+                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 3:&nbsp;Cari Barang Yang Akan Diupdate</h3><br><p><h6>Lihat Kolom Bagian "Tindakan" dan Klik "Update". Anda Dapat Membuka Halaman Tersebut <a href="<?php echo base_url('inventory/bhp')?>" target="_blank" rel="noreferrer nofollow">Disini.</a></h6></p></span>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </section>
-                        <h6>Test</h6>
+                        <h6>Update Barang</h6>
                         <section>
                           <div class="row">
                             <div class="col-lg-12 content-mid">
                               <div class="card">
-                                <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/update3.jpg')?>">
+                                <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/update4.jpg')?>">
                                 <div class="card-img-overlay card-inverse">
                                   <span style="
                                   /* font-size: 30px; */
                                   position: absolute;
-                                  top: 90%;
+                                  top: 85%;
                                   left: 50%;
                                   transform: translate(-50%, -50%);
                                   -ms-transform: translate(-50%, -50%);
-                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 3:&nbsp;Update Barang</h3><br><p><h6>Lihat Kolom Bagian "Tindakan" dan Klik "Update". Anda Dapat Membuka Halaman Tersebut <a href="<?php echo base_url('inventory/bhp')?>" target="_blank" rel="noreferrer nofollow">Disini.</a></h6></p></span>
+                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 4:&nbsp;Update Barang</h3><br><p><h6>Pilih Apakah Anda Mau Menambahkan atau Mengurangi Barang</h6></p></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                        <h6>Selesai</h6>
+                        <section>
+                          <div class="row">
+                            <div class="col-lg-12 content-mid">
+                              <div class="card">
+                                <img class="card-img" src="<?php echo base_url('assets/vertical/images/background/update.jpg')?>">
+                                <div class="card-img-overlay card-inverse">
+                                  <span style="
+                                  font-size: 40px;
+                                  position: absolute;
+                                  top: 50%;
+                                  left: 50%;
+                                  transform: translate(-50%, -50%);
+                                  -ms-transform: translate(-50%, -50%);
+                                  text-align: center;"><h1 class="text-white" style="border:2px solid white;padding:10px;">Selesai! Mudah Bukan? :)</h1></span>
                                 </div>
                               </div>
                             </div>
