@@ -138,7 +138,7 @@ function profilpic($id_admin)
   $this->form_validation->set_rules('alamat','Alamat','max_length[191]');
   $this->form_validation->set_rules('email','Email','max_length[191]|valid_email');
   $this->form_validation->set_rules('username','Username','required|max_length[50]');
-  $this->form_validation->set_rules('nipp','Nipp','integer');
+//   $this->form_validation->set_rules('nipp','Nipp','integer');
   $this->form_validation->set_rules('jabatan','Jabatan','max_length[50]');
   //$this->form_validation->set_rules('photo','Photo','max_length[191]');
 

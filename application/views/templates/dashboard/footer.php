@@ -227,3 +227,77 @@ $('#upload').on('click', function() {
     </script>
 </body>
 </html>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
+<script>
+ $ ('.delete_lead').on("click", function (e) {
+    e.preventDefault ();
+    var url = $ (this).attr('href');
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this Lead !",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        
+        swal("Success! Your Lead has been deleted!", {
+          icon: "success",
+          
+        });
+        setTimeout(
+  function() 
+  {
+    window.location.replace(url);
+  }, 1500);
+        
+      } else {
+        swal("Your Lead is safe!");
+      }
+    });
+  });
+  </script>
+
+  <script>
+ $ ('.throw_lead').on("click", function (e) {
+    e.preventDefault ();
+    var url = $ (this).attr('href');
+    swal({
+      title: "Are you sure?",
+      text: "Once thrown, you will not be able to recover this Lead !",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        
+        swal("Success! Your Lead has been deleted!", {
+          icon: "success",
+          
+        });
+        setTimeout(
+  function() 
+  {
+    window.location.replace(url);
+  }, 1500);
+        
+      } else {
+        swal("Your Lead is safe!");
+      }
+    });
+  });
+  </script>
+
+  <script>
+ $ ('.berhasil').on("click", function () {
+    var url = $ (this).attr('href');
+    swal("Good job!", "You clicked the button!", "success");
+        setTimeout(
+  function() 
+  {
+    window.location.replace(url);
+  }, 2000);   
+      });
+  </script>

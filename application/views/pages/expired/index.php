@@ -105,7 +105,7 @@
                         <?php if ($i->kategori == 'beli'){ ?>
 
                         <td>
-                                <a class="text-danger" href="<?php echo site_url('expired/buang/'.$i->id_inventory); ?>">Buang</a> &nbsp;|
+                                <a class="text-danger throw_lead" href="<?php echo site_url('expired/buang/'.$i->id_inventory); ?>">Buang</a> &nbsp;|
                                 <a class="text-warning waves-effect waves-light" data-toggle="modal" href="#addpenjualan<?php echo $i->id_inventory; ?>">Jual</a>&nbsp;|
                                 <a class="text-info waves-effect waves-light" data-toggle="modal" href="#addperpanjang<?php echo $i->id_inventory; ?>">Perpanjang</a>
                             </td>

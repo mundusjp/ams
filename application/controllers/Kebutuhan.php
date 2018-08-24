@@ -141,5 +141,4 @@ class Kebutuhan extends CI_Controller{
         else
             show_error('The beli you are trying to delete does not exist.');
     }
-
 }

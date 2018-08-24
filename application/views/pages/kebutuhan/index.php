@@ -123,7 +123,7 @@
                                         </div></div></div>
                                       <div class="modal-footer d-flex">
                                         <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
-                                        <button type="submit" class="btn btn-info waves-effect waves-light">Tambah</button>
+                                        <button type="submit" class="btn btn-info waves-effect waves-light berhasil">Tambah</button>
                                       </div>
                                     </div>
                                   </div>
@@ -154,6 +154,7 @@
 										<th>Divisi</th>
                     <th>Kantor</th>
                     <th>User</th>
+                    <th>Tanggal Input</th>
                     <th>Tindakan</th>
 									</tr>
 									</thead>
@@ -177,9 +178,12 @@
                                         foreach($all_user as $u){
                                             if($u['id_user']==$k['id_user']) {echo $u['nama'];}
                                         }?></td>
+                                        <?php $date = explode(" ",$k['created_at']);
+                                              $date = $date[0]; ?>
+                                        <td><?php echo $date; ?></td>
 										<td>
                                             <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $k['id_kebutuhan']; ?>">Ubah</a>
-											                      <a class="btn btn-outline-danger" href="<?php echo site_url('kebutuhan/remove/'.$k['id_kebutuhan']); ?>">Hapus</a>
+											                      <a class="btn btn-outline-danger delete_lead" href="<?php echo site_url('kebutuhan/remove/'.$k['id_kebutuhan']); ?>">Hapus</a>
 										</td>
 									</tr>
 
