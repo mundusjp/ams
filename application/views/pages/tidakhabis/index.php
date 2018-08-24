@@ -200,10 +200,10 @@
                                                       }
                                                       foreach($divisi as $div)
                                                       {
-                                                        $selected = ($div['nama_divisi'] == $i->nama_divisi_pengada) ? ' selected="selected"' : "";
+                                                        $selected = ($div['id_divisi'] == $i->id_divisi_penerima) ? ' selected="selected"' : "";
                                                             foreach($all_kantor as $kan){
                                                                 if($kan['id_kantor']==$div['id_kantor']) {
-                                                                echo '<option value="'.$div['nama_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
+                                                                echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
                                                                 }
                                                             }
                                                       }
@@ -385,10 +385,10 @@
                                                       }
                                                       foreach($divisi as $div)
                                                       {
-                                                        $selected = ($div['nama_divisi'] == $i->nama_divisi_pengada) ? ' selected="selected"' : "";
+                                                        $selected = ($div['id_divisi'] == $i->id_divisi_penerima) ? ' selected="selected"' : "";
                                                             foreach($all_kantor as $kan){
                                                                 if($kan['id_kantor']==$div['id_kantor']) {
-                                                                echo '<option value="'.$div['nama_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
+                                                                echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
                                                                 }
                                                             }
                                                       }
