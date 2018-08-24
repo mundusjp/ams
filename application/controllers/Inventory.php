@@ -377,6 +377,7 @@ class Inventory extends CI_Controller{
                         'id_divisi' => $this->input->post('id_divisi'),
                         'nama_barang' => $this->input->post('nama_barang'),
                         'jumlah' => $b,
+                        'satuan' => $this->input->post('satuan'),
                         'id_user' => $this->input->post('id_user'),
                         );
                 $kebutuhan_id = $this->Kebutuhan_model->add_kebutuhan($par);

@@ -171,10 +171,10 @@
                                                           }
                                                           foreach($divisi as $div)
                                                           {
-                                                            $selected = ($div['nama_divisi'] == $i->nama_divisi_pengada) ? ' selected="selected"' : "";
+                                                            $selected = ($div['id_divisi'] == $i->id_divisi_penerima) ? ' selected="selected"' : "";
                                                                 foreach($all_kantor as $kan){
                                                                     if($kan['id_kantor']==$div['id_kantor']) {
-                                                                    echo '<option value="'.$div['nama_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
+                                                                    echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
                                                                     }
                                                                 }
                                                           }
@@ -210,22 +210,21 @@
                                   }
                                 if (count($inv)){?>
                                 <div class="table-responsive m-t-40">
-
-                                    <table id="myTable" class="table table-bordered table-striped">
+                                    <table id="myTable" class="tablesaw table-striped table-hover table-bordered table" data-tablesaw-mode="columntoggle" >
                                         <thead>
                                             <tr>
-                                                <th>No.</th>
-                                                <th>Nama</th>
-                                                <th>Merk</th>
-                                                <th>Divisi Pengada</th>
-                                                <th>Divisi Penerima</th>
-                                                <th>Kantor</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist" >No.</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Nama</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Merk</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="3">Divisi Pengada</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Divisi Penerima</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="5">Kantor</th>
                                                 <!-- <th>Jenis</th> -->
-                                                <th>Tanggal</th>
-                                                <th>Kategori</th>
-                                                <th>Jumlah</th>
-                                                <th>Harga satuan</th>
-                                                <th>Tindakan</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="6">Tanggal</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="7">Kategori</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="8">Jumlah</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="9">Harga satuan</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="10">Tindakan</th>
                                             </tr>
                                         </thead>
                                         <tbody>

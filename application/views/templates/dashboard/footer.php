@@ -126,6 +126,9 @@ function chkPwd(a)
 <!--stickey kit -->
 <script src="<?php echo base_url('assets/vertical/node_modules/sticky-kit-master/dist/sticky-kit.min.js')?>"></script>
 <script src="<?php echo base_url('assets/vertical/node_modules/sparkline/jquery.sparkline.min.js')?>"></script>
+<!--jQuery peity -->
+<script src="<?php echo base_url('assets/vertical/node_modules/tablesaw-master/dist/tablesaw.js')?>"></script>
+<script src="<?php echo base_url('assets/vertical/node_modules//tablesaw-master/dist/tablesaw-init.js')?>"></script>
 <!-- Chart JS -->
 <script src="<?php echo base_url('assets/vertical/js/dashboard2.js')?>"></script>
 <!--Custom JavaScript -->

@@ -62,7 +62,8 @@
                                               <div class="form-group m-b-40">
                                                 <span class="bar"></span>
                                                 <label><h6 class="font-weight-bold">Nama Kantor</h6></label>
-                                                <select name="id_kantor" class="form-control">
+                                                <div class="controls">
+                                                <select name="id_kantor" class="form-control" required>
                                                 <option value="">Pilih Kantor</option>
                                                 <?php
                                                 foreach($all_kantor as $kantor)
@@ -74,48 +75,43 @@
                                                 ?>
                                                 </select>
                                               </div>
+                                              </div>
                                           <div class="form-group m-b-40">
                                               <label><h6 class="font-weight-bold">Gedung Kantor</h6></label>
+                                              <div class="controls">
                                               <input type="text" class="form-control" name="gedung" value="<?php echo $this->input->post('gedung'); ?>" />
                                               <!-- <textarea rows="4" type="text" class="form-control" id="alamatkantor"></textarea> -->
                                               <span class="bar"></span>
+</div>
                                           </div>
                                         </div>
                                         <div class="col-md-6">
                                           <form class="floating-labels m-t-40">
                                             <div class="form-group m-b-40">
                                               <label for="namakantor"><h6 class="font-weight-bold">Nama Divisi </h6></label>
+                                              <div class="controls">
                                               <input type="text" class="form-control" name="nama_divisi" value="<?php echo $this->input->post('nama_divisi'); ?>" />
                                               <span class="bar"></span>
                                             </div>
+                                            </div>
                                           <label><h6 class="font-weight-bold">Lantai</h6></label>
                                           <div class="form-group">
+                                            <div class="controls">
                                               <select name="lantai" class="form-control col-6">
                                                   <option value="1">1</option>
-                                                    <?php $selected = (1 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="2">2</option>
-                                                    <?php $selected = (2 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="3">3</option>
-                                                    <?php $selected = (3 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="4">4</option>
-                                                    <?php $selected = (4 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="5">5</option>
-                                                    <?php $selected = (5 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="6">6</option>
-                                                    <?php $selected = (6 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="7">7</option>
-                                                    <?php $selected = (7 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="8">8</option>
-                                                    <?php $selected = (8 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="9">9</option>
-                                                    <?php $selected = (9 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="10">10</option>
-                                                    <?php $selected = (10 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="11">11</option>
-                                                    <?php $selected = (11 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="12">12</option>
-                                                    <?php $selected = (12 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                               </select>
+                                            </div>
                                             </div>
                                           </div>
                                         </div>
@@ -178,14 +174,17 @@
                                             <div class="col-6">
                                               <div class="form-group m-b-40">
                                               <label for="namakantor"><h6 class="font-weight-bold">Nama Divisi </h6></label>
+                                              <div class="controls">
                                               <input type="text" class="form-control" name="nama_divisi" value="<?php echo ($this->input->post('nama_divisi') ? $this->input->post('nama_divisi') : $rec['nama_divisi']); ?>" />
                                               <span class="bar"></span>
+                                            </div>
                                             </div>
                                           </div>
                                           <div class="col-6">
                                             <div class="form-group m-b-40">
                                                 <span class="bar"></span>
                                                 <label><h6 class="font-weight-bold">Nama Kantor</h6></label>
+                                                <div class="controls">
                                                 <select name="id_kantor" class="form-control">
                                             			<option value="">Pilih Kantor</option>
                                             			<?php
@@ -197,6 +196,7 @@
                                             			}
                                             			?>
                                             		</select>
+                                              </div>
                                             </div>
                                           </div>
                                         </div>
@@ -204,40 +204,33 @@
                                           <div class="col-6">
                                             <div class="form-group m-b-40">
                                                 <label><h6 class="font-weight-bold">Gedung Kantor</h6></label>
+                                                <div class="controls">
                                                 <input type="text" class="form-control" name="gedung" value="<?php echo ($this->input->post('gedung') ? $this->input->post('gedung') : $rec['gedung']); ?>" />
                                                 <!-- <textarea rows="4" type="text" class="form-control" id="alamatkantor"></textarea> -->
                                                 <span class="bar"></span>
+                                              </div>
                                             </div>
                                           </div>
                                           <div class="col-3">
                                             <div class="form-group">
                                                 <label><h6 class="font-weight-bold">Lantai Kantor</h6></label>
+                                                <div class="controls">
                                                 <select name="lantai" class="form-control">
+                                                  <?php $selected = ($rec['lantai'] == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="1">1</option>
-                                                    <?php $selected = (1 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="2">2</option>
-                                                    <?php $selected = (2 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="3">3</option>
-                                                    <?php $selected = (3 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="4">4</option>
-                                                    <?php $selected = (4 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="5">5</option>
-                                                    <?php $selected = (5 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="6">6</option>
-                                                    <?php $selected = (6 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="7">7</option>
-                                                    <?php $selected = (7 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="8">8</option>
-                                                    <?php $selected = (8 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="9">9</option>
-                                                    <?php $selected = (9 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="10">10</option>
-                                                    <?php $selected = (10 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="11">11</option>
-                                                    <?php $selected = (11 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="12">12</option>
-                                                    <?php $selected = (12 == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                 </select>
+                                              </div>
                                               </div>
                                             </div>
                                           </div></div></div>

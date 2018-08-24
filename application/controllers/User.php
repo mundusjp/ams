@@ -235,4 +235,26 @@ function profilpic($id_admin)
     show_error('The user you are trying to edit does not exist.');
  }
 
+ public function new_password($id_admin)
+{
+  $data['user'] = $this->admin_model->get_admin($id_admin);
+
+  if(isset($data['user']['id_user']))
+  {
+    $this->form_validation->set_rules('new','New','required|alpha_numeric');
+    $this->form_validation->set_rules('re_new', 'Retype New', 'required|matches[new]');
+    if($this->form_validation->run() == FALSE)
+    {
+      redirect('manage/user');
+    }
+    else
+    {
+        $this->admin_model->save();
+        sleep(2);
+        redirect('manage/user');
+    }
+  }
+  else
+   show_error('The user you are trying to edit does not exist.');
+}
 }

@@ -200,10 +200,10 @@
                                                       }
                                                       foreach($divisi as $div)
                                                       {
-                                                        $selected = ($div['nama_divisi'] == $i->id_divisi_penerima) ? ' selected="selected"' : "";
+                                                        $selected = ($div['nama_divisi'] == $i->nama_divisi_pengada) ? ' selected="selected"' : "";
                                                             foreach($all_kantor as $kan){
                                                                 if($kan['id_kantor']==$div['id_kantor']) {
-                                                                echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
+                                                                echo '<option value="'.$div['nama_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
                                                                 }
                                                             }
                                                       }
@@ -385,10 +385,10 @@
                                                       }
                                                       foreach($divisi as $div)
                                                       {
-                                                        $selected = ($div['nama_divisi'] == $i->id_divisi_penerima) ? ' selected="selected"' : "";
+                                                        $selected = ($div['nama_divisi'] == $i->nama_divisi_pengada) ? ' selected="selected"' : "";
                                                             foreach($all_kantor as $kan){
                                                                 if($kan['id_kantor']==$div['id_kantor']) {
-                                                                echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
+                                                                echo '<option value="'.$div['nama_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
                                                                 }
                                                             }
                                                       }
@@ -476,12 +476,15 @@
                                                       if($kan['id_kantor']==$i->id_kantor) {echo $kan['nama_kantor'];}
                                                     }?>
                                                 </td>
-                                                <td><?php echo 'Rp ' . number_format($i->harga); ?></td>
+                                                <td><?php echo 'Rp' . number_format($i->harga); ?></td>
                                                 <td><?= date('d-m-Y', strtotime($i->tanggal)) ?></td>
                                                 <!-- <td><?php echo $i->status; ?></td> -->
                                                 <td>
-                                                    <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal"  href="#edit-<?php echo $i->id_inventory;?>">Ubah </a>
-                                                    <a class="btn btn-outline-warning waves-effect waves-light" data-toggle="modal"  href="#ubah-<?php echo $i->id_inventory;?>"> Rawat</a>
+                                                  <div class="row">
+                                                    <a class=" text-info" data-toggle="modal"  href="#edit-<?php echo $i->id_inventory;?>">Ubah </a> |
+                                                    <a class="text-warning" data-toggle="modal"  href="#ubah-<?php echo $i->id_inventory;?>"> Rawat</a>
+
+                                                  </div>
                                                   <!-- <div class="row">
                                                     <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Delete</a>
                                                   </div> -->
@@ -693,7 +696,7 @@
                                                       </button>
                                                     </div>
                                                     <div class="modal-body"><div class="row"><div class="col-lg-12">
-                                                    <?php echo form_open('stock/addpemeliharaan'); ?>
+                                                    <?php echo form_open('transaction/addpemeliharaan'); ?>
                                                     <form class="floating-labels m-b-40">
                                                     <div class="row">
                                                       <div class="col-4">
@@ -737,7 +740,7 @@
                                                       <div class="col-4">
                                                         <div class="form-group m-b-40">
                                                           <label><h6 class="font-weight-bold">Vendor :</h6></label>
-                                                          <select class="form-control" name="id_vendor">
+                                                          <select class="form-control" required name="id_vendor">
                                                             <option value="">Pilih Vendor</option>
                                                             <?php
                                                             foreach($all_vendor as $vendor)
@@ -753,7 +756,7 @@
                                                           <div class="form-group m-b-40">
                                                             <label for="namakantor"><h6 class="font-weight-bold">Biaya</h6></label>
                                                             <span class="bar"></span>
-                                                            <input type="number" class="form-control" name="biaya" value="<?php echo $this->input->post('biaya'); ?>" />
+                                                            <input type="number" required class="form-control" name="biaya" value="<?php echo $this->input->post('biaya'); ?>" />
                                                             <span class="text-danger"><?php echo form_error('biaya');?></span>
                                                           </div>
                                                         </div>
@@ -761,7 +764,7 @@
                                                           <div class="form-group m-b-40">
                                                             <label for="id_kantor"><h6 class="font-weight-bold">Tanggal Perawatan </h6></label>
                                                             <span class="bar"></span>
-                                                            <input type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>" />
+                                                            <input type="date" required class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>" />
                                                             <span class="text-danger"><?php echo form_error('tanggal');?></span>
                                                           </div>
                                                         </div>

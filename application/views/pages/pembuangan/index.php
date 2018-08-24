@@ -55,18 +55,18 @@
                                         <thead>
                                             <tr>
                                                 <th>No.</th>
-                                                <th>Serial Id</th>
-                                                <th>Nama Barang</th>
-                                                <th>Divisi Pengada</th>
-                                                <th>Divisi Penerima</th>
+                                                <th>Serial_ID&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+                                                <th>Nama_Barang&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+                                                <th>Divisi_Pengada</th>
+                                                <th>Divisi_Penerima</th>
                                                 <th>Kantor</th>
                                                 <!-- <th>Jenis</th> -->
                                                 <th>Merk</th>
-                                                <th>Tanggal Beli</th>
+                                                <th>Tanggal_Beli</th>
                                                 <th>Kategori</th>
                                                 <th>Kondisi</th>
                                                 <th>Durability</th>
-                                                <th>Tanggal Buang</th>
+                                                <th>Tanggal_Buang</th>
                                             </tr>
                                         </thead>
                                         <tbody>

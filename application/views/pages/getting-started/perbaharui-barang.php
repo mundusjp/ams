@@ -50,161 +50,87 @@
                           </div>
                         </section>
                         <!-- Step 2 -->
-                        <h6>Job Status</h6>
+                        <h6>Buka List Inventory</h6>
                         <section>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="jobTitle1">Job Title :</label>
-                                        <input type="text" class="form-control" id="jobTitle1"> </div>
+                          <div class="row">
+                            <div class="col-lg-12 content-mid">
+                              <div class="card">
+                                <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/update1.jpg')?>">
+                                <div class="card-img-overlay card-inverse">
+                                  <span style="
+                                  /* font-size: 30px; */
+                                  position: absolute;
+                                  top: 90%;
+                                  left: 50%;
+                                  transform: translate(-50%, -50%);
+                                  -ms-transform: translate(-50%, -50%);
+                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="videoUrl1">Company Name :</label>
-                                        <input type="text" class="form-control" id="videoUrl1">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="shortDescription1">Job Description :</label>
-                                        <textarea name="shortDescription" id="shortDescription1" rows="6" class="form-control"></textarea>
-                                    </div>
-                                </div>
+                              </div>
                             </div>
+                          </div>
                         </section>
                         <!-- Step 3 -->
-                        <h6>Interview</h6>
+                        <h6>Pastikan Barang</h6>
                         <section>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="int1">Interview For :</label>
-                                        <input type="text" class="form-control" id="int1"> </div>
-                                    <div class="form-group">
-                                        <label for="intType1">Interview Type :</label>
-                                        <select class="custom-select form-control" id="intType1" data-placeholder="Type to search cities" name="intType1">
-                                            <option value="Banquet">Normal</option>
-                                            <option value="Fund Raiser">Difficult</option>
-                                            <option value="Dinner Party">Hard</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="Location1">Location :</label>
-                                        <select class="custom-select form-control" id="Location1" name="location">
-                                            <option value="">Select City</option>
-                                            <option value="India">India</option>
-                                            <option value="USA">USA</option>
-                                            <option value="Dubai">Dubai</option>
-                                        </select>
-                                    </div>
+                          <div class="row">
+                            <div class="col-lg-12 content-mid">
+                              <div class="card">
+                                <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/update2.jpg')?>">
+                                <div class="card-img-overlay card-inverse">
+                                  <span style="
+                                  /* font-size: 30px; */
+                                  position: absolute;
+                                  top: 90%;
+                                  left: 50%;
+                                  transform: translate(-50%, -50%);
+                                  -ms-transform: translate(-50%, -50%);
+                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 2:&nbsp;Pastikan Barang Merupakan Barang Habis Pakai</h3><br><p><h6>Lihat Kolom Bagian "Jenis" dan Pastikan Bahwa Barang adalah Barang Habis Pakai. Tidak Menemukan Barang? Anda Bisa "Search" Nama Barang Tersebut.</h6></p></span>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="jobTitle2">Interview Date :</label>
-                                        <input type="date" class="form-control" id="jobTitle2">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Requirements :</label>
-                                        <div class="c-inputs-stacked">
-                                            <label class="inline custom-control custom-checkbox block">
-                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Employee</span> </label>
-                                            <label class="inline custom-control custom-checkbox block">
-                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Contract</span> </label>
-                                        </div>
-                                    </div>
-                                </div>
+                              </div>
                             </div>
+                          </div>
                         </section>
                         <!-- Step 4 -->
-                        <h6>Remark</h6>
+                        <h6>Update Barang</h6>
                         <section>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="behName1">Behaviour :</label>
-                                        <input type="text" class="form-control" id="behName1">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="participants1">Confidance</label>
-                                        <input type="text" class="form-control" id="participants1">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="participants1">Result</label>
-                                        <select class="custom-select form-control" id="participants1" name="location">
-                                            <option value="">Select Result</option>
-                                            <option value="Selected">Selected</option>
-                                            <option value="Rejected">Rejected</option>
-                                            <option value="Call Second-time">Call Second-time</option>
-                                        </select>
-                                    </div>
+                          <div class="row">
+                            <div class="col-lg-12 content-mid">
+                              <div class="card">
+                                <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/update3.jpg')?>">
+                                <div class="card-img-overlay card-inverse">
+                                  <span style="
+                                  /* font-size: 30px; */
+                                  position: absolute;
+                                  top: 90%;
+                                  left: 50%;
+                                  transform: translate(-50%, -50%);
+                                  -ms-transform: translate(-50%, -50%);
+                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 3:&nbsp;Update Barang</h3><br><p><h6>Lihat Kolom Bagian "Tindakan" dan Klik "Update". Anda Dapat Membuka Halaman Tersebut <a href="<?php echo base_url('inventory/bhp')?>" target="_blank" rel="noreferrer nofollow">Disini.</a></h6></p></span>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="decisions1">Comments</label>
-                                        <textarea name="decisions" id="decisions1" rows="4" class="form-control"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Rate Interviwer :</label>
-                                        <div class="c-inputs-stacked">
-                                            <label class="inline custom-control custom-checkbox block">
-                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">1 star</span> </label>
-                                            <label class="inline custom-control custom-checkbox block">
-                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">2 star</span> </label>
-                                            <label class="inline custom-control custom-checkbox block">
-                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">3 star</span> </label>
-                                            <label class="inline custom-control custom-checkbox block">
-                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">4 star</span> </label>
-                                            <label class="inline custom-control custom-checkbox block">
-                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">5 star</span> </label>
-                                        </div>
-                                    </div>
-                                </div>
+                              </div>
                             </div>
+                          </div>
                         </section>
                         <h6>Test</h6>
                         <section>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="behName1">Behaviour :</label>
-                                        <input type="text" class="form-control" id="behName1">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="participants1">Confidance</label>
-                                        <input type="text" class="form-control" id="participants1">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="participants1">Result</label>
-                                        <select class="custom-select form-control" id="participants1" name="location">
-                                            <option value="">Select Result</option>
-                                            <option value="Selected">Selected</option>
-                                            <option value="Rejected">Rejected</option>
-                                            <option value="Call Second-time">Call Second-time</option>
-                                        </select>
-                                    </div>
+                          <div class="row">
+                            <div class="col-lg-12 content-mid">
+                              <div class="card">
+                                <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/update3.jpg')?>">
+                                <div class="card-img-overlay card-inverse">
+                                  <span style="
+                                  /* font-size: 30px; */
+                                  position: absolute;
+                                  top: 90%;
+                                  left: 50%;
+                                  transform: translate(-50%, -50%);
+                                  -ms-transform: translate(-50%, -50%);
+                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 3:&nbsp;Update Barang</h3><br><p><h6>Lihat Kolom Bagian "Tindakan" dan Klik "Update". Anda Dapat Membuka Halaman Tersebut <a href="<?php echo base_url('inventory/bhp')?>" target="_blank" rel="noreferrer nofollow">Disini.</a></h6></p></span>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="decisions1">Comments</label>
-                                        <textarea name="decisions" id="decisions1" rows="4" class="form-control"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Rate Interviwer :</label>
-                                        <div class="c-inputs-stacked">
-                                            <label class="inline custom-control custom-checkbox block">
-                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">1 star</span> </label>
-                                            <label class="inline custom-control custom-checkbox block">
-                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">2 star</span> </label>
-                                            <label class="inline custom-control custom-checkbox block">
-                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">3 star</span> </label>
-                                            <label class="inline custom-control custom-checkbox block">
-                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">4 star</span> </label>
-                                            <label class="inline custom-control custom-checkbox block">
-                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">5 star</span> </label>
-                                        </div>
-                                    </div>
-                                </div>
+                              </div>
                             </div>
+                          </div>
                         </section>
                     </form>
                 </div>
