@@ -198,7 +198,7 @@
                                   <td><?php echo $k['alamat']; ?></td>
                                   <td>
                                     <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $k['id_kantor']; ?>">Ubah</a>
-                                    <a class="btn btn-outline-danger waves-effect waves-light" href="<?php echo site_url('kantor/remove/'.$k['id_kantor']); ?>">Hapus</a>
+                                    <a class="btn btn-outline-danger waves-effect waves-light delete_lead" href="<?php echo site_url('kantor/remove/'.$k['id_kantor']); ?>">Hapus</a>
                                   </td>
                                 </tr>
                                 <?php }

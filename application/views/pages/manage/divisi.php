@@ -153,7 +153,7 @@
     									<td><?php echo $rec['lantai']; ?></td>
     									<td>
     										<a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $rec['id_divisi'];?>">Ubah</a>
-    										<a href="<?php echo site_url('divisi/remove/'.$rec['id_divisi']); ?>" onclick="javasciprt: return confirm('Are You Sure ?')" value="<?php echo $rec['id_divisi']?>" class="btn btn-outline-danger">Hapus</a>
+    										<a href="<?php echo site_url('divisi/remove/'.$rec['id_divisi']); ?>" value="<?php echo $rec['id_divisi']?>" class="btn btn-outline-danger delete_lead">Hapus</a>
     									</td>
 
     								</tr>

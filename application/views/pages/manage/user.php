@@ -176,7 +176,7 @@
                             <td>
                               <div class="row">
                               <a data-toggle="modal" class="btn btn-outline-info waves-effect waves-light" href="#edit<?php echo $rec['id_user']; ?>" >Ubah</a>
-                              <a class="btn btn-outline-danger" href="<?php echo site_url('admin/remove/'.$rec['id_user']); ?>">Hapus</a>
+                              <a class="btn btn-outline-danger delete_lead" href="<?php echo site_url('admin/remove/'.$rec['id_user']); ?>">Hapus</a>
                             </div>
                             </td>
                           </tr>
