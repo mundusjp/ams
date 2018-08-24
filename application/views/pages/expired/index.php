@@ -112,7 +112,7 @@
                         <?php }
                             else { ?>
                             <td>
-                                <a class="text-danger" href="<?php echo site_url('expired/kembalikan/'.$i->id_inventory); ?>">Kembalikan</a> &nbsp;|
+                                <a class="text-danger kembalikan" href="<?php echo site_url('expired/kembalikan/'.$i->id_inventory); ?>">Kembalikan</a> &nbsp;|
                                 <a class="text-info waves-effect waves-light" href="<?php echo site_url('expired/perpanjang/'.$i->id_inventory); ?>">Perpanjang</a>
                             </td>
                         <?php } ?>
@@ -183,7 +183,7 @@
                                         </div></div></div>
                                         <div class="modal-footer d-flex">
                                           <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
-                                          <button type="submit" class="btn btn-info waves-effect waves-light">Jual</button>
+                                          <button type="submit" class="btn btn-info waves-effect waves-light jual">Jual</button>
                                         </div>
                                         <?php echo form_close(); ?>
                                         </div>
@@ -220,7 +220,7 @@
                                       </div></div></div>
                                       <div class="modal-footer d-flex">
                                         <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
-                                        <button type="submit" class="btn btn-info waves-effect waves-light">Perpanjang</button>
+                                        <button type="submit" class="btn btn-info waves-effect waves-light perpanjang">Perpanjang</button>
                                         <?php echo form_close(); ?>
 
                       <?php } ?>

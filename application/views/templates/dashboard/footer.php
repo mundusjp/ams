@@ -236,8 +236,8 @@ $('#upload').on('click', function() {
     e.preventDefault ();
     var url = $ (this).attr('href');
     swal({
-      title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover this Lead !",
+      title: "Apa anda yakin?",
+      text: "Setelah dihapus, tidak akan bisa dikembalikan!",
       icon: "warning",
       buttons: true,
       dangerMode: true,
@@ -245,7 +245,7 @@ $('#upload').on('click', function() {
     .then((willDelete) => {
       if (willDelete) {
         
-        swal("Success! Your Lead has been deleted!", {
+        swal("Sukses! Data telah dihapus!", {
           icon: "success",
           
         });
@@ -256,7 +256,7 @@ $('#upload').on('click', function() {
   }, 1500);
         
       } else {
-        swal("Your Lead is safe!");
+        swal("Data tidak dihapus");
       }
     });
   });
@@ -267,8 +267,8 @@ $('#upload').on('click', function() {
     e.preventDefault ();
     var url = $ (this).attr('href');
     swal({
-      title: "Are you sure?",
-      text: "Once thrown, you will not be able to recover this Lead !",
+      title: "Apa anda yakin?",
+      text: "Setelah dibuang, barang tidak bisa dikembalikan!",
       icon: "warning",
       buttons: true,
       dangerMode: true,
@@ -276,7 +276,7 @@ $('#upload').on('click', function() {
     .then((willDelete) => {
       if (willDelete) {
         
-        swal("Success! Your Lead has been deleted!", {
+        swal("Sukses! Barang telah dibuang", {
           icon: "success",
           
         });
@@ -287,7 +287,38 @@ $('#upload').on('click', function() {
   }, 1500);
         
       } else {
-        swal("Your Lead is safe!");
+        swal("Barang tidak dibuang");
+      }
+    });
+  });
+  </script>
+
+  <script>
+ $ ('.kembalikan').on("click", function (e) {
+    e.preventDefault ();
+    var url = $ (this).attr('href');
+    swal({
+      title: "Apa anda yakin?",
+      text: "Barang akan dikembalikan",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        
+        swal("Sukses! Barang telah dikembalikan", {
+          icon: "success",
+          
+        });
+        setTimeout(
+  function() 
+  {
+    window.location.replace(url);
+  }, 1500);
+        
+      } else {
+        swal("Barang tidak dikembalikan");
       }
     });
   });
@@ -296,7 +327,43 @@ $('#upload').on('click', function() {
   <script>
  $ ('.berhasil').on("click", function () {
     var url = $ (this).attr('href');
-    swal("Good job!", "You clicked the button!", "success");
+    swal("Good job!", "Berhasil ditambahkan!", "success");
+        setTimeout(
+  function() 
+  {
+    window.location.replace(url);
+  }, 2000);   
+      });
+  </script>
+
+    <script>
+ $ ('.perpanjang').on("click", function () {
+    var url = $ (this).attr('href');
+    swal("Good job!", "Berhasil diperpanjang!", "success");
+        setTimeout(
+  function() 
+  {
+    window.location.replace(url);
+  }, 2000);   
+      });
+  </script>
+
+    <script>
+ $ ('.jual').on("click", function () {
+    var url = $ (this).attr('href');
+    swal("Good job!", "Berhasil dijual!", "success");
+        setTimeout(
+  function() 
+  {
+    window.location.replace(url);
+  }, 2000);   
+      });
+  </script>
+
+    <script>
+ $ ('.ubah').on("click", function () {
+    var url = $ (this).attr('href');
+    swal("Good job!", "Data berhasil diubah!", "success");
         setTimeout(
   function() 
   {

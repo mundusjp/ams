@@ -73,6 +73,7 @@ class Kebutuhan extends CI_Controller{
             );
 
             $kebutuhan_id = $this->Kebutuhan_model->add_kebutuhan($params);
+            sleep(1);
             redirect('kebutuhan/index');
         }
         else
@@ -110,6 +111,7 @@ class Kebutuhan extends CI_Controller{
                 );
 
                 $this->Kebutuhan_model->update_kebutuhan($id_kebutuhan,$params);
+                sleep(1);
                 redirect('kebutuhan/index');
             }
             else

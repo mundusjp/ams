@@ -264,7 +264,7 @@
                                         </div></div></div>
                                       </div>
                                       <div class="modal-footer d-flex justify-content-center">
-                                        <button type="submit" class="btn btn-info waves-effect waves-light">Ubah</button>
+                                        <button type="submit" class="btn btn-info waves-effect waves-light ubah">Ubah</button>
                                         <?php echo form_close(); ?>
                                       </div>
                                     </div>

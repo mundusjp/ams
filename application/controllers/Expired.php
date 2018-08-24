@@ -87,6 +87,7 @@ class Expired extends CI_Controller{
                 'status' => "dijual",
             );
             $penjualan_id = $this->Expired_model->add_penjualan($id_inventory, $params, $param);
+            sleep(1);
             redirect('expired/index');
         }
         else
@@ -124,6 +125,7 @@ class Expired extends CI_Controller{
                 'status' => "dikembalikan",
             );
             $this->Expired_model->add_pembuangan($id_inventory,$params);
+            sleep(1);
             redirect('expired/index');
         }
         else
@@ -151,6 +153,7 @@ class Expired extends CI_Controller{
                     'durability' => $jumlah,
                 );
                 $this->Expired_model->add_perpanjang($id_inventory,$params);
+                sleep(1);
                 redirect('expired/index');
             }
             else
