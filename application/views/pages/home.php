@@ -129,7 +129,7 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">EXPIRED INVENTORIES</h5>
+                                <h5 class="card-title">BARANG KADALUWARSA</h5>
                                 <div class="d-flex m-t-30 m-b-20 no-block align-items-center">
                                     <span class="display-5 text-danger"><i class="icon-close"></i></span>
                                     <a href="<?php echo base_url('expired/index')?>" class="display-5 ml-auto">
@@ -144,11 +144,11 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">NEED RESTOCK</h5>
+                                <h5 class="card-title">BUTUH STOK ULANG</h5>
                                 <div class="d-flex m-t-30 m-b-20 no-block align-items-center">
                                     <span class="display-5 text-purple"><i class="icon-basket-loaded"></i></span>
                                             <a href="<?php echo base_url('kebutuhan/index')?>" class="display-5 ml-auto">
-                                            <?php 
+                                            <?php
                                             $status = $this->session->userdata('level');
                                             if ($status == 1){
                                                     echo $count_kebutuhan;
@@ -162,36 +162,37 @@
                         </div>
                     </div>
                     <!-- column -->
-                    <!-- <div class="col-md-6">
+                    <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">OPEN PROJECTS</h5>
+                                <h5 class="card-title">JUMLAH VENDOR</h5>
                                 <div class="d-flex m-t-30 m-b-20 no-block align-items-center">
                                     <span class="display-5 text-primary"><i class="icon-folder-alt"></i></span>
                                     <a href="javscript:void(0)" class="display-5 ml-auto">311</a>
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <!-- column -->
-                    <!-- <div class="col-md-6">
+                    <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">NEW INVOICES</h5>
+                                <h5 class="card-title">TOTAL BARANG</h5>
                                 <div class="d-flex m-t-30 m-b-20 no-block align-items-center">
                                     <span class="display-5 text-success"><i class="icon-wallet"></i></span>
                                     <a href="javscript:void(0)" class="display-5 ml-auto">117</a>
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <!-- column -->
                 </div>
             </div>
             <div class="col-lg-6">
+              <!-- <div class="row">
+                <div class="col-lg-12">
                 <div class="news-slide m-b-15">
                     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                        <!-- Carousel items -->
                         <div class="carousel-inner">
                             <div class="active carousel-item">
                                 <div class="overlaybg"><img src="<?php echo base_url('/assets/vertical/images/news/news1.jpg')?>" class="img-fluid" /></div>
@@ -211,8 +212,52 @@
                         </div>
                     </div>
                 </div>
+              </div>
+              </div> -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+                      <div class="card-body">
+                          <h5 class="card-title">USER RECENT ACTIVITIES</h5>
+                          <div class="steamline m-t-40">
+                              <div class="sl-item">
+                                  <div class="sl-left bg-success"> <i class="ti-user"></i></div>
+                                  <div class="sl-right">
+                                      <div class="font-medium">Meeting today <span class="sl-date"> 5pm</span></div>
+                                      <div class="desc">you can write anything </div>
+                                  </div>
+                              </div>
+                              <div class="sl-item">
+                                  <div class="sl-left bg-info"><i class="fa fa-image"></i></div>
+                                  <div class="sl-right">
+                                      <div class="font-medium">Send documents to Clark</div>
+                                      <div class="desc">Lorem Ipsum is simply </div>
+                                  </div>
+                              </div>
+                              <div class="sl-item">
+                                  <div class="sl-left"> <img class="img-circle" alt="user" src="../assets/images/users/2.jpg"> </div>
+                                  <div class="sl-right">
+                                      <div class="font-medium">Go to the Doctor <span class="sl-date">5 minutes ago</span></div>
+                                      <div class="desc">Contrary to popular belief</div>
+                                  </div>
+                              </div>
+                              <div class="sl-item">
+                                  <div class="sl-left"> <img class="img-circle" alt="user" src="../assets/images/users/3.jpg"> </div>
+                                  <div class="sl-right">
+                                      <div><a href="javascript:void(0)">Tiger Sroff</a> <span class="sl-date">5 minutes ago</span></div>
+                                      <div class="desc">Approve meeting with tiger
+                                          <br><a href="javascript:void(0)" class="btn m-t-10 m-r-5 btn-rounded btn-outline-success">Apporve</a> <a href="javascript:void(0)" class="btn m-t-10 btn-rounded btn-outline-danger">Refuse</a> </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              </div>
             </div>
+
         </div>
+
         <!-- ============================================================== -->
         <!-- Ini working space teman teman. Tinggal tambah table dkk-->
         <!-- ============================================================== -->

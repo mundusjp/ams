@@ -114,28 +114,28 @@
                                      </div>
                                    </div>
                                  </div>
-                                 <?php
-                               $status = $this->session->userdata('level');
-                               if($status == 1){?>
-                                 <div class="col-3">
-                                   <div class="form-group m-b-40">
-                                       <label for="id_divisi"><h6 class="font-weight-bold">Diadakan Oleh:</h6></label>
-                                       <div class="controls">
-                                       <select required name="id_kantor" class="form-control">
-                                         <option value="">Pilih Kantor</option>
-                                           <?php
-                                            foreach($all_kantor as $kan)
-                                         {
-                                           $selected = ($kan['id_kantor'] == $this->input->post('id_kantor')) ? ' selected="selected"' : "";
-                                           echo '<option value="'.$kan['id_kantor'].'" '.$selected.'>'.$kan['nama_kantor'].'</option>';
-                                         }
-                                       ?>
-                                   </select>
-                                 </div>
-                                       <span class="bar"></span>
-                                   </div>
-                                 </div><?php }?>
                                  <div class="row">
+                                   <?php
+                                   $status = $this->session->userdata('level');
+                                   if($status == 1){?>
+                                   <div class="col-3">
+                                     <div class="form-group m-b-40">
+                                         <label for="id_divisi"><h6 class="font-weight-bold">Diadakan Oleh:</h6></label>
+                                         <div class="controls">
+                                         <select required name="id_kantor" class="form-control">
+                                           <option value="">Pilih Kantor</option>
+                                             <?php
+                                              foreach($all_kantor as $kan)
+                                           {
+                                             $selected = ($kan['id_kantor'] == $this->input->post('id_kantor')) ? ' selected="selected"' : "";
+                                             echo '<option value="'.$kan['id_kantor'].'" '.$selected.'>'.$kan['nama_kantor'].'</option>';
+                                           }
+                                         ?>
+                                     </select>
+                                   </div>
+                                         <span class="bar"></span>
+                                     </div>
+                                   </div><?php }?>
                                    <div class="col-9">
                                      <div class="form-group m-b-40">
                                        <label for="alamatkantor"><h6 class="font-weight-bold">Deskripsi</h6></label>
@@ -143,10 +143,6 @@
                                        <textarea required rows="4" class="form-control" type="text" name="deskripsi" value="<?php echo $this->input->post('deskripsi'); ?>" ></textarea>
 		                                     <span class="text-danger"><?php echo form_error('deskripsi');?></span>
                                        </div>
-                                     </div>
-                                     <div class="col-3">
-                                       <br><br>
-                                       * Isi dengan Catatan Pembelian
                                      </div>
                                    </div></div></div>
                                    <div class="modal-footer d-flex">
@@ -224,25 +220,25 @@
                                            </div>
                                          </div>
                                        </div>
-                                       <?php if($status == 1){?>
-                                       <div class="col-3">
-                                         <div class="form-group m-b-40">
-                                             <label><h6 class="font-weight-bold">Diadakan Oleh:</h6></label>
-                                             <div class="controls">
-                                             <select name="id_kantor" class="form-control">
-                                             <?php
-                                               foreach($all_kantor as $kan)
-                                            {
-                                              $selected = ($kan['id_kantor'] == $b['id_kantor']) ? ' selected="selected"' : "";
-                                              echo '<option value="'.$kan['id_kantor'].'" '.$selected.'>'.$kan['nama_kantor'].'</option>';
-                                            }
-                                             ?>
-                                         </select>
-                                       </div>
-                                         </div>
-                                       </div>
-                                     <?php }?>
                                        <div class="row">
+                                         <?php if($status == 1){?>
+                                         <div class="col-3">
+                                           <div class="form-group m-b-40">
+                                               <label><h6 class="font-weight-bold">Diadakan Oleh:</h6></label>
+                                               <div class="controls">
+                                               <select name="id_kantor" class="form-control">
+                                               <?php
+                                                 foreach($all_kantor as $kan)
+                                              {
+                                                $selected = ($kan['id_kantor'] == $b['id_kantor']) ? ' selected="selected"' : "";
+                                                echo '<option value="'.$kan['id_kantor'].'" '.$selected.'>'.$kan['nama_kantor'].'</option>';
+                                              }
+                                               ?>
+                                           </select>
+                                         </div>
+                                           </div>
+                                         </div>
+                                       <?php }?>
                                          <div class="col-9">
                                            <div class="form-group m-b-40">
                                              <label for="deskripso"><h6 class="font-weight-bold">Deskripsi :</h6></label>
@@ -250,12 +246,7 @@
             		                                 <span class="text-danger"><?php echo form_error('deskripsi');?></span>
                                                </div>
                                              </div>
-                                             <div class="col-3">
-                                               <br><br>
-                                               * Isi dengan Catatan Pembelian
-                                             </div>
                                            </div></div></div>
-                                         </div>
                                          <div class="modal-footer d-flex">
                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
                                            <button type="submit" class="btn btn-info waves-effect waves-light">Simpan</button>
@@ -263,8 +254,9 @@
                                          <?php echo form_close(); ?>
                                        </div>
                                      </div>
-                                     <!-- End of Modal-Dialogue -->
                                    </div>
+                                 </div>
+                                     <!-- End of Modal-Dialogue -->
           								         <?php } ?>
                                    <!-- ========== -->
                                    <!--END OF MODAL-->
