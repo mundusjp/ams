@@ -53,8 +53,11 @@
                           foreach($all_divisi as $d){
                               if($d['id_divisi']==$i->id_divisi_penerima) {echo $d['nama_divisi'];}
                           }?></td>
-											<td><?php echo $i->tanggal; ?></td>
-											<!-- <td><?php echo $i->id_beli/sewa; ?></td> -->
+                                            <?php $date = explode(" ",$i->tanggal);$date1 = $date[0]; ?>
+                                            <?php $date2 = explode("-",$date1);?>
+                                            <td><?php echo $date2[2].'-'.$date2[1].'-'.$date2[0]; ?></td>
+											
+											
 											<!-- <td>
     									        <a href="<?php echo site_url('inventory/edit/'.$i->id_inventory); ?>">Edit</a> |
     									        <a href="<?php echo site_url('inventory/remove/'.$i->id_inventory); ?>">Delete</a>
