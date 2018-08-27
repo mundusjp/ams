@@ -50,12 +50,12 @@
                           </div>
                         </section>
                         <!-- Step 2 -->
-                        <h6>Buka List Inventory</h6>
+                        <h6>TAMBAH VENDOR :Buka List Vendor</h6>
                         <section>
                           <div class="row">
                             <div class="col-lg-12 content-mid">
                               <div class="card">
-                                <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/terima.jpg')?>">
+                                <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/terima1.jpg')?>">
                                 <div class="card-img-overlay card-inverse">
                                   <span style="
                                   /* font-size: 30px; */
@@ -73,12 +73,12 @@
                           <!-- Step 3 -->
                         </section>
                         <!-- Step 2 -->
-                        <h6>Ubah Status Barang</h6>
+                        <h6>TAMBAH VENDOR: Tambah</h6>
                         <section>
                           <div class="row">
                             <div class="col-lg-12 content-mid">
                               <div class="card">
-                                <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/terima.jpg')?>">
+                                <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/terima2.jpg')?>">
                                 <div class="card-img-overlay card-inverse">
                                   <span style="
                                   /* font-size: 30px; */
@@ -96,12 +96,72 @@
                           <!-- Step 4 -->
                         </section>
                         <!-- Step 2 -->
-                        <h6>Cara Mengubah Status Barang</h6>
+                        <h6>TAMBAH PEMBELIAN: Buka Transaksi Pembelian</h6>
                         <section>
                           <div class="row">
                             <div class="col-lg-12 content-mid">
                               <div class="card">
-                                <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/terima.jpg')?>">
+                                <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/terima3.jpg')?>">
+                                <div class="card-img-overlay card-inverse">
+                                  <span style="
+                                  /* font-size: 30px; */
+                                  position: absolute;
+                                  top: 90%;
+                                  left: 50%;
+                                  transform: translate(-50%, -50%);
+                                  -ms-transform: translate(-50%, -50%);
+                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                        <h6>TAMBAH PEMBELIAN: Buka Inventory BHP/BTHP</h6>
+                        <section>
+                          <div class="row">
+                            <div class="col-lg-12 content-mid">
+                              <div class="card">
+                                <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/terima4.jpg')?>">
+                                <div class="card-img-overlay card-inverse">
+                                  <span style="
+                                  /* font-size: 30px; */
+                                  position: absolute;
+                                  top: 90%;
+                                  left: 50%;
+                                  transform: translate(-50%, -50%);
+                                  -ms-transform: translate(-50%, -50%);
+                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                        <h6>TAMBAH PENYEWAAN: Buka Transaksi Penyewaan</h6>
+                        <section>
+                          <div class="row">
+                            <div class="col-lg-12 content-mid">
+                              <div class="card">
+                                <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/terima6.jpg')?>">
+                                <div class="card-img-overlay card-inverse">
+                                  <span style="
+                                  /* font-size: 30px; */
+                                  position: absolute;
+                                  top: 90%;
+                                  left: 50%;
+                                  transform: translate(-50%, -50%);
+                                  -ms-transform: translate(-50%, -50%);
+                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                        <h6>TAMBAH PENYEWAAN: Buka Inventory BTHP</h6>
+                        <section>
+                          <div class="row">
+                            <div class="col-lg-12 content-mid">
+                              <div class="card">
+                                <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/terima5.jpg')?>">
                                 <div class="card-img-overlay card-inverse">
                                   <span style="
                                   /* font-size: 30px; */
