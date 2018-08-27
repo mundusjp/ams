@@ -57,7 +57,7 @@
                         <div class="row">
                           <div class="col-lg-12 content-mid">
                             <div class="card">
-                              <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/expired.jpg')?>">
+                              <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/expired1.jpg')?>">
                               <div class="card-img-overlay card-inverse">
                                 <span style="
                                 /* font-size: 30px; */
@@ -66,7 +66,7 @@
                                 left: 50%;
                                 transform: translate(-50%, -50%);
                                 -ms-transform: translate(-50%, -50%);
-                                text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                                text-align: center;"><h3 class="font-weight-bold">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
                               </div>
                             </div>
                           </div>
@@ -80,7 +80,7 @@
                         <div class="row">
                           <div class="col-lg-12 content-mid">
                             <div class="card">
-                              <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/expired.jpg')?>">
+                              <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/expired2.jpg')?>">
                               <div class="card-img-overlay card-inverse">
                                 <span style="
                                 /* font-size: 30px; */
@@ -89,7 +89,7 @@
                                 left: 50%;
                                 transform: translate(-50%, -50%);
                                 -ms-transform: translate(-50%, -50%);
-                                text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                                text-align: center;"><h3 class="font-weight-bold">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
                               </div>
                             </div>
                           </div>
@@ -98,12 +98,12 @@
                         <!-- Step 4 -->
                       </section>
                       <!-- Step 2 -->
-                      <h6>Cara Mengubah Status Barang</h6>
+                      <h6>IF Brg.Beli: Buang Barang</h6>
                       <section>
                         <div class="row">
                           <div class="col-lg-12 content-mid">
                             <div class="card">
-                              <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/expired.jpg')?>">
+                              <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/expired3.jpg')?>">
                               <div class="card-img-overlay card-inverse">
                                 <span style="
                                 /* font-size: 30px; */
@@ -112,7 +112,87 @@
                                 left: 50%;
                                 transform: translate(-50%, -50%);
                                 -ms-transform: translate(-50%, -50%);
-                                text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                                text-align: center;"><h3 class="font-weight-bold">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <h6>IF Brg.Beli: Jual Barang</h6>
+                      <section>
+                        <div class="row">
+                          <div class="col-lg-12 content-mid">
+                            <div class="card">
+                              <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/expired4.jpg')?>">
+                              <div class="card-img-overlay card-inverse">
+                                <span style="
+                                /* font-size: 30px; */
+                                position: absolute;
+                                top: 90%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                -ms-transform: translate(-50%, -50%);
+                                text-align: center;"><h3 class="font-weight-bold">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <h6>IF Brg.Beli: Perpanjang</h6>
+                      <section>
+                        <div class="row">
+                          <div class="col-lg-12 content-mid">
+                            <div class="card">
+                              <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/expired5.jpg')?>">
+                              <div class="card-img-overlay card-inverse">
+                                <span style="
+                                /* font-size: 30px; */
+                                position: absolute;
+                                top: 90%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                -ms-transform: translate(-50%, -50%);
+                                text-align: center;"><h3 class="font-weight-bold">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <h6>IF Brg.Sewa: Kembalikan</h6>
+                      <section>
+                        <div class="row">
+                          <div class="col-lg-12 content-mid">
+                            <div class="card">
+                              <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/expired6.jpg')?>">
+                              <div class="card-img-overlay card-inverse">
+                                <span style="
+                                /* font-size: 30px; */
+                                position: absolute;
+                                top: 90%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                -ms-transform: translate(-50%, -50%);
+                                text-align: center;"><h3 class="font-weight-bold">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <h6>IF Brg.Sewa: Perpanjang</h6>
+                      <section>
+                        <div class="row">
+                          <div class="col-lg-12 content-mid">
+                            <div class="card">
+                              <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/expired6.jpg')?>">
+                              <div class="card-img-overlay card-inverse">
+                                <span style="
+                                /* font-size: 30px; */
+                                position: absolute;
+                                top: 90%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                -ms-transform: translate(-50%, -50%);
+                                text-align: center;"><h3 class="font-weight-bold" >Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
                               </div>
                             </div>
                           </div>
