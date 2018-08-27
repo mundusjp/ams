@@ -184,7 +184,7 @@ function addbeli()
 
 $this->form_validation->set_rules('tanggal_transaksi','Tanggal Transaksi','required');
 $this->form_validation->set_rules('biaya','Biaya','required|integer');
-$this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[191]');
+// $this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[191]');
 
 if($this->form_validation->run())
     {
@@ -347,17 +347,29 @@ function editbeli($id_beli)
 
   $this->form_validation->set_rules('tanggal_transaksi','Tanggal Transaksi','required');
   $this->form_validation->set_rules('biaya','Biaya','required|integer');
-  $this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[191]');
+  //$this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[191]');
 
   if($this->form_validation->run())
         {
+          $status = $this->session->userdata('level');
+           if($status == 1){
+            $params = array(
+    'no_nota' => $this->input->post('no_nota'),
+      'id_vendor' => $this->input->post('id_vendor'),
+      'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
+      'id_kantor' => $this->input->post('id_kantor'),
+      'biaya' => $this->input->post('biaya'),
+      'deskripsi' => $this->input->post('deskripsi'),
+    );}
+          else if($status == 2){
             $params = array(
     'no_nota' => $this->input->post('no_nota'),
       'id_vendor' => $this->input->post('id_vendor'),
       'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
       'biaya' => $this->input->post('biaya'),
       'deskripsi' => $this->input->post('deskripsi'),
-            );
+    );
+          }
 
             $this->Transaksi_model->update_transaksi($id_beli,$params);
             $desc =($this->session->userdata('nama').' '.'mengubah'.' '.$this->input->post('no_nota'));

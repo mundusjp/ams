@@ -96,8 +96,10 @@
                                 <div class="form-group m-b-40">
                                   <label for="id_kantor"><h6 class="font-weight-bold">Tanggal Transaksi</h6></label>
                                   <span class="bar"></span>
+                                  <div class="control">
                                   <input  required type="date" class="form-control" name="tanggal_transaksi" value="<?php echo $this->input->post('tanggal_transaksi'); ?>" />
-	                                 <span class="text-danger"><?php echo form_error('tanggal_transaksi');?></span>
+                                </div>
+                                   <span class="text-danger"><?php echo form_error('tanggal_transaksi');?></span>
                                  </div>
                                </div>
                                <div class="col-3">
@@ -105,8 +107,10 @@
                                    <div class="form-group m-b-40">
                                      <label for="namakantor"><h6 class="font-weight-bold">No. Nota</h6></label>
                                      <span class="bar"></span>
+                                     <div class="control">
                                      <input required type="text" class="form-control" name="no_nota" value="<?php echo $this->input->post('no_nota'); ?>" />
-		                                   <span class="text-danger"><?php echo form_error('no_nota');?></span>
+                                   </div>
+                                       <span class="text-danger"><?php echo form_error('no_nota');?></span>
                                      </div>
                                    </div>
                                  </div>
@@ -116,7 +120,8 @@
                                  <div class="col-3">
                                    <div class="form-group m-b-40">
                                        <label for="id_divisi"><h6 class="font-weight-bold">Diadakan Oleh:</h6></label>
-                                       <select name="id_kantor" class="form-control">
+                                       <div class="controls">
+                                       <select required name="id_kantor" class="form-control">
                                          <option value="">Pilih Kantor</option>
                                            <?php
                                             foreach($all_kantor as $kan)
@@ -126,6 +131,7 @@
                                          }
                                        ?>
                                    </select>
+                                 </div>
                                        <span class="bar"></span>
                                    </div>
                                  </div><?php }?>
@@ -174,8 +180,8 @@
                                     <div class="col-3">
                                       <div class="form-group">
                                         <label><h6 class="font-weight-bold">Pembelian Dari:</h6></label>
-                                        <select   class="form-control" name="id_vendor">
-                                          <option value="">Pilih Vendor</option>
+                                        <div class="controls">
+                                        <select  required class="form-control" name="id_vendor">
                                           <?php
                                           foreach($all_vendor as $vendor)
                                           {
@@ -185,21 +191,26 @@
                                           ?>
                                         </select>
                                       </div>
+                                      </div>
                                     </div>
                                     <div class="col-3">
                                       <div class="form-group m-b-40">
                                         <label for="namakantor"><h6 class="font-weight-bold">Total Harga :</h6></label>
                                         <span class="bar"></span>
                                         <div class="controller">
-                                        <input type="number" min="1" class="form-control" onsubmit="thousandseparator()" name="biaya" value="<?php echo ($this->input->post('biaya') ? $this->input->post('biaya') : $b['biaya']); ?>" /> </div>
+                                          <div class="controls">
+                                        <input required type="number" min="1" class="form-control" onsubmit="thousandseparator()" name="biaya" value="<?php echo ($this->input->post('biaya') ? $this->input->post('biaya') : $b['biaya']); ?>" /> </div>
+                                      </div>
                                       </div>
                                     </div>
                                     <div class="col-3">
                                       <div class="form-group m-b-40">
                                         <label for="id_kantor"><h6 class="font-weight-bold">Tanggal Transaksi</h6></label>
                                         <span class="bar"></span>
-            	                	          <input type="text" class="form-control mydatepicker" name="tanggal_transaksi" value="<?php echo ($this->input->post('tanggal_transaksi') ? $this->input->post('tanggal_transaksi') : $b['tanggal_transaksi']); ?>" />
+                                        <div class="controls">
+            	                	          <input required type="text" class="form-control mydatepicker" name="tanggal_transaksi" value="<?php echo ($this->input->post('tanggal_transaksi') ? $this->input->post('tanggal_transaksi') : $b['tanggal_transaksi']); ?>" />
                                           <!-- <input type="text" class="form-control" id="id_kantor"> -->
+                                        </div>
                                         </div>
                                       </div>
                                       <div class="col-3">
@@ -207,38 +218,30 @@
                                           <div class="form-group m-b-40">
                                             <label for="namakantor"><h6 class="font-weight-bold">No. Nota :</h6></label>
                                             <span class="bar"></span>
-                            	               <input type="text" class="form-control" name="no_nota" value="<?php echo ($this->input->post('no_nota') ? $this->input->post('no_nota') : $b['no_nota']); ?>" />
+                                            <div class="controls">
+                            	               <input required type="text" class="form-control" name="no_nota" value="<?php echo ($this->input->post('no_nota') ? $this->input->post('no_nota') : $b['no_nota']); ?>" />
+                                           </div>
                                            </div>
                                          </div>
                                        </div>
+                                       <?php if($status == 1){?>
                                        <div class="col-3">
                                          <div class="form-group m-b-40">
-                                             <label><h6 class="font-weight-bold">Divisi Pengada</h6></label>
-                                             <select name="nama_divisi_pengada" class="form-control">
-                                             <option value="">Pilih Divisi</option>
+                                             <label><h6 class="font-weight-bold">Diadakan Oleh:</h6></label>
+                                             <div class="controls">
+                                             <select name="id_kantor" class="form-control">
                                              <?php
-                                             if($status == 1){
-                                               foreach($all_divisi as $div)
-                                               {
-                                                 $selected = ($div['id_divisi'] == $b->id_divisi) ? ' selected="selected"' : "";
-                                                     foreach($all_kantor as $kan){
-                                                         if($kan['id_kantor']==$div['id_kantor']) {
-                                                         echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$kan['nama_kantor'].' - '.$div['nama_divisi'].'</option>';
-                                                         }
-                                                     }
-                                               }
-                                             }
-                                             else if ($status == 2){
-                                             foreach($divisi_by_kantor as $div)
-                                             {
-                                               $selected = ($div['id_divisi'] == $b->id_divisi) ? ' selected="selected"' : "";
-                                               echo '<option value="'.$div['id_divisi'].'" '.$selected.'>'.$div['nama_divisi'].'</option>';
-                                             }
-                                           }
+                                               foreach($all_kantor as $kan)
+                                            {
+                                              $selected = ($kan['id_kantor'] == $b['id_kantor']) ? ' selected="selected"' : "";
+                                              echo '<option value="'.$kan['id_kantor'].'" '.$selected.'>'.$kan['nama_kantor'].'</option>';
+                                            }
                                              ?>
                                          </select>
+                                       </div>
                                          </div>
                                        </div>
+                                     <?php }?>
                                        <div class="row">
                                          <div class="col-9">
                                            <div class="form-group m-b-40">

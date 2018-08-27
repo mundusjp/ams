@@ -132,6 +132,7 @@ class Admin extends CI_Controller{
     {
         $user = $this->admin_model->get_admin($id_admin);
 
+        if ($this->db->error()) show_error ('hehe');
         // check if the user exists before trying to delete it
         if(isset($user['id_user']))
         {

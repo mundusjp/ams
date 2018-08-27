@@ -162,21 +162,27 @@
                                           <div class="col-md-6">
                                             <div class="form-group m-b-40">
                                                 <label><h6 class="font-weight-bold">Nama Perusahaan / Pembeli</h6></label>
-                                                <input type="text" class="form-control" name="pembeli" value="<?php echo $this->input->post('pembeli'); ?>" placeholder="Cth: PT. Pelabuhan Indonesia / John Doe" />
+                                                <div class="controls">
+                                                <input type="text" class="form-control" required name="pembeli" value="<?php echo $this->input->post('pembeli'); ?>" placeholder="Cth: PT. Pelabuhan Indonesia / John Doe" />
+                                                </div>
                                                 <span class="bar"></span>
                                             </div>
                                           </div>
                                           <div class="col-md-3">
                                             <div class="form-group m-b-40">
                                                 <label><h6 class="font-weight-bold">Harga Jual</h6></label>
-                                                <input type="number" class="form-control" name="harga" value="<?php echo $this->input->post('harga'); ?>" />
+                                                <div class="controls">
+                                                <input type="number" class="form-control" required name="harga" value="<?php echo $this->input->post('harga'); ?>" />
+                                                </div>
                                                 <span class="bar"></span>
                                             </div>
                                           </div>
                                           <div class="col-md-3">
                                             <div class="form-group m-b-40">
                                                 <label><h6 class="font-weight-bold">Tanggal Transaksi</h6></label>
-                                                <input type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>" />
+                                                <div class="controls">
+                                                <input type="date" class="form-control" required name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>" />
+                                                </div>
                                                 <span class="bar"></span>
                                             </div>
                                           </div>
@@ -212,7 +218,9 @@
                                                 <div class="input-group-append">
                                                   <span class="input-group-text b-0 bg-info text-white"><i class="ti-plus"></i></span>
                                                 </div>
-                                                <input type="text" class="form-control" name="durability2" value="<?php echo $this->input->post('durability2'); ?>" />
+                                                <div class="controls">
+                                                <input type="text" class="form-control" required name="durability2" value="<?php echo $this->input->post('durability2'); ?>" />
+                                              </div>
                                                 <span class="bar"></span>
                                             </div>
                                           </div>
