@@ -66,7 +66,7 @@
                                 left: 50%;
                                 transform: translate(-50%, -50%);
                                 -ms-transform: translate(-50%, -50%);
-                                text-align: center;"><h3 class="font-weight-bold">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                                text-align: center;"><h3 class="font-weight-bold">Langkah 1:&nbsp;Buka Barang kadaluarsa Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Barang kadaluarsa. Atau Klik <a href="<?php echo base_url('expired/index')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
                               </div>
                             </div>
                           </div>
@@ -89,7 +89,7 @@
                                 left: 50%;
                                 transform: translate(-50%, -50%);
                                 -ms-transform: translate(-50%, -50%);
-                                text-align: center;"><h3 class="font-weight-bold">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                                text-align: center;"><h3 class="font-weight-bold">Langkah 2:&nbsp;Scroll untuk memilih tindakan selanjutnya</h3><br><h6>Kembalikan atau Perpanjang untuk barang sewa dan Buang atau Jual atau Perpanjang untuk barang beli</h6></span>
                               </div>
                             </div>
                           </div>
@@ -112,7 +112,7 @@
                                 left: 50%;
                                 transform: translate(-50%, -50%);
                                 -ms-transform: translate(-50%, -50%);
-                                text-align: center;"><h3 class="font-weight-bold">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                                text-align: center;"><h3 class="font-weight-bold">Langkah 3:&nbsp;Pilih Action Buang untuk membuang barang</h3><br><h6>Klik ok untuk melanjutkan atau cancel untuk membatalkan</h6></span>
                               </div>
                             </div>
                           </div>
@@ -132,7 +132,7 @@
                                 left: 50%;
                                 transform: translate(-50%, -50%);
                                 -ms-transform: translate(-50%, -50%);
-                                text-align: center;"><h3 class="font-weight-bold">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                                text-align: center;"><h3 class="font-weight-bold">Langkah 3:&nbsp;Pilih Action Jual untuk menjual barang</h3><br><h6>Isi form-nya, klik tombol jual</h6></span>
                               </div>
                             </div>
                           </div>
@@ -152,7 +152,7 @@
                                 left: 50%;
                                 transform: translate(-50%, -50%);
                                 -ms-transform: translate(-50%, -50%);
-                                text-align: center;"><h3 class="font-weight-bold">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                                text-align: center;"><h3 class="font-weight-bold">Langkah 3:&nbsp;Pilih Action Perpanjang untuk menambah durability barang</h3><br><h6>Isi form-nya kemudian klik tombol perpanjang</h6></span>
                               </div>
                             </div>
                           </div>
@@ -172,7 +172,7 @@
                                 left: 50%;
                                 transform: translate(-50%, -50%);
                                 -ms-transform: translate(-50%, -50%);
-                                text-align: center;"><h3 class="font-weight-bold">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                                text-align: center;"><h3 class="font-weight-bold">Langkah 3:&nbsp;Pilih Action Kembalikan untuk mengembalikan barang sewa</h3><br><h6>Klik ok untuk melanjutkan dan cancel untuk membatalkan</h6></span>
                               </div>
                             </div>
                           </div>
