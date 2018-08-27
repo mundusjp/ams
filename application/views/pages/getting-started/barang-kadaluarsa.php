@@ -183,7 +183,7 @@
                         <div class="row">
                           <div class="col-lg-12 content-mid">
                             <div class="card">
-                              <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/expired6.jpg')?>">
+                              <img class="card-img" src="<?php echo base_url('assets/vertical/images/getstarted/expired7.jpg')?>">
                               <div class="card-img-overlay card-inverse">
                                 <span style="
                                 /* font-size: 30px; */
