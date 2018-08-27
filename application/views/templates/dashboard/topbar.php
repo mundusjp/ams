@@ -55,10 +55,6 @@
                     <div class="dropdown-menu dropdown-menu-right animated flipInY">
                         <!-- text-->
                         <a href="<?php echo base_url('user/profil'); ?>" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
-                        <!-- text -->
-                        <div class="dropdown-divider"></div>
-                        <!-- text-->
-                        <a href="javascript:void(0)" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>
                         <!-- text-->
                         <div class="dropdown-divider"></div>
                         <!-- text-->
