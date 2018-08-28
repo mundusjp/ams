@@ -216,39 +216,35 @@
               </div> -->
               <div class="row">
                 <div class="col-lg-12">
-                  <div class="card">
+                  <div class="card" style="
+    height: 400px;
+    overflow-y: scroll;
+    overflow-x:hidden;">
                       <div class="card-body">
                           <h5 class="card-title">USER RECENT ACTIVITIES</h5>
                           <div class="steamline m-t-40">
+                          <?php $status = $this->session->userdata('level');
+                                if($user['status']==1){
+                                    $ev=$eventlog;
+                                }
+                                else if($user['status']==2){
+                                    $ev=$eventlog2;
+                                }
+                                if (count($ev)){
+                                    foreach($ev as $e){?>
+                                        <?php $user_image = !empty($e['photo']) ? $e['photo'] : 'manager.png'; ?>
                               <div class="sl-item">
-                                  <div class="sl-left bg-success"> <i class="ti-user"></i></div>
+                                  <div class="sl-left"> <img src="<?php echo base_url("assets/vertical/images/users/".$user_image)?>" alt="default" class="img-circle" /> </div>
                                   <div class="sl-right">
-                                      <div class="font-medium">Meeting today <span class="sl-date"> 5pm</span></div>
-                                      <div class="desc">you can write anything </div>
+                                  <?php $this->load->helper('date'); ?>
+                                  <?php $post_date = strtotime($e['eventTime']); ?>
+                                  <?php $now = time(); ?>
+                                      <div class="font-medium"><?php echo $e['nama'] ?> <span class="sl-date"><?php echo timespan($post_date, $now) . ' ago';?></span></div>
+                                      <div class="desc"><?php echo $e['event'] ?> <?php echo $e['eventDesc'] ?></div>
                                   </div>
                               </div>
-                              <div class="sl-item">
-                                  <div class="sl-left bg-info"><i class="fa fa-image"></i></div>
-                                  <div class="sl-right">
-                                      <div class="font-medium">Send documents to Clark</div>
-                                      <div class="desc">Lorem Ipsum is simply </div>
-                                  </div>
-                              </div>
-                              <div class="sl-item">
-                                  <div class="sl-left"> <img class="img-circle" alt="user" src="../assets/images/users/2.jpg"> </div>
-                                  <div class="sl-right">
-                                      <div class="font-medium">Go to the Doctor <span class="sl-date">5 minutes ago</span></div>
-                                      <div class="desc">Contrary to popular belief</div>
-                                  </div>
-                              </div>
-                              <div class="sl-item">
-                                  <div class="sl-left"> <img class="img-circle" alt="user" src="../assets/images/users/3.jpg"> </div>
-                                  <div class="sl-right">
-                                      <div><a href="javascript:void(0)">Tiger Sroff</a> <span class="sl-date">5 minutes ago</span></div>
-                                      <div class="desc">Approve meeting with tiger
-                                          <br><a href="javascript:void(0)" class="btn m-t-10 m-r-5 btn-rounded btn-outline-success">Apporve</a> <a href="javascript:void(0)" class="btn m-t-10 btn-rounded btn-outline-danger">Refuse</a> </div>
-                                  </div>
-                              </div>
+                              <?php }
+                                } ?>
                           </div>
                       </div>
                   </div>
