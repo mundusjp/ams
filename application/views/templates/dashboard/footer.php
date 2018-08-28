@@ -326,48 +326,80 @@ $('#upload').on('click', function() {
 
   <script>
  $ ('.berhasil').on("click", function () {
-    var url = $ (this).attr('href');
-    swal("Good job!", "Berhasil ditambahkan!", "success");
-        setTimeout(
-  function() 
-  {
-    window.location.replace(url);
-  }, 2000);   
+    swal({
+  title: 'Good job!',
+  text: 'Berhasil ditambahkan!',
+  timer: 2000,
+  icon: "success",
+  buttons: false
+}).then(
+  function () {},
+  // handling the promise rejection
+  function (dismiss) {
+    if (dismiss === 'timer') {
+      //console.log('I was closed by the timer')
+    }
+  }
+)
       });
   </script>
 
     <script>
  $ ('.perpanjang').on("click", function () {
-    var url = $ (this).attr('href');
-    swal("Good job!", "Berhasil diperpanjang!", "success");
-        setTimeout(
-  function() 
-  {
-    window.location.replace(url);
-  }, 2000);   
+    swal({
+  title: 'Good job!',
+  text: 'Berhasil diperpanjang!',
+  timer: 2000,
+  icon: "success",
+  buttons: false
+}).then(
+  function () {},
+  // handling the promise rejection
+  function (dismiss) {
+    if (dismiss === 'timer') {
+      //console.log('I was closed by the timer')
+    }
+  }
+)
       });
   </script>
 
     <script>
  $ ('.jual').on("click", function () {
-    var url = $ (this).attr('href', 'expired/index');
-    swal("Good job!", "Berhasil dijual!", "success");
-        setTimeout(
-  function() 
-  {
-    window.location.replace(url);
-  }, 2000);   
+    swal({
+  title: 'Good job!',
+  text: 'Berhasil dijual!',
+  timer: 2000,
+  icon: "success",
+  buttons: false
+}).then(
+  function () {},
+  // handling the promise rejection
+  function (dismiss) {
+    if (dismiss === 'timer') {
+      //console.log('I was closed by the timer')
+    }
+  }
+)
       });
   </script>
 
     <script>
  $ ('.ubah').on("click", function () {
-    var url = $ (this).attr('href');
-    swal("Good job!", "Data berhasil diubah!", "success");
-        setTimeout(
-  function() 
-  {
-    window.location.replace(url);
-  }, 2000);   
+    swal({
+  title: 'Good job!',
+  text: 'Berhasil diubah!',
+  timer: 2000,
+  icon: "success",
+  buttons: false
+}).then(
+  function () {},
+  // handling the promise rejection
+  function (dismiss) {
+    if (dismiss === 'timer') {
+      //console.log('I was closed by the timer')
+    }
+  }
+)
       });
   </script>

@@ -189,7 +189,7 @@
                                         </div></div></div>
                                         <div class="modal-footer d-flex">
                                           <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
-                                          <button type="submit" class="btn btn-info waves-effect waves-light jual">Jual</button>
+                                          <button type="submit" onclick = "jual()" class="btn btn-info waves-effect waves-light">Jual</button>
                                         </div>
                                         <?php echo form_close(); ?>
                                         </div>
