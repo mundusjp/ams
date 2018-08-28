@@ -350,7 +350,7 @@ $('#upload').on('click', function() {
 
     <script>
  $ ('.jual').on("click", function () {
-    var url = $ (this).attr('index');
+    var url = $ (this).attr('href', 'expired/index');
     swal("Good job!", "Berhasil dijual!", "success");
         setTimeout(
   function() 
