@@ -60,22 +60,22 @@
                                         <div class="row">
                                           <div class="col-6">
                                             <div class="form-group m-b-40">
-                                                <label><h6 class="font-weight-bold">Nama Barang</h6></label>
-                                                <input type="text" class="form-control" name="nama_barang" value="<?php echo $this->input->post('nama_barang'); ?>" />
+                                                <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Nama Barang</h6></label>
+                                                <input required type="text" class="form-control" name="nama_barang" value="<?php echo $this->input->post('nama_barang'); ?>" />
                                                 <span class="bar"></span>
                                             </div>
                                           </div>
                                           <div class="col-3">
                                             <div class="form-group m-b-40">
-                                                <label><h6 class="font-weight-bold">Jumlah</h6></label>
-                                                <input type="text" class="form-control" name="jumlah" value="<?php echo $this->input->post('jumlah'); ?>" />
+                                                <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Jumlah</h6></label>
+                                                <input required type="text" class="form-control" name="jumlah" value="<?php echo $this->input->post('jumlah'); ?>" />
                                                 <span class="bar"></span>
                                             </div>
                                           </div>
                                           <div class="col-3">
                                             <div class="form-group m-b-40">
-                                                <label><h6 class="font-weight-bold">Satuan</h6></label>
-                                                <input type="text" class="form-control" name="satuan" value="<?php echo $this->input->post('satuan'); ?>" />
+                                                <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Satuan</h6></label>
+                                                <input required type="text" class="form-control" name="satuan" value="<?php echo $this->input->post('satuan'); ?>" />
                                                 <span class="bar"></span>
                                             </div>
                                           </div>
@@ -84,7 +84,7 @@
                                           <div class="col-6">
                                             <form class="floating-labels m-t-40">
                                               <div class="form-group m-b-40">
-                                              <label><h6 class="font-weight-bold">Nama Divisi</h6></label>
+                                              <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Nama Divisi</h6></label>
                                               <select name="id_divisi" class="form-control" >
                                               <option value="">Pilih Divisi</option>
 			                                           <?php
@@ -118,7 +118,6 @@
                                           <div class="col-6">
                                             <h6 class="text-muted font-weight-bold">Keterangan </h6>
                                             <p>1. Permintaan Barang akan diproses dalam waktu secepatnya</p>
-                                            <p>2. Tambahan Barang akan langsung masuk dalam stock </p>
                                           </div>
                                         </div></div></div>
                                       <div class="modal-footer d-flex">
@@ -201,22 +200,22 @@
                                         <div class="row">
                                           <div class="col-6">
                                             <div class="form-group m-b-40">
-                                                <label><h6 class="font-weight-bold">Nama Barang</h6></label>
-                                                <input type="text" class="form-control" name="nama_barang" value="<?php echo ($this->input->post('nama_barang') ? $this->input->post('nama_barang') : $k['nama_barang']); ?>" />
+                                                <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Nama Barang</h6></label>
+                                                <input required type="text" class="form-control" name="nama_barang" value="<?php echo ($this->input->post('nama_barang') ? $this->input->post('nama_barang') : $k['nama_barang']); ?>" />
                                                 <span class="bar"></span>
                                             </div>
                                           </div>
                                           <div class="col-3">
                                             <div class="form-group m-b-40">
-                                                <label><h6 class="font-weight-bold">Jumlah</h6></label>
-                                                <input type="text" class="form-control" name="jumlah" value="<?php echo ($this->input->post('jumlah') ? $this->input->post('jumlah') : $k['jumlah']); ?>" />
+                                                <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Jumlah</h6></label>
+                                                <input required type="text" class="form-control" name="jumlah" value="<?php echo ($this->input->post('jumlah') ? $this->input->post('jumlah') : $k['jumlah']); ?>" />
                                                 <span class="bar"></span>
                                             </div>
                                           </div>
                                           <div class="col-3">
                                             <div class="form-group m-b-40">
-                                                <label><h6 class="font-weight-bold">Satuan</h6></label>
-                                                <input type="text" class="form-control" name="satuan" value="<?php echo ($this->input->post('satuan') ? $this->input->post('satuan') : $k['satuan']); ?>" />
+                                                <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Satuan</h6></label>
+                                                <input required type="text" class="form-control" name="satuan" value="<?php echo ($this->input->post('satuan') ? $this->input->post('satuan') : $k['satuan']); ?>" />
                                                 <span class="bar"></span>
                                             </div>
                                           </div>
@@ -224,8 +223,8 @@
                                         <div class="row">
                                           <div class="col-6">
                                             <div class="form-group m-b-40">
-                                                  <label><h6 class="font-weight-bold">Nama Divisi</h6></label>
-                                                  <select name="id_divisi" class="form-control" >
+                                                  <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Nama Divisi</h6></label>
+                                                  <select required name="id_divisi" class="form-control" >
                                                   <option value="">Pilih Divisi</option>
                                                   <?php
                                                   if($status == 1){
@@ -259,7 +258,6 @@
                                           <div class="col-6">
                                             <h6 class="text-muted font-weight-bold">Keterangan </h6>
                                             <p>1. Permintaan Barang akan diproses dalam waktu secepatnya</p>
-                                            <p>2. Tambahan Barang akan langsung masuk dalam stock </p>
                                           </div>
                                         </div></div></div>
                                       </div>

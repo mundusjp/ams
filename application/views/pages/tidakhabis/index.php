@@ -96,10 +96,8 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                   <div class="form-group m-b-40">
-                                                      <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Durability :</h6></label>
-                                                      <div class="controls">
-                                                      <input required class="form-control" type="number" name="durability" value="<?php echo $this->input->post('durability'); ?>" />
-                                                    </div>
+                                                      <label><h6 class="font-weight-bold"><span class="text-danger"></span>Durability :</h6></label>
+                                                      <input class="form-control" type="number" name="durability" value="<?php echo $this->input->post('durability'); ?>" />
                                                       <span class="text-danger"><?php echo form_error('durability');?></span>
                                                   </div>
                                                 </div>
@@ -108,7 +106,7 @@
                                               <div class="row">
                                               <div class="col-3">
                                                     <div class="form-group m-b-40">
-                                                    <label><h6 class="font-weight-bold">No Nota:</h6></label>
+                                                    <label><h6 class="font-weight-bold"><span class="text-danger">*</span>No Nota:</h6></label>
                                                     <div class="controls">
                                                     <select required class="form-control" name="id_transaksi">
                                                     <option value="">Pilih Nota</option>
@@ -132,7 +130,7 @@
                                                 <div class="col-md-3">
                                                   <div class="form-group m-b-40 " style="display:none;">
                                                   <label><h6 class="font-weight-bold"><span class="text-danger">*</span>kategori :</h6></label>
-                                                        <input required type="text" name="kategori" value="sewa" />
+                                                        <input type="text" name="kategori" value="sewa" />
                                                         <span class="text-danger"><?php echo form_error('kategori');?></span>
                                                    </div>
                                                 </div>
@@ -148,34 +146,28 @@
                                                 <div class="col-md-3">
                                                   <div class="form-group m-b-40" style="display:none">
                                                         <label for="tanggal"><h6 class="font-weight-bold">Tanggal</h6></label>
-                                                        <div class="controls">
-                                                        <input required type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>">
-                                                      </div>
+                                                        <input type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>">
                                                         <span class="bar"></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                   <div class="form-group m-b-40" style="display:none;">
                                                       <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Status :</h6></label>
-                                                      <div class="controls">
                                                       <input type="text" name="status" value="ada" />
-                                                    </div>
                                                       <span class="text-danger"><?php echo form_error('status');?></span>
                                                   </div>
                                                   <div class="form-group m-b-40 " style="display:none;">
                                                     <label for="jenis"><h6 class="font-weight-bold">Jenis</h6></label>
-                                                    <div class="controls">
-                                                    <input required  data-validation-required-message="This field is required" type="text" class="form-control" name="jenis" value="2"></div>
+                                                    <input  data-validation-required-message="This field is required" type="text" class="form-control" name="jenis" value="2">
                                                     <span class="bar"></span>
-                                                </div>
+                                                  </div>
                                                 </div>
                                               </div>
                                               <div> <hr> </div>
                                               <div class="row">
                                                 <div class="col-md-3">
                                                   <div class="form-group m-b-40">
-                                                      <label for="nama_divisi_pengada"><h6 class="font-weight-bold">Divisi Pengada</h6></label>
-                                                      <div class="controls">
+                                                      <label for="nama_divisi_pengada"><h6 class="font-weight-bold"><span class="text-danger">*</span>Divisi Pengada</h6></label>
                                                       <select required name="nama_divisi_pengada" class="form-control">
                                                         <option value="">Pilih Divisi</option>
                                                         <?php
@@ -197,13 +189,12 @@
                                                         }
                                                       ?>
                                                     </select>
-                                                  </div>
                                                     <span class="bar"></span>
                                                   </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                   <div class="form-group">
-                                                      <label><h6 class="font-weight-bold">Divisi Penerima</h6></label>
+                                                      <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Divisi Penerima</h6></label>
                                                       <div class="controls">
                                                       <select  required name="id_divisi_penerima" class="form-control">
                                                       <option value="">Pilih Divisi</option>

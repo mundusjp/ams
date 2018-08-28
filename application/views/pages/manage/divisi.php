@@ -61,7 +61,7 @@
                                             <div class="col-md-6">
                                               <div class="form-group m-b-40">
                                                 <span class="bar"></span>
-                                                <label><h6 class="font-weight-bold">Nama Kantor</h6></label>
+                                                <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Nama Kantor</h6></label>
                                                 <div class="controls">
                                                 <select name="id_kantor" class="form-control" required>
                                                 <option value="">Pilih Kantor</option>
@@ -77,7 +77,7 @@
                                               </div>
                                               </div>
                                           <div class="form-group m-b-40">
-                                              <label><h6 class="font-weight-bold">Gedung Kantor</h6></label>
+                                              <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Gedung Kantor</h6></label>
                                               <div class="controls">
                                               <input type="text" class="form-control" name="gedung" value="<?php echo $this->input->post('gedung'); ?>" />
                                               <!-- <textarea rows="4" type="text" class="form-control" id="alamatkantor"></textarea> -->
@@ -88,13 +88,13 @@
                                         <div class="col-md-6">
                                           <form class="floating-labels m-t-40">
                                             <div class="form-group m-b-40">
-                                              <label for="namakantor"><h6 class="font-weight-bold">Nama Divisi </h6></label>
+                                              <label for="namakantor"><h6 class="font-weight-bold"><span class="text-danger">*</span>Nama Divisi </h6></label>
                                               <div class="controls">
                                               <input type="text" class="form-control" name="nama_divisi" value="<?php echo $this->input->post('nama_divisi'); ?>" />
                                               <span class="bar"></span>
                                             </div>
                                             </div>
-                                          <label><h6 class="font-weight-bold">Lantai</h6></label>
+                                          <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Lantai</h6></label>
                                           <div class="form-group">
                                             <div class="controls">
                                               <select name="lantai" class="form-control col-6">
@@ -162,7 +162,7 @@
                                   <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                       <div class="modal-header text-center">
-                                        <h3 class="modal-title w-100 font-weight-bold">Edit Divisi</h3>
+                                        <h3 class="modal-title w-100 font-weight-bold">Ubah Divisi</h3>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                         </button>
@@ -173,9 +173,9 @@
                                           <div class="row">
                                             <div class="col-6">
                                               <div class="form-group m-b-40">
-                                              <label for="namakantor"><h6 class="font-weight-bold">Nama Divisi </h6></label>
+                                              <label for="namakantor"><h6 class="font-weight-bold"><span class="text-danger">*</span>Nama Divisi </h6></label>
                                               <div class="controls">
-                                              <input type="text" class="form-control" name="nama_divisi" value="<?php echo ($this->input->post('nama_divisi') ? $this->input->post('nama_divisi') : $rec['nama_divisi']); ?>" />
+                                              <input required type="text" class="form-control" name="nama_divisi" value="<?php echo ($this->input->post('nama_divisi') ? $this->input->post('nama_divisi') : $rec['nama_divisi']); ?>" />
                                               <span class="bar"></span>
                                             </div>
                                             </div>
@@ -183,9 +183,9 @@
                                           <div class="col-6">
                                             <div class="form-group m-b-40">
                                                 <span class="bar"></span>
-                                                <label><h6 class="font-weight-bold">Nama Kantor</h6></label>
+                                                <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Nama Kantor</h6></label>
                                                 <div class="controls">
-                                                <select name="id_kantor" class="form-control">
+                                                <select required name="id_kantor" class="form-control">
                                             			<option value="">Pilih Kantor</option>
                                             			<?php
                                             			foreach($all_kantor as $kantor)
@@ -203,9 +203,9 @@
                                         <div class="row">
                                           <div class="col-6">
                                             <div class="form-group m-b-40">
-                                                <label><h6 class="font-weight-bold">Gedung Kantor</h6></label>
+                                                <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Gedung Kantor</h6></label>
                                                 <div class="controls">
-                                                <input type="text" class="form-control" name="gedung" value="<?php echo ($this->input->post('gedung') ? $this->input->post('gedung') : $rec['gedung']); ?>" />
+                                                <input required type="text" class="form-control" name="gedung" value="<?php echo ($this->input->post('gedung') ? $this->input->post('gedung') : $rec['gedung']); ?>" />
                                                 <!-- <textarea rows="4" type="text" class="form-control" id="alamatkantor"></textarea> -->
                                                 <span class="bar"></span>
                                               </div>
@@ -213,9 +213,10 @@
                                           </div>
                                           <div class="col-3">
                                             <div class="form-group">
-                                                <label><h6 class="font-weight-bold">Lantai Kantor</h6></label>
+                                                <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Lantai</h6></label>
                                                 <div class="controls">
-                                                <select name="lantai" class="form-control">
+                                                <select required name="lantai" class="form-control">
+                                                  <option value="">Pilih Lantai</option>
                                                   <?php $selected = ($rec['lantai'] == $this->input->post('lantai')) ? ' selected="selected"' : ""; ?>
                                                   <option value="1">1</option>
                                                   <option value="2">2</option>

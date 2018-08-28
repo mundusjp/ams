@@ -51,7 +51,7 @@
                                     <div class="row">
                                     <div class="col-8">
                                       <div class="form-group m-b-40">
-                                        <label for="namakantor"><h6 class="font-weight-bold">Nama Kantor</h6></label>
+                                        <label for="namakantor"><h6 class="font-weight-bold"><span class="text-danger">*</span>Nama Kantor</h6></label>
                                         <div class="controls">
                                         <input type="text" class="form-control" required name="nama_kantor" value="<?php echo $this->input->post('nama_kantor'); ?>" />
                                         <span class="bar"></span>
@@ -60,7 +60,7 @@
                                     </div>
                                     <div class="col-4">
                                       <div class="form-group">
-                                        <label><h6 class="font-weight-bold">Status</h6></label>
+                                        <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Status</h6></label>
                                         <div class="controls">
                                         <select name="status" class="form-control" required>
                                           <option value="">Pilih Status</option>
@@ -78,7 +78,7 @@
                                   <div class="row">
                                   <div class="col-8">
                                   <div class="form-group m-b-40">
-                                    <label for="alamat"><h6 class="font-weight-bold">Alamat Kantor</h6></label>
+                                    <label for="alamat"><h6 class="font-weight-bold"><span class="text-danger">*</span>Alamat Kantor</h6></label>
                                     <div class="controls">
                                     <textarea type="text" rows="4" class="form-control" required name="alamat" value="<?php echo $this->input->post('alamat'); ?>" /></textarea>
                                     <!-- <textarea rows="4" type="text" class="form-control" id="alamatkantor"></textarea> -->
@@ -119,17 +119,17 @@
                                 <div class="row">
                                   <div class="col-8">
                                       <div class="form-group m-b-40">
-                                        <label for="namakantor"><h6 class="font-weight-bold">Nama Kantor</h6></label>
+                                        <label for="namakantor"><h6 class="font-weight-bold"><span class="text-danger">*</span>Nama Kantor</h6></label>
                                         <div class="controls">
-                                        <input type="text" class="form-control" name="nama_kantor" value="<?php echo ($this->input->post('nama_kantor') ? $this->input->post('nama_kantor') : $k['nama_kantor']); ?>" />
+                                        <input required type="text" class="form-control" name="nama_kantor" value="<?php echo ($this->input->post('nama_kantor') ? $this->input->post('nama_kantor') : $k['nama_kantor']); ?>" />
                                         <span class="bar"></span>
                                       </div>
                                       </div>
                                   </div>
                                   <div class="col-4">
-                                      <label for="status"><h6 class="font-weight-bold">Status</h6></label>
+                                      <label for="status"><h6 class="font-weight-bold"><span class="text-danger">*</span>Status</h6></label>
                                       <div class="controls">
-                                      <select name="status" class="form-control" >
+                                      <select required name="status" class="form-control" >
                                         <option value="">Pilih Status</option>
                                         <?php $selected = ($k['status'] == $this->input->post('status')) ? ' selected="selected"' : ""; ?>
                                         <option value="1">Pusat</option>
@@ -141,9 +141,9 @@
                                 <div class="row">
                                   <div class="col-8">
                                     <div class="form-group">
-                                      <label for="alamatkantor"><h6 class="font-weight-bold">Alamat Kantor</h6></label>
+                                      <label for="alamatkantor"><h6 class="font-weight-bold"><span class="text-danger">*</span>Alamat Kantor</h6></label>
                                       <div class="controls">
-                                      <textarea type="text" rows="4" class="form-control" name="alamat" value="<?php echo ($this->input->post('alamat') ? $this->input->post('alamat') : $k['alamat']); ?>"><?php echo $k['alamat']?></textarea>
+                                      <textarea required type="text" rows="4" class="form-control" name="alamat" value="<?php echo ($this->input->post('alamat') ? $this->input->post('alamat') : $k['alamat']); ?>"><?php echo $k['alamat']?></textarea>
                                       <!-- <textarea rows="4" type="text" class="form-control" id="alamatkantor"></textarea> -->
                                     </div>
                                     </div>
