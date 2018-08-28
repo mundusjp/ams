@@ -60,8 +60,9 @@
                                           <div class="col-md-3">
                                             <div class="form-group">
                                                   <label><h6 class="font-weight-bold">Vendor :</h6></label>
-                                                  <select class="form-control" name="id_vendor">
-                                                  <option value="">select vendor</option>
+                                                  <div class="controls">
+                                                  <select required class="form-control" name="id_vendor">
+                                                  <option value="">Pilih Vendor</option>
                                                   <?php
                                                   foreach($all_vendor as $vendor)
                                                   {
@@ -70,30 +71,37 @@
                                                   }
                                                   ?>
                                                 </select>
+                                              </div>
                                             </div>
                                           </div>
                                           <div class="col-md-3">
                                             <div class="form-group m-b-40">
                                               <label for="namakantor"><h6 class="font-weight-bold">No. Nota</h6></label>
                                               <span class="bar"></span>
-                                              <input type="text" class="form-control" name="no_nota" value="<?php echo $this->input->post('no_nota'); ?>" />
+                                              <div class="controls">
+                                              <input required type="text" class="form-control" name="no_nota" value="<?php echo $this->input->post('no_nota'); ?>" />
       		                                    <span class="text-danger"><?php echo form_error('no_nota');?></span>
+                                            </div>
                                             </div>
                                           </div>
                                           <div class="col-md-3">
                                             <div class="form-group m-b-40">
                                               <label for="namakantor"><h6 class="font-weight-bold">Biaya</h6></label>
                                               <span class="bar"></span>
-                                              <input type="text" class="form-control" name="biaya" value="<?php echo $this->input->post('biaya'); ?>" />
-    		                                      <span class="text-danger"><?php echo form_error('biaya');?></span>
+                                              <div class="controls">
+                                              <input required type="number" class="form-control" name="biaya" value="<?php echo $this->input->post('biaya'); ?>" />
+                                            </div>
+                                              <span class="text-danger"><?php echo form_error('biaya');?></span>
                                             </div>
                                           </div>
                                           <div class="col-md-3">
                                             <div class="form-group m-b-40">
                                                 <label for="id_kantor"><h6 class="font-weight-bold">Tanggal Transaksi</h6></label>
                                                 <span class="bar"></span>
-                                                 <input type="date" class="form-control" name="tanggal_transaksi" value="<?php echo $this->input->post('tanggal_transaksi'); ?>" />
-  	                                          	<span class="text-danger"><?php echo form_error('tanggal_transaksi');?></span>
+                                                <div class="controls">
+                                                 <input required type="date" class="form-control" name="tanggal_transaksi" value="<?php echo $this->input->post('tanggal_transaksi'); ?>" />
+                                               </div>
+                                                <span class="text-danger"><?php echo form_error('tanggal_transaksi');?></span>
                                             </div>
                                           </div>
                                         </div>
@@ -104,7 +112,8 @@
                                           <div class="col-md-4">
                                             <div class="form-group m-b-40">
                                                 <label for="id_divisi"><h6 class="font-weight-bold">Diadakan Oleh:</h6></label>
-                                                <select name="id_kantor" class="form-control">
+                                                <div class="controls">
+                                                <select required name="id_kantor" class="form-control">
                                                 <option value="">Pilih Kantor</option>
                                                  <?php
                                                   foreach($all_kantor as $kan)
@@ -114,6 +123,7 @@
                                                   }
                                                 ?>
                                                 </select>
+                                              </div>
                                                 <span class="bar"></span>
                                             </div>
                                           </div><?php }?>
@@ -121,14 +131,18 @@
                                             <label for="id_kantor"><h6 class="font-weight-bold">Periode Sewa</h6></label>
                                             <div class="input-group form-group m-b-40">
                                                   <span class="bar"></span>
-                                                   <input type="date" class="form-control" name="periode_start" value="<?php echo $this->input->post('periode_start'); ?>" />
-    	                                          	<span class="text-danger"><?php echo form_error('periode_start');?></span>
+                                                  <div class="controls">
+                                                   <input required type="date" class="form-control" name="periode_start" value="<?php echo $this->input->post('periode_start'); ?>" />
+                                                 </div>
+                                                  <span class="text-danger"><?php echo form_error('periode_start');?></span>
                                                   <div class="input-group-append">
                                                     <span class="input-group-text b-0 bg-info text-white">s.d.</span>
                                                   </div>
                                                   <span class="bar"></span>
-                                                  <input type="date" class="form-control" name="periode_end" value="<?php echo $this->input->post('periode_end'); ?>" />
-    	                                          	<span class="text-danger"><?php echo form_error('periode_end');?></span>
+                                                  <div class="controls">
+                                                  <input required type="date" class="form-control" name="periode_end" value="<?php echo $this->input->post('periode_end'); ?>" />
+                                                </div>
+                                                  <span class="text-danger"><?php echo form_error('periode_end');?></span>
                                             </div>
                                           </div>
                                         </div>
@@ -183,8 +197,8 @@
                                         <div class="col-md-3">
                                           <div class="form-group">
                                               <label><h6 class="font-weight-bold">Vendor</h6></label>
-                                              <select   class="form-control" name="id_vendor">
-                                                  <option value="">select vendor</option>
+                                              <div class="controls">
+                                              <select  required class="form-control" name="id_vendor">
                                               <?php
                                               foreach($all_vendor as $vendor)
                                               {
@@ -193,13 +207,16 @@
                                               }
                                               ?>
                                               </select>
+                                            </div>
                                           </div>
                                         </div>
                                         <div class="col-md-3">
                                           <div class="form-group m-b-40">
                                             <label for="namakantor"><h6 class="font-weight-bold">No. Nota</h6></label>
                                             <span class="bar"></span>
-                                            <input type="text" class="form-control" name="no_nota" value="<?php echo ($this->input->post('no_nota') ? $this->input->post('no_nota') : $s['no_nota']); ?>" />
+                                            <div class="controls">
+                                            <input required type="text" class="form-control" name="no_nota" value="<?php echo ($this->input->post('no_nota') ? $this->input->post('no_nota') : $s['no_nota']); ?>" />
+                                          </div>
                                             <span class="text-danger"><?php echo form_error('no_nota');?></span>
                                           </div>
                                         </div>
@@ -207,7 +224,9 @@
                                           <div class="form-group m-b-40">
                                             <label for="namakantor"><h6 class="font-weight-bold">Biaya</h6></label>
                                             <span class="bar"></span>
-                                            <input type="text" class="form-control" name="biaya" value="<?php echo ($this->input->post('biaya') ? $this->input->post('biaya') : $s['biaya']); ?>" />
+                                            <div class="controls">
+                                            <input required type="number" class="form-control" name="biaya" value="<?php echo ($this->input->post('biaya') ? $this->input->post('biaya') : $s['biaya']); ?>" />
+                                          </div>
                                             <span class="text-danger"><?php echo form_error('biaya');?></span>
                                           </div>
                                         </div>
@@ -215,7 +234,9 @@
                                           <div class="form-group m-b-40">
                                               <label for="id_kantor"><h6 class="font-weight-bold">Tanggal Transaksi</h6></label>
                                               <span class="bar"></span>
-                                              <input type="date" class="form-control"  name="tanggal_transaksi" value="<?php echo ($this->input->post('tanggal_transaksi') ? $this->input->post('tanggal_transaksi') : $s['tanggal_transaksi']); ?>" />
+                                              <div class="controls">
+                                              <input required type="date" class="form-control"  name="tanggal_transaksi" value="<?php echo ($this->input->post('tanggal_transaksi') ? $this->input->post('tanggal_transaksi') : $s['tanggal_transaksi']); ?>" />
+                                            </div>
                                               <span class="text-danger"><?php echo form_error('tanggal_transaksi');?></span>
                                           </div>
                                         </div>
@@ -227,16 +248,17 @@
                                         <div class="col-md-4">
                                           <div class="form-group m-b-40">
                                               <label for="id_divisi"><h6 class="font-weight-bold">Diadakan Oleh:</h6></label>
-                                              <select name="id_kantor" class="form-control">
-                                              <option value="">Pilih Kantor</option>
+                                              <div class="controls">
+                                              <select required name="id_kantor" class="form-control">
                                                <?php
                                                 foreach($all_kantor as $kan)
                                                 {
-                                                  $selected = ($kan['id_kantor'] == $this->input->post('id_kantor')) ? ' selected="selected"' : "";
+                                                  $selected = ($kan['id_kantor'] == $s['id_kantor']) ? ' selected="selected"' : "";
                                                   echo '<option value="'.$kan['id_kantor'].'" '.$selected.'>'.$kan['nama_kantor'].'</option>';
                                                 }
                                               ?>
                                               </select>
+                                            </div>
                                               <span class="bar"></span>
                                           </div>
                                         </div><?php }?>
@@ -244,13 +266,17 @@
                                           <label for="id_kantor"><h6 class="font-weight-bold">Periode Sewa</h6></label>
                                           <div class="input-group form-group m-b-40">
                                                 <span class="bar"></span>
-                                                <input type="date" class="form-control"  name="periode_start" value="<?php echo ($this->input->post('periode_start') ? $this->input->post('periode_start') : $s['periode_start']); ?>" />
+                                                <div class="controls">
+                                                <input required type="date" class="form-control"  name="periode_start" value="<?php echo ($this->input->post('periode_start') ? $this->input->post('periode_start') : $s['periode_start']); ?>" />
+                                              </div>
                                                   <span class="text-danger"><?php echo form_error('periode_start');?></span>
                                                 <div class="input-group-append">
                                                   <span class="input-group-text b-0 bg-info text-white">s.d.</span>
                                                 </div>
                                                 <span class="bar"></span>
-                                              <input type="date" class="form-control" name="periode_end" value="<?php echo ($this->input->post('periode_end') ? $this->input->post('periode_end') : $s['periode_end']); ?>" />
+                                              <div class="controls">
+                                              <input required type="date" class="form-control" name="periode_end" value="<?php echo ($this->input->post('periode_end') ? $this->input->post('periode_end') : $s['periode_end']); ?>" />
+                                            </div>
                                                 <span class="text-danger"><?php echo form_error('periode_end');?></span>
                                           </div>
                                         </div>

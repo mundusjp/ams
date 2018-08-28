@@ -107,7 +107,8 @@
                                                     <div class="col-3">
                                                     <div class="form-group m-b-40">
                                                     <label><h6 class="font-weight-bold">No Nota:</h6></label>
-                                                    <select class="form-control" name="id_transaksi">
+                                                    <div class="controls">
+                                                    <select required class="form-control" name="id_transaksi">
                                                     <option value="">Pilih Nota</option>
                                                     <?php
                                                       if($user['status']==1){
@@ -124,6 +125,7 @@
                                                     }
                                                     ?>
                                                     </select>
+                                                  </div>
                                                     </div>
                                                     </div>
                                                     <div class="col-3">
@@ -132,7 +134,8 @@
                                                     <div class="col-3">
                                                       <div class="form-group m-b-40">
                                                           <label for="nama_divisi_pengada"><h6 class="font-weight-bold">Diadakan Oleh:</h6></label>
-                                                          <select name="nama_divisi_pengada" class="form-control">
+                                                          <div class="controls">
+                                                          <select required name="nama_divisi_pengada" class="form-control">
                                                           <option value="">Pilih Divisi</option>
                                                           <?php
                                                           $status = $this->session->userdata('level');
@@ -153,14 +156,15 @@
                                                             }
                                                           ?>
                                                       </select>
+                                                    </div>
                                                           <span class="bar"></span>
                                                       </div>
                                                     </div>
                                                     <div class="col-3">
                                                       <div class="form-group">
                                                           <label><h6 class="font-weight-bold">Diterima Oleh:</h6></label>
-
-                                                          <select name="id_divisi_penerima" class="form-control">
+                                                          <div class="controls">
+                                                          <select required name="id_divisi_penerima" class="form-control">
                                                           <option value="">Pilih Divisi</option>
                                                           <?php
                                                           if($status == 1){
@@ -180,6 +184,7 @@
                                                           }
                                                         ?>
                                                       </select>
+                                                    </div>
                                                       </div>
                                                     </div>
                                                   </div>
@@ -325,8 +330,8 @@
                                                                 <div class="col-3">
                                                                   <div class="form-group m-b-40">
                                                                   <label><h6 class="font-weight-bold">No Nota:</h6></label>
-                                                                    <select class="form-control" name="id_transaksi">
-                                                                    <option value="">Pilih Nota</option>
+                                                                  <div class="controls">
+                                                                    <select required class="form-control" name="id_transaksi">
                                                                     <?php
                                                                     if($user['status']==1){
                                                                       $nota=$nota1;
@@ -342,20 +347,23 @@
                                                                     ?>
                                                                     </select>
                                                                   </div>
+                                                                  </div>
                                                                 </div>
                                                                 <div class="col-3">
                                                                     <?php $date = explode(" ",$i->tanggal);$date = $date[0]; ?>
                                                                     <div class="form-group m-b-40" style="display:none;">
                                                                         <label for="id_transaksi"><h6 class="font-weight-bold"><span class="text-danger">*</span>Tanggal : </h6></label>
-                                                                      <input type="date" class="form-control" name="tanggal" value="<?php echo ($this->input->post('tanggal') ? $this->input->post('tanggal') : $date); ?>" />
+                                                                        <div class="controls">
+                                                                      <input required type="date" class="form-control" name="tanggal" value="<?php echo ($this->input->post('tanggal') ? $this->input->post('tanggal') : $date); ?>" />
+                                                                    </div>
                                                                       <span class="text-danger"><?php echo form_error('tanggal');?></span>
                                                                   </div>
                                                                 </div>
                                                                 <div class="col-3">
                                                                   <div class="form-group m-b-40">
                                                                       <label><h6 class="font-weight-bold">Divisi Pengada</h6></label>
-                                                                      <select name="nama_divisi_pengada" class="form-control">
-                                                                      <option value="">Pilih Divisi</option>
+                                                                      <div class="controls">
+                                                                      <select required name="nama_divisi_pengada" class="form-control">
                                                                       <?php
                                                                       if($status == 1){
                                                                         foreach($all_divisi as $div)
@@ -377,13 +385,14 @@
                                                                     }
                                                                       ?>
                                                                   </select>
+                                                                </div>
                                                                   </div>
                                                                 </div>
                                                                 <div class="col-3">
                                                                   <div class="form-group m-b-40">
                                                                       <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Divisi Penerima</h6></label>
-                                                                      <select name="id_divisi_penerima" class="form-control">
-                                                                      <option value="">Pilih Divisi</option>
+                                                                      <div class="controls">
+                                                                      <select required name="id_divisi_penerima" class="form-control">
                                                                       <?php
                                                                       if($status == 1){
                                                                         foreach($all_divisi as $div)
@@ -405,6 +414,7 @@
                                                                     }
                                                                       ?>
                                                                     </select>
+                                                                  </div>
                                                                       <span class="text-danger"><?php echo form_error('nama_divisi_pengada');?></span>
                                                                   </div>
                                                                 </div>
@@ -448,7 +458,9 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group m-b-40">
                                                                     <label><h6 class="font-weight-bold">Qty:</h6></label>
-                                                                    <input class="form-control" type="number" readonly  name="jumlah" value="<?php echo ($this->input->post('jumlah') ? $this->input->post('jumlah') : $i->jumlah); ?>" />
+                                                                    <div class="controls">
+                                                                    <input required class="form-control" type="number" readonly  name="jumlah" value="<?php echo ($this->input->post('jumlah') ? $this->input->post('jumlah') : $i->jumlah); ?>" />
+                                                                  </div>
                                                                     <span class="text-danger"><?php echo form_error('jumlah');?></span>
                                                                 </div>
                                                             </div>

@@ -109,8 +109,8 @@
                                                             <div class="col-md-6">
                                                               <div class="form-group">
                                                                   <label><h6 class="font-weight-bold">Inventory</h6></label>
-                                                                  <select class="form-control" name="id_inventory">
-                                                                  <option value="">select inventory</option>
+                                                                  <div class="controls">
+                                                                  <select required class="form-control" name="id_inventory">
                                                                   <?php
                                                                   foreach($all_inventory as $inventory)
                                                                   {
@@ -120,13 +120,14 @@
                                                                   }
                                                                   ?>
                                                                   </select>
+                                                                </div>
                                                               </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                               <div class="form-group">
                                                                 <label><h6 class="font-weight-bold">Vendor</h6></label>
-                                                                <select   class="form-control" name="id_vendor">
-                                                                    <option value="">select vendor</option>
+                                                                <div class="controls">
+                                                                <select required  class="form-control" name="id_vendor">
                                                                 <?php
                                                                 foreach($all_vendor as $vendor)
                                                                 {
@@ -137,6 +138,7 @@
                                                                 ?>
                                                                 </select>
                                                               </div>
+                                                              </div>
                                                             </div>
                                                           </div>
                                                           <div class="row">
@@ -144,16 +146,20 @@
                                                               <div class="form-group m-b-40">
                                                                   <label for="id_kantor"><h6 class="font-weight-bold">Biaya</h6></label>
                                                                   <span class="bar"></span>
-                                                                  <input type="number" class="form-control" name="biaya" value="<?php echo ($this->input->post('biaya') ? $this->input->post('biaya') : $p['biaya']); ?>" />
-                                                                  <!-- <input type="text" class="form-control" id="id_kantor"> -->
+                                                                  <div class="controls">
+                                                                  <input required type="number" class="form-control" name="biaya" value="<?php echo ($this->input->post('biaya') ? $this->input->post('biaya') : $p['biaya']); ?>" />
+                                                                </div>
+                                                                <!-- <input type="text" class="form-control" id="id_kantor"> -->
                                                               </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                               <div class="form-group m-b-40">
                                                                   <label for="namakantor"><h6 class="font-weight-bold">Tanggal :</h6></label>
                                                                   <span class="bar"></span>
-                                                                  <input type="text" class="form-control mydatepicker" name="tanggal" value="<?php echo ($this->input->post('tanggal') ? $this->input->post('tanggal') : $p['tanggal']); ?>" />
-                                                              </div>
+                                                                  <div class="controls">
+                                                                  <input required type="text" class="form-control mydatepicker" name="tanggal" value="<?php echo ($this->input->post('tanggal') ? $this->input->post('tanggal') : $p['tanggal']); ?>" />
+                                                                </div>
+                                                                </div>
                                                             </div>
                                                           </div>
                                                           <div class="row">

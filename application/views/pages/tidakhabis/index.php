@@ -70,14 +70,18 @@
                                                 <div class="col-md-3">
                                                   <div class="form-group m-b-40">
                                                       <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Nama :</h6></label>
+                                                      <div class="controls">
                                                       <input required class="form-control" type="text" name="nama" value="<?php echo $this->input->post('nama'); ?>" />
+                                                    </div>
                                                       <span class="text-danger"><?php echo form_error('nama');?></span>
                                                   </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                   <div class="form-group m-b-40">
                                                       <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Merk :</h6></label>
+                                                      <div class="controls">
                                                       <input required class="form-control" type="text" name="merk" value="<?php echo $this->input->post('merk'); ?>" />
+                                                    </div>
                                                       <span class="text-danger"><?php echo form_error('merk');?></span>
                                                   </div>
                                                 </div>
@@ -85,7 +89,7 @@
                                                   <div class="form-group m-b-40">
                                                       <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Jumlah :</h6></label>
                                                       <div class="controls">
-                                                      <input required min="1" class="form-control" type="text" name="jumlah" value="<?php echo $this->input->post('jumlah'); ?>" />
+                                                      <input required min="1" class="form-control" type="number" name="jumlah" value="<?php echo $this->input->post('jumlah'); ?>" />
                                                       </div>
                                                       <span class="text-danger"><?php echo form_error('jumlah');?></span>
                                                   </div>
@@ -93,7 +97,9 @@
                                                 <div class="col-md-2">
                                                   <div class="form-group m-b-40">
                                                       <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Durability :</h6></label>
-                                                      <input required class="form-control" type="text" name="durability" value="<?php echo $this->input->post('durability'); ?>" />
+                                                      <div class="controls">
+                                                      <input required class="form-control" type="number" name="durability" value="<?php echo $this->input->post('durability'); ?>" />
+                                                    </div>
                                                       <span class="text-danger"><?php echo form_error('durability');?></span>
                                                   </div>
                                                 </div>
@@ -103,8 +109,9 @@
                                               <div class="col-3">
                                                     <div class="form-group m-b-40">
                                                     <label><h6 class="font-weight-bold">No Nota:</h6></label>
+                                                    <div class="controls">
                                                     <select required class="form-control" name="id_transaksi">
-                                                    <option value="">Nota</option>
+                                                    <option value="">Pilih Nota</option>
                                                     <?php
                                                     if($user['status']==1){
                                                       $nota_sewa=$nota_sewa1;
@@ -121,6 +128,7 @@
                                                     </select>
                                                     </div>
                                                     </div>
+                                                    </div>
                                                 <div class="col-md-3">
                                                   <div class="form-group m-b-40 " style="display:none;">
                                                   <label><h6 class="font-weight-bold"><span class="text-danger">*</span>kategori :</h6></label>
@@ -131,21 +139,27 @@
                                                 <div class="col-md-3">
                                                   <div class="form-group m-b-40">
                                                       <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Harga Perolehan :</h6></label>
-                                                      <input required class="form-control" type="text" name="harga" value="<?php echo $this->input->post('harga'); ?>" />
+                                                      <div class="controls">
+                                                      <input required class="form-control" type="number" name="harga" value="<?php echo $this->input->post('harga'); ?>" />
+                                                    </div>
                                                       <span class="text-danger"><?php echo form_error('harga');?></span>
                                                   </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                   <div class="form-group m-b-40" style="display:none">
                                                         <label for="tanggal"><h6 class="font-weight-bold">Tanggal</h6></label>
-                                                        <input type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>">
+                                                        <div class="controls">
+                                                        <input required type="date" class="form-control" name="tanggal" value="<?php echo $this->input->post('tanggal'); ?>">
+                                                      </div>
                                                         <span class="bar"></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                   <div class="form-group m-b-40" style="display:none;">
                                                       <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Status :</h6></label>
+                                                      <div class="controls">
                                                       <input type="text" name="status" value="ada" />
+                                                    </div>
                                                       <span class="text-danger"><?php echo form_error('status');?></span>
                                                   </div>
                                                   <div class="form-group m-b-40 " style="display:none;">
@@ -161,6 +175,7 @@
                                                 <div class="col-md-3">
                                                   <div class="form-group m-b-40">
                                                       <label for="nama_divisi_pengada"><h6 class="font-weight-bold">Divisi Pengada</h6></label>
+                                                      <div class="controls">
                                                       <select required name="nama_divisi_pengada" class="form-control">
                                                         <option value="">Pilih Divisi</option>
                                                         <?php
@@ -182,13 +197,14 @@
                                                         }
                                                       ?>
                                                     </select>
+                                                  </div>
                                                     <span class="bar"></span>
                                                   </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                   <div class="form-group">
                                                       <label><h6 class="font-weight-bold">Divisi Penerima</h6></label>
-
+                                                      <div class="controls">
                                                       <select  required name="id_divisi_penerima" class="form-control">
                                                       <option value="">Pilih Divisi</option>
                                                       <?php
@@ -209,6 +225,7 @@
                                                       }
                                                     ?>
                                                     </select>
+                                                  </div>
                                                   </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -255,14 +272,18 @@
                                                 <div class="col-md-3">
                                                   <div class="form-group m-b-40">
                                                       <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Nama :</h6></label>
+                                                      <div class="controls">
                                                       <input required class="form-control" type="text" name="nama" value="<?php echo $this->input->post('nama'); ?>" />
+                                                    </div>
                                                       <span class="text-danger"><?php echo form_error('nama');?></span>
                                                   </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                   <div class="form-group m-b-40">
                                                       <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Merk :</h6></label>
+                                                      <div class="controls">
                                                       <input required class="form-control" type="text" name="merk" value="<?php echo $this->input->post('merk'); ?>" />
+                                                    </div>
                                                       <span class="text-danger"><?php echo form_error('merk');?></span>
                                                   </div>
                                                 </div>
@@ -270,7 +291,7 @@
                                                   <div class="form-group m-b-40">
                                                       <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Jumlah :</h6></label>
                                                       <div class="controls">
-                                                      <input required min="1" class="form-control" type="text" name="jumlah" value="<?php echo $this->input->post('jumlah'); ?>" />
+                                                      <input required min="1" class="form-control" type="number" name="jumlah" value="<?php echo $this->input->post('jumlah'); ?>" />
                                                       </div>
                                                       <span class="text-danger"><?php echo form_error('jumlah');?></span>
                                                   </div>
@@ -278,7 +299,9 @@
                                                 <div class="col-md-2">
                                                   <div class="form-group m-b-40">
                                                       <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Durability :</h6></label>
-                                                      <input required class="form-control" type="text" name="durability" value="<?php echo $this->input->post('durability'); ?>" />
+                                                      <div class="controls">
+                                                      <input required class="form-control" type="number" name="durability" value="<?php echo $this->input->post('durability'); ?>" />
+                                                    </div>
                                                       <span class="text-danger"><?php echo form_error('durability');?></span>
                                                   </div>
                                                 </div>
@@ -288,8 +311,9 @@
                                               <div class="col-3">
                                                     <div class="form-group m-b-40">
                                                     <label><h6 class="font-weight-bold">No Nota:</h6></label>
+                                                    <div class="controls">
                                                     <select required class="form-control" name="id_transaksi">
-                                                    <option value="">Nota</option>
+                                                    <option value="">Pilih Nota</option>
                                                     <?php
                                                     if($user['status']==1){
                                                       $nota_beli=$nota_beli1;
@@ -304,6 +328,7 @@
                                                     }
                                                     ?>
                                                     </select>
+                                                  </div>
                                                     </div>
                                                     </div>
                                                 <div class="col-md-3">
@@ -316,7 +341,7 @@
                                                 <div class="col-md-3">
                                                   <div class="form-group m-b-40">
                                                       <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Harga Perolehan :</h6></label>
-                                                      <input required class="form-control" type="text" name="harga" value="<?php echo $this->input->post('harga'); ?>" />
+                                                      <input required class="form-control" type="number" name="harga" value="<?php echo $this->input->post('harga'); ?>" />
                                                       <span class="text-danger"><?php echo form_error('harga');?></span>
                                                   </div>
                                                 </div>
@@ -507,14 +532,14 @@
                                                             <div class="col-md-2">
                                                               <div class="form-group m-b-40">
                                                                   <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Serial ID :</h6></label>
-                                                                  <input class="form-control" type="text" name="serial_id" value="<?php echo ($this->input->post('serial_id') ? $this->input->post('serial_id') : $i->serial_id); ?>" />
+                                                                  <input readonly class="form-control" type="text" name="serial_id" value="<?php echo ($this->input->post('serial_id') ? $this->input->post('serial_id') : $i->serial_id); ?>" />
                                                                   <span class="text-danger"><?php echo form_error('serial_id');?></span>
                                                               </div>
                                                             </div>
                                                             <div class="col-md-3">
                                                               <div class="form-group m-b-40">
                                                                   <label><h6 class="font-weight-bold"><span class="text-danger">*</span>Nama :</h6></label>
-                                                                  <input class="form-control" type="text" name="nama" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama') : $i->nama); ?>" />
+                                                                  <input required class="form-control" type="text" name="nama" value="<?php echo ($this->input->post('nama') ? $this->input->post('nama') : $i->nama); ?>" />
                                                                   <span class="text-danger"><?php echo form_error('nama');?></span>
                                                               </div>
                                                             </div>
