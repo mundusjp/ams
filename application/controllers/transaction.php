@@ -131,7 +131,7 @@ $this->form_validation->set_rules('tanggal_transaksi','Tanggal Transaksi','requi
 $this->form_validation->set_rules('periode_start','Periode Start','required');
 $this->form_validation->set_rules('periode_end','Periode End','required');
 $this->form_validation->set_rules('biaya','Biaya','required|integer|greater_than[0]');
-$this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[191]');
+// $this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[191]');
 
 if($this->form_validation->run())
     {
@@ -157,7 +157,7 @@ if($this->form_validation->run())
         );
 
         $transaksi_id = $this->Transaksi_model->add_transaksi($params);
-        $desc =($this->session->userdata('nama').' '.'menambahkan'.' ');
+        $desc =('menambahkan'.' '.$this->input->post('no_nota'));
         $log = array(
             'id_user' => $this->session->userdata('id_user'),
             'event' => 'menambahkan penyewaan',
@@ -215,7 +215,7 @@ if($this->form_validation->run())
          );
        }
         $transaksi_id = $this->Transaksi_model->add_transaksi($params);
-        $desc =($this->session->userdata('nama').' '.'menambahkan'.' '.$this->input->post('no_nota'));
+        $desc =('menambahkan'.' '.$this->input->post('no_nota'));
         $log = array(
             'id_user' => $this->session->userdata('id_user'),
             'event' => 'menambahkan pembelian',
@@ -244,7 +244,7 @@ function addpemeliharaan()
 $this->form_validation->set_rules('id_inventory','Id Inventory','required|integer');
 $this->form_validation->set_rules('biaya','Biaya','required|integer|greater_than[0]');
 $this->form_validation->set_rules('tanggal','Tanggal','required');
-$this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[191]');
+// $this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[191]');
 
 if($this->form_validation->run())
     {
@@ -257,7 +257,7 @@ if($this->form_validation->run())
         );
 
         $pemeliharaan_id = $this->Pemeliharaan_model->add_pemeliharaan($params);
-        $desc =($this->session->userdata('nama').' '.'menambahkan'.' ');
+        $desc =('menambahkan pemeliharaan'.' '.$this->input->post('id_inventory'));
         $log = array(
             'id_user' => $this->session->userdata('id_user'),
             'event' => 'menambahkan pemeliharaan',
@@ -297,7 +297,7 @@ function editsewa($id_sewa)
   $this->form_validation->set_rules('periode_start','Periode Start','required');
   $this->form_validation->set_rules('periode_end','Periode End','required');
   $this->form_validation->set_rules('biaya','Biaya','required|integer|greater_than[0]');
-  $this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[191]');
+//   $this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[191]');
 
   if($this->form_validation->run())
         {
@@ -312,7 +312,7 @@ function editsewa($id_sewa)
             );
 
             $this->Transaksi_model->update_transaksi($id_sewa,$params);
-            $desc =($this->session->userdata('nama').' '.'mengubah'.' '.$this->input->post('no_nota'));
+            $desc =('mengubah'.' '.$this->input->post('no_nota'));
              $log = array(
             'id_user' => $this->session->userdata('id_user'),
             'event' => 'mengubah penyewaan',
@@ -372,7 +372,7 @@ function editbeli($id_beli)
           }
 
             $this->Transaksi_model->update_transaksi($id_beli,$params);
-            $desc =($this->session->userdata('nama').' '.'mengubah'.' '.$this->input->post('no_nota'));
+            $desc =('mengubah'.' '.$this->input->post('no_nota'));
             $log = array(
            'id_user' => $this->session->userdata('id_user'),
            'event' => 'mengubah pembelian',
@@ -408,7 +408,7 @@ function editpemeliharaan($id_pemeliharaan)
   $this->form_validation->set_rules('id_inventory','Id Inventory','required|integer');
   $this->form_validation->set_rules('biaya','Biaya','required|integer|greater_than[0]');
   $this->form_validation->set_rules('tanggal','Tanggal','required');
-  $this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[191]');
+//   $this->form_validation->set_rules('deskripsi','Deskripsi','required|max_length[191]');
 
   if($this->form_validation->run())
         {
@@ -422,7 +422,7 @@ function editpemeliharaan($id_pemeliharaan)
             );
 
             $this->Pemeliharaan_model->update_pemeliharaan($id_pemeliharaan,$params);
-            $desc =($this->session->userdata('nama').' '.'mengubah'.' ');
+            $desc =('mengubah pemeliharaan barang'.' '.$this->input->post('id_inventory'));
             $log = array(
                     'id_user' => $this->session->userdata('id_user'),
                     'event' => 'mengubah pemeliharaan',

@@ -64,7 +64,7 @@
                                   left: 50%;
                                   transform: translate(-50%, -50%);
                                   -ms-transform: translate(-50%, -50%);
-                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                                  text-align: center;"><h3 class="font-weight-bold" style="color:white;background-color:grey;">Langkah 1:&nbsp;Buka List Vendor Pada Tab Utama</h3><br><h6>Untuk Melihat Seluruh List Vendor. Atau Klik <a href="<?php echo base_url('vendor/index')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
                                 </div>
                               </div>
                             </div>
@@ -87,7 +87,7 @@
                                   left: 50%;
                                   transform: translate(-50%, -50%);
                                   -ms-transform: translate(-50%, -50%);
-                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                                  text-align: center;"><h3 class="font-weight-bold" style="color:white;background-color:grey;">Langkah 2:&nbsp;Isi Form yang tersedia</h3>
                                 </div>
                               </div>
                             </div>
@@ -110,7 +110,7 @@
                                   left: 50%;
                                   transform: translate(-50%, -50%);
                                   -ms-transform: translate(-50%, -50%);
-                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                                  text-align: center;"><h3 class="font-weight-bold" style="color:white;background-color:grey;">Langkah 3:&nbsp;Buka Pembelian Pada Tab Transaction dan Isi Form yang tersedia</h3><br><h6>Untuk Melihat Seluruh List Pembelian. Atau Klik <a href="<?php echo base_url('transaction/pembelian')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
                                 </div>
                               </div>
                             </div>
@@ -130,7 +130,7 @@
                                   left: 50%;
                                   transform: translate(-50%, -50%);
                                   -ms-transform: translate(-50%, -50%);
-                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                                  text-align: center;"><h3 class="font-weight-bold" style="color:white;background-color:grey;">Langkah 4:&nbsp;Buka BTHP/BHP Pada Tab Inventory dan Isi Form yang tersedia</h3>
                                 </div>
                               </div>
                             </div>
@@ -150,7 +150,7 @@
                                   left: 50%;
                                   transform: translate(-50%, -50%);
                                   -ms-transform: translate(-50%, -50%);
-                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                                  text-align: center;"><h3 class="font-weight-bold" style="color:white;background-color:grey;">Langkah 5:&nbsp;Buka Penyewaan Pada Tab Transaction dan Isi Form yang tersedia</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('transaction/penyewaan')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
                                 </div>
                               </div>
                             </div>
@@ -170,7 +170,7 @@
                                   left: 50%;
                                   transform: translate(-50%, -50%);
                                   -ms-transform: translate(-50%, -50%);
-                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 1:&nbsp;Buka Overview Pada Tab Inventory</h3><br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                                  text-align: center;"><h3 class="font-weight-bold" style="color:white;background-color:grey;">Langkah 6:&nbsp;Buka BTHP/BHP Pada Tab Inventory dan Isi Form yang tersedia</h3>
                                 </div>
                               </div>
                             </div>
