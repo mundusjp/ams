@@ -213,7 +213,10 @@
                           </div>
                   <!-- Logs -->
                       <div class="tab-pane" id="log" role="tabpanel">
-                          <div class="card-body">
+                          <div class="card-body" style="
+    height: 600px;
+    overflow-y: scroll;
+    overflow-x:hidden;">
                               <div class="profiletimeline">
                                   <div class="sl-item">
                                   <?php

@@ -52,6 +52,8 @@
       $data['count'] = $count;
       $data['count_kebutuhan'] = count($this->Kebutuhan_model->get_all_kebutuhan());
       $data['count_kebutuhan2'] = count($this->Kebutuhan_model->get_kebutuhan_by_kantor($id_kantor));
+      $data['eventlog'] = $this->admin_model->get_all_eventlog();
+      $data['eventlog2'] = $this->admin_model->get_eventlog_by_kantor($id_kantor);
       
       $data['title'] = ucfirst($page);
       $this->load->view('templates/dashboard/header');
