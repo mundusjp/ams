@@ -223,6 +223,7 @@
                       <div class="card-body">
                           <h5 class="card-title">USER RECENT ACTIVITIES</h5>
                           <div class="steamline m-t-40">
+                          <?php $now = date_default_timezone_set('Asia/Jakarta'); ?>
                           <?php $status = $this->session->userdata('level');
                                 if($user['status']==1){
                                     $ev=$eventlog;
@@ -238,7 +239,7 @@
                                   <div class="sl-right">
                                   <?php $this->load->helper('date'); ?>
                                   <?php $post_date = strtotime($e['eventTime']); ?>
-                                  <?php $now = time(); ?>
+                                  
                                       <div class="font-medium"><?php echo $e['nama'] ?> <span class="sl-date"><?php echo timespan($post_date, $now) . ' ago';?></span></div>
                                       <div class="desc"><?php echo $e['event'] ?> <?php echo $e['eventDesc'] ?></div>
                                   </div>
