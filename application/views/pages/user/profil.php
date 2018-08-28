@@ -219,6 +219,7 @@
     overflow-x:hidden;">
                               <div class="profiletimeline">
                                   <div class="sl-item">
+                                  <?php $now = date_default_timezone_set('Asia/Jakarta'); ?>
                                   <?php
                                   $status = $this->session->userdata('level');
                                   if($user['status']==1){
@@ -234,7 +235,6 @@
                                       <div class="sl-right">
                                           <?php $this->load->helper('date'); ?>
                                           <?php $post_date = strtotime($e['eventTime']); ?>
-                                          <?php $now = time(); ?>
                                           <div><a href="javascript:void(0)" class="link"><?php echo $e['nama'] ?></a> <span class="sl-date"><?php echo timespan($post_date, $now) . ' ago';?></span>
                                               <p> <?php echo $e['event'] ?> <?php echo $e['eventDesc'] ?></p>
                                           </div>
