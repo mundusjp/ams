@@ -64,7 +64,7 @@
                                   left: 50%;
                                   transform: translate(-50%, -50%);
                                   -ms-transform: translate(-50%, -50%);
-                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 1:&nbsp;Buka List Vendor</h3><br><h6>Untuk Melihat Seluruh List Vendor. Atau Klik <a href="<?php echo base_url('vendor/index')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                                  text-align: center;"><h3 class="font-weight-bold" style="color:black;">Langkah 1:&nbsp;Buka List Vendor</h3><br><h6>Untuk Melihat Seluruh List Vendor. Atau Klik <a href="<?php echo base_url('vendor/index')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
                                 </div>
                               </div>
                             </div>
@@ -87,7 +87,7 @@
                                   left: 50%;
                                   transform: translate(-50%, -50%);
                                   -ms-transform: translate(-50%, -50%);
-                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 2:&nbsp;Isi Form yang tertera</h3>
+                                  text-align: center;"><h3 class="font-weight-bold" style="color:black;">Langkah 2:&nbsp;Isi Form yang tertera</h3>
                                   <!-- <br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span> -->
                                 </div>
                               </div>
@@ -111,7 +111,7 @@
                                   left: 50%;
                                   transform: translate(-50%, -50%);
                                   -ms-transform: translate(-50%, -50%);
-                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 3:&nbsp;Buka List Barang Tidak Habis Pakai</h3><br><h6>Untuk Melihat Seluruh List Barang Tidak Habis Pakai. Atau Klik <a href="<?php echo base_url('inventory/bthp')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
+                                  text-align: center;"><h3 class="font-weight-bold" style="color:black;">Langkah 3:&nbsp;Buka List Barang Tidak Habis Pakai</h3><br><h6>Untuk Melihat Seluruh List Barang Tidak Habis Pakai. Atau Klik <a href="<?php echo base_url('inventory/bthp')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span>
                                 </div>
                               </div>
                             </div>
@@ -131,7 +131,7 @@
                                   left: 50%;
                                   transform: translate(-50%, -50%);
                                   -ms-transform: translate(-50%, -50%);
-                                  text-align: center;"><h3 class="font-weight-bold" style="color:white;background-color:grey;">Langkah 4:&nbsp;Pilih barang yang ingin di rawat</h3>
+                                  text-align: center;"><h3 class="font-weight-bold" style="color:black;">Langkah 4:&nbsp;Pilih barang yang ingin di rawat</h3>
                                   <!-- <br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span> -->
                                 </div>
                               </div>
@@ -152,7 +152,7 @@
                                   left: 50%;
                                   transform: translate(-50%, -50%);
                                   -ms-transform: translate(-50%, -50%);
-                                  text-align: center;"><h3 class="font-weight-bold" style="color:#ffffff;">Langkah 5:&nbsp;isi form yang tertera</h3>
+                                  text-align: center;"><h3 class="font-weight-bold" style="color:black;">Langkah 5:&nbsp;isi form yang tertera</h3>
                                   <!-- <br><h6>Untuk Melihat Seluruh List Inventory. Atau Klik <a href="<?php echo base_url('inventory/overview')?>" target="_blank" rel="noopener noreferrer">Disini</a></h6></span> -->
                                 </div>
                               </div>

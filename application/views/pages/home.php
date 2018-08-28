@@ -168,7 +168,9 @@
                                 <h5 class="card-title">JUMLAH VENDOR</h5>
                                 <div class="d-flex m-t-30 m-b-20 no-block align-items-center">
                                     <span class="display-5 text-primary"><i class="icon-folder-alt"></i></span>
-                                    <a href="javscript:void(0)" class="display-5 ml-auto">311</a>
+                                    <a href="<?php echo base_url('vendor/index')?>" class="display-5 ml-auto">
+                                            <?php echo $count_vendor;?>
+                                              </a>
                                 </div>
                             </div>
                         </div>
@@ -180,7 +182,8 @@
                                 <h5 class="card-title">TOTAL BARANG</h5>
                                 <div class="d-flex m-t-30 m-b-20 no-block align-items-center">
                                     <span class="display-5 text-success"><i class="icon-wallet"></i></span>
-                                    <a href="javscript:void(0)" class="display-5 ml-auto">117</a>
+                                    <a href="<?php echo base_url('inventory/overview')?>" class="display-5 ml-auto">
+                                            <?php echo $count_inventory;?></a>
                                 </div>
                             </div>
                         </div>

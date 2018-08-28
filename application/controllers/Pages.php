@@ -10,6 +10,8 @@
       $this->load->model('Kebutuhan_model');
       $this->load->model('Kantor_model');
       $this->load->model('admin_model');
+      $this->load->model('Vendor_model');
+
     }
     public function view($page ='home'){
       if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
@@ -51,7 +53,9 @@
       }
       $data['count'] = $count;
       $data['count_kebutuhan'] = count($this->Kebutuhan_model->get_all_kebutuhan());
+      $data['count_vendor'] =count($this->Vendor_model->get_all_vendor());
       $data['count_kebutuhan2'] = count($this->Kebutuhan_model->get_kebutuhan_by_kantor($id_kantor));
+      $data['count_inventory'] = count($this->Inventory_model->get_all_inventory_kantor($id_kantor));
       $data['eventlog'] = $this->admin_model->get_all_eventlog();
       $data['eventlog2'] = $this->admin_model->get_eventlog_by_kantor($id_kantor);
       
