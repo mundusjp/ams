@@ -338,7 +338,7 @@ $('#upload').on('click', function() {
 
     <script>
  $ ('.perpanjang').on("click", function () {
-    var url = $ (this).attr('expired/index');
+    var url = $ (this).attr('href');
     swal("Good job!", "Berhasil diperpanjang!", "success");
         setTimeout(
   function() 
@@ -350,7 +350,7 @@ $('#upload').on('click', function() {
 
     <script>
  $ ('.jual').on("click", function () {
-    var url = $ (this).attr('expired/index');
+    var url = $ (this).attr('index');
     swal("Good job!", "Berhasil dijual!", "success");
         setTimeout(
   function() 
