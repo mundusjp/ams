@@ -56,7 +56,7 @@
                                             </div>
                                             <div class="modal-body"><?php echo form_open('inventory/add_bhp'); ?><div class="row"><div class="col-12">
                                               <div class="row">
-                                                <div class="col-4">
+                                                <div class="col-3">
                                                     <div class="form-group m-b-40">
                                                         <label for="id_kantor"><h6 class="font-weight-bold">Nama Barang</h6></label>
                                                         <div class="controls">
@@ -80,7 +80,7 @@
                                                         <span class="bar"></span>
                                                     </div>
                                                   </div>
-                                                  <div class="col-1">
+                                                  <div class="col-2">
                                                     <div class="form-group m-b-40">
                                                         <label for="satuan"><h6 class="font-weight-bold">Satuan</h6></label>
                                                         <div class="controls">
@@ -279,7 +279,7 @@
                                                         </div>
                                                         <div class="modal-body"><?php echo form_open('inventory/edit_bhp/'.$i->id_inventory); ?><div class="row"><div class="col-12">
                                                           <div class="row">
-                                                            <div class="col-4">
+                                                            <div class="col-3">
                                                                 <div class="form-group m-b-40">
                                                                     <label for="id_kantor"><h6 class="font-weight-bold">Nama Barang</h6></label>
                                                                     <div class="controls">
@@ -303,7 +303,7 @@
                                                                     <span class="bar"></span>
                                                                 </div>
                                                               </div>
-                                                              <div class="col-1">
+                                                              <div class="col-2">
                                                                 <div class="form-group m-b-40">
                                                                     <label for="satuan"><h6 class="font-weight-bold">Satuan</h6></label>
                                                                     <div class="controls">
