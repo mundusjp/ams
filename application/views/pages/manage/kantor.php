@@ -91,7 +91,7 @@
                             </div>
                             <!-- Modal Button -->
                             <div class="modal-footer d-flex justify-content-center">
-                              <button type="submit" class="btn btn-info waves-effect waves-light">Tambah</button>
+                              <button type="submit" class="btn btn-info waves-effect waves-light berhasil">Tambah</button>
                             </div>
                             <!-- End of Modal Button -->
                           </div>
@@ -151,7 +151,7 @@
                                 </div>
                               </div>
                               <div class="modal-footer d-flex justify-content-center">
-                                <button type="submit" class="btn btn-info waves-effect waves-light">Simpan</button>
+                                <button type="submit" class="btn btn-info waves-effect waves-light ubah">Ubah</button>
                               </div>
                               <?php echo form_close(); ?>
                             </div>

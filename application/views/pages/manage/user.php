@@ -130,7 +130,7 @@
                         </div>
                       <div class="modal-footer d-flex">
                         <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
-                        <button type="submit" class="btn btn-info waves-effect waves-light">Tambah</button>
+                        <button type="submit" class="btn btn-info waves-effect waves-light berhasil">Tambah</button>
                       </div>
                     </div>
                   </div>
@@ -148,7 +148,7 @@
                                 <th>Status</th>
                                 <th>Email</th>
                                 <th>No. Handphone</th>
-                                <th>Tindakan</th>
+                                <th>Tindakan &emsp; &emsp; &emsp; &emsp; &emsp;</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -175,8 +175,8 @@
                             <td><?php echo $rec['no_hp']; ?></td>
                             <td>
                               <div class="row">
-                              <a data-toggle="modal" class="btn btn-outline-info waves-effect waves-light" href="#edit<?php echo $rec['id_user']; ?>" >Ubah</a>
-                              <a class="btn btn-outline-danger delete_lead" href="<?php echo site_url('admin/remove/'.$rec['id_user']); ?>">Hapus</a>
+                              <a data-toggle="modal" class="btn btn-outline-info waves-effect waves-light ubah" href="#edit<?php echo $rec['id_user']; ?>" >Ubah</a> &emsp;
+                              <a class="btn btn-outline-danger delete_lead hapus" href="<?php echo site_url('admin/remove/'.$rec['id_user']); ?>">Hapus</a>
                             </div>
                             </td>
                           </tr>
@@ -276,7 +276,7 @@
                         </div>
                       <div class="modal-footer d-flex">
                         <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
-                        <button type="submit" class="btn btn-info waves-effect waves-light">Simpan</button>
+                        <button type="submit" class="btn btn-info waves-effect waves-light berhasil">Ubah</button>
                       </div>
                       <?php echo form_close(); ?>
                     </div>

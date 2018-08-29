@@ -106,7 +106,7 @@
                                                 <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">No. Ponsel</th>
                                                 <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="3">Email</th>
                                                 <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Alamat</th>
-                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="5">Tindakan</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="5">Tindakan &nbsp;</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -128,9 +128,9 @@
                                                 <td  style="padding=10px 10px 10px 10px;">
                                                     <?php echo $s['alamat']; ?>
                                                 </td>
-                                                <td  style="padding=10px 10px 10px 10px;">
-                                                    <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $s['id_vendor']; ?>">Ubah</a>
-                                                    <a class="btn btn-outline-danger" href="<?php echo site_url('vendor/remove/'.$s['id_vendor']); ?>">Hapus</a>
+                                                <td  style="padding=10px 10px 10px 10px;"> &emsp; &emsp; &emsp;
+                                                    <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $s['id_vendor']; ?>">Ubah</a> &nbsp;
+                                                    <a class="btn btn-outline-danger hapus" href="<?php echo site_url('vendor/remove/'.$s['id_vendor']); ?>">Hapus</a>
                                                 </td>
                                             </tr>
                                             <!-- modal menambahkan fungsi  -->
@@ -187,7 +187,7 @@
                                                                 </div>
                                                                 <div class="modal-footer d-flex">
                                                                     <button type="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal" aria-label="Close"> Batal </button>
-                                                                    <button type="submit" class="btn btn-info waves-effect waves-light">Simpan</button>
+                                                                    <button type="submit" class="btn btn-info waves-effect waves-light ubah">Ubah</button>
                                                                 </div>
                                                                 <?php echo form_close(); ?>
                                                               </div>

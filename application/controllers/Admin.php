@@ -62,6 +62,7 @@ class Admin extends CI_Controller{
 				'eventTable' => 'user',
             );
             $eventlog_id = $this->Eventlog_model->add_eventlog($log);
+            sleep(1);
             redirect('manage/user');
         }
         else
@@ -111,6 +112,7 @@ class Admin extends CI_Controller{
                     'eventTable' => 'user',
                 );
                 $eventlog_id = $this->Eventlog_model->add_eventlog($log);
+                sleep(1);
                 redirect('manage/user');
             }
             else
