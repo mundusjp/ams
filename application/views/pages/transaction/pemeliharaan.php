@@ -157,7 +157,7 @@
                                                                   <label for="namakantor"><h6 class="font-weight-bold">Tanggal :</h6></label>
                                                                   <span class="bar"></span>
                                                                   <div class="controls">
-                                                                  <input required type="text" class="form-control mydatepicker" name="tanggal" value="<?php echo ($this->input->post('tanggal') ? $this->input->post('tanggal') : $p['tanggal']); ?>" />
+                                                                  <input required type="date" class="form-control " name="tanggal" value="<?php echo ($this->input->post('tanggal') ? $this->input->post('tanggal') : $p['tanggal']); ?>" />
                                                                 </div>
                                                                 </div>
                                                             </div>
