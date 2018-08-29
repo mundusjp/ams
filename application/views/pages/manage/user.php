@@ -175,7 +175,7 @@
                             <td><?php echo $rec['no_hp']; ?></td>
                             <td>
                               <div class="row">
-                              <a data-toggle="modal" class="btn btn-outline-info waves-effect waves-light ubah" href="#edit<?php echo $rec['id_user']; ?>" >Ubah</a> &emsp;
+                              <a data-toggle="modal" class="btn btn-outline-info waves-effect waves-light" href="#edit<?php echo $rec['id_user']; ?>" >Ubah</a> &emsp;
                               <a class="btn btn-outline-danger delete_lead hapus" href="<?php echo site_url('admin/remove/'.$rec['id_user']); ?>">Hapus</a>
                             </div>
                             </td>
