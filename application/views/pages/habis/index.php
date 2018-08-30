@@ -76,7 +76,7 @@
                                                     <div class="form-group m-b-40">
                                                         <label for="jumlah"><h6 class="font-weight-bold">Jumlah</h6></label>
                                                         <div class="controls">
-                                                        <input type="text" required  data-validation-required-message="This field is required" class="form-control" name="jumlah" value="<?php echo $this->input->post('jumlah'); ?>"> </div>
+                                                        <input type="number" min=0 required  data-validation-required-message="This field is required" class="form-control" name="jumlah" value="<?php echo $this->input->post('jumlah'); ?>"> </div>
                                                         <span class="bar"></span>
                                                     </div>
                                                   </div>
@@ -299,7 +299,7 @@
                                                                 <div class="form-group m-b-40">
                                                                     <label for="jumlah"><h6 class="font-weight-bold">Jumlah</h6></label>
                                                                     <div class="controls">
-                                                                    <input type="text" required  data-validation-required-message="This field is required" class="form-control" name="jumlah" value="<?php echo ($this->input->post('jumlah') ? $this->input->post('jumlah') : $i->jumlah); ?>"> </div>
+                                                                    <input type="number" required  data-validation-required-message="This field is required" class="form-control" name="jumlah" value="<?php echo ($this->input->post('jumlah') ? $this->input->post('jumlah') : $i->jumlah); ?>"> </div>
                                                                     <span class="bar"></span>
                                                                 </div>
                                                               </div>
@@ -501,7 +501,10 @@
                                                             <div class="col-md-3">
                                                                 <div class="form-group m-b-40">
                                                                     <label><h6 class="font-weight-bold"><span class="text-danger ">*</span>Jumlah</h6></label>
-                                                                    <input class="form-control" type="number"  name="jumlah1" value="<?php echo $this->input->post('jumlah1') ; ?>" />
+                                                                    <div class="controls">
+                                                                   <input class="form-control" min=0 type="number"  name="jumlah1" value="<?php echo $this->input->post('jumlah1') ; ?>" />
+                                                                     
+                                                                    </div>
                                                                     <span class="text-danger"><?php echo form_error('jumlah1');?></span>
                                                                 </div>
                                                             </div>

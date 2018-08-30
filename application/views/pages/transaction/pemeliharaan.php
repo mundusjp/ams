@@ -37,6 +37,8 @@
                                             <tr>
                                                 <th>No.
                                                 </th>
+                                                <th>Serial_id
+                                                </th>
                                                 <th>Nama Barang
                                                 </th>
                                                 <th>Vendor
@@ -57,6 +59,15 @@
                                                 <td>
                                                     <!-- <?php echo $p['id_pemeliharaan']; ?> -->
                                                     <?php echo $no++; ?>
+                                                </td>
+                                                <td>
+                                                <?php
+                                                    foreach($all_bthp as $bthp)
+                                                    {
+                                                        if ($bthp['id_inventory'] == $p['id_inventory'])
+                                                        echo $bthp['serial_id'];
+                                                    }
+                                                    ?>
                                                 </td>
                                                 <td>
                                                     <?php

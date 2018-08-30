@@ -44,9 +44,9 @@ class TidakHabis_model extends CI_Model
     function get_all_tidakhabis()
     {
         $this->db->order_by('id_inventory', 'desc');
-        return $this->db->get('inventory')->result_array();
+        return $this->db->get('tidakhabispakai')->result_array();
     }
-
+    
     /*
      * function to add new inventory
      */

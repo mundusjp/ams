@@ -183,7 +183,12 @@
                                 <div class="d-flex m-t-30 m-b-20 no-block align-items-center">
                                     <span class="display-5 text-success"><i class="icon-wallet"></i></span>
                                     <a href="<?php echo base_url('inventory/overview')?>" class="display-5 ml-auto">
-                                            <?php echo $count_inventory;?></a>
+                                            <?php if($user['status']==1){
+                                    echo $count_inventory;
+                                  }
+                                  else if($user['status']==2){
+                                    echo $count_inventory2;
+                                  }?></a>
                                 </div>
                             </div>
                         </div>

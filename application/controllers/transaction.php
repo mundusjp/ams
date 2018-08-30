@@ -13,6 +13,8 @@
            }
          $this->load->model('Transaksi_model');
          $this->load->model('Pemeliharaan_model');
+         $this->load->model('TidakHabis_model');
+
          $this->load->model('Inventory_model');
         $this->load->model('Vendor_model');
         $this->load->model('Eventlog_model');
@@ -106,6 +108,7 @@ function pemeliharaan()
     $data['user'] = $this->admin_model->get_admin($id_user);
     $data['pemeliharaan'] = $this->Pemeliharaan_model->get_all_pemeliharaan();
     $this->load->model('Inventory_model');
+    $data['all_bthp'] = $this->TidakHabis_model->get_all_tidakhabis();
     $data['all_inventory'] = $this->Inventory_model->get_all_inventory();
     $data['all_vendor'] = $this->Vendor_model->get_all_vendor();
     $data['_view'] = 'transaction/pemeliharaan';
