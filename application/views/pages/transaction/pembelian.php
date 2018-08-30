@@ -297,13 +297,14 @@
                                   <thead>
 						                        <tr>
 			                                   <th>No.</th>
-                                         <th>No. Nota&emsp;&emsp;</th>
+                                         <th>Tindakan&emsp;&emsp;</th>
+                                         <th>No. Nota&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
 									                       <th>Nama Vendor&emsp;&emsp;</th>
                                           <th>Nama Cabang</th>
                                          <th>Total Harga</th>
 									                       <th>Tanggal Transaksi</th>
 									                       <th>Deskripsi&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
-									                       <th>Tindakan&emsp;&emsp;</th>
+
 								                   </tr>
 							                   </thead>
 							                   <tbody>
@@ -313,6 +314,11 @@
                                      <!-- <?php echo $b['id_transaksi']; ?> -->
                                      <?php echo $no++; ?>
                                    </td>
+                                   <td>
+										                 <a class="text-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $b['id_transaksi']; ?>">&nbsp;&nbsp;&nbsp;Ubah</a> &nbsp;|
+                                     <!-- <a href="<?php echo site_url('transaction/removebeli/'.$b['id_transaksi']); ?>">Delete</a> | -->
+                                     <a class="text-warning waves-effect waves-light" href="<?php echo site_url('inventory/detail_beli/'.$b['id_transaksi']); ?>">&nbsp;Detail</a>
+									                 </td>
 									                 <td><?php echo $b['no_nota']; ?></td>
                                    <td>
                                      <?php
@@ -332,11 +338,7 @@
                                    <?php $date2 = explode("-",$date1);?>
                                    <td><?php echo $date2[2].'-'.$date2[1].'-'.$date2[0]; ?></td>
 								                   <td><?php echo $b['deskripsi']; ?></td>
-									                 <td>
-										                 <a class="text-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $b['id_transaksi']; ?>">&nbsp;&nbsp;&nbsp;Ubah</a> &nbsp;|
-                                     <!-- <a href="<?php echo site_url('transaction/removebeli/'.$b['id_transaksi']); ?>">Delete</a> | -->
-                                     <a class="text-warning waves-effect waves-light" href="<?php echo site_url('inventory/detail_beli/'.$b['id_transaksi']); ?>">&nbsp;Detail</a>
-									                 </td>
+
 								                 </tr>
                                <?php }
                           }

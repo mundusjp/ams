@@ -35,22 +35,15 @@
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>No.
-                                                </th>
-                                                <th>Serial_id
-                                                </th>
-                                                <th>Nama Barang
-                                                </th>
-                                                <th>Vendor
-                                                </th>
-                                                <th>Biaya
-                                                </th>
-                                                <th>Tanggal
-                                                </th>
-                                                <th>Deskripsi
-                                                </th>
-                                                <th>Tindakan
-                                                </th>
+                                                <th>No.</th>
+                                                <th>Tindakan</th>
+                                                <th>Serial_id&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+                                                <th>Nama_Barang&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+                                                <th>Vendor&emsp;&emsp;</th>
+                                                <th>Biaya</th>
+                                                <th>Tanggal&emsp;</th>
+                                                <th>Deskripsi&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -59,6 +52,10 @@
                                                 <td>
                                                     <!-- <?php echo $p['id_pemeliharaan']; ?> -->
                                                     <?php echo $no++; ?>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $p['id_pemeliharaan']; ?>">Ubah</a>
+                                                    <!-- <a href="<?php echo site_url('pemeliharaan/remove/'.$p['id_pemeliharaan']); ?>">Delete</a> -->
                                                 </td>
                                                 <td>
                                                 <?php
@@ -98,10 +95,7 @@
                                                 <td>
                                                     <?php echo $p['deskripsi']; ?>
                                                 </td>
-                                                <td>
-                                                    &emsp;&emsp;&nbsp;<a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $p['id_pemeliharaan']; ?>">Ubah</a>
-                                                    <!-- <a href="<?php echo site_url('pemeliharaan/remove/'.$p['id_pemeliharaan']); ?>">Delete</a> -->
-                                                </td>
+
                                             </tr>
                                             <!-- modal menambahkan fungsi  -->
                                             <div class="modal fade" id="edit<?php echo $p['id_pemeliharaan'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

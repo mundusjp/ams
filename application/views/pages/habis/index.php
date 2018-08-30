@@ -219,8 +219,9 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist" >No.</th>
-                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Nama</th>
-                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Merk</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="10">Tindakan&emsp;&emsp;</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Nama&emsp;&emsp;&emsp;&emsp;</th>
+                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Merk&emsp;&emsp;</th>
                                                 <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="3">Divisi Pengada</th>
                                                 <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Divisi Penerima</th>
                                                 <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="5">Kantor</th>
@@ -229,7 +230,7 @@
                                                 <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="7">Kategori</th>
                                                 <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="8">Jumlah</th>
                                                 <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="9">Harga satuan</th>
-                                                <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="10">Tindakan</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -237,6 +238,11 @@
                                             foreach ($inv as $i) { ?>
                                             <tr>
                                                 <td><?php echo $no++; ?></td>
+                                                <td>
+                                                    <a class="text-info waves-effect waves-light" data-toggle="modal" href="#edit-<?php echo $i->id_inventory;?>">Ubah</a>&nbsp;|&nbsp;
+                                                    <a class="text-warning waves-effect waves-light" data-toggle="modal" href="#update-<?php echo $i->id_inventory;?>">Update</a>
+                                                    <!-- <a class="btn btn-outline-danger" href="<?php echo site_url('inventory/remove_bhp/'.$i->id_inventory); ?>">Hapus</a> -->
+                                                </td>
                                                 <td><?php echo $i->nama; ?></td>
                                                 <td><?php echo $i->merk; ?></td>
                                                 <td><?php echo $i->nama_divisi_pengada; ?></td>
@@ -261,11 +267,7 @@
                                                 <td><?php echo $i->jumlah.' '.$i->satuan; ?></td>
                                                 <td><?php echo 'Rp' .number_format($i->harga); ?></td>
 
-                                                <td>
-                                                    <a class="text-info waves-effect waves-light" data-toggle="modal" href="#edit-<?php echo $i->id_inventory;?>">Ubah</a>
-                                                    <a class="text-warning waves-effect waves-light" data-toggle="modal" href="#update-<?php echo $i->id_inventory;?>">Update</a>
-                                                    <!-- <a class="btn btn-outline-danger" href="<?php echo site_url('inventory/remove_bhp/'.$i->id_inventory); ?>">Hapus</a> -->
-                                                </td>
+
                                             </tr>
                                             <!-- modal mengedit   -->
                                             <div class="modal fade bd-example-modal-lg" id="edit-<?php echo $i->id_inventory;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -503,7 +505,7 @@
                                                                     <label><h6 class="font-weight-bold"><span class="text-danger ">*</span>Jumlah</h6></label>
                                                                     <div class="controls">
                                                                    <input class="form-control" min=0 type="number"  name="jumlah1" value="<?php echo $this->input->post('jumlah1') ; ?>" />
-                                                                     
+
                                                                     </div>
                                                                     <span class="text-danger"><?php echo form_error('jumlah1');?></span>
                                                                 </div>

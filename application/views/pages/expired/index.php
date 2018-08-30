@@ -55,8 +55,9 @@
                                         <thead>
                                             <tr >
                                             <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">No.</th>
+                                            <th>Actions&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
                                             <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Serial_ID&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
-                                            <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Divisi Penerima</th>
+                                            <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Divisi_Penerima</th>
                                             <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Nama&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
                                             <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="3">Merk</th>
                                             <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Divisi_Pengada</th>
@@ -67,9 +68,6 @@
                                             <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="9">Durability</th>
                                             <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="10">Usia</th>
 
-
-											<!-- <th>Id Beli/sewa</th> -->
-											<th>Actions&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -84,6 +82,20 @@
                       <?php if(!empty($i->durability)) { ?>
                       <?php if (($i->durability - $selisih) <= 6 ){ ?>
                         <td><?php echo $no++;?>
+                          <?php if ($i->kategori == 'beli'){ ?>
+
+                          <td>
+                                  <a class="text-danger throw_lead" href="<?php echo site_url('expired/buang/'.$i->id_inventory); ?>">Buang</a> &nbsp;|
+                                  <a class="text-warning waves-effect waves-light" data-toggle="modal" href="#addpenjualan<?php echo $i->id_inventory; ?>">Jual</a>&nbsp;|
+                                  <a class="text-info waves-effect waves-light" data-toggle="modal" href="#addperpanjang<?php echo $i->id_inventory; ?>">Perpanjang</a>
+                              </td>
+                          <?php }
+                              else { ?>
+                              <td>
+                                  <a class="text-danger kembalikan" href="<?php echo site_url('expired/kembalikan/'.$i->id_inventory); ?>">Kembalikan</a> &nbsp;|&nbsp;
+                                  <a class="text-info waves-effect waves-light" data-toggle="modal" href="#addperpanjang<?php echo $i->id_inventory; ?>">Perpanjang</a>
+                              </td>
+                          <?php } ?>
                         <td><?php echo $i->serial_id; ?></td>
                         <td><?php
                         foreach($all_divisi as $d){
@@ -102,20 +114,7 @@
                         <td><?php echo $i->durability; ?>&nbsp;Bulan</td>
                         <td><?php echo $selisih; ?>&nbsp;Bulan</td>
 
-                        <?php if ($i->kategori == 'beli'){ ?>
 
-                        <td>
-                                <a class="text-danger throw_lead" href="<?php echo site_url('expired/buang/'.$i->id_inventory); ?>">Buang</a> &nbsp;|
-                                <a class="text-warning waves-effect waves-light" data-toggle="modal" href="#addpenjualan<?php echo $i->id_inventory; ?>">Jual</a>&nbsp;|
-                                <a class="text-info waves-effect waves-light" data-toggle="modal" href="#addperpanjang<?php echo $i->id_inventory; ?>">Perpanjang</a>
-                            </td>
-                        <?php }
-                            else { ?>
-                            <td>
-                                <a class="text-danger kembalikan" href="<?php echo site_url('expired/kembalikan/'.$i->id_inventory); ?>">Kembalikan</a> &nbsp;|
-                                <a class="text-info waves-effect waves-light" data-toggle="modal" href="#addperpanjang<?php echo $i->id_inventory; ?>">Perpanjang</a>
-                            </td>
-                        <?php } ?>
                           </tr>
                           <!-- modal penjualan -->
                           <div class="modal fade bs-example-modal-lg" id="addpenjualan<?php echo $i->id_inventory;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

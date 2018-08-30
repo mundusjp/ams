@@ -230,7 +230,7 @@ $('#upload').on('click', function() {
     </script>
 </body>
 </html>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
  $ ('.delete_lead').on("click", function (e) {
     e.preventDefault ();
@@ -244,17 +244,17 @@ $('#upload').on('click', function() {
     })
     .then((willDelete) => {
       if (willDelete) {
-        
+
         swal("Sukses! Data telah dihapus!", {
           icon: "success",
-          
+
         });
         setTimeout(
-  function() 
+  function()
   {
     window.location.replace(url);
   }, 1500);
-        
+
       } else {
         swal("Data tidak dihapus");
       }
@@ -275,17 +275,17 @@ $('#upload').on('click', function() {
     })
     .then((willDelete) => {
       if (willDelete) {
-        
+
         swal("Sukses! Barang telah dibuang", {
           icon: "success",
-          
+
         });
         setTimeout(
-  function() 
+  function()
   {
     window.location.replace(url);
   }, 1500);
-        
+
       } else {
         swal("Barang tidak dibuang");
       }
@@ -306,17 +306,17 @@ $('#upload').on('click', function() {
     })
     .then((willDelete) => {
       if (willDelete) {
-        
+
         swal("Sukses! Barang telah dikembalikan", {
           icon: "success",
-          
+
         });
         setTimeout(
-  function() 
+  function()
   {
     window.location.replace(url);
   }, 1500);
-        
+
       } else {
         swal("Barang tidak dikembalikan");
       }
@@ -363,7 +363,16 @@ $('#upload').on('click', function() {
 )
       });
   </script>
-
+<script>
+function hidecard() {
+    var x = document.getElementById("hide");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
     <script>
  $ ('.jual').on("click", function () {
     swal({
