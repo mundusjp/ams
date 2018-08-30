@@ -77,7 +77,6 @@ class Expired extends CI_Controller{
 
 		if($this->form_validation->run())
         {
-            echo "<script type='text/javascript'>jual();</script>";
             $params = array(
 				'pembeli' => $this->input->post('pembeli'),
 				'harga_jual' => $this->input->post('harga'),
@@ -88,7 +87,6 @@ class Expired extends CI_Controller{
                 'status' => "dijual",
             );
             $penjualan_id = $this->Expired_model->add_penjualan($id_inventory, $params, $param);
-
             sleep(1);
             redirect('expired/index');
         }

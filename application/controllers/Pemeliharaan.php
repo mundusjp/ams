@@ -13,6 +13,10 @@ class Pemeliharaan extends CI_Controller{
           }
         $this->load->model('Pemeliharaan_model');
         $this->load->model('admin_model');
+        $this->load->model('Admin_model');
+        $this->load->model('Kantor_model');
+        $this->load->model('Divisi_model');
+        $this->load->model('TidakHabis_model');
     }
 
     /*
@@ -127,6 +131,24 @@ class Pemeliharaan extends CI_Controller{
         }
         else
             show_error('The pemeliharaan you are trying to delete does not exist.');
+    }
+
+    function detail_rawat($id_inventory)
+    {
+        $id_user = $this->session->userdata('id_user');
+        // $data['kategori'] = "Pembelian";
+        $data['serial_id'] = $this->TidakHabis_model->get_tidakhabis($id_inventory);
+        $data['user'] = $this->Admin_model->get_admin($id_user);
+        $data['pemeliharaan'] = $this->Pemeliharaan_model->get_rawat($id_inventory);
+        $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
+        $data['all_divisi'] = $this->Divisi_model->get_all_divisi();
+        $this->load->view('templates/dashboard/header');
+      $this->load->view('templates/dashboard/topbar', $data);
+      $this->load->view('templates/dashboard/leftbar', $data);
+      // $this->load->view('templates/dashboard/rightbar');
+      $this->load->view('pages/pemeliharaan/detail',$data);
+      $this->load->view('templates/dashboard/footer');
+
     }
 
 }

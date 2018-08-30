@@ -53,4 +53,13 @@ class Pemeliharaan_model extends CI_Model
     {
         return $this->db->delete('pemeliharaan',array('id_pemeliharaan'=>$id_pemeliharaan));
     }
+
+    function get_rawat($id_inventory)
+    {
+        $this->db->select('*');
+        $this->db->from('pemeliharaan');
+        $this->db->where('pemeliharaan.id_inventory',$id_inventory);
+        $query = $this->db->get();
+        return $query->result();
+    }
 }

@@ -499,6 +499,7 @@
                                                   <div class="row">
                                                     <a class=" text-info" data-toggle="modal"  href="#edit-<?php echo $i->id_inventory;?>">Ubah </a> |
                                                     <a class="text-warning" data-toggle="modal"  href="#ubah-<?php echo $i->id_inventory;?>"> Rawat</a>
+                                                    <a class="text-warning waves-effect waves-light" href="<?php echo site_url('pemeliharaan/detail_rawat/'.$i->id_inventory); ?>">&nbsp;Detail Pemeliharaan</a>
 
                                                   </div>
                                                   <!-- <div class="row">
