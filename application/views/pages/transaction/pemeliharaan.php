@@ -31,6 +31,27 @@
                                 </h4>
                                 <!-- <h6 class="card-subtitle">Data table example
                                 </h6> -->
+                                <?php if ($user['status'] == 1){
+                                  echo form_open("transaction/pemeliharaan");?>
+                                <select name="pilih_cabang" class="select2 form-control custom-select col-6" style="width: 40%; height:36px;">
+                                  <option value="0">Semua Kantor</option><?php
+                                  foreach($all_kantor as $kantor)
+                                  {
+                                    $selected = ($kantor['id_kantor'] == $by_kantor) ? ' selected="selected"' : "";
+                                    echo '<option value="'.$kantor['id_kantor'].'" '.$selected.'>'.$kantor['nama_kantor'].'</option>';
+                                  }
+                                  ?>
+                                </select>
+                                <button type="submit" class="btn btn-info waves-effect waves-light">Pilih</button>
+                                <?php echo form_close();}
+
+                                if($user['status']==1){
+                                  $pem=$pemeliharaan;
+                                }
+                                else if($user['status']==2){
+                                  $pem=$pemeliharaan2;
+                                }
+                                if (count($pem)){?>
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
@@ -47,11 +68,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php $no=1;foreach($pemeliharaan as $p){ ?>
+                                        <?php
+                                          foreach($pem as $p){ ?>
                                             <tr>
                                                 <td>
                                                     <!-- <?php echo $p['id_pemeliharaan']; ?> -->
-                                                    <?php echo $no++; ?>
+                                                    <?php $no=1; echo $no++; ?>
                                                 </td>
                                                 <td>
                                                     <a class="btn btn-outline-info waves-effect waves-light" data-toggle="modal" href="#edit<?php echo $p['id_pemeliharaan']; ?>">Ubah</a>
@@ -190,7 +212,22 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <?php } ?>
+                                            <?php }
+                                          }
+                                          else{?> <br>
+                                            <?php
+                                            if($by_kantor == 0){
+                                              echo('Tidak ada data pemeliharaan');
+                                            }
+                                            else {
+                                            echo ('Tidak ada data pemeliharaan untuk kantor ');
+                                              foreach($all_kantor as $kan){
+                                                if($kan['id_kantor']==$by_kantor) echo $kan['nama_kantor'];
+                                              }
+                                            }?>
+                                            <br>
+                                            <?php
+                                            }?> 
                                         </tbody>
                                     </table>
                                 </div>

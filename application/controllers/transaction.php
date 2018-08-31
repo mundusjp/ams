@@ -111,7 +111,23 @@ function pemeliharaan()
     $data['all_bthp'] = $this->TidakHabis_model->get_all_tidakhabis();
     $data['all_inventory'] = $this->Inventory_model->get_all_inventory();
     $data['all_vendor'] = $this->Vendor_model->get_all_vendor();
+    $data['all_kantor'] = $this->Kantor_model->get_all_kantor();
+
+    $id_divisi = $this->session->userdata('id_divisi');
+    $by_kantor = $this->input->post('pilih_cabang');
+    $divisi = $this->Divisi_model->get_divisi($id_divisi);
+    $id_kantor = $divisi['id_kantor'];
+    if($by_kantor == 0){
+      $data['pemeliharaan'] = $this->Pemeliharaan_model->get_all_pemeliharaan();
+    }
+    else{
+      $data['pemeliharaan'] = $this->Pemeliharaan_model->get_pemeliharaan_by_kantor($by_kantor);
+    }
+    $data['pemeliharaan2'] = $this->Pemeliharaan_model->get_pemeliharaan_by_kantor($id_kantor);
+    $data['by_kantor'] = $by_kantor;
+
     $data['_view'] = 'transaction/pemeliharaan';
+
 
     $this->load->view('templates/dashboard/header');
     $this->load->view('templates/dashboard/topbar', $data);
