@@ -55,19 +55,19 @@
                                         <thead>
                                             <tr>
                       <th>No.</th>
-											<th>Serial ID</th>
+											<th>PengkodeanID</th>
 											<th>Nama Barang</th>
 											<th>Merk</th>
 											<th>Divisi Pengada</th>
                       <th>Divisi Penerima</th>
                       <th>Kantor</th>
 											<th>Tanggal Beli</th>
+                      <th>Tanggal Jual</th>
 											<th>Kondisi</th>
 											<th>Durability</th>
                                             <th>Pembeli</th>
                                             <th>Harga Beli</th>
                                             <th>Harga Jual</th>
-                                            <th>Tanggal Jual</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -92,12 +92,13 @@
                           if($kan['id_kantor']==$i->id_kantor) {echo $kan['nama_kantor'];}
                         }?></td>
                         <td><?php echo $date; ?></td>
+                        <td><?php echo $date1; ?></td>
                         <td><?php echo $i->kondisi; ?></td>
                         <td><?php echo $i->durability; ?></td>
                         <td><?php echo $i->pembeli; ?></td>
                         <td><?php echo $i->harga; ?></td>
                         <td><?php echo $i->harga_jual; ?></td>
-                        <td><?php echo $date1; ?></td>
+
                           </tr>
 
 										<?php }
