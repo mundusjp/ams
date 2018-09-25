@@ -431,12 +431,15 @@
                                   </div>
                                 <!-- button add -->
                                 <div class="row">
-                                    <div class="col-2">
-                                        <button type="button" class="btn btn-warning waaves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKantor"> Penyewaan </button>
+                                  <div class="col-8">
+                                    <div class="row">
+                                      <div class="col-5">
+                                        <h6 class="font-weight-bold"> Tambah Barang:</h6>
+                                        <button type="button" class="btn btn-warning waaves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKantor"> Sewa </button>
+                                        <button type="button" class="btn btn-danger waaves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKantor1"> Beli </button>
+                                      </div>
                                     </div>
-                                    <div class="col-2 ">
-                                        <button type="button" class="btn btn-danger waaves-effect waves-light" data-toggle="modal" data-target="#ModalTambahKantor1"> Pembelian </button>
-                                    </div>
+                                  </div>
                                 </div>
                                 <?php
                                   if($user['status']==1){
@@ -451,19 +454,18 @@
                                         <thead>
                                             <tr>
                                                 <th>No.</th>
-                                                <th>PengkodeanID</th>
-                                                <th>Nama</th>
+                                                <th>Tindakan&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+                                                <th>PengkodeanID&emsp;&emsp;</th>
+                                                <th>Nama&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
                                                 <th>Merk</th>
                                                 <th>Kategori</th>
                                                 <th>Kondisi</th>
                                                 <th>Durability</th>
-                                                <th>Divisi Pengada</th>
-                                                <th>Divisi Penerima</th>
+                                                <th>Divisi_Pengada&emsp;&emsp;</th>
+                                                <th>Divisi_Penerima&emsp;&emsp;</th>
                                                 <th>Kantor</th>
-                                                <th>Harga Perolehan</th>
-                                                <th>Tanggal Pembelian</th>
-                                                <!-- <th>Status</th> -->
-                                                <th>Tindakan</th>
+                                                <th>Harga_Perolehan</th>
+                                                <th>Tanggal_Pembelian</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -471,6 +473,17 @@
                                             foreach($inv as $i){ ?>
                                             <tr>
                                                 <td><?php echo $no++; ?></td>
+                                                <td>
+                                                  <div class="row">
+                                                    <a class=" text-info" data-toggle="modal"  href="#edit-<?php echo $i->id_inventory;?>">Ubah&nbsp; </a> |&nbsp;
+                                                    <a class="text-warning" data-toggle="modal"  href="#ubah-<?php echo $i->id_inventory;?>"> Rawat</a> &nbsp; |
+                                                    <a class="text-warning waves-effect waves-light" href="<?php echo site_url('pemeliharaan/detail_rawat/'.$i->id_inventory); ?>">&nbsp;Riwayat</a>
+
+                                                  </div>
+                                                  <!-- <div class="row">
+                                                    <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Delete</a>
+                                                  </div> -->
+                                                </td>
                                                 <td><?php echo $i->serial_id; ?></td>
                                                 <td><?php echo $i->nama; ?></td>
                                                 <td><?php echo $i->merk; ?></td>
@@ -495,17 +508,6 @@
                                                 <td><?php echo 'Rp' . number_format($i->harga); ?></td>
                                                 <td><?= date('d-m-Y', strtotime($i->tanggal)) ?></td>
                                                 <!-- <td><?php echo $i->status; ?></td> -->
-                                                <td>
-                                                  <div class="row">
-                                                    <a class=" text-info" data-toggle="modal"  href="#edit-<?php echo $i->id_inventory;?>">Ubah </a> |
-                                                    <a class="text-warning" data-toggle="modal"  href="#ubah-<?php echo $i->id_inventory;?>"> Rawat</a>
-                                                    <a class="text-warning waves-effect waves-light" href="<?php echo site_url('pemeliharaan/detail_rawat/'.$i->id_inventory); ?>">&nbsp;Detail Pemeliharaan</a>
-
-                                                  </div>
-                                                  <!-- <div class="row">
-                                                    <a href="<?php echo site_url('inventory/remove_bthp/'.$i->id_inventory); ?>">Delete</a>
-                                                  </div> -->
-                                                </td>
                                             </tr>
                                               <!-- modal menambahkan fungsi  -->
                                               <div class="modal fade bs-example-modal-lg" id="edit-<?php echo $i->id_inventory;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
